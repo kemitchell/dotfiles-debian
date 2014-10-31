@@ -1,0 +1,57 @@
+[user]
+	name = Kyle Mitchell
+	email = kyle@kemitchell.com
+[gui]
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	graph = log --oneline --graph
+	wdiff = diff --color-words
+	sub = submodule
+	a = add
+	aa = add --all
+	ai = add --interactive
+	ai = add -i
+	amend = commit --amend -C HEAD
+	b = branch
+	continue = rebase --continue
+	c = commit
+	ca = commit -a
+	cam = commit -a -m 
+	cb = checkout -b 
+	cc = commit -m 
+	ch = checkout
+	d = diff
+	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+	h = help
+	l = log --oneline -n 10
+	m = checkout master
+	mirror = push --mirror
+	p = push
+	purge = clean -fdx
+	clobber = clean -fdx
+	pwd = !pwd
+	r = remote
+	release = push --tags github master
+	remove = ls-files --deleted | xargs git rm
+	s = status
+	todo = !git --no-pager grep -i -E '(todo|fixme)'
+	topic = checkout -b 
+	unstash = stash apply
+	webstart = instaweb
+	webstop = instaweb --stop
+	h = "!source ~/.githelpers && pretty_git_log"
+[core]
+	editor = /usr/bin/vim -c start
+	excludesfile = ~/.gitignore_global
+	quotepath = false
+[rerere]
+	enabled = 1
+[merge]
+	conflictstyle = diff3
+[credential]
+	helper = cache --timeout=3600
+[push]
+	default = matching
