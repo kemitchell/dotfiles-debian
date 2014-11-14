@@ -46,6 +46,7 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'paredit.vim'
 Plugin 'tpope/vim-leiningen'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
