@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -e package.json ]; then
+  npm test
+fi
+
+if [ -e Rakefile ]; then
+	rake test
+fi
