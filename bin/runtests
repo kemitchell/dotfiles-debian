@@ -7,3 +7,7 @@ fi
 if [ -e Rakefile ]; then
 	rake test
 fi
+
+if [ -e Setup.hs ]; then
+	cabal build
+fi
