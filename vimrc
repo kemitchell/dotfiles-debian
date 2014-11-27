@@ -47,6 +47,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'paredit.vim'
 Plugin 'tpope/vim-leiningen'
 Plugin 'mattn/emmet-vim'
+Plugin 'raichoo/purescript-vim'
 
 call vundle#end()
 
