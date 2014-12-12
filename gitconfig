@@ -37,7 +37,7 @@
 	release = push --tags github master
 	remove = ls-files --deleted | xargs git rm
 	s = status
-	todo = !git --no-pager grep -i -E '(todo|fixme)'
+	todo = !git --no-pager grep -i -E '(todo|fixme)' | sed -r 's/\\s+/ /g'
 	topic = checkout -b 
 	unstash = stash apply
 	webstart = instaweb
