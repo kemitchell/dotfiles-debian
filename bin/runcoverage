@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -e package.json ]; then
+	npm run coverage
+else
+	echo "Don't know how to run coverage"
+	exit 1
+fi

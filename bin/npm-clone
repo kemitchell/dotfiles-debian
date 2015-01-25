@@ -1,0 +1,2 @@
+#!/bin/sh
+git clone `npm info ${*} repository.url`
