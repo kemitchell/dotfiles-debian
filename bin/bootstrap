@@ -95,6 +95,8 @@ texlive-xetex \
 tmux \
 traceroute \
 transmission-cli \
+sysvbanner \
+figlet \
 tree \
 ttf-xfree86-nonfree \
 tty-clock \
@@ -106,6 +108,7 @@ vim \
 w3m \
 wamerican \
 wdiff \
+fortune \
 wget \
 wordnet \
 zsh
