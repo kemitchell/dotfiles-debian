@@ -180,6 +180,8 @@ au BufNewFile,BufReadPost *.py setl expandtab shiftwidth=4 tabstop=4 softtabstop
 map <leader>jt <Esc>:%!json<CR>
 
 map <leader>t <Esc>:!runtests<CR>
+map <leader>c <Esc>:!runcoverage<CR>
+map <leader>l <Esc>:!runlint<CR>
 
 au BufNewFile,BufReadPost *.jade setl foldmethod=indent
 au BufNewFile,BufReadPost *.jade setl shiftwidth=2 expandtab
@@ -192,3 +194,4 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Javascript
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_aggregate_errors = 1

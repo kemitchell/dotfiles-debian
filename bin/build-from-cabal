@@ -1,0 +1,13 @@
+#!/bin/bash
+
+(
+CABAL=$HOME/.cabal/bin/cabal
+PACKAGE=$1
+BUILD_DIR=/tmp/$PACKAGE
+
+mkdir $BUILD_DIR
+cd $BUILD_DIR
+$CABAL sandbox init && $CABAL update && $CABAL install --prefix=$HOME/local -j $PACKAGE
+cd ../
+rm -rf $BUILD_DIR
+)

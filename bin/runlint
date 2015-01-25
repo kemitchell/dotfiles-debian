@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -e package.json ]; then
+	npm run lint
+else
+	echo "Don't know how to lint"
+	exit 1
+fi
