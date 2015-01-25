@@ -7,7 +7,8 @@
 	status = auto
 	branch = auto
 [alias]
-	graph = log --oneline --graph
+	graph = log --oneline --graph --decorate
+	g = log --oneline --graph --decorate --all
 	wdiff = diff --color-words
 	sub = submodule
 	a = add
@@ -17,6 +18,7 @@
 	amend = commit --amend -C HEAD
 	b = branch
 	continue = rebase --continue
+	skip = rebase --skip
 	c = commit
 	ca = commit -a
 	cam = commit -a -m 
@@ -28,8 +30,10 @@
 	h = help
 	l = log --oneline -n 10
 	m = checkout master
+	d = checkout development
 	mirror = push --mirror
 	p = push
+	pa = !git remote | xargs -l git push
 	purge = clean -fdx
 	clobber = clean -fdx
 	pwd = !pwd
@@ -37,7 +41,7 @@
 	release = push --tags github master
 	remove = ls-files --deleted | xargs git rm
 	s = status
-	todo = !git --no-pager grep -i -E '(todo|fixme)' | sed -r 's/\\s+/ /g'
+	todo = !git --no-pager grep -i -E '(todo|fixme)' | sed -r 's/ TODO: //g' | sed -r 's!//! !g' | sed -r 's/\\s+/ /g'
 	topic = checkout -b 
 	unstash = stash apply
 	webstart = instaweb

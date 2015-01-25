@@ -7,47 +7,62 @@ call vundle#begin()
 Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 
+" Generic
 Plugin 'vim-misc'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'BlackacreLabs/vim-precedent'
 Plugin 'ZenCoding.vim'
 Plugin 'vim-scripts/BufOnly.vim'
-Plugin 'JSON.vim'
-Plugin 'Lokaltog/vim-distinguished'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/neocomplcache'
 Plugin 'UniCycle'
-Plugin 'croaker/mustang-vim'
-Plugin 'digitaltoad/vim-jade'
 Plugin 'ervandew/supertab'
-Plugin 'indenthaskell.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'mileszs/ack.vim'
 Plugin 'repeat.vim'
-Plugin 'ruby.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'skwp/vim-rspec'
 Plugin 'spiiph/vim-space'
+Plugin 'xolox/vim-reload'
+Plugin 'groenewege/vim-less'
+Plugin 'paredit.vim'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+
 Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'xolox/vim-reload'
-Plugin 'groenewege/vim-less'
-Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
-Plugin 'paredit.vim'
+
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'Lokaltog/vim-easymotion'
+
+" Clojure
+Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-leiningen'
-Plugin 'mattn/emmet-vim'
+
+" Haskell
+Plugin 'indenthaskell.vim'
+
+" Ruby
+Plugin 'skwp/vim-rspec'
+Plugin 'ruby.vim'
+Plugin 'tpope/vim-haml'
+
+" Javascript
+Plugin 'pangloss/vim-javascript'
 Plugin 'raichoo/purescript-vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'JSON.vim'
+Plugin 'moll/vim-node'
+
+" HTML
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
@@ -115,7 +130,7 @@ nnoremap <CR> :nohlsearch<CR>
 
 au BufNewFile,BufReadPost Guardfile setl ft=ruby
 
-autocmd FileType pandoc call WrapSettings()
+autocmd FileType pandoc,markdown call WrapSettings()
 fu! WrapSettings()
 	set spell
 	set wrap
@@ -174,3 +189,6 @@ digraph .. 8230 "ellipsis
 au BufRead,BufNewFile,BufReadPost *.pre set filetype=precedent
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" Javascript
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']

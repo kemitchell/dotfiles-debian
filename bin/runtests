@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -e package.json ]; then
-  npm test
+	npm test
 fi
 
 if [ -e Rakefile ]; then

@@ -11,3 +11,4 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
  
 source $HOME/.zshaliases
 source $HOME/.apikeys
+source $HOME/local/z/z.sh
