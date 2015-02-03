@@ -23,6 +23,7 @@ cabal-install \
 catdoc \
 cmake \
 colordiff \
+graphviz \
 dc \
 default-jdk \
 diffutils \

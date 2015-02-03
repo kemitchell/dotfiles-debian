@@ -48,7 +48,7 @@
 	webstop = instaweb --stop
 	h = "!source ~/.githelpers && pretty_git_log"
 [core]
-	editor = /usr/bin/vim -c start
+	editor = vim -c start
 	excludesfile = ~/.gitignore_global
 	quotepath = false
 [rerere]

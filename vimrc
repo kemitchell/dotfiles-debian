@@ -4,6 +4,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
+
 Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 
@@ -14,7 +15,7 @@ Plugin 'ZenCoding.vim'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'Shougo/neocomplcache'
 Plugin 'UniCycle'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'mileszs/ack.vim'
@@ -24,8 +25,8 @@ Plugin 'spiiph/vim-space'
 Plugin 'xolox/vim-reload'
 Plugin 'groenewege/vim-less'
 Plugin 'paredit.vim'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
+
+Bundle 'SirVer/ultisnips'
 
 Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-commentary'
@@ -64,6 +65,7 @@ Plugin 'moll/vim-node'
 " HTML
 Plugin 'mattn/emmet-vim'
 
+Plugin 'file:///home/kyle/workspace/commonform/vim-commonform'
 call vundle#end()
 
 
@@ -109,6 +111,7 @@ if has('gui_running')
 	set guicursor=a:blinkon0
 endif
 set formatprg=par\ -w72r\ -s0
+set backspace=indent,eol,start
 
 autocmd FileType ruby,haml,eruby,yaml,sass,cucumber set ai sw=2 sts=2 et
 autocmd FileType coffee set ai sw=2 sts=2 et
@@ -192,6 +195,35 @@ au BufRead,BufNewFile,BufReadPost *.pre set filetype=precedent
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 " Javascript
+au! BufRead,BufNewFile *.json set filetype=javascript 
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_json_checkers = ['jsonval']
 let g:syntastic_aggregate_errors = 1
+
+" JSON
+au! BufRead,BufNewFile *.json set filetype=json 
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json setlocal autoindent
+  autocmd FileType json setlocal shiftwidth=2
+  autocmd FileType json setlocal tabstop=2
+  autocmd FileType json setlocal expandtab
+  autocmd FileType json setlocal foldmethod=syntax
+augroup END
+
+" CommonForm
+augroup commonform
+  autocmd!
+  autocmd FileType commonform setlocal autoindent
+  autocmd FileType commonform setlocal shiftwidth=4
+  autocmd FileType commonform setlocal tabstop=4
+  autocmd FileType commonform setlocal expandtab
+  autocmd FileType commonform setlocal wrap linebreak nolist
+augroup END
