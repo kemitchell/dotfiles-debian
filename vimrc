@@ -15,7 +15,6 @@ Plugin 'ZenCoding.vim'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'Shougo/neocomplcache'
 Plugin 'UniCycle'
-"Plugin 'ervandew/supertab'
 Plugin 'kien/ctrlp.vim'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'mileszs/ack.vim'
@@ -65,7 +64,7 @@ Plugin 'moll/vim-node'
 " HTML
 Plugin 'mattn/emmet-vim'
 
-Plugin 'file:///home/kyle/workspace/commonform/vim-commonform'
+Plugin 'commonform/vim-commonform'
 call vundle#end()
 
 
@@ -114,8 +113,10 @@ set formatprg=par\ -w72r\ -s0
 set backspace=indent,eol,start
 
 autocmd FileType ruby,haml,eruby,yaml,sass,cucumber set ai sw=2 sts=2 et
-autocmd FileType coffee set ai sw=2 sts=2 et
 autocmd FileType php set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+
+" select last yank
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 let g:haddock_browser = "open -a 'Google Chrome'"
 let g:ghc = "/usr/local/bin/ghc"
@@ -169,29 +170,16 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 
 let g:neocomplcache_enable_at_startup = 1
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-let coffee_linter = '/usr/local/bin/coffeelint'
-au BufWritePost *.coffee silent make
 
 let g:Tex_DefaultTargetFormat='pdf'
 
 au BufNewFile,BufReadPost *.py setl expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
-"map <leader>jt <Esc>:%!python -mjson.tool<CR>
-" sudo npm -g install jsontool
-map <leader>jt <Esc>:%!json<CR>
-
-map <leader>t <Esc>:!runtests<CR>
-map <leader>c <Esc>:!runcoverage<CR>
-map <leader>l <Esc>:!runlint<CR>
 
 au BufNewFile,BufReadPost *.jade setl foldmethod=indent
 au BufNewFile,BufReadPost *.jade setl shiftwidth=2 expandtab
 
 digraph .. 8230 "ellipsis
-
-au BufRead,BufNewFile,BufReadPost *.pre set filetype=precedent
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
@@ -201,11 +189,27 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Javascript
-au! BufRead,BufNewFile *.json set filetype=javascript 
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_json_checkers = ['jsonval']
 let g:syntastic_aggregate_errors = 1
+
+augroup javascript
+  autocmd Filetype javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab
+  autocmd FileType javascript noremap <leader>t <Esc>:!runtests<CR>
+  autocmd FileType javascript noremap <leader>c <Esc>:!runcoverage<CR>
+  autocmd FileType javascript noremap <leader>l <Esc>:!runlint<CR>
+  autocmd FileType javascript noremap <leader>m <Esc>:!make<CR>
+augroup END
+
+" Coffee Script
+augroup coffee
+  autocmd FileType coffee setlocal foldmethod=indent
+  autocmd FileType coffee setlocal shiftwidth=2
+  autocmd FileType coffee setlocal expandtab
+  autocmd FileType coffee setlocal coffee_linter = '/usr/local/bin/coffeelint'
+  autocmd FileType coffee setlocal ai sw=2 sts=2 et
+  " au BufWritePost *.coffee silent make
+augroup END
 
 " JSON
 au! BufRead,BufNewFile *.json set filetype=json 
@@ -216,14 +220,20 @@ augroup json_autocmd
   autocmd FileType json setlocal tabstop=2
   autocmd FileType json setlocal expandtab
   autocmd FileType json setlocal foldmethod=syntax
+  autocmd FileType json noremap <leader>jt <Esc>:%!json<CR>
 augroup END
 
-" CommonForm
+" Common Form
 augroup commonform
   autocmd!
   autocmd FileType commonform setlocal autoindent
   autocmd FileType commonform setlocal shiftwidth=4
   autocmd FileType commonform setlocal tabstop=4
   autocmd FileType commonform setlocal expandtab
-  autocmd FileType commonform setlocal wrap linebreak nolist
+  autocmd FileType commonform setlocal wrap linebreak nolist spell
+  autocmd FileType commonform noremap <buffer> <silent> k gk
+  autocmd FileType commonform noremap <buffer> <silent> j gj
+  autocmd FileType commonform noremap <buffer> <silent> 0 g0
+  autocmd FileType commonform noremap <buffer> <silent> $ g$
+  autocmd FileType commonform noremap <leader>t <Esc>:!commonform check %:p<CR>
 augroup END
