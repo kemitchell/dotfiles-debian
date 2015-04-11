@@ -1,6 +1,6 @@
 export EDITOR=vim
 
-export ZSH=$HOME/.zsh/.oh-my-zsh
+export ZSH=$HOME/.zsh/oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(git node debian)
 source $ZSH/oh-my-zsh.sh
