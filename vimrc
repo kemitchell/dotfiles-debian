@@ -136,9 +136,9 @@ au BufNewFile,BufReadPost Guardfile setl ft=ruby
 
 autocmd FileType pandoc,markdown call WrapSettings()
 fu! WrapSettings()
-	set spell
-	set wrap
-	set showbreak=
+	setlocal spell
+	setlocal wrap
+	setlocal showbreak=
 	noremap  <buffer> <silent> k gk
 	noremap  <buffer> <silent> j gj
 	noremap  <buffer> <silent> 0 g0
