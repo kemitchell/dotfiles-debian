@@ -1,0 +1,38 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+	echo "No version supplied"
+	exit 1
+fi
+
+VERSION=v$1
+REPO=$HOME/local/source/git
+SOURCE=$(dirname $REPO)
+GIT=git://git.kernel.org/pub/scm/git/git.git
+PREFIX=$HOME/local
+mkdir -p $SOURCE
+
+if [ -d $REPO ]; then
+	cd $REPO
+	make distclean
+	git pull
+else
+	git clone $GIT $REPO
+	cd $REPO
+fi
+
+git checkout $VERSION
+
+
+# sudo apt-get update
+# sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
+sudo apt-get build-dep git
+
+make configure
+./configure --prefix=$PREFIX
+make all
+make install
+
+which git
+git --version
