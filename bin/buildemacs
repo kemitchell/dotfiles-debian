@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+sudo apt-get update
+sudo apt-get install autoconf automake
+sudo apt-get build-dep emacs
+mkdir -p $HOME/local/source
+REPO=$HOME/local/source/emacs
+if [ -d $REPO ]; then
+	cd $REPO
+	make distclean
+	git pull
+else
+	git clone --depth 1 git://git.savannah.gnu.org/emacs.git $REPO
+	cd $REPO
+fi
+./autogen.sh && ./configure --prefix=$HOME/local --without-x && make && make install
