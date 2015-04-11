@@ -2,27 +2,39 @@
 
 set -e
 
-stable=v$(curl http://semver.io/node/stable)
-installed=$(node --version)
+STABLE=v$(curl http://semver.io/node/stable)
+INSTALLED=$(node --version)
+REPO=$HOME/local/source/node
+SOURCE=$(dirname $REPO)
+GIT=https://github/com/joyent/node
 
-if [ "$stable" = "${installed%%\\n}" ]; then
-	echo "node@$stable is already installed"
+if [ "$STABLE" = "${INSTALLED%%\\n}" ]; then
+	echo "node@$STABLE is already installed"
 	exit 0
 else
-	banner "Installing node@$stable"
-	mkdir -p $HOME/local/source
-	cd $HOME/local/source
+	banner "Installing node@$STABLE"
+	mkdir -p $SOURCE
 
-	if [ -d node ]; then
+	if [ -d $REPO ]; then
 		echo "Already checked out"
+		cd $REPO
+		make distclean
 	else 
-		git clone https://github.com/joyent/node node
+		git clone $GIT $REPO
+		cd $REPO
 	fi
 
-	cd node
-
-	git checkout ${version%\\n}
 	sudo apt-get update
 	sudo apt-get -y install build-essential curl libssl-dev openssl
-	./configure --prefix=$HOME/local && make && make install && npm install --global npm
+
+	git checkout $STABLE
+	./configure --prefix=$HOME/local
+	make 
+	make install 
+	npm install --global npm
+
+	which node
+	node --version
+	which npm
+	npm --version
 fi
