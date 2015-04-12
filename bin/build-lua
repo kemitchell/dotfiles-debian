@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+	echo "No version supplied"
+	exit 1
+fi
+
+VERSION=$1
+SOURCE=$HOME/source
+PREFIX=$HOME/local
+LUA=lua-${VERSION}
+mkdir -p $SOURCE
+cd $SOURCE
+
+sudo apt-get update
+sudo apt-get -y install libreadline-dev
+
+wget http://www.lua.org/ftp/${LUA}.tar.gz
+tar zxf ${LUA}.tar.gz
+cd ${LUA}
+make linux install INSTALL_TOP=$PREFIX
+cd ..
+rm -f ${LUA}.tar.gz
+rm -rf ${LUA}
+
+which lua
+lua -v
