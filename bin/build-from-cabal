@@ -1,13 +1,22 @@
 #!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+	echo "Specify a package"
+	exit 1
+fi
 
 (
-CABAL=$HOME/.cabal/bin/cabal
-PACKAGE=$1
-BUILD_DIR=/tmp/$PACKAGE
+	CABAL=$(which cabal)
+	PACKAGE=$1
+	BUILD_DIR=/tmp/$PACKAGE
+	PREFIX=$HOME/local
 
-mkdir $BUILD_DIR
-cd $BUILD_DIR
-$CABAL sandbox init && $CABAL update && $CABAL install --prefix=$HOME/local -j $PACKAGE
-cd ../
-rm -rf $BUILD_DIR
+	mkdir $BUILD_DIR
+	cd $BUILD_DIR
+	$CABAL sandbox init
+	$CABAL update
+	$CABAL install --prefix=$PREFIX -j $PACKAGE
+	cd ../
+	rm -rf $BUILD_DIR
 )
