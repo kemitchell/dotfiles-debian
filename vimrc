@@ -211,6 +211,8 @@ augroup coffee
   " au BufWritePost *.coffee silent make
 augroup END
 
+let g:syntastic_coffee_checkers = ['coffee', 'coffeelint']
+
 " JSON
 au! BufRead,BufNewFile *.json set filetype=json 
 augroup json_autocmd
@@ -237,3 +239,9 @@ augroup commonform
   autocmd FileType commonform noremap <buffer> <silent> $ g$
   autocmd FileType commonform noremap <leader>t <Esc>:!commonform check %:p<CR>
 augroup END
+
+" Ruby
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+
+" CSS
+let g:syntastic_css_checkers = ['csslint']
