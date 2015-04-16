@@ -27,7 +27,7 @@ git checkout $VERSION
 
 # sudo apt-get update
 # sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
-sudo apt-get build-dep git
+sudo apt-get -y build-dep git
 
 make configure
 ./configure --prefix=$PREFIX
