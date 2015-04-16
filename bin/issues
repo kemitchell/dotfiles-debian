@@ -1,2 +1,2 @@
 #!/bin/sh
-gh issue | cut -d "(" -f 1 | sort -n
+hub issue | cut -d "(" -f 1 | sort -n
