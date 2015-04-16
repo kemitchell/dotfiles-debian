@@ -1,13 +1,44 @@
 export EDITOR=vim
+bindkey -e
 
-export ZSH=$HOME/.zsh/oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=(git node debian)
-source $ZSH/oh-my-zsh.sh
+export ZSH=$HOME/.zsh/
+source $ZSH/aliases
 
-export PATH=~/.bin:~/local/bin:$PATH
+# Antigen Packages
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
- 
-source $HOME/.zshaliases
-source $HOME/.zsh/z/z.sh
+source $ZSH/antigen/antigen.zsh
+antigen bundles <<EOBUNDLES
+	bower
+	cabal
+	colored-man
+	command-not-found
+	debian
+	gem
+	git
+	git-extras
+	github
+	grunt
+	heroku
+	lein
+	node
+	npm
+	pip
+	rupa/z
+	rvm
+	ssh-agent
+	tmux
+	zsh-users/zsh-history-substring-search
+	zsh-users/zsh-syntax-highlighting
+EOBUNDLES
+
+antigen theme evan
+antigen apply
+
+# Go Development Environment
+export GOROOT=$HOME/local/go
+export GOPATH=$GOROOT/path
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+
+# PATH 
+
+export PATH="$HOME/.bin:$HOME/local/bin:$HOME/.rvm/bin:$PATH"
