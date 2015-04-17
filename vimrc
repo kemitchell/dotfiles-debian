@@ -71,6 +71,7 @@ call vundle#end()
 filetype plugin indent on
 syntax enable
 
+set ruler
 set nomore
 set fileencodings=utf-8
 set display=lastline
@@ -174,7 +175,6 @@ let g:neocomplcache_enable_at_startup = 1
 let g:Tex_DefaultTargetFormat='pdf'
 
 au BufNewFile,BufReadPost *.py setl expandtab shiftwidth=4 tabstop=4 softtabstop=4
-
 
 au BufNewFile,BufReadPost *.jade setl foldmethod=indent
 au BufNewFile,BufReadPost *.jade setl shiftwidth=2 expandtab
