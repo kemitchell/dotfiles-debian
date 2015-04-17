@@ -40,5 +40,5 @@ export GOPATH=$GOROOT/path
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 # PATH 
-
 export PATH="$HOME/.bin:$HOME/local/bin:$HOME/.rvm/bin:$PATH"
+export MANPATH="$HOME/local/share/man:$MANPATH"
