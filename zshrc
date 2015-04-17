@@ -1,5 +1,6 @@
 export EDITOR=vim
 bindkey -e
+setopt auto_cd
 
 export ZSH=$HOME/.zsh/
 source $ZSH/aliases
