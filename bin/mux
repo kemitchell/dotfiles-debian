@@ -1,2 +1,2 @@
 #!/bin/sh
-tmux attach -d || tmux new
+screen -x || screen
