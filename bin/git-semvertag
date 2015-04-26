@@ -1,2 +1,3 @@
 #!/bin/sh
-git commit -a -m "$1" && git tag -a "$1" -m "Version $1"
+VERSION=`json version < package.json`
+git commit -a -m "$VERSION" && git tag -a "$VERSION" -m "Version $VERSION"
