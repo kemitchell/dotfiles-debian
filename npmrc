@@ -1,0 +1,7 @@
+loglevel=error
+git-tag-version=false
+init-author-name=Kyle E. Mitchell
+init-author-email=http://kemitchell.com
+init-license=Apache-2.0
+init-version=0.0.0
+save-prefix=
