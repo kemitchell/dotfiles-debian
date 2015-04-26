@@ -9,6 +9,7 @@ Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 
 " Generic
+Plugin 'panozzaj/vim-autocorrect'
 Plugin 'vim-misc'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ZenCoding.vim'
@@ -113,6 +114,7 @@ endif
 set formatprg=par\ -w72r\ -s0
 set backspace=indent,eol,start
 
+
 autocmd FileType ruby,haml,eruby,yaml,sass,cucumber set ai sw=2 sts=2 et
 autocmd FileType php set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 
@@ -190,15 +192,16 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Javascript
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+" let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_json_checkers = ['jsonval']
 let g:syntastic_aggregate_errors = 1
 
 augroup javascript
   autocmd Filetype javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab
-  autocmd FileType javascript noremap <leader>t <Esc>:!runtests<CR>
-  autocmd FileType javascript noremap <leader>c <Esc>:!runcoverage<CR>
-  autocmd FileType javascript noremap <leader>l <Esc>:!runlint<CR>
-  autocmd FileType javascript noremap <leader>m <Esc>:!make<CR>
+  autocmd FileType javascript noremap <buffer> <leader>t <Esc>:!runtests<CR>
+  autocmd FileType javascript noremap <buffer> <leader>c <Esc>:!runcoverage<CR>
+  autocmd FileType javascript noremap <buffer> <leader>l <Esc>:!runlint<CR>
+  autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
 augroup END
 
 " Coffee Script
@@ -214,7 +217,10 @@ augroup END
 let g:syntastic_coffee_checkers = ['coffee', 'coffeelint']
 
 " JSON
-au! BufRead,BufNewFile *.json set filetype=json 
+autocmd BufRead,BufNewFile *.json set filetype=json 
+autocmd BufNewFile,BufRead .jshintrc set filetype=json
+autocmd BufNewFile,BufRead .jscsrc set filetype=json
+
 augroup json_autocmd
   autocmd!
   autocmd FileType json setlocal autoindent
@@ -222,7 +228,15 @@ augroup json_autocmd
   autocmd FileType json setlocal tabstop=2
   autocmd FileType json setlocal expandtab
   autocmd FileType json setlocal foldmethod=syntax
-  autocmd FileType json noremap <leader>jt <Esc>:%!json<CR>
+  autocmd FileType json setlocal formatprg=json
+augroup END
+
+" Plain Text
+autocmd BufRead,BufNewFile *.txt set filetype=text
+augroup text_autocmd
+  autocmd Filetype text setlocal shiftwidth=2 tabstop=2 expandtab
+  autocmd FileType text call WrapSettings()
+  autocmd FileType text call AutoCorrect()
 augroup END
 
 " Common Form
@@ -237,7 +251,7 @@ augroup commonform
   autocmd FileType commonform noremap <buffer> <silent> j gj
   autocmd FileType commonform noremap <buffer> <silent> 0 g0
   autocmd FileType commonform noremap <buffer> <silent> $ g$
-  autocmd FileType commonform noremap <leader>t <Esc>:!commonform check %:p<CR>
+  autocmd FileType commonform noremap <buffer> <leader>t <Esc>:!commonform lint < %:p \| uniq<CR>
 augroup END
 
 " Ruby
@@ -245,3 +259,18 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " CSS
 let g:syntastic_css_checkers = ['csslint']
+
+" ctrlp
+function! SetupCtrlP()
+  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+    augroup CtrlPExtension
+      autocmd!
+      autocmd FocusGained  * CtrlPClearCache
+      autocmd BufWritePost * CtrlPClearCache
+    augroup END
+  endif
+endfunction
+
+if has("autocmd")
+  autocmd VimEnter * :call SetupCtrlP()
+endif
