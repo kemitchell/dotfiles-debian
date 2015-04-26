@@ -15,3 +15,10 @@ set alias_file = "~/.mutt/alias"
 set sort_alias = alias
 set reverse_alias = yes
 source $alias_file
+
+set pgp_autosign = no
+set pgp_autoencrypt = no
+set pgp_replyencrypt = yes
+set pgp_replysign = no
+set pgp_replysignencrypted = no
+set pgp_sign_as = "84DFDD08"
