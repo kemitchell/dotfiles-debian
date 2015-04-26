@@ -4,9 +4,14 @@ set sendmail = /usr/bin/msmtp
 set folder = "~/mail/kemitchell/"
 set spoolfile = "+INBOX"
 
-set signature=$HOME/.signature
+set signature = "~/.signature"
 set realname = "K. E. Mitchell"
 set from = "kyle@kemitchell.com"
 set sort = threads
 set sort_aux = reverse-last-date-received
 set sort_re
+
+set alias_file = "~/.mutt/alias"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
