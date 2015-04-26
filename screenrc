@@ -1,4 +1,3 @@
-caption always "%n(%t): %C"
 startup_message off
 hardstatus on
 hardstatus alwayslastline
@@ -10,3 +9,11 @@ vbell on
 autodetach on
 defnonblock on
 term screen-256color
+
+escape \140\140
+bindkey -d -k F2 process a
+caption always '%{= kW}%?%F%{+b KW}%:%{= kK}%? %= %?%F%{-b .c}>>>%{-}%? | %-w%{mW}%n* %t%? @%u%?%{-}%+w '
+register a "\140:eval 'bindkey -d -k F2 process b' 'process c' 'escape \\017\\017'^M"
+register b "\017:eval 'bindkey -d -k F2 process a' 'process d' 'escape \\140\\140'^M"
+register c "\140:caption string '%{= kW}%?%F%{+b mW}%:%{= kK}%? %= %?%F%{.c}ALT%{-}%? | %-w%{KW}%n* %t%? @%u%?%{-}%+w '^M"
+register d "\017:caption string '%{= kW}%?%F%{+b KW}%:%{= kK}%? %= %?%F%{.c}>>>%{-}%? | %-w%{mW}%n* %t%? @%u%?%{-}%+w '^M"
