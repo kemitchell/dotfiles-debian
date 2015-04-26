@@ -1,0 +1,12 @@
+caption always "%n(%t): %C"
+startup_message off
+hardstatus on
+hardstatus alwayslastline
+scrollback 50000
+attrcolor b ".I"
+shell -$SHELL
+altscreen on
+vbell on
+autodetach on
+defnonblock on
+term screen-256color
