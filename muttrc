@@ -1,0 +1,12 @@
+set mbox_type = Maildir
+set sendmail = /usr/bin/msmtp
+
+set folder = "~/mail/kemitchell/"
+set spoolfile = "+INBOX"
+
+set signature=$HOME/.signature
+set realname = "K. E. Mitchell"
+set from = "kyle@kemitchell.com"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set sort_re
