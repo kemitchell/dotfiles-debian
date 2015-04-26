@@ -45,7 +45,7 @@ export GOPATH=$GOROOT/path
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 
 # Python
-export PYTHONPATH="$PYTHONPATH:$HOME/local"
+export PYTHONPATH="$PYTHONPATH:$HOME/local/lib/python"
 
 # PATH 
 export PATH="$HOME/.bin:$HOME/local/bin:$HOME/.rvm/bin:$PATH"
