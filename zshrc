@@ -47,6 +47,9 @@ export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 # Python
 export PYTHONPATH="$PYTHONPATH:$HOME/local/lib/python"
 
+# Ruby
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # PATH 
 export PATH="$HOME/.bin:$HOME/local/bin:$HOME/.rvm/bin:$PATH"
 export MANPATH="$HOME/local/share/man:$MANPATH"
