@@ -9,6 +9,7 @@ vbell on
 autodetach on
 defnonblock on
 term screen-256color
+utf8 on
 
 escape \140\140
 bindkey -d -k F2 process a
