@@ -1,18 +1,42 @@
-SSH_ENV="$HOME/.ssh/environment"
+# ssh-agent
+# =========
+env="$HOME/.ssh/agent.env"
 
-function start_agent {
-	echo "Initialising new SSH agent..."
-	/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-	echo succeeded
-	chmod 600 "${SSH_ENV}"
-	. "${SSH_ENV}" > /dev/null /usr/bin/ssh-add;
+agent_is_running() {
+	if [ "$SSH_AUTH_SOCK" ]; then
+		ssh-add -l >/dev/null 2>&1 || [ $? -eq 1 ]
+	else
+		false
+	fi
 }
 
-if [ -f "${SSH_ENV}" ]; then
-	. "${SSH_ENV}" > /dev/null
-	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-	start_agent;
-	}
-else
-	start_agent;
+agent_has_keys() {
+	ssh-add -l >/dev/null 2>&1
+}
+
+agent_load_env() {
+	. "$env" >/dev/null
+}
+
+agent_start() {
+	(umask 077; ssh-agent >"$env")
+	. "$env" >/dev/null
+}
+
+if ! agent_is_running; then
+	agent_load_env
 fi
+
+if ! agent_is_running; then
+	agent_start
+	ssh-add
+elif ! agent_has_keys; then
+	ssh-add
+fi
+
+unset env
+
+# Fortune
+# =======
+
+fortune -a /usr/share/games/fortunes/ru/
