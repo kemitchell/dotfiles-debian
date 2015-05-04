@@ -235,9 +235,9 @@ augroup END
 " Plain Text
 autocmd BufRead,BufNewFile *.txt set filetype=text
 augroup text_autocmd
-  autocmd Filetype text setlocal shiftwidth=2 tabstop=2 expandtab
-  autocmd FileType text call WrapSettings()
-  autocmd FileType text call AutoCorrect()
+  " autocmd Filetype text setlocal shiftwidth=2 tabstop=2 expandtab
+  " autocmd FileType text call WrapSettings()
+  " autocmd FileType text call AutoCorrect()
 augroup END
 
 " Common Form
@@ -252,7 +252,7 @@ augroup commonform
   autocmd FileType commonform noremap <buffer> <silent> j gj
   autocmd FileType commonform noremap <buffer> <silent> 0 g0
   autocmd FileType commonform noremap <buffer> <silent> $ g$
-  autocmd FileType commonform noremap <buffer> <leader>t <Esc>:!commonform lint < %:p \| uniq<CR>
+  autocmd FileType commonform noremap <buffer> <leader>t <Esc>:!commonform lint < '%:p' \| uniq<CR>
 augroup END
 
 " Ruby
