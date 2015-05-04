@@ -1,0 +1,13 @@
+Host gh github github.com
+Hostname github.com
+User git
+IdentityFile ~/.ssh/github
+
+Host client client.kemitchell.com
+Hostname client.kemitchell.com
+IdentityFile ~/.ssh/client.kemitchell.com
+
+Host bb bitbucket bitbucket.org
+Hostname bitbucket.org
+User git
+IdentityFile ~/.ssh/bitbucket
