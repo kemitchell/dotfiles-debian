@@ -20,11 +20,11 @@ chatnets = {
 };
 
 channels = (
-  { name = "#dat"; chatnet = "Freenode"; autojoin = "Yes"; }
-  { name = "#haskell"; chatnet = "Freenode"; autojoin = "Yes"; }
-  { name = "#npm"; chatnet = "Freenode"; autojoin = "Yes"; }
-  { name = "#purescript"; chatnet = "Freenode"; autojoin = "Yes"; }
-  { name = "#sudoroom"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#dat"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#haskell"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#npm"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#purescript"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#sudoroom"; chatnet = "Freenode"; autojoin = "Yes"; }
 );
 
 aliases = {
