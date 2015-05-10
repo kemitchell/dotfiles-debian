@@ -36,6 +36,19 @@ fi
 
 unset env
 
+# gpg-agent
+# =========
+
+GPG_AGENT_FILE="$HOME/.gnupg/.gpg-agent.env"
+
+if [ -f "$GPG_AGENT_FILE" ]; then
+	. "$GPG_AGENT_FILE"
+else
+	gpg-agent --daemon --enable-ssh-support --write-env-file "$GPG_AGENT_FILE"
+fi
+export GPG_AGENT_INFO
+export SSH_AUTH_SOCK
+
 # Fortune
 # =======
 
