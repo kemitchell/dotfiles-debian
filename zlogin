@@ -22,7 +22,7 @@ antigen bundles <<EOBUNDLES
 	rupa/z
 	rvm
 	ssh-agent
-	tmux
+	# tmux
 	zsh-users/zsh-history-substring-search
 	zsh-users/zsh-syntax-highlighting
 EOBUNDLES
