@@ -281,6 +281,10 @@ statusbar = {
 };
 settings = {
   core = { real_name = ""; user_name = "kyle"; nick = "kemitchell"; };
-  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-text" = {
+    actlist_sort = "refnum";
+    paste_detect_time = "5msecs";
+    paste_verify_line_count = "1";
+  };
 };
 ignores = ( { level = "JOINS PARTS QUITS NICKS"; } );
