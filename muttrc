@@ -6,7 +6,7 @@ set	record = "~/mail/kemitchell/Sent Items"
 set postponed = "~/mail/kemitchell/Drafts"
 set spoolfile = "+INBOX"
 
-set realname = "K. E. Mitchell"
+set realname = "Kyle E. Mitchell"
 set from = "kyle@kemitchell.com"
  
 set sort = threads
