@@ -136,18 +136,19 @@ inoremap <C-l> <C-O>zz
 map <C-l> zz
 nnoremap <CR> :nohlsearch<CR>
 
-au BufNewFile,BufReadPost Guardfile setl ft=ruby
-
-autocmd FileType pandoc,markdown call WrapSettings()
 fu! WrapSettings()
 	setlocal spell
 	setlocal wrap
 	setlocal showbreak=
-	noremap  <buffer> <silent> k gk
-	noremap  <buffer> <silent> j gj
-	noremap  <buffer> <silent> 0 g0
-	noremap  <buffer> <silent> $ g$
+	noremap <buffer> <silent> k gk
+	noremap <buffer> <silent> j gj
+	noremap <buffer> <silent> 0 g0
+	noremap <buffer> <silent> $ g$
 endfu
+
+au BufNewFile,BufReadPost Guardfile setl ft=ruby
+
+autocmd FileType pandoc,markdown call WrapSettings()
 
 autocmd FileType tex call WrapSettings()
 autocmd FileType Rnw call WrapSettings()

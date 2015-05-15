@@ -1,6 +1,9 @@
 set mbox_type = Maildir
 set sendmail = /usr/bin/msmtp
 
+set editor = "vim -c 'set spell'"
+set ispell = "aspell -e -c"
+
 set folder = "~/mail/kemitchell/"
 set	record = "~/mail/kemitchell/Sent Items"
 set postponed = "~/mail/kemitchell/Drafts"
