@@ -1,7 +1,7 @@
 set mbox_type = Maildir
 set sendmail = /usr/bin/msmtp
 
-set editor = "vim -c 'set spell'"
+set editor = "vim -c 'set spell' -c start -c 'set wrap'"
 set ispell = "aspell -e -c"
 
 auto_view text/html
