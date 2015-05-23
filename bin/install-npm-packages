@@ -1,3 +1,3 @@
 set -e
 npm --global install npm
-npm --global install ansimd bower browserify coffee-script commonform-cli dat dependency-check docco dupsh faucet fixpack grunt-cli gulp http-server istanbul jsmd json  licensee licensor pulp readme receive semver tap yo
+npm --global install ansimd bower browserify coffee-script commonform-cli dat dependency-check docco dupsh faucet fixpack grunt-cli gulp http-server istanbul jsmd json  licensee licensor nip pulp readme receive semver tap yo
