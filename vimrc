@@ -128,6 +128,7 @@ let g:CommandTCancelMap=['<ESC>','<C-c>']
 let g:tex_flavor='latex'
 
 let mapleader=","
+nnoremap <C-R> :redraw!<CR>
 nnoremap ; :
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap <C-F> <C-O>:exit<Enter>
@@ -276,3 +277,14 @@ endfunction
 if has("autocmd")
   autocmd VimEnter * :call SetupCtrlP()
 endif
+
+fu! WriteMail()
+	setlocal spell
+	setlocal nolist
+	setlocal wrap
+	setlocal linebreak
+	setlocal textwidth=0
+	setlocal wrapmargin=0
+	" call WrapSettings()
+	call AutoCorrect()
+endfu

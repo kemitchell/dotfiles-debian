@@ -1,7 +1,7 @@
 set mbox_type = Maildir
 set sendmail = /usr/bin/msmtp
 
-set editor = "vim -c 'set spell' -c start -c 'set wrap'"
+set editor = "vim -c 'call WriteMail()' -c start
 set ispell = "aspell -e -c"
 
 auto_view text/html
@@ -35,4 +35,12 @@ set signature = "~/.signature"
 # set sig_dashes = no
 # set sig_on_top = yes
 
-macro index,pager e  "<save-message>=Archive<enter><enter>"
+macro index,pager e  "<save-message>=Archive<enter>"
+macro index,pager R  "<save-message>=Receipts<enter>"
+
+set confirmappend = no
+set confirmcreate = yes
+
+set delete = yes
+
+set send_charset = "utf-8"
