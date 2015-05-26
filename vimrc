@@ -280,11 +280,11 @@ endif
 
 fu! WriteMail()
 	setlocal spell
-	setlocal nolist
-	setlocal wrap
-	setlocal linebreak
-	setlocal textwidth=0
-	setlocal wrapmargin=0
+	" setlocal nolist
+	" setlocal wrap
+	" setlocal linebreak
+	" setlocal textwidth=0
+	" setlocal wrapmargin=0
 	" call WrapSettings()
 	call AutoCorrect()
 endfu
