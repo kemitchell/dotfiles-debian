@@ -128,7 +128,7 @@ let g:CommandTCancelMap=['<ESC>','<C-c>']
 let g:tex_flavor='latex'
 
 let mapleader=","
-nnoremap <C-R> :redraw!<CR>
+nnoremap <C-Space> :redraw!<CR>
 nnoremap ; :
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap <C-F> <C-O>:exit<Enter>
