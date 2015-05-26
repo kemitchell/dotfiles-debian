@@ -13,6 +13,7 @@ antigen bundles <<EOBUNDLES
 	git
 	git-extras
 	github
+	gpg-agent
 	grunt
 	heroku
 	lein
@@ -21,6 +22,7 @@ antigen bundles <<EOBUNDLES
 	pip
 	rupa/z
 	rvm
+	screen
 	ssh-agent
 	# tmux
 	zsh-users/zsh-history-substring-search
