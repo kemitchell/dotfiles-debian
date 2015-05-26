@@ -1,34 +1,31 @@
 # Antigen
 # =======
-
 source $HOME/.zsh/antigen/antigen.zsh
-
 antigen bundles <<EOBUNDLES
-	bower
-	cabal
+	# bower
+	# cabal
 	colored-man
 	command-not-found
 	debian
-	gem
-	git
-	git-extras
-	github
+	# gem
+	# git
+	# git-extras
+	# github
 	gpg-agent
-	grunt
-	heroku
-	lein
-	node
-	npm
-	pip
+	# grunt
+	# heroku
+	# lein
+	# node
+	# npm
+	# pip
 	rupa/z
-	rvm
+	# rvm
 	screen
 	ssh-agent
 	# tmux
 	zsh-users/zsh-history-substring-search
 	zsh-users/zsh-syntax-highlighting
 EOBUNDLES
-
 antigen apply
 
 # History
