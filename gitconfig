@@ -1,6 +1,7 @@
 [user]
 	name = Kyle Mitchell
 	email = kyle@kemitchell.com
+	logallrefupdates=true
 [gui]
 [color]
 	diff = auto
@@ -19,6 +20,7 @@
 	amend = commit --amend -C HEAD
 	b = branch
 	continue = rebase --continue
+	abort = rebase --abort
 	skip = rebase --skip
 	c = commit
 	ca = commit -a
