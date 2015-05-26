@@ -20,7 +20,7 @@ antigen bundles <<EOBUNDLES
 	# pip
 	rupa/z
 	# rvm
-	screen
+	# screen
 	ssh-agent
 	# tmux
 	zsh-users/zsh-history-substring-search
@@ -33,7 +33,6 @@ antigen apply
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=$HOME/.zsh_history
-
 
 # Prompt
 # ======
@@ -51,7 +50,7 @@ export LANGUAGE=en_US.UTF-8
 
 # API Keys
 # ========
-source .zapikeys
+source $HOME/.zapikeys
 
 # Node
 # ====
