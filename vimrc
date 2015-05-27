@@ -103,6 +103,7 @@ set noexpandtab
 set autoindent
 set switchbuf=useopen
 set bg=dark
+set termencoding=utf8
 if has('gui_running')
     set guifont=Droid\ Sans\ Mono\ 12
 	set antialias
