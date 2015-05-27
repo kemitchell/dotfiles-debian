@@ -1,9 +1,3 @@
-#!/bin/sh
-
-gem install cheat gist github-pages rake
-
-npm --global install coffee-script bower docco browserify gulp jscs json mocha uglify-js yo grunt-cli http-server jsdiff lev webpack
-
 sudo apt-get install \
 antiword \
 apache2-utils \
@@ -104,6 +98,7 @@ tty-clock \
 units \
 unp \
 unzip \
+urlview \
 valgrind \
 vim \
 w3m \
@@ -113,3 +108,6 @@ fortune \
 wget \
 wordnet \
 zsh
+
+install-ruby-gems
+install-npm-packages
