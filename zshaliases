@@ -58,3 +58,5 @@ hash w=~/workspace
 alias cf=commonform
 
 alias m=mutt
+
+alias mux="screen -x || screen"
