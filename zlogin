@@ -1,16 +1,21 @@
-# Antigen
-# =======
-source $HOME/.zsh/antigen/antigen.zsh
-antigen bundles <<EOBUNDLES
-	colored-man
-	command-not-found
-	rupa/z
-	ssh-agent
-	gpg-agent
-	zsh-users/zsh-history-substring-search
-	zsh-users/zsh-syntax-highlighting
-EOBUNDLES
-antigen apply
+# zgen
+# ====
+autoload -U compinit compdef
+compinit
+source "$HOME/.zsh/zgen/zgen.zsh"
+if ! zgen saved; then
+	echo "Saving zgen script"
+	zgen oh-my-zsh plugins/colored-man
+	zgen oh-my-zsh plugins/debian
+	zgen oh-my-zsh plugins/command-not-found
+	zgen oh-my-zsh plugins/gpg-agent
+	zgen oh-my-zsh plugins/ssh-agent
+	zgen load rupa/z
+	# zgen load zsh-users/zsh-completions
+	zgen load zsh-users/zsh-history-substring-search
+	zgen load zsh-users/zsh-syntax-highlighting
+	zgen save
+fi
 
 # Prompt
 # ======
