@@ -63,6 +63,9 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'JSON.vim'
 Plugin 'moll/vim-node'
 
+" Data
+Plugin 'avakhov/vim-yaml'
+
 " HTML
 Plugin 'mattn/emmet-vim'
 
@@ -91,7 +94,7 @@ set novisualbell
 set noerrorbells
 set linebreak
 set nowrap
-set showbreak=>>>\ 
+" set showbreak=>>>\ 
 set hidden
 set wildmenu
 set scrolloff=3
@@ -129,13 +132,13 @@ let g:CommandTCancelMap=['<ESC>','<C-c>']
 let g:tex_flavor='latex'
 
 let mapleader=","
-nnoremap <C-Space> :redraw!<CR>
+nnoremap <C-l> :redraw!<CR>
 nnoremap ; :
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap <C-F> <C-O>:exit<Enter>
 inoremap <C-S> <C-O>:update<CR>
-inoremap <C-l> <C-O>zz
-map <C-l> zz
+" inoremap <C-l> <C-O>zz
+" map <C-l> zz
 nnoremap <CR> :nohlsearch<CR>
 
 fu! WrapSettings()
@@ -256,6 +259,16 @@ augroup commonform
   autocmd FileType commonform noremap <buffer> <silent> 0 g0
   autocmd FileType commonform noremap <buffer> <silent> $ g$
   autocmd FileType commonform noremap <buffer> <leader>t <Esc>:!commonform lint < '%:p' \| uniq<CR>
+augroup END
+
+" YAML
+augroup yaml
+  autocmd!
+  " autocmd FileType yaml setlocal noautoindent
+  " autocmd FileType yaml setlocal nocindent
+  " autocmd FileType yaml setlocal nosmartindent
+  " autocmd FileType yaml setlocal indentexpr=
+  autocmd FileType yaml setlocal spell
 augroup END
 
 " Ruby
