@@ -172,6 +172,36 @@ endsnippet
 
 # Testing
 
+snippet t
+test('$1', function(test) {
+	$0
+
+	test.end();
+});
+endsnippet
+
+snippet tok
+test.ok(
+	$1,
+	'$0'
+);
+endsnippet
+
+snippet tnok
+test.notOk(
+	$1,
+	'$0'
+);
+endsnippet
+
+snippet teq
+test.equal(
+	$1,
+	$2,
+	'$0'
+);
+endsnippet
+
 snippet desc
 describe('$1', function() {
 	$0
