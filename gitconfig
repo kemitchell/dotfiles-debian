@@ -11,7 +11,7 @@
 	graph = log --oneline --graph --decorate
 	g = log --oneline --graph --decorate --all
 	wdiff = diff --color-words
-	wd = wdiff
+	wd = diff --word-diff
 	sub = submodule
 	a = add
 	aa = add --all
@@ -64,3 +64,12 @@
 [push]
 	default = matching
 # followTags = true
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.office365.com
+	smtpServerPort = 587
+	smtpUser = kyle@kemitchell.com
+	aliasesFile = ~/.mutt/alias
+	aliasesFileType = mutt
+	multiEdit = true
+	confirm = always
