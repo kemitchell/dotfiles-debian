@@ -212,6 +212,10 @@ augroup javascript
   autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
 augroup END
 
+augroup json
+  autocmd FileType json noremap <buffer> <leader>t <Esc>:!runtests<CR>
+augroup END
+
 " Coffee Script
 augroup coffee
   autocmd FileType coffee setlocal foldmethod=indent
