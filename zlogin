@@ -19,7 +19,7 @@ fi
 
 # Prompt
 # ======
-PROMPT='%m :: %2~ %B%b%# '
+PROMPT='%m :: %2~ %B%b%1(j.+.)%# '
 
 # Language
 # ========
