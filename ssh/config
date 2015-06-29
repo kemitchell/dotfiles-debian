@@ -7,7 +7,19 @@ Host client client.kemitchell.com
 Hostname client.kemitchell.com
 IdentityFile ~/.ssh/client.kemitchell.com
 
+Host commonform commonform.org
+User root
+Hostname commonform.org
+IdentityFile ~/.ssh/commonform
+
 Host bb bitbucket bitbucket.org
 Hostname bitbucket.org
 User git
 IdentityFile ~/.ssh/bitbucket
+
+TCPKeepAlive=yes
+ServerAliveInterval=15
+ServerAliveCountMax=6
+stricthostkeychecking=yes
+Compression=yes
+ForwardAgent=no
