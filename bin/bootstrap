@@ -68,6 +68,7 @@ python-pip \
 rcconf \
 renameutils \
 rsync \
+ripmime \
 r-base \
 r-recommended \
 s3cmd \
