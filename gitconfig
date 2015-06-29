@@ -52,13 +52,14 @@
 	webstop = instaweb --stop
 	h = "!source ~/.githelpers && pretty_git_log"
 [core]
-	editor = vim -c start
+	editor = vim \"+set spell\" -c start
 	excludesfile = ~/.gitignore_global
 	quotepath = false
 [rerere]
 	enabled = 1
 [merge]
 	conflictstyle = diff3
+	tool = vimdiff
 [credential]
 	helper = cache --timeout=3600
 [push]
@@ -73,3 +74,7 @@
 	aliasesFileType = mutt
 	multiEdit = true
 	confirm = always
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
