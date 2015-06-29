@@ -300,5 +300,6 @@ fu! WriteMail()
 	" setlocal textwidth=0
 	" setlocal wrapmargin=0
 	" call WrapSettings()
+	setlocal fo+=awn
 	call AutoCorrect()
 endfu
