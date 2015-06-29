@@ -40,6 +40,7 @@ macro index,pager e  "<save-message>=Archive<enter>"
 macro index,pager R  "<save-message>=Receipts<enter>"
 macro pager \cb "urlview"
 macro index \cy "<shell-escape>offlineimap -f INBOX<enter>"
+macro index,pager I "<change-folder>=INBOX<enter>"
 
 set confirmappend = no
 set confirmcreate = yes
@@ -48,3 +49,16 @@ set delete = yes
 
 set send_charset = "utf-8"
 set forward_format = "Fwd: %s"
+
+# Don't wait for messages to send
+set sendmail_wait=-1
+
+macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
+set wait_key=no
+
+set text_flowed=yes
+
+set askcc=yes
+set askbcc=yes
+
+macro index,pager X "<pipe-message>ripmime -i - -d "
