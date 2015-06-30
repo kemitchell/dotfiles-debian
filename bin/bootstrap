@@ -109,6 +109,3 @@ fortune \
 wget \
 wordnet \
 zsh
-
-install-ruby-gems
-install-npm-packages
