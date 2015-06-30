@@ -199,7 +199,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Javascript
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = []
+" let g:syntastic_javascript_checkers = ['eslint', 'jscs']
 " let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_json_checkers = ['jsonval']
 let g:syntastic_aggregate_errors = 1
@@ -240,7 +241,7 @@ augroup json_autocmd
   autocmd FileType json setlocal tabstop=2
   autocmd FileType json setlocal expandtab
   autocmd FileType json setlocal foldmethod=syntax
-  autocmd FileType json setlocal formatprg=json
+  autocmd FileType json setlocal formatprg=formatjson
 augroup END
 
 " Plain Text

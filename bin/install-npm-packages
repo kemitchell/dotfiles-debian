@@ -1,1 +1,1 @@
-npm --global install ansimd babel bower browserify coffee-script commonform-cli csslint cssmin dat dependency-check docco dupsh exorcist faucet fixpack grunt-cli gulp http-server istanbul jsmd json lev licensee licensor nip pulp readme receive semver tap yo
+npm --global install ansimd babel bower browserify coffee-script commonform-cli csslint cssmin dat dependency-check docco dupsh eslint exorcist faucet fixpack grunt-cli gulp http-server istanbul jsmd json lev licensee licensor nip pulp readme receive semver tap yo

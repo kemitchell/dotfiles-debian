@@ -1,0 +1,4 @@
+set -e
+rm -rf ~/.offlineimap
+rm -rf ~/mail/kemitchell/*
+offlineimap
