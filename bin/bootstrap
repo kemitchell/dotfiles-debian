@@ -17,6 +17,7 @@ cabal-install \
 catdoc \
 cmake \
 colordiff \
+dmenu \
 graphviz \
 dc \
 default-jdk \
@@ -93,6 +94,7 @@ traceroute \
 transmission-cli \
 sysvbanner \
 figlet \
+suckless-tools \
 tree \
 ttf-xfree86-nonfree \
 tty-clock \
