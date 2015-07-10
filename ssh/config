@@ -17,6 +17,11 @@ Hostname bitbucket.org
 User git
 IdentityFile ~/.ssh/bitbucket
 
+Host dev
+HostName dev.kemitchell.com
+User kyle
+IdentityFile ~/.ssh/dev.kemitchell.com
+
 TCPKeepAlive=yes
 ServerAliveInterval=15
 ServerAliveCountMax=6
