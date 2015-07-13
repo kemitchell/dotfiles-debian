@@ -83,7 +83,7 @@ set fileencodings=utf-8
 set display=lastline
 set nojoinspaces
 set complete-=k complete+=k
-set number
+set nonumber
 set showmatch
 set incsearch
 set ignorecase
