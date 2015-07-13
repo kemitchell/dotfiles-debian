@@ -19,6 +19,7 @@ set sort = threads
 set sort_aux = reverse-last-date-received
 set sort_re
 
+source "~/.mutt/generated_aliases"
 set alias_file = "~/.mutt/alias"
 set sort_alias = alias
 set reverse_alias = yes
@@ -62,3 +63,6 @@ set askcc=yes
 set askbcc=yes
 
 macro index,pager X "<pipe-message>ripmime -i - -d "
+
+set mime_forward=yes
+set mime_forward_rest=yes
