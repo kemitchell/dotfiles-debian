@@ -5,6 +5,9 @@ if [ -e configure.ac]; then
 	autoconf
 fi
 
-./configure --prefix=$HOME/local
+if [ -e configure]; then
+	./configure --prefix=$HOME/local
+fi
+
 make
 make install
