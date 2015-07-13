@@ -1,8 +1,12 @@
 #!/bin/sh
 SOURCES=$HOME/local/source
 mkdir -p $SOURCES
-# git clone git://git.suckless.org/dwm $SOURCES/dwm
+
+git clone --branch kemitchell git@github.com:kemitchell/dmenu $SOURCES/dmenu
 git clone --branch kemitchell git@github.com:kemitchell/dwm.git $SOURCES/dwm
+git clone --branch kemitchell git@github.com:kemitchell/evilvte.git $SOURCES/evilvte
+
 git clone https://git.kernel.org/pub/scm/git/git.git $SOURCES/git
-git clone https://github.com/caleb-/evilvte.git $SOURCES/evilvte
+
 git clone https://github.com/nodejs/io.js $SOURCES/io.js
+git clone https://github.com/joyent/node $SOURCES/node
