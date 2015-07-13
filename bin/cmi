@@ -1,5 +1,10 @@
 #!/bin/sh
 set -e
+
+if [ -e configure.ac]; then
+	autoconf
+fi
+
 ./configure --prefix=$HOME/local
 make
 make install
