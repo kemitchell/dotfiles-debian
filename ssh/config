@@ -22,6 +22,11 @@ HostName dev.kemitchell.com
 User kyle
 IdentityFile ~/.ssh/dev.kemitchell.com
 
+Host tm trademarks
+Hostname trademarks.kemitchell.com
+User kyle
+IdentityFile ~/.ssh/trademarks.kemitchell.com
+
 TCPKeepAlive=yes
 ServerAliveInterval=15
 ServerAliveCountMax=6
