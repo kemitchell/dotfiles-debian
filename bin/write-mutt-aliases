@@ -1,0 +1,13 @@
+#!/usr/bin/zsh
+
+ALIAS=$HOME/.mutt/generated_aliases
+CONTACTS=$HOME/contacts
+
+echo -n > $ALIAS
+
+cd $CONTACTS
+
+for json in data/**/*.json
+do
+	node mutt-alias.js < $json >> $ALIAS
+done
