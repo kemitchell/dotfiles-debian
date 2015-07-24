@@ -2,33 +2,42 @@ Host gh github github.com
 Hostname github.com
 User git
 IdentityFile ~/.ssh/github
+IdentitiesOnly yes
 
 Host client client.kemitchell.com
 Hostname client.kemitchell.com
 IdentityFile ~/.ssh/client.kemitchell.com
+IdentitiesOnly yes
 
 Host commonform commonform.org
 User root
 Hostname commonform.org
 IdentityFile ~/.ssh/commonform
+IdentitiesOnly yes
 
 Host bb bitbucket bitbucket.org
 Hostname bitbucket.org
 User git
 IdentityFile ~/.ssh/bitbucket
+IdentitiesOnly yes
 
 Host dev
 HostName dev.kemitchell.com
 User kyle
 IdentityFile ~/.ssh/dev.kemitchell.com
+IdentitiesOnly yes
 
 Host tm trademarks
 Hostname trademarks.kemitchell.com
 User kyle
 IdentityFile ~/.ssh/trademarks.kemitchell.com
+IdentitiesOnly yes
 
-Hostname penflip.com
+Host penflip
+Hostname www.penflip.com
+User git
 IdentityFile ~/.ssh/penflip
+IdentitiesOnly yes
 
 TCPKeepAlive=yes
 ServerAliveInterval=15

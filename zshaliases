@@ -24,7 +24,6 @@ alias iri='ri -i'
 alias r='rake'
 alias bb='bundle'
 alias be='bundle exec'
-alias b='bundle'
 alias jrs='jruby --ng -S'
 
 # TeX
