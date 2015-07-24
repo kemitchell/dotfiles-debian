@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+if [ "$#" -ne 2 ]; then
+	echo "Usage: phaxit <number> <file>"
+	exit 1
+fi
+
+curl https://api.phaxio.com/v1/send \
+	-F "to=$1" \
+	-F "filename=@$2" \
+	-F "api_key=$PHAXIO_KEY" \
+	-F "api_secret=$PHAXIO_SECRET"
