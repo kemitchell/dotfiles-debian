@@ -34,7 +34,7 @@ set pgp_sign_as = "84DFDD08"
 
 set signature = "~/.signature"
 # set sig_dashes = no
-# set sig_on_top = yes
+set sig_on_top = yes
 set fast_reply = yes
 
 macro index,pager e  "<save-message>=Archive<enter>"
