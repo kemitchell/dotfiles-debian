@@ -298,6 +298,8 @@ if has("autocmd")
   autocmd VimEnter * :call SetupCtrlP()
 endif
 
+autocmd BufNewFile,BufRead *.mail :call WriteMail()
+
 fu! WriteMail()
 	setlocal spell
 	" setlocal nolist

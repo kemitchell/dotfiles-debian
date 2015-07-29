@@ -51,6 +51,7 @@
 	webstart = instaweb
 	webstop = instaweb --stop
 	h = "!source ~/.githelpers && pretty_git_log"
+	track = checkout --track 
 [core]
 	editor = vim \"+set spell\" -c start
 	excludesfile = /home/kyle/.gitignore_global

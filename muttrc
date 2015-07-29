@@ -19,6 +19,9 @@ set sort = threads
 set sort_aux = reverse-last-date-received
 set sort_re
 
+set date_format = "%F %H:%m"
+set index_format = "%4C %Z %d %-20.20L %s"
+
 source "~/.mutt/generated_aliases"
 set alias_file = "~/.mutt/alias"
 set sort_alias = alias
