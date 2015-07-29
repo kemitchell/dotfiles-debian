@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]
+then
+	echo "Usage: lobit <file>" > /dev/stderr
+	exit 1
+fi
+
+if [ ! -e "$1" ]
+then
+	echo "File does not exist" > /dev/stderr
+	exit 1
+fi
+
+echo -n "Description: "
+read description
+echo -n "Name: "
+read to_name
+echo -n "Line 1: "
+read to_address_line1
+echo -n "Line 2: "
+read to_address_line2
+echo -n "City: "
+read to_address_city
+echo -n "State: "
+read to_address_state
+echo -n "ZIP: "
+read to_address_zip
+to_address_country=US
+
+curl https://api.lob.com/v1/letters \
+	-u $LOB_KEY: \
+	-F "description=$description" \
+	-F "to[name]=$to_name" \
+	-F "to[address_line1]=$to_address_line1" \
+	-F "to[address_line2]=$to_address_line2" \
+	-F "to[address_city]=$to_address_city" \
+	-F "to[address_state]=$to_address_state" \
+	-F "to[address_zip]=$to_address_zip" \
+	-F "to[address_country]=$to_address_country" \
+	-F "from[name]=Kyle E. Mitchell, attorney" \
+	-F "from[address_line1]=156 Second Street #325" \
+	-F "from[address_city]=San Francisco" \
+	-F "from[address_state]=CA" \
+	-F "from[address_zip]=94105" \
+	-F "from[address_country]=US" \
+	-F "template=false" \
+	-F "double_sided=false" \
+	-F "color=false" \
+	-F "file=@$1"

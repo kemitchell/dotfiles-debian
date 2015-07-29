@@ -1,0 +1,3 @@
+#!/bin/sh
+rm -rf $HOME/.offlineimap
+rm -rf $HOME/mail/kemitchell

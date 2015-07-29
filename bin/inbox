@@ -1,0 +1,2 @@
+#!/bin/sh
+offlineimap -f INBOX
