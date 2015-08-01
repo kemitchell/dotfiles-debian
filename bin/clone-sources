@@ -2,9 +2,11 @@
 SOURCES=$HOME/local/source
 mkdir -p $SOURCES
 
-git clone --branch kemitchell git@github.com:kemitchell/dmenu $SOURCES/dmenu
-git clone --branch kemitchell git@github.com:kemitchell/dwm.git $SOURCES/dwm
-git clone --branch kemitchell git@github.com:kemitchell/evilvte.git $SOURCES/evilvte
+for project in "dmenu dwm st"
+do
+	git clone --branch kemitchell git@github.com:kemitchell/$project $SOURCES/$project
+	( cd $SOURCES/$project && cmi)
+done
 
 git clone https://git.kernel.org/pub/scm/git/git.git $SOURCES/git
 
