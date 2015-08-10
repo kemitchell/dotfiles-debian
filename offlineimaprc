@@ -14,11 +14,14 @@ status_backend = sqlite
 
 [Repository Remote]
 type = IMAP
-remotehost = outlook.office365.com
-remoteuser = kyle@kemitchell.com
+remotehost = mail.messagingengine.com
+remoteuser = kylemitchell@fastmail.fm
+remoteport = 993
+holdconnectionopen = yes
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 5
 realdelete = no
-remotepasseval = subprocess.check_output(["pass", "show", "e-mail/kyle@kemitchell.com"]).strip()
-folderfilter = lambda folder: folder not in ['Deleted Items', 'Tasks', 'Contacts', 'Tasks/Groceries', 'Tasks/Shopping', 'Junk', 'Calendar']
+remotepasseval = subprocess.check_output(["pass", "show", "e-mail/kylemitchell@fastmail.fm"]).strip()
+folderfilter = lambda folder: folder not in ['Deleted Items']
+nametrans = lambda folder: re.sub('^INBOX\.', '', folder)
