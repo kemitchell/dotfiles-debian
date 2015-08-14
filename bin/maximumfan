@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo bash -c "echo level 7 > /proc/acpi/ibm/fan"

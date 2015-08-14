@@ -1,0 +1,2 @@
+#!/bin/sh
+xrandr --output HDMI3 --mode 1920x1080 --left-of DP2 --output DP2 --mode 1920x1080

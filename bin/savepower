@@ -1,0 +1,2 @@
+sudo cpufreqd-set -g powersave
+
