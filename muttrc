@@ -46,6 +46,8 @@ macro pager \cb "urlview"
 macro index \cy "<shell-escape>offlineimap -f INBOX<enter>"
 macro index,pager I "<change-folder>=INBOX<enter>"
 
+set timeout=10
+
 set confirmappend = no
 set confirmcreate = yes
 
