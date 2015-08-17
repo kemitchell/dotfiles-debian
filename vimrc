@@ -142,6 +142,10 @@ inoremap <C-S> <C-O>:update<CR>
 " map <C-l> zz
 nnoremap <CR> :nohlsearch<CR>
 
+fu! BuildShortcuts()
+  noremap <buffer> <leader>t <Esc>:!runtests<CR>
+endfu
+
 fu! WrapSettings()
 	setlocal spell
 	setlocal wrap
@@ -155,6 +159,9 @@ endfu
 au BufNewFile,BufReadPost Guardfile setl ft=ruby
 
 autocmd FileType pandoc,markdown call WrapSettings()
+autocmd Filetype pandoc,markdown setlocal autoindent shiftwidth=2 tabstop=2 expandtab
+
+autocmd FileType markdown call BuildShortcuts()
 
 autocmd FileType tex call WrapSettings()
 autocmd FileType Rnw call WrapSettings()
@@ -207,7 +214,7 @@ let g:syntastic_aggregate_errors = 1
 
 augroup javascript
   autocmd Filetype javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab
-  autocmd FileType javascript noremap <buffer> <leader>t <Esc>:!runtests<CR>
+  autocmd FileType javascript call BuildShortcuts()
   autocmd FileType javascript noremap <buffer> <leader>c <Esc>:!runcoverage<CR>
   autocmd FileType javascript noremap <buffer> <leader>l <Esc>:!runlint<CR>
   autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
