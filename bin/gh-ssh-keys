@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+if [ "$#" -lt 1 -a "$#" -gt 2 ]; then
+	echo "Usage: gh-ssh-keys <user> [<limit>]"
+	exit 1
+fi
+
+user=$1
+limit=${2-1}
+
+curl "https://github.com/$1.keys" 2>/dev/null | head -n "$limit"
