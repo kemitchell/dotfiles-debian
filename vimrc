@@ -27,6 +27,7 @@ Plugin 'xolox/vim-reload'
 Plugin 'groenewege/vim-less'
 Plugin 'paredit.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ntpeters/vim-better-whitespace'
 
 Bundle 'SirVer/ultisnips'
 
@@ -95,7 +96,6 @@ set novisualbell
 set noerrorbells
 set linebreak
 set nowrap
-" set showbreak=>>>\ 
 set hidden
 set wildmenu
 set scrolloff=3
@@ -176,10 +176,10 @@ noremap H ^
 noremap L $
 
 " Backups
-set nobackup 
-set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
-set backupskip=/tmp/*,/private/tmp/* 
-set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp 
+set nobackup
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nowritebackup
 
 set nofoldenable
@@ -206,8 +206,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Javascript
-let g:syntastic_javascript_checkers = []
-" let g:syntastic_javascript_checkers = ['eslint', 'jscs']
+" let g:syntastic_javascript_checkers = []
+let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_json_checkers = ['jsonval']
 let g:syntastic_aggregate_errors = 1
@@ -237,7 +237,8 @@ augroup END
 let g:syntastic_coffee_checkers = ['coffee', 'coffeelint']
 
 " JSON
-autocmd BufRead,BufNewFile *.json set filetype=json 
+autocmd BufNewFile,BufRead *.json set filetype=json
+autocmd BufNewFile,BufRead .eslintrc set filetype=json
 autocmd BufNewFile,BufRead .jshintrc set filetype=json
 autocmd BufNewFile,BufRead .jscsrc set filetype=json
 
