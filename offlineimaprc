@@ -11,6 +11,7 @@ remoterepository = Remote
 type = Maildir
 localfolders = ~/mail/kemitchell
 status_backend = sqlite
+nametrans = lambda folder: { 'INBOX': 'INBOX' }.get(folder, 'INBOX.' + folder)
 
 [Repository Remote]
 type = IMAP
@@ -23,5 +24,4 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 5
 realdelete = no
 remotepasseval = subprocess.check_output(["pass", "show", "e-mail/kylemitchell@fastmail.fm"]).strip()
-folderfilter = lambda folder: folder not in ['Deleted Items']
-nametrans = lambda folder: re.sub('^INBOX\.', '', folder)
+nametrans = lambda folder: { 'INBOX': 'INBOX' }.get(folder, re.sub('^INBOX\.', '', folder))
