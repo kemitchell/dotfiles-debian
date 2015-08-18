@@ -1,0 +1,5 @@
+#!/bin/zsh
+for dir in $HOME/.dotfiles/*
+do
+	rcup -d "$dir"
+done
