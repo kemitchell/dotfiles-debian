@@ -33,6 +33,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-source $HOME/.zsh/*.aliases(N)
-source $HOME/.zsh/*.apikeys(N)
-source $HOME/.zsh/*.zsh(N)
+for i in $HOME/.zsh/*.aliases(N); do source "$i" ; done
+for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done
+for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done
