@@ -3,8 +3,8 @@
 sudo apt-get update
 sudo apt-get remove --purge vim vim-runtime
 sudo apt-get install -y mercurial libncurses5-dev python-dev ruby-dev
-mkdir -p $PREFIX/source
-cd $PREFIX/source
+mkdir -p "$PREFIX/source"
+cd "$PREFIX/source"
 hg clone https://vim.googlecode.com/hg/ vim
 cd vim
 hg pull
