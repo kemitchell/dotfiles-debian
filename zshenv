@@ -18,5 +18,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # $HOME/local
 # -----------
-export PATH="$HOME/.bin:$HOME/local/bin:$PATH"
-export MANPATH="$HOME/local/share/man:$MANPATH"
+export PATH="$HOME/.local/bin:$HOME/.bin:$HOME/local/bin:$PATH"
+export MANPATH="$HOME/.local/share/man:$MANPATH"
+
+# Prefix
+# ------
+export PREFIX="$HOME/.local"

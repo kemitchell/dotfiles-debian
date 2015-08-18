@@ -206,9 +206,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Javascript
-" let g:syntastic_javascript_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_json_checkers = ['jsonval']
 let g:syntastic_aggregate_errors = 1
 

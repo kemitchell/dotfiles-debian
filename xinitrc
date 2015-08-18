@@ -6,7 +6,7 @@ setxkbmap -option ctrl:nocaps
 
 while true
 do
-	sh $HOME/.bin/xsetroot
+	sh $HOME/.bin/xsetroot.sh
 	BATT=$( acpi -b | sed 's/.*[charging|unknown], \([0-9]*\)%.*/\1/gi' )
 	STATUS=$( acpi -b | sed 's/.*: \([a-zA-Z]*\),.*/\1/gi' )
 	if ([ $BATT -le 5 ] && [ $STATUS == 'Discharging' ]); then

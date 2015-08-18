@@ -1,0 +1,6 @@
+#!/bin/bash
+for directory in `find $HOME -mindepth 1 -maxdepth 1 -type d -not -name ".*" -and -not -name local`
+do
+	echo "$directory"
+	rm -Ir "$directory"
+done

@@ -1,4 +1,0 @@
-set -e
-git push
-git push --tags
-npm publish
