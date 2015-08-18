@@ -1,0 +1,8 @@
+#!/bin/bash
+for dir in $HOME/.dotfiles/*
+do
+	(
+		cd $dir
+		git pull --ff-only
+	)
+done
