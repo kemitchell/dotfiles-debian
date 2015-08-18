@@ -1,19 +1,9 @@
 { "rules": {
-    "indent": [
-      2,
-      2 ],
-    "quotes": [
-      2,
-      "single" ],
-    "linebreak-style": [
-      2,
-      "unix" ],
-    "strict": [
-      2,
-      "never" ],
-    "semi": [
-      2,
-      "never" ] },
+    "indent": [ 2, 2 ],
+    "quotes": [ 2, "single" ],
+    "linebreak-style": [ 2, "unix" ],
+    "strict": [ 2, "never" ],
+    "semi": [ 2, "never" ] },
   "env": {
     "node": true,
     "browser": true } }
