@@ -6,7 +6,7 @@ if [ -e configure.ac ]; then
 fi
 
 if [ -e configure ]; then
-	./configure --prefix=$HOME/local
+	./configure --prefix=$PREFIX
 fi
 
 make
