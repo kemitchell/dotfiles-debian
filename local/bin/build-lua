@@ -7,8 +7,7 @@ if [ -z "$1" ]; then
 fi
 
 VERSION=$1
-SOURCE=$HOME/source
-PREFIX=$HOME/local
+SOURCE=$PREFIX/source
 LUA=lua-${VERSION}
 mkdir -p $SOURCE
 cd $SOURCE

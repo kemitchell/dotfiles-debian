@@ -7,10 +7,9 @@ if [ -z "$1" ]; then
 fi
 
 VERSION=v$1
-REPO=$HOME/local/source/git
+REPO=$PREFIX/source/git
 SOURCE=$(dirname $REPO)
 GIT=git://git.kernel.org/pub/scm/git/git.git
-PREFIX=$HOME/local
 mkdir -p $SOURCE
 
 if [ -d $REPO ]; then
