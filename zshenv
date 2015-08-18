@@ -1,4 +1,4 @@
-export PREFIX="$HOME/.local"
+export PREFIX="$HOME/.local/bin"
 
 export GOROOT=$PREFIX/go
 export GOPATH=$GOROOT/path
