@@ -1,1 +1,0 @@
-sudo bash -c "echo enable > /proc/acpi/ibm/bluetooth"
