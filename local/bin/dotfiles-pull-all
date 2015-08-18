@@ -3,6 +3,6 @@ for dir in $HOME/.dotfiles/*
 do
 	(
 		cd $dir
-		git pull --ff-only
+		git pull --ff-only origin master
 	)
 done
