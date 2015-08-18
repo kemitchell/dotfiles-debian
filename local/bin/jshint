@@ -1,6 +1,0 @@
-#!/bin/sh
-if [ -e ./node_modules/.bin/jshint ]; then
-	./node_modules/.bin/jshint "$@"
-else
-	$HOME/local/bin/jshint "$@"
-fi

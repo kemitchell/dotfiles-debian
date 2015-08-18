@@ -8,72 +8,44 @@ call vundle#begin()
 Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 
-" Generic
-Plugin 'panozzaj/vim-autocorrect'
-Plugin 'vim-misc'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ZenCoding.vim'
-Plugin 'vim-scripts/BufOnly.vim'
+Bundle 'SirVer/ultisnips'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/neocomplcache'
 Plugin 'UniCycle'
+Plugin 'ZenCoding.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'groenewege/vim-less'
 Plugin 'kien/ctrlp.vim'
 Plugin 'krisajenkins/vim-pipe'
+Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'scratch.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'panozzaj/vim-autocorrect'
+Plugin 'paredit.vim'
 Plugin 'repeat.vim'
+Plugin 'scratch.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'spiiph/vim-space'
-Plugin 'xolox/vim-reload'
-Plugin 'groenewege/vim-less'
-Plugin 'paredit.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ntpeters/vim-better-whitespace'
-
-Bundle 'SirVer/ultisnips'
-
 Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
-" Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-fireplace'
+Plugin 'vim-misc'
+Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'xolox/vim-reload'
 
-Plugin 'Lokaltog/vim-distinguished'
-Plugin 'Lokaltog/vim-easymotion'
+for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
+	exec 'source' f
+endfor
 
-" Clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-leiningen'
-
-" Haskell
-Plugin 'indenthaskell.vim'
-
-" Ruby
-Plugin 'skwp/vim-rspec'
-Plugin 'ruby.vim'
-Plugin 'tpope/vim-haml'
-
-" Javascript
-Plugin 'pangloss/vim-javascript'
-Plugin 'raichoo/purescript-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'JSON.vim'
-Plugin 'moll/vim-node'
-
-" Data
-Plugin 'avakhov/vim-yaml'
-
-" HTML
-Plugin 'mattn/emmet-vim'
-
-Plugin 'commonform/vim-commonform'
 call vundle#end()
-
 
 filetype plugin indent on
 syntax enable
@@ -120,10 +92,6 @@ endif
 set formatprg=par\ -w72r\ -s0
 set backspace=indent,eol,start
 
-
-autocmd FileType ruby,haml,eruby,yaml,sass,cucumber set ai sw=2 sts=2 et
-autocmd FileType php set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-
 " select last yank
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
@@ -138,13 +106,7 @@ nnoremap ; :
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap <C-F> <C-O>:exit<Enter>
 inoremap <C-S> <C-O>:update<CR>
-" inoremap <C-l> <C-O>zz
-" map <C-l> zz
 nnoremap <CR> :nohlsearch<CR>
-
-fu! BuildShortcuts()
-  noremap <buffer> <leader>t <Esc>:!runtests<CR>
-endfu
 
 fu! WrapSettings()
 	setlocal spell
@@ -156,18 +118,11 @@ fu! WrapSettings()
 	noremap <buffer> <silent> $ g$
 endfu
 
-au BufNewFile,BufReadPost Guardfile setl ft=ruby
-
-autocmd FileType pandoc,markdown call WrapSettings()
 autocmd Filetype pandoc,markdown setlocal autoindent shiftwidth=2 tabstop=2 expandtab
-
-autocmd FileType markdown call BuildShortcuts()
+autocmd FileType pandoc,markdown call WrapSettings()
 
 autocmd FileType tex call WrapSettings()
-autocmd FileType Rnw call WrapSettings()
-let g:Tex_ViewRule_pdf = "open -a texshop"
 
-" Command Line Editing
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
@@ -198,97 +153,6 @@ au BufNewFile,BufReadPost *.jade setl shiftwidth=2 expandtab
 
 digraph .. 8230 "ellipsis
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
-" Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Javascript
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_json_checkers = ['jsonval']
-let g:syntastic_aggregate_errors = 1
-
-augroup javascript
-  autocmd Filetype javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab
-  autocmd FileType javascript call BuildShortcuts()
-  autocmd FileType javascript noremap <buffer> <leader>c <Esc>:!runcoverage<CR>
-  autocmd FileType javascript noremap <buffer> <leader>l <Esc>:!runlint<CR>
-  autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
-augroup END
-
-augroup json
-  autocmd FileType json noremap <buffer> <leader>t <Esc>:!runtests<CR>
-augroup END
-
-" Coffee Script
-augroup coffee
-  autocmd FileType coffee setlocal foldmethod=indent
-  autocmd FileType coffee setlocal shiftwidth=2
-  autocmd FileType coffee setlocal expandtab
-  autocmd FileType coffee setlocal coffee_linter = '/usr/local/bin/coffeelint'
-  autocmd FileType coffee setlocal ai sw=2 sts=2 et
-  " au BufWritePost *.coffee silent make
-augroup END
-
-let g:syntastic_coffee_checkers = ['coffee', 'coffeelint']
-
-" JSON
-autocmd BufNewFile,BufRead *.json set filetype=json
-autocmd BufNewFile,BufRead .eslintrc set filetype=json
-autocmd BufNewFile,BufRead .jshintrc set filetype=json
-autocmd BufNewFile,BufRead .jscsrc set filetype=json
-
-augroup json_autocmd
-  autocmd!
-  autocmd FileType json setlocal autoindent
-  autocmd FileType json setlocal shiftwidth=2
-  autocmd FileType json setlocal tabstop=2
-  autocmd FileType json setlocal expandtab
-  autocmd FileType json setlocal foldmethod=syntax
-  autocmd FileType json setlocal formatprg=formatjson
-augroup END
-
-" Plain Text
-autocmd BufRead,BufNewFile *.txt set filetype=text
-augroup text_autocmd
-  " autocmd Filetype text setlocal shiftwidth=2 tabstop=2 expandtab
-  " autocmd FileType text call WrapSettings()
-  " autocmd FileType text call AutoCorrect()
-augroup END
-
-" Common Form
-augroup commonform
-  autocmd!
-  autocmd FileType commonform setlocal autoindent
-  autocmd FileType commonform setlocal shiftwidth=4
-  autocmd FileType commonform setlocal tabstop=4
-  autocmd FileType commonform setlocal expandtab
-  autocmd FileType commonform setlocal wrap linebreak nolist spell
-  autocmd FileType commonform noremap <buffer> <silent> k gk
-  autocmd FileType commonform noremap <buffer> <silent> j gj
-  autocmd FileType commonform noremap <buffer> <silent> 0 g0
-  autocmd FileType commonform noremap <buffer> <silent> $ g$
-  autocmd FileType commonform noremap <buffer> <leader>t <Esc>:!commonform lint < '%:p' \| uniq<CR>
-augroup END
-
-" YAML
-augroup yaml
-  autocmd!
-  " autocmd FileType yaml setlocal noautoindent
-  " autocmd FileType yaml setlocal nocindent
-  " autocmd FileType yaml setlocal nosmartindent
-  " autocmd FileType yaml setlocal indentexpr=
-  autocmd FileType yaml setlocal spell
-augroup END
-
-" Ruby
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-
-" CSS
-let g:syntastic_css_checkers = ['csslint']
-
 " ctrlp
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
@@ -304,16 +168,7 @@ if has("autocmd")
   autocmd VimEnter * :call SetupCtrlP()
 endif
 
-autocmd BufNewFile,BufRead *.mail :call WriteMail()
 
-fu! WriteMail()
-	setlocal spell
-	" setlocal nolist
-	" setlocal wrap
-	" setlocal linebreak
-	" setlocal textwidth=0
-	" setlocal wrapmargin=0
-	" call WrapSettings()
-	setlocal fo+=awn
-	call AutoCorrect()
-endfu
+for f in split(glob('~/.vim/configurations/*.vim'), '\n')
+	exec 'source' f
+endfor

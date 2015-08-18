@@ -1,8 +1,0 @@
-#!/bin/sh
-if [ -e ./node_modules/.bin/jscs ]; then
-	./node_modules/.bin/jscs "$@"
-else
-	if [ -e ./.jscsrc /]; then
-		$HOME/local/bin/jscs "$@"
-	fi
-fi

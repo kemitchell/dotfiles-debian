@@ -1,30 +1,15 @@
-# Aliases and Functions
-# =====================
-source $HOME/.zshaliases
-
-# API Keys
-# ========
-source $HOME/.zapikeys
-
-# Options
-# =======
 export EDITOR=vim
+bindkey -e
+
 setopt auto_cd
 
-# History
-# =======
 setopt share_history
 setopt append_history
 HISTSIZE=50000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
-# Key Bindings
-# ============
-bindkey -e
-
 # zgen
-# ====
 autoload -U compinit compdef
 compinit
 source "$HOME/.zsh/zgen/zgen.zsh"
@@ -42,18 +27,12 @@ if ! zgen saved; then
 	zgen save
 fi
 
-# Prompt
-# ======
 PROMPT='%m :: %2~ %B%b%1(j.+.)%# '
 
-# Language
-# ========
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-# Node
-# ====
-export NODE_REPL_HISTORY_FILE=$HOME/.node_history
-export NODE_REPL_HISTORY_SIZE=10000
-export NODE_REPL_MODE=strict
+source $HOME/.zsh/*.aliases(N)
+source $HOME/.zsh/*.apikeys(N)
+source $HOME/.zsh/*.zsh(N)

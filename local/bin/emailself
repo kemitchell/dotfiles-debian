@@ -1,6 +1,0 @@
-#!/bin/zsh
-msmtp -a default kyle@kemitchell.com <<< "To: kyle@kemitchell.com
-From: kyle@kemitchell.com
-Subject: emailself
-
-$1"
