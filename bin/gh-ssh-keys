@@ -10,3 +10,4 @@ user=$1
 limit=${2-1}
 
 curl "https://github.com/$1.keys" 2>/dev/null | head -n "$limit"
+echo " github.com/$1.keys as of $(date --utc --iso-8601=minutes)"
