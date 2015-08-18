@@ -1,0 +1,14 @@
+#!/bin/zsh
+set -e
+SOURCE="$PREFIX/source/fpp"
+LINK="$PREFIX/bin/fpp"
+GIT="https://github.com/facebook/pathpicker"
+if [ ! -e "$SOURCE" ]; then
+	git clone "$GIT" "$SOURCE"
+fi
+cd "$SOURCE"
+git checkout "$(git-latest-semver-tag)"
+if [ -e "$LINK" ]; then
+	rm -f "$LINK"
+fi
+ln -s "$SOURCE/fpp" "$PREFIX/bin/fpp"
