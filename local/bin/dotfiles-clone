@@ -1,0 +1,4 @@
+#!/bin/zsh
+set -e
+git clone git@github.com:kemitchell/dotfiles-$1 .dotfiles/$1
+rcup-all

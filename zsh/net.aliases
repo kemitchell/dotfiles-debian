@@ -1,0 +1,2 @@
+alias dl='wget -c'
+alias serve='http-server -r -c-1'

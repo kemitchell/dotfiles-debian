@@ -1,12 +1,11 @@
 #!/bin/bash
-set -e
-
 if [ -z "$1" ]; then
 	echo "Specify a package"
 	exit 1
 fi
 
 (
+	which cabal || ( sudo apt-get update && sudo apt-get install -y cabal-install )
 	CABAL=$(which cabal)
 	PACKAGE=$1
 	BUILD_DIR=/tmp/$PACKAGE
