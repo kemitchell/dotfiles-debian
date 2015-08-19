@@ -28,7 +28,11 @@ if ! zgen saved; then
 fi
 
 autoload -U colors && colors
-PROMPT="%F{$((RANDOM % 8))}%m $reset_color :: %2~ %B%b%1(j.+.)%# "
+if [[ -z "$SSH_CLIENT" ]]; then
+	PROMPT="%2~ %B%b%1(j.+.)%# "
+else
+	PROMPT="%F{$((RANDOM % 8))}%m $reset_color :: %2~ %B%b%1(j.+.)%# "
+fi
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
