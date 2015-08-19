@@ -24,9 +24,9 @@
 	skip = rebase --skip
 	c = commit
 	ca = commit -a
-	cam = commit -a -m 
-	cb = checkout -b 
-	cc = commit -m 
+	cam = commit -a -m
+	cb = checkout -b
+	cc = commit -m
 	ch = checkout
 	d = diff
 	dev = !git checkout development || git checkout -b development
@@ -46,12 +46,13 @@
 	remove = ls-files --deleted | xargs git rm
 	s = status
 	todo = !git --no-pager grep -i -E '(todo|fixme)' | sed -r 's/ TODO: //g' | sed -r 's!//! !g' | sed -r 's/\\s+/ /g'
-	topic = checkout -b 
+	topic = checkout -b
+	reword = commit --amend
 	unstash = stash apply
 	webstart = instaweb
 	webstop = instaweb --stop
 	h = "!source ~/.githelpers && pretty_git_log"
-	track = checkout --track 
+	track = checkout --track
 [core]
 	editor = vim \"+set spell\" -c start
 	excludesfile = /home/kyle/.gitignore_global
