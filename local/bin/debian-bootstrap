@@ -1,2 +1,25 @@
 #!/bin/zsh
-sudo apt-get install -y zsh git vim ssh-agent
+cat <<PACKAGES | sudo xargs apt-get install -y
+aspell
+autoconf
+automake
+awk
+curl
+fonts-droid
+git
+git
+irussian
+ispell
+parallel
+rename-utils
+renameutils
+unp
+unp
+vim
+vim
+wamerican
+watch
+wget
+zsh
+zsh
+PACKAGES
