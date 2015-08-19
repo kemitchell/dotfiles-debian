@@ -50,6 +50,7 @@ call vundle#end()
 filetype plugin indent on
 syntax enable
 
+set modeline
 set ruler
 set nomore
 set fileencodings=utf-8
@@ -112,6 +113,8 @@ fu! WrapSettings()
 	setlocal spell
 	setlocal wrap
 	setlocal showbreak=
+	setlocal textwidth=0
+	setlocal wrapmargin=0
 	noremap <buffer> <silent> k gk
 	noremap <buffer> <silent> j gj
 	noremap <buffer> <silent> 0 g0
