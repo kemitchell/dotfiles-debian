@@ -27,7 +27,8 @@ if ! zgen saved; then
 	zgen save
 fi
 
-PROMPT='%m :: %2~ %B%b%1(j.+.)%# '
+autoload -U colors && colors
+PROMPT="%F{$((RANDOM % 8))}%m $reset_color :: %2~ %B%b%1(j.+.)%# "
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
