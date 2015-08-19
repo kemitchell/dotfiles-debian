@@ -1,9 +1,12 @@
 #!/bin/zsh
+sudo apt-get update
+sudo apt-get upgrade -y
 cat <<PACKAGES | sudo xargs apt-get install -y
 aspell
 autoconf
 automake
-awk
+bsdmainutils
+gawk
 curl
 fonts-droid
 git
@@ -11,14 +14,13 @@ git
 irussian
 ispell
 parallel
-rename-utils
 renameutils
+sysvbanner
 unp
 unp
 vim
 vim
 wamerican
-watch
 wget
 zsh
 zsh
