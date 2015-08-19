@@ -1,0 +1,6 @@
+#!/bin/zsh
+for dir in `find $HOME -maxdepth 1 -mindepth 1 -type d -not -iname ".*"`
+do
+	echo $dir
+	rm -rI $dir
+done

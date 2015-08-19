@@ -1,7 +1,0 @@
-#!/bin/bash
-set -e
-source .ssh/environment-dev.kemitchell.com
-cd org
-git add .
-git commit --message 'Scheduled commit'
-git push origin master

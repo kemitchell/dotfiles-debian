@@ -1,2 +1,0 @@
-#!/bin/zsh
-gem install bundler cheat dbox gist github-pages rails rake rspec rubocop sinatra travis
