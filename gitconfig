@@ -38,6 +38,7 @@
 	mirror = push --mirror
 	p = push
 	pa = !git remote | xargs -l git push
+	pom = push origin master
 	purge = clean -fdx
 	clobber = clean -fdx
 	pwd = !pwd
