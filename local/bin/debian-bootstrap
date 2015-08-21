@@ -17,6 +17,7 @@ ntpdate
 parallel
 renameutils
 sysvbanner
+tree
 unp
 unp
 vim
