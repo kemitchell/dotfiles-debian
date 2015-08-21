@@ -109,6 +109,11 @@ inoremap <C-F> <C-O>:exit<Enter>
 inoremap <C-S> <C-O>:update<CR>
 nnoremap <CR> :nohlsearch<CR>
 
+" Spelling
+map <leader>s :w!<CR>:!aspell check %<CR>:e! %<CR>
+set spelllang=en_us
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+
 fu! WrapSettings()
 	setlocal spell
 	setlocal wrap
