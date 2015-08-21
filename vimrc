@@ -168,6 +168,10 @@ if has("autocmd")
   autocmd VimEnter * :call SetupCtrlP()
 endif
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 for f in split(glob('~/.vim/configurations/*.vim'), '\n')
 	exec 'source' f
