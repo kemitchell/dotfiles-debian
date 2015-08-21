@@ -152,16 +152,8 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 
 let g:neocomplcache_enable_at_startup = 1
 
-let g:Tex_DefaultTargetFormat='pdf'
-
-au BufNewFile,BufReadPost *.py setl expandtab shiftwidth=4 tabstop=4 softtabstop=4
-
-au BufNewFile,BufReadPost *.jade setl foldmethod=indent
-au BufNewFile,BufReadPost *.jade setl shiftwidth=2 expandtab
-
 digraph .. 8230 "ellipsis
 
-" ctrlp
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
     augroup CtrlPExtension
