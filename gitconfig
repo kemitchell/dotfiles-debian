@@ -39,6 +39,7 @@
 	p = push
 	pa = !git remote | xargs -l git push
 	pom = push origin master
+	rom = rebase origin/master
 	purge = clean -fdx
 	clobber = clean -fdx
 	pwd = !pwd
