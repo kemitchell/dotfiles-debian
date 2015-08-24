@@ -108,6 +108,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap <C-F> <C-O>:exit<Enter>
 inoremap <C-S> <C-O>:update<CR>
 nnoremap <CR> :nohlsearch<CR>
+noremap  <leader>t <Esc>:!node-test<CR>
 
 " Spelling
 map <leader>s :w!<CR>:!aspell check %<CR>:e! %<CR>
