@@ -8,6 +8,7 @@ automake
 bsdmainutils
 gawk
 curl
+diction
 fonts-droid
 git
 git
