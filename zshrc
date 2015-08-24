@@ -41,3 +41,5 @@ export LANGUAGE=en_US.UTF-8
 for i in $HOME/.zsh/*.aliases(N); do source "$i" ; done
 for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done
 for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done
+
+export cf=commonform
