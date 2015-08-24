@@ -2,5 +2,5 @@
 
 for directory in `find . -maxdepth 1 -mindepth 1 -type d`
 do
-	banner $directory && (cd $directory && git status)
+	echo $directory && (cd $directory && git status)
 done
