@@ -34,7 +34,6 @@
 	h = help
 	l = log --oneline -n 10 --decorate=full
 	m = checkout master
-	d = checkout development
 	mirror = push --mirror
 	p = push
 	pa = !git remote | xargs -l git push
