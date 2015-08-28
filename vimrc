@@ -68,7 +68,6 @@ set smarttab
 set showcmd
 set novisualbell
 set noerrorbells
-set linebreak
 set nowrap
 set hidden
 set wildmenu
@@ -110,6 +109,7 @@ inoremap <C-F> <C-O>:exit<Enter>
 inoremap <C-S> <C-O>:update<CR>
 nnoremap <CR> :nohlsearch<CR>
 noremap  <leader>t <Esc>:!node-test<CR>
+noremap  <leader>u <Esc>:!git commit -u<CR>
 
 " Spelling
 map <leader>s :w!<CR>:!aspell check %<CR>:e! %<CR>
@@ -119,7 +119,8 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 fu! WrapSettings()
 	setlocal spell
 	setlocal wrap
-	setlocal showbreak=
+	setlocal linebreak
+	setlocal nolist
 	setlocal textwidth=0
 	setlocal wrapmargin=0
 	noremap <buffer> <silent> k gk
