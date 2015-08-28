@@ -29,3 +29,5 @@ wget
 zsh
 zsh
 PACKAGES
+
+debian-install-ssp
