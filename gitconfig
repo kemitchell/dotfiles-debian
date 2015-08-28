@@ -32,7 +32,7 @@
 	dev = !git checkout development || git checkout -b development
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 	h = help
-	l = log --oneline -n 10
+	l = log --oneline -n 10 --decorate=full
 	m = checkout master
 	d = checkout development
 	mirror = push --mirror
