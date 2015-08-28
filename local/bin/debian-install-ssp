@@ -1,0 +1,14 @@
+#!/bin/zsh
+set -e
+url=`curl https://api.github.com/repos/adobe-fonts/source-sans-pro/releases/latest | fgrep tarball_url | cut -d '"' -f 4`
+tarball="ssp.tar.gz"
+temp=`mktemp -d`
+echo $temp
+cd "$temp"
+curl -L "$url" > "$tarball"
+tar -xzf "$tarball"
+mkdir -p ~/.fonts
+cp **/*.otf ~/.fonts
+fc-cache -f
+cd
+rm -rf "$temp"
