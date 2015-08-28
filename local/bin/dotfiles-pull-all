@@ -7,3 +7,4 @@ do
 		git pull --ff-only origin master
 	)
 done
+rcup-all
