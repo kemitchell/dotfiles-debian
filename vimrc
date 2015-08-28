@@ -109,7 +109,7 @@ inoremap <C-F> <C-O>:exit<Enter>
 inoremap <C-S> <C-O>:update<CR>
 nnoremap <CR> :nohlsearch<CR>
 noremap  <leader>t <Esc>:!node-test<CR>
-noremap  <leader>u <Esc>:!git commit -u<CR>
+noremap  <leader>u <Esc>:!git add -u && git commit <CR>
 
 " Spelling
 map <leader>s :w!<CR>:!aspell check %<CR>:e! %<CR>
