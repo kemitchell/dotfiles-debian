@@ -1,6 +1,5 @@
-#!/bin/zsh
-for dir in `find $HOME -maxdepth 1 -mindepth 1 -type d -not -iname ".*"`
+for path in `find $HOME -maxdepth 1 -mindepth 1 -not -iname ".*"`
 do
-	echo $dir
-	rm -rf $dir
+	echo "$path"
+	rm -rf "$path"
 done
