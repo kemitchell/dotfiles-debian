@@ -6,6 +6,6 @@ augroup commonform
   autocmd FileType commonform setlocal expandtab
   autocmd FileType commonform call WrapSettings()
   autocmd FileType commonform noremap <buffer> <leader>t <Esc>:!commonform lint < '%:p' \| uniq<CR>
-  autocmd FileType commonform noremap <buffer> <leader>c <Esc>:!commonform critique < '%:p' \| uniq<CR>
+  autocmd FileType commonform noremap <buffer> <leader>c <Esc>:!commonform critique < '%:p' \| sort -u<CR>
 augroup END
 
