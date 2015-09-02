@@ -9,6 +9,6 @@ curl -L "$url" > "$tarball"
 tar -xzf "$tarball"
 mkdir -p ~/.fonts
 cp **/*.otf ~/.fonts
-fc-cache -f
+fc-cache -fv
 cd
 rm -rf "$temp"
