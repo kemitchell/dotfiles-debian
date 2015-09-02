@@ -7,4 +7,4 @@ do
 		git pull --ff-only origin master
 	)
 done
-rcup-all
+dotfiles-link-all
