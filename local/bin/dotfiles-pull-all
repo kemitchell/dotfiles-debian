@@ -1,10 +1,12 @@
 #!/bin/bash
-for dir in $HOME/.dotfiles/*
+directories=$HOME/.dotfiles/*
+echo $directories
+for dir in $directories
 do
+	echo $dir
 	(
 		cd $dir
-		echo $dir
-		git pull --ff-only origin master
+		git pull --ff-only origin master > /dev/null 2>&1 &
 	)
 done
 dotfiles-link-all
