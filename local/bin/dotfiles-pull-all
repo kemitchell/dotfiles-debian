@@ -1,11 +1,12 @@
 #!/bin/bash
-directories=$HOME/.dotfiles/*
+directories=( $HOME/.dotfiles/* )
 echo $directories
 for dir in $directories
 do
 	echo $dir
 	(
 		cd $dir
-		git pull --ff-only origin master > /dev/null 2>&1 &
+		git fetch
+		git merge --ff-only origin/master > /dev/null 2>&1 &
 	)
 done
