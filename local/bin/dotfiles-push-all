@@ -1,0 +1,14 @@
+#!/bin/zsh
+directories=( $HOME/.dotfiles/* )
+echo $directories
+for dir in $directories
+do
+	(
+		cd $dir
+		if [ -n "$(git status --porcelain)" ]; then
+			git add . && git commit && git push
+		else
+			echo "Nothing to commit in $(pwd)"
+		fi
+	)
+done
