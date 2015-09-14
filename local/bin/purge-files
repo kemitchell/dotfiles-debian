@@ -1,5 +1,1 @@
-for path in `find $HOME -maxdepth 1 -mindepth 1 -not -iname ".*"`
-do
-	echo "$path"
-	rm -rf "$path"
-done
+find $HOME -maxdepth 1 -mindepth 1 -not -iname '.*' -exec rm '{}' +
