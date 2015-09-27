@@ -52,7 +52,11 @@ filetype plugin indent on
 syntax enable
 
 set modeline
+set modelines=2
+set history=999
 set ruler
+set wildmenu
+set wildignore+=.git
 set nomore
 set fileencodings=utf-8
 set display=lastline
@@ -61,6 +65,7 @@ set complete-=k complete+=k
 set nonumber
 set showmatch
 set incsearch
+set pastetoggle=<F11>
 set ignorecase
 set smartcase
 set hlsearch
@@ -81,6 +86,10 @@ set autoindent
 set switchbuf=useopen
 set bg=dark
 set termencoding=utf8
+if has('persistent_undo')
+	set undodir=$HOME/.vim/undo
+	set undofile
+endif
 if has('gui_running')
     set guifont=Droid\ Sans\ Mono\ 12
 	set antialias
@@ -226,3 +235,7 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
+
+" Change shape of cursor in different modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical line in insert mode
+let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
