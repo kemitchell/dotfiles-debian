@@ -9,6 +9,7 @@ bsdmainutils
 gawk
 curl
 diction
+exactimage
 fonts-droid
 git
 git
@@ -21,6 +22,9 @@ parallel
 recode
 renameutils
 sysvbanner
+tesseract-ocr
+tesseract-ocr-eng
+tesseract-ocr-rus
 tree
 unoconv
 unp
