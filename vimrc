@@ -78,11 +78,11 @@ set nowrap
 set hidden
 set wildmenu
 set scrolloff=3
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 set autoindent
 set switchbuf=useopen
 set bg=dark
