@@ -20,6 +20,7 @@
 	amend = commit --amend -C HEAD
 	b = branch
 	continue = rebase --continue
+	cp = cherry-pick
 	abort = rebase --abort
 	skip = rebase --skip
 	c = commit
