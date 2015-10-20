@@ -19,6 +19,7 @@
 	ai = add -i
 	amend = commit --amend -C HEAD
 	b = branch
+	bb = branch --all
 	continue = rebase --continue
 	cp = cherry-pick
 	abort = rebase --abort
