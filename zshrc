@@ -43,3 +43,7 @@ for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done
 for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done
 
 export cf=commonform
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
