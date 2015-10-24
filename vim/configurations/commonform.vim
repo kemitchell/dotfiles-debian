@@ -27,3 +27,4 @@ augroup END
 
 autocmd BufNewFile,BufRead *.commonform.mustache set filetype=commonform
 autocmd BufNewFile,BufRead *.commonform.ejs set filetype=commonform
+autocmd BufNewFile,BufRead *.commonform.m4 set filetype=commonform
