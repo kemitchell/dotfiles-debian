@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 purge-files
-dotfiles-push-all
+dot-push-all
 sudo shutdown now -h
