@@ -1,0 +1,2 @@
+sudo apt-get update 2>&1 >/dev/null
+sudo apt-get dist-upgrade --dry-run
