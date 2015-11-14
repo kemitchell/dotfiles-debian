@@ -1,17 +1,25 @@
 #!/bin/bash
 set -e
 
+if [ -z "$1" ]; then
+  echo "Usage: install-emacs <version>"
+  exit 1
+fi
+
 sudo apt-get update
 sudo apt-get install autoconf automake
 sudo apt-get build-dep emacs
+
 mkdir -p $PREFIX/source
 REPO=$PREFIX/source/emacs
 if [ -d $REPO ]; then
 	cd $REPO
-	make distclean
-	git pull
+	git fetch
 else
 	git clone --depth 1 git://git.savannah.gnu.org/emacs.git $REPO
 	cd $REPO
 fi
+
+git checkout -f emacs-$1
+
 ./autogen.sh && ./configure --prefix=$PREFIX --without-x && make && make install
