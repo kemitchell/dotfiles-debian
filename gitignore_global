@@ -54,3 +54,5 @@ Thumbs.db
 node_modules
 
 .~lock*
+
+coverage
