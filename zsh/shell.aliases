@@ -22,4 +22,7 @@ function v {
 
 function spawn { ($* 2>&1 1> /dev/null &) }
 
-alias mux="screen -x || screen"
+function mux {
+  dot-pull-all 2>&1 > /dev/null &
+  screen -x || screen
+}
