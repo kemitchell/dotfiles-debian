@@ -9,6 +9,7 @@
 	branch = auto
 [alias]
 	graph = log --oneline --graph --decorate
+	grapha = log --oneline --graph --decorate --all
 	g = log --oneline --graph --decorate --all
 	wdiff = diff --color-words
 	wd = diff --word-diff
