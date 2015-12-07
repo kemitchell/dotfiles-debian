@@ -1,1 +1,1 @@
-git ls-files | xargs vim
+vim $(find . -type f)
