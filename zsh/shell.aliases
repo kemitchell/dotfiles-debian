@@ -23,6 +23,6 @@ function v {
 function spawn { ($* 2>&1 1> /dev/null &) }
 
 function mux {
-  dot-pull-all 2>&1 > /dev/null &
+  ( dot-pull-all & ) >/dev/null 2>&1
   screen -x || screen
 }
