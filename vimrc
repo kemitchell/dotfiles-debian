@@ -42,6 +42,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-misc'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'xolox/vim-reload'
+Plugin 'reedes/vim-wordy'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
 	exec 'source' f
