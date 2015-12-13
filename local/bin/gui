@@ -1,0 +1,4 @@
+set -e
+dot-pull-all
+dot-link-all
+startx
