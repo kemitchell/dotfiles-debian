@@ -66,6 +66,7 @@ set nojoinspaces
 set complete-=k complete+=k
 set nonumber
 set showmatch
+set matchtime=3
 set incsearch
 set pastetoggle=<F11>
 set ignorecase
