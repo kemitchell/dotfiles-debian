@@ -3,6 +3,10 @@ alias groot='git rev-parse --git-dir > /dev/null 2>&1 && cd `git rev-parse --sho
 alias .g="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
 alias gg='git g'
 
+alias push='git push'
+alias clone='git clone'
+alias checkout='git checkout'
+
 function clonecf {
 	git clone "git@github.com:commonform/commonform-$1" "$1"
 	cd "$1"
