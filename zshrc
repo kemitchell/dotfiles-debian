@@ -2,6 +2,9 @@ export EDITOR=vim
 bindkey -e
 
 setopt auto_cd
+setopt auto_pushd
+setopt auto_resume
+setopt auto_list
 
 setopt share_history
 setopt append_history

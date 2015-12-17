@@ -42,14 +42,6 @@ function mkcd() {
 	cd $1
 }
 
-function v {
-	if jobs vim; then
-		fg
-	else
-		vim $@
-	fi
-}
-
 function spawn { ($* 2>&1 1> /dev/null &) }
 
 hash w=~/workspace
