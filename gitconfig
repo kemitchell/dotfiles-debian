@@ -54,6 +54,7 @@
 	topic = checkout -b
 	reword = commit --amend
 	unstash = stash apply
+  wip = commit -m "WIP"
 	webstart = instaweb
 	webstop = instaweb --stop
 	h = "!source ~/.githelpers && pretty_git_log"
