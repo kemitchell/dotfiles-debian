@@ -5,7 +5,7 @@ augroup commonform
   autocmd FileType commonform setlocal tabstop=4
   autocmd FileType commonform setlocal expandtab
   autocmd FileType commonform call WrapSettings()
-  autocmd FileType commonform call AutoCorrect()
+  " autocmd FileType commonform call AutoCorrect()
   autocmd FileType commonform noremap <buffer> <leader>t <Esc>:!cat '%:p' \| m4 \| commonform lint \| sort -u<CR>
   autocmd FileType commonform noremap <buffer> <leader>c <Esc>:!cat '%:p' \| m4 \| commonform critique \| sort -u<CR>
   autocmd FileType commonform abbreviate agt <Agreement>
