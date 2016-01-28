@@ -39,6 +39,7 @@
 	l = log --oneline -n 10 --decorate=full
 	m = checkout master
 	mirror = push --mirror
+  noff = merge --no-ff
 	p = push
 	pa = !git remote | xargs -l git push
 	pom = push origin master
