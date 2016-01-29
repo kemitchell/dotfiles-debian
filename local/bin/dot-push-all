@@ -6,7 +6,7 @@ do
 	(
 		cd $dir
 		if [ -n "$(git status --porcelain)" ]; then
-			git add . && git commit && git push
+			git add . && git commit --allow-empty-message -m '' && git push
 		else
 			echo "Nothing to commit in $(pwd)"
 		fi
