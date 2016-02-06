@@ -8,6 +8,7 @@ setopt auto_list
 
 setopt share_history
 setopt append_history
+setopt extended_history
 HISTSIZE=50000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
