@@ -122,7 +122,7 @@ inoremap <C-S> <C-O>:update<CR>
 nnoremap <CR> :nohlsearch<CR>
 noremap  <leader>t <Esc>:!node-test<CR>
 noremap  <leader>u <Esc>:!git add -u && git commit --verbose <CR>
-noremap  <leader>p <Esc>:!git push<CR>
+noremap  <leader>p <Esc>:!git push<CR><CR>
 noremap  <leader>m <Esc>:!make<CR>
 
 " Spelling

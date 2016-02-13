@@ -53,3 +53,5 @@ alias m=mutt
 alias org="emacs -nw"
 
 alias tt=runtests
+
+alias pdiff='dwdiff -c'
