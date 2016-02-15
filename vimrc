@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'AndrewRadev/linediff.vim'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/neocomplcache'
