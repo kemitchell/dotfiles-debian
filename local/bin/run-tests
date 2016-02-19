@@ -3,4 +3,6 @@ if [ -f package.json ]; then
 	node-test
 elif [ -f Makefile ]; then
 	make test
+elif [ -f stack.yaml ]; then
+	stack test
 fi

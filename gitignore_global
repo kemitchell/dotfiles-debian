@@ -56,3 +56,5 @@ node_modules
 .~lock*
 
 coverage
+
+.stack-work
