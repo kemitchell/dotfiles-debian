@@ -4,7 +4,6 @@ alias .g="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
 alias gg='git g'
 
 alias push='git push'
-alias clone='git clone'
 alias checkout='git checkout'
 
 function clonecf {
@@ -19,4 +18,13 @@ function ggg {
 	cd "$1"
 	npm install
 	npm test
+}
+
+function clone {
+  base=$(basename "$1")
+  git clone "$1" "$base"
+  cd "$base"
+  if [ -f package.json ]; then
+    npm it
+  fi
 }

@@ -1,4 +1,3 @@
-#!/bin/bash
 CACHE="$HOME/.ghmyrepos"
 
 if [[ ! -f "$CACHE" || $* == *--refresh* ]]
