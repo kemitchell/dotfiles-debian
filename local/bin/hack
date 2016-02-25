@@ -1,2 +1,4 @@
 #!/bin/zsh
-git checkout -b $(date -I) master
+branch=$(1-$(date -I))
+git checkout -b "$branch" -I) master
+git push origin "$branch"
