@@ -28,3 +28,9 @@ function clone {
     npm it
   fi
 }
+
+function ct {
+  repo="$1"
+  hub clone "$1"
+  cd "$1"
+}
