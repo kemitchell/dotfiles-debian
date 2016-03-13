@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+set -e
+SOURCE="$HOME/.local/source/jo"
+
+if [ -d "$SOURCE" ]; then
+else
+  git clone git://github.com/jpmens/jo.git .local/source/jo
+fi
+cd .local/source/jo
+git fetch origin
+git checkout origin/master
+autoreconf -i
+./configure --prefix="$PREFIX"
+make check
+make install
