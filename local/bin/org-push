@@ -1,0 +1,14 @@
+#!/bin/zsh
+set -e
+if [[ -d "$HOME/org" ]]; then
+  echo "org files are checked out. Inspecting."
+  cd "$HOME/org"
+  if [[ -n $(git status --porcelain) ]]; then
+    echo "Working tree is dirty. Committing."
+    git add .
+    git commit --allow-empty-message -m ''
+  fi
+  echo "Pushing."
+  git push origin master
+  echo "Done."
+fi

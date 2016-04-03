@@ -39,6 +39,10 @@ User git
 IdentityFile ~/.ssh/penflip
 IdentitiesOnly yes
 
+Host git-codecommit.*.amazonaws.com
+User APKAJZCKRP5SWPVMS46A
+IdentityFile ~/.ssh/codecommit
+
 TCPKeepAlive=yes
 ServerAliveInterval=15
 ServerAliveCountMax=6

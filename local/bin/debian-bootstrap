@@ -9,6 +9,7 @@ bsdmainutils
 gawk
 curl
 diction
+emacs24-nox
 exactimage
 fonts-droid
 git

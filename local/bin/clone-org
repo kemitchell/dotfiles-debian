@@ -1,0 +1,2 @@
+#!/bin/zsh
+clone-aws org org
