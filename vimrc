@@ -90,6 +90,7 @@ set autoindent
 set switchbuf=useopen
 set bg=dark
 set termencoding=utf8
+set diffopt+=vertical
 if has('persistent_undo')
 	set undodir=$HOME/.vim/undo
 	set undofile
