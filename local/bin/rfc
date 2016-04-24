@@ -1,0 +1,23 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+  echo "Usage: rfc <number>"
+  exit 1
+fi
+
+RFCS="/usr/share/doc/RFC"
+
+if [ ! -d "$RFCS" ]; then
+  echo "Install doc-rfc"
+  exit 1
+fi
+
+(
+  LINK="$RFCS/links/rfc${1}.txt.gz"
+  if [ -f "$LINK" ]; then
+    zcat "$LINK"
+  else
+    echo "Not found" > /dev/stderr
+    exit 1
+  fi
+) | less
+exit $PIPESTATUS
