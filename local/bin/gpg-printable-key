@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: <key>" >/dev/stderr
+  exit 1
+fi
+
+trap "shred --remove key.gpg key.txt key.ps" EXIT SIGINT SIGTERM
+
+gpg --export-secret-key "$1" > key.gpg
+paperkey --secret-key key.gpg --output key.txt
+a2ps -1 --no-header -o key.ps key.txt >/dev/null 2>&1
+ps2pdf key.ps
+
+echo $(realpath key.pdf)
+exit 0
