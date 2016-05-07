@@ -26,3 +26,5 @@ function mux {
 	( dot-pull-all & ) >/dev/null 2>&1
 	screen -x || screen
 }
+
+function vcmd { vim $(which "$1") }
