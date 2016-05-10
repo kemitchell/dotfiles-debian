@@ -1,6 +1,11 @@
 #!/bin/zsh
 set -e
-if [[ ! -d "$HOME/org" ]]; then
+DIR="$HOME/org"
+if [[ ! -d "$DIR" ]]; then
   clone-org
 fi
 emacs -nw
+cd "$DIR"
+git add .
+git commit --allow-empty-message --message ""
+git push origin master
