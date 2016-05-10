@@ -5,7 +5,7 @@ do
 	(
 		cd $dir
 		if [ -n "$(git status --porcelain)" ]; then
-			git add . && git commit --allow-empty-message -m '' && git push --quiet
+			git add . && git commit --allow-empty-message -m '' --quiet && git push --quiet
       echo "Pushed changes to $dir"
 		else
 		fi
