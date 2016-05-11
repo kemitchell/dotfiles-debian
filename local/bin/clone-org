@@ -1,2 +1,2 @@
 #!/bin/zsh
-clone-aws org org
+hub clone org org
