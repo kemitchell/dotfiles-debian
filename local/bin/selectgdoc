@@ -1,0 +1,9 @@
+#!/usr/bin/zsh
+CACHE="$HOME/.gdrivedocs"
+
+if [[ ! -f "$CACHE" || $* == *--refresh* ]]
+then
+  gdrivedocs > "$CACHE"
+fi
+
+cat "$CACHE" | selecta | awk '{ print $1 }'

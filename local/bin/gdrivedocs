@@ -1,0 +1,2 @@
+#!/bin/bash
+drive list --include-docs -n | awk -F '[[:space:]][[:space:]]+' '{ print $1, $2 }'
