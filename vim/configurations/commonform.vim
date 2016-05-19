@@ -33,3 +33,7 @@ autocmd BufNewFile,BufRead *.cform.mustache set filetype=commonform
 autocmd BufNewFile,BufRead *.cform.ejs set filetype=commonform
 autocmd BufNewFile,BufRead *.cform.m4 set filetype=commonform
 autocmd BufNewFile,BufRead *.cftemplate set filetype=commonform
+
+function! MarkUses()
+  call feedkeys('ysi":%s/\<C-R>"/<\0>/g<CR>')
+endfunction
