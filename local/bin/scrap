@@ -11,7 +11,7 @@ fi
 cd "$REPO"
 
 # Determine the editor command to call.
-EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
+# EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
 
 # If there wasn't any argument, get one by listing all files in the
 # repository and selecting with selecta.
@@ -32,7 +32,7 @@ trap 'rm -rf "$TMP"' EXIT
 cp "$FILE" "$TMP"
 
 # Invoke the editor.
-"$EDIT_WITH" "$FILE"
+vim -c 'call WrapSettings()' "$FILE"
 
 # If the file was changed, commit and push.
 if cmp "$TMP" "$FILE"; then
