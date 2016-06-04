@@ -24,6 +24,7 @@ parallel
 pgpdump
 recode
 renameutils
+shellcheck
 sysvbanner
 tesseract-ocr
 tesseract-ocr-eng
