@@ -1,0 +1,11 @@
+#!/bin/bash
+list="$HOME/.watched-webpages"
+tmp=$(mktemp)
+while read -r uri old_digest; do
+  new_digest="$(lynx --dump "$uri" | sha1sum | cut -d ' ' -f 1)"
+  if [ "$old_digest" != "$new_digest" ]; then
+    echo "$uri changed"
+  fi
+  echo "$uri $new_digest" >> "$tmp"
+done < "$list"
+mv "$tmp" "$list"
