@@ -28,3 +28,5 @@ function mux {
 }
 
 function vcmd { vim $(which "$1") }
+
+function silently { $* >/dev/null &>/dev/null }
