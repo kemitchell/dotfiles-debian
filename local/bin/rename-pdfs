@@ -1,0 +1,6 @@
+#!/bin/bash
+for pdf in *.pdf; do
+  (zathura "$pdf")
+  imv "$pdf"
+done
+
