@@ -24,11 +24,11 @@ fi
 git checkout -f $VERSION
 
 sudo apt-get update
-sudo apt-get install -y build-essential autoconf
+sudo apt-get install -y build-essential autoconf libpcre3-dev
 # sudo apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
 sudo apt-get -y build-dep git
 
-export USE_LIBPCRE
+export USE_LIBPCRE=true
 make configure
 ./configure --prefix=$PREFIX
 make all
