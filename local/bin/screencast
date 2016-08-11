@@ -1,0 +1,11 @@
+#!/bin/bash
+cat <<HELP
+xwininfo to find window id
+sleep 10 ; beep ; recordmydesktop
+  -o file.ogv
+  --windowid <id>
+  --full-shots
+  --fps 15
+  --no-sound
+  --stop-shortcut [Control-Alt-s]
+HELP
