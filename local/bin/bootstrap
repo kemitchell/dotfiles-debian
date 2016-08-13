@@ -76,6 +76,7 @@ s3cmd \
 sed \
 sensible-utils \
 shorewall \
+socat \
 splint \
 sqlite3 \
 ssh \
