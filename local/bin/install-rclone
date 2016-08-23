@@ -1,0 +1,6 @@
+#!/bin/bash
+cd "$(mktemp -d)"
+curl --output rclone.zip "http://downloads.rclone.org/rclone-current-linux-amd64.zip"
+unzip -j rclone.zip
+cp rclone "$PREFIX/bin/rclone"
+cp rclone.1 "$PREFIX/share/man/rclone.1"

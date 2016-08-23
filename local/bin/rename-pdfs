@@ -1,6 +1,11 @@
 #!/bin/bash
 for pdf in *.pdf; do
   (zathura "$pdf")
-  imv "$pdf"
+  read -e -i "$(basename "$pdf" .pdf)" -p "File Name: " new_base
+  if [ -z "$new_base" ] ; then
+    echo "Skipped $pdf"
+  else
+    mv "$pdf" "${new_base}.pdf"
+  fi
 done
 
