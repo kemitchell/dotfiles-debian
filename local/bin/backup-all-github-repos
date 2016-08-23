@@ -1,0 +1,5 @@
+#!/bin/bash
+for slug in $(ghmyrepos); do
+  echo "$slug"
+  backup-github-repo "$slug"
+done

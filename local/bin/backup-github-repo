@@ -1,0 +1,20 @@
+#!/bin/bash
+slug="$1"
+
+if [ -z "$1" ]; then
+  echo "Usage: <slug>" > /dev/stderr
+  exit 1
+fi
+
+mkdir -p "$HOME/.github"
+dir="$HOME/.github/$slug"
+
+if [ ! -d "$dir" ]; then
+  mkdir -p "$dir"
+  git clone --mirror "git@github.com:$slug" "$dir"
+  echo "Mirrored"
+else
+  cd "$dir"
+  git remote update
+  echo "Updated"
+fi
