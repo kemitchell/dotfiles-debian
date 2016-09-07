@@ -97,9 +97,9 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[transfer]
-  fsckobjects = true
-[fetch]
-  fsckobjects = true
-[receive]
-  fsckObjects = true
+#[transfer]
+#  fsckobjects = true
+#[fetch]
+#  fsckobjects = true
+#[receive]
+#  fsckObjects = true
