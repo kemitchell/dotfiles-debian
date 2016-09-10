@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+DIRS=$(find "$HOME" -maxdepth 1 -mindepth 1 -type d -and -not -iname '.*')
+
+for dir in $DIRS; do
+  if [ -d "$dir/.git" ]; then
+    (
+      set -e
+      cd "$dir"
+      read -p "Push all branches in $dir? [y/n]" -n 1 -r
+      echo
+      if [[ $REPLY =~ ^[Yy]$ ]]; then
+        git push --all
+      fi
+    )
+  fi
+done
