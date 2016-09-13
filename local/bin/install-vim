@@ -1,13 +1,13 @@
-#!/bin/sh
-
+#!/bin/bash
+set -e
 sudo apt-get update
-sudo apt-get remove --purge vim vim-runtime
-sudo apt-get install -y mercurial libncurses5-dev python-dev ruby-dev
+sudo apt-get install -y libncurses5-dev python-dev ruby-dev
 mkdir -p "$PREFIX/source"
 cd "$PREFIX/source"
-hg clone https://vim.googlecode.com/hg/ vim
+if [ -d vim ]; then
+  git clone https://github.com/vim/vim.git vim
+fi
 cd vim
-hg pull
-hg update
+git pull origin master
 make distclean
 ./configure --prefix=$PREFIX --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-luainterp --enable-cscope && make && make install

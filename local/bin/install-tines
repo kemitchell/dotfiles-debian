@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+SOURCE="$PREFIX/source/tines"
+if [ ! -d "$SOURCE" ]; then
+  git clone https://github.com/larrykollar/tines/ "$SOURCE"
+fi
+cd "$SOURCE"
+git reset --hard origin/master
+git pull origin master
+rpl "/usr/local" "$PREFIX" Makefile
+make
+make install
