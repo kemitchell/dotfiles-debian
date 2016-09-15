@@ -27,6 +27,13 @@ function mux {
 	screen -x || screen
 }
 
-function vcmd { vim $(which "$1") }
+function vcmd {
+  if [ -z "$1" ]
+  then
+    echo "vcmd <command>" >/dev/stderr
+  else
+    vim $(which "$1")
+  fi
+}
 
 function silently { $* >/dev/null &>/dev/null }

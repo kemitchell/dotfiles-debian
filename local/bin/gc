@@ -4,9 +4,21 @@ CACHE="$HOME/.ghmyrepos"
 if [[ ! -f "$CACHE" || $* == *--refresh* ]]
 then
   ghmyrepos > "$CACHE"
-  if test -f "$HOME/.repos"; then
+  if test -f "$HOME/.repos"
+  then
     cat "$HOME/.repos" >> "$CACHE"
   fi
 fi
 
-cat "$CACHE" | selecta | xargs hub clone
+slug=$(cat "$CACHE" | selecta)
+base=$(basename "$slug")
+
+echo "$slug"
+
+hub clone "$slug" "$base"
+if test -f "$base/package.json"
+then
+  echo "Installing npm dependencies"
+  cd "$base"
+  npm install
+fi
