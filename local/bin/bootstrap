@@ -17,6 +17,7 @@ cabal-install \
 catdoc \
 cmake \
 colordiff \
+cppcheck \
 dmenu \
 graphviz \
 dc \
