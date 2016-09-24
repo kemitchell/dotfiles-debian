@@ -16,9 +16,3 @@ base=$(basename "$slug")
 echo "$slug"
 
 hub clone "$slug" "$base"
-if test -f "$base/package.json"
-then
-  echo "Installing npm dependencies"
-  cd "$base"
-  npm install
-fi
