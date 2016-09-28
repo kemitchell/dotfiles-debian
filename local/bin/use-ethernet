@@ -1,3 +1,4 @@
 #!/bin/sh
+sudo service wicd stop
 sudo ifconfig wlan0 down
 sudo dhclient eth0
