@@ -1,17 +1,45 @@
 #!/bin/bash
+set -e
 
-data="$HOME/todo"
+REPO="$HOME/todo"
 
-if [[ ! -d "$data" ]]; then
-  git clone git@github.com:kemitchell/todo "$data"
+# If the repository hasn't been cloned yet, clone it.
+if [ ! -d "$REPO" ]; then
+  git clone git@github.com:kemitchell/todo "$REPO"
 fi
 
-todo.sh "$@"
+cd "$REPO"
 
-cd "$data"
+# Determine the editor command to call.
+# EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
 
-if ! git diff-index --quiet HEAD --; then
-  git add .
-  git commit --allow-empty-message -m ''
-  git push origin master
+# If there wasn't any argument, get one by listing all files in the
+# repository and selecting with selecta.
+if [ -z "$1" ]; then
+  FILE=$(git ls-files | selecta)
+else
+  FILE="$1"
+fi
+
+# If the todo file doesn't exist yet, create it.
+if [ ! -f "$FILE" ]; then
+  touch "$FILE"
+fi
+
+# Save a copy of the file before editing.
+TMP=$(mktemp)
+trap 'rm -rf "$TMP"' EXIT
+cp "$FILE" "$TMP"
+
+# Invoke the editor.
+vim -c 'call WrapSettings()' "$FILE"
+
+# If the file was changed, commit and push.
+if cmp "$TMP" "$FILE"; then
+  exit 0
+else
+  git add "$FILE"
+  git empty
+  git push
+  exit 0
 fi
