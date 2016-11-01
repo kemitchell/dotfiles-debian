@@ -13,33 +13,37 @@ cd "$REPO"
 # Determine the editor command to call.
 # EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
 
-# If there wasn't any argument, get one by listing all files in the
-# repository and selecting with selecta.
-if [ -z "$1" ]; then
-  FILE=$(git ls-files | selecta)
+if [[ ! -z "$1" && -x "./$1" ]]; then
+  "./$1"
 else
-  FILE="$1"
-fi
+  # If there wasn't any argument, get one by listing all files in the
+  # repository and selecting with selecta.
+  if [ -z "$1" ]; then
+    FILE=$(find . -maxdepth 1 -not -executable | selecta)
+  else
+    FILE="$1"
+  fi
 
-# If the todo file doesn't exist yet, create it.
-if [ ! -f "$FILE" ]; then
-  touch "$FILE"
-fi
+  # If the todo file doesn't exist yet, create it.
+  if [ ! -f "$FILE" ]; then
+    touch "$FILE"
+  fi
 
-# Save a copy of the file before editing.
-TMP=$(mktemp)
-trap 'rm -rf "$TMP"' EXIT
-cp "$FILE" "$TMP"
+  # Save a copy of the file before editing.
+  TMP=$(mktemp)
+  trap 'rm -rf "$TMP"' EXIT
+  cp "$FILE" "$TMP"
 
-# Invoke the editor.
-vim -c 'call WrapSettings()' "$FILE"
+  # Invoke the editor.
+  vim -c 'call WrapSettings()' "$FILE"
 
-# If the file was changed, commit and push.
-if cmp "$TMP" "$FILE"; then
-  exit 0
-else
-  git add "$FILE"
-  git empty
-  git push
-  exit 0
+  # If the file was changed, commit and push.
+  if cmp "$TMP" "$FILE"; then
+    exit 0
+  else
+    git add "$FILE"
+    git empty
+    git push
+    exit 0
+  fi
 fi
