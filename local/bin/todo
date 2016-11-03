@@ -13,13 +13,29 @@ cd "$REPO"
 # Determine the editor command to call.
 # EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
 
-if [[ ! -z "$1" && -x "./$1" ]]; then
+function select_file {
+  find . -maxdepth 1 -not -executable | selecta
+}
+
+if [[ "$1" = "show" ]]; then
+  # If there wasn't a second argument, get one by listing all files in
+  # the repository and selecting with selecta.
+  if [ -z "$2" ]; then
+    FILE=$(select_file)
+  else
+    FILE="$2"
+  fi
+
+  cat "./$FILE"
+
+elif [[ ! -z "$1" && -x "./$1" ]]; then
   "./$1"
+
 else
   # If there wasn't any argument, get one by listing all files in the
   # repository and selecting with selecta.
   if [ -z "$1" ]; then
-    FILE=$(find . -maxdepth 1 -not -executable | selecta)
+    FILE=$(select_file)
   else
     FILE="$1"
   fi
