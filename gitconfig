@@ -19,7 +19,6 @@
 	a = add
 	aa = add --all
 	ai = add --interactive
-	ai = add -i
 	amend = commit --amend -C HEAD
 	b = branch
 	bb = branch --all
@@ -38,7 +37,6 @@
   empty = commit --allow-empty-message -m ''
 	ff = merge --ff-only
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
-	h = help
 	l = log --oneline -n 10 --decorate=full
 	m = checkout master
 	mirror = push --mirror
