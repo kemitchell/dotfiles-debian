@@ -16,3 +16,8 @@ base=$(basename "$slug")
 echo "$slug"
 
 hub clone "$slug" "$base"
+
+(
+  cd "$base"
+  hub issue
+)
