@@ -35,6 +35,7 @@
 	d = diff
 	dev = !git checkout development || git checkout -b development
   empty = commit --allow-empty-message -m ''
+  f = fetch
 	ff = merge --ff-only
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 	l = log --oneline -n 10 --decorate=full
