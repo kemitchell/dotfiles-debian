@@ -7,10 +7,16 @@ for dir in $DIRS; do
     (
       set -e
       cd "$dir"
-      read -p "Push all branches in $dir? [y/n]" -n 1 -r
-      echo
-      if [[ $REPLY =~ ^[Yy]$ ]]; then
+      echo "$dir"
+      BASE=$(basename "$dir")
+      if [[ "$BASE" == "todo" ]] || [[ "$BASE" == "bills" ]]; then
         git push --all
+      else
+        read -p "Push all branches in $dir? [y/n]" -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+          git push --all
+        fi
       fi
     )
   fi
