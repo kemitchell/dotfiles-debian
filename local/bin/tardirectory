@@ -1,0 +1,6 @@
+#!/bin/bash
+if [[ -z "$1" ]] ; then
+  echo "Usage: tardirectory <directory>"
+fi
+
+tar -cvzf "$1.tar.gz" "$1"
