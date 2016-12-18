@@ -9,7 +9,11 @@ for dir in $DIRS; do
       cd "$dir"
       echo "$dir"
       BASE=$(basename "$dir")
-      if [[ "$BASE" == "todo" ]] || [[ "$BASE" == "bills" ]]; then
+      if [[ "$BASE" == "todo" ]] ||
+        [[ "$BASE" == "bills" ]] ||
+        [[ "$BASE" == "scraps" ]] ||
+        [[ "$BASE" == "notes" ]]
+      then
         git push --all
       else
         read -p "Push all branches in $dir? [y/n]" -n 1 -r

@@ -1,0 +1,57 @@
+#!/bin/bash
+set -e
+
+REPO="$HOME/notes"
+
+# If the repository hasn't been cloned yet, clone it.
+if [ ! -d "$REPO" ]; then
+  git clone git@github.com:kemitchell/notes "$REPO"
+fi
+
+cd "$REPO"
+
+# If there wasn't any argument, get one by listing all files in the
+# repository and selecting with selecta.
+if [ -z "$1" ]; then
+  DIRECTORY=$(find . -type d -and -not -iname ".*" -maxdepth 1 | selecta)
+  NAME=$(basename "$(find "$DIRECTORY" -type f -maxdepth 1 | selecta | sed -r 's/ \d\d\d\d-\d\d-\d\d.\+//')")
+else
+  if [ -z "$2" ]; then
+    DIRECTORY="./"
+    NAME="$1"
+  else
+    DIRECTORY="$1"
+    NAME="$2"
+  fi
+fi
+
+DATE=$(date --iso-8601=minutes --utc | fgrep 's/+0000/Z/')
+FILE="$DIRECTORY/$NAME $DATE"
+echo "$FILE"
+
+# If the file doesn't exist yet, create it.
+if [ ! -f "$FILE" ]; then
+  mkdir -p "$DIRECTORY"
+  touch "$FILE"
+fi
+
+# Save a copy of the file before editing.
+TMP=$(mktemp)
+trap 'rm -rf "$TMP"' EXIT
+cp "$FILE" "$TMP"
+
+# Determine the editor command to call.
+# EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
+
+# Invoke the editor.
+vim -c 'call WrapSettings()' "$FILE"
+
+# If the file was changed, commit and push.
+if cmp "$TMP" "$FILE"; then
+  exit 0
+else
+  git add "$FILE"
+  git empty
+  git push
+  exit 0
+fi
