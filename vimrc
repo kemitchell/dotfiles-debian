@@ -123,7 +123,7 @@ inoremap <C-S> <C-O>:update<CR>
 inoremap jk <Esc>
 inoremap <C-d> <C-r>=substitute(system('isodate'), '\n\+$', '', '')<CR>
 inoremap <C-d><C-d> <C-r>=substitute(system('date --iso-8601'), '\n\+$', '', '')<CR>
-inoremap <C-t> <C-r>=system('date +"%H%m"')<CR>
+inoremap <C-t> <C-r>=system('date +"%H%M"')<CR>
 nnoremap <CR> :nohlsearch<CR>
 noremap  <leader>t <Esc>:!node-test<CR>
 noremap  <leader>u <Esc>:!git add -u && git commit --verbose <CR>
