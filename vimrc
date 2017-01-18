@@ -151,7 +151,6 @@ endfu
 fu! WriteAtEnd()
   normal G
   normal o
-  normal o
   startinsert
 endfu
 
