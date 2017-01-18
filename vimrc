@@ -148,6 +148,13 @@ fu! WrapSettings()
 	noremap <buffer> <silent> $ g$
 endfu
 
+fu! WriteAtEnd()
+  normal G
+  normal o
+  normal o
+  startinsert
+endfu
+
 autocmd Filetype pandoc,markdown setlocal autoindent shiftwidth=2 tabstop=2 expandtab
 autocmd FileType pandoc,markdown call WrapSettings()
 
