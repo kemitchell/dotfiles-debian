@@ -14,12 +14,12 @@ for dir in $DIRS; do
         [[ "$BASE" == "scraps" ]] ||
         [[ "$BASE" == "notes" ]]
       then
-        git push --all
+        git push --all --quiet
       else
         read -p "Push all branches in $dir? [y/n]" -n 1 -r
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]; then
-          git push --all
+          git push --all --quiet
         fi
       fi
     )
