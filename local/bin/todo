@@ -5,7 +5,8 @@ REPO="$HOME/todo"
 
 # If the repository hasn't been cloned yet, clone it.
 if [ ! -d "$REPO" ]; then
-  git clone git@github.com:kemitchell/todo "$REPO"
+  echo "Cloning repository..."
+  git clone --quiet git@github.com:kemitchell/todo "$REPO"
 fi
 
 cd "$REPO"
