@@ -12,6 +12,7 @@ for dir in $DIRS; do
       if [[ "$BASE" == "todo" ]] ||
         [[ "$BASE" == "bills" ]] ||
         [[ "$BASE" == "scraps" ]] ||
+        [[ "$BASE" == "ledger" ]] ||
         [[ "$BASE" == "notes" ]]
       then
         git push --all --quiet
