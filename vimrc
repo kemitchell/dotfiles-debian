@@ -35,7 +35,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
+" Plugin 'tpope/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
@@ -156,6 +158,9 @@ endfu
 
 autocmd Filetype pandoc,markdown setlocal autoindent shiftwidth=2 tabstop=2 expandtab
 autocmd FileType pandoc,markdown call WrapSettings()
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
 
 autocmd FileType tex call WrapSettings()
 
