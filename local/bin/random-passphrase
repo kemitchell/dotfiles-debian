@@ -1,2 +1,2 @@
 #!/bin/bash
-shuf -n "${1-5}" "$HOME/.local/longman" | tr '\n' ' ' | sed "s/'s//g" | sed 's/ $/\n/'
+shuf -n "${1-4}" "$HOME/.local/longman" | tr '\n' ' ' | sed "s/'s//g" | sed 's/ $/\n/'
