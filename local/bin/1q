@@ -1,0 +1,12 @@
+#!/bin/bash
+for file; do
+  (feh "$pdf")
+  extension="${file##*.}"
+  read -e -i "$(basename "$file" "$extension")" -p "File Name: " new_base
+  if [ -z "$new_base" ] ; then
+    echo "Skipped $file"
+  else
+    mv "$file" "${new_base}.${extension}"
+  fi
+done
+
