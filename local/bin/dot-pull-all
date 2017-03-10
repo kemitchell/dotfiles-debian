@@ -1,6 +1,5 @@
 #!/bin/bash
 directories=$HOME/.dotfiles/*
-echo $directories
 for dir in $directories
 do
 	echo $dir
