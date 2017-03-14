@@ -9,7 +9,7 @@ fu! WriteMail()
 	setlocal formatoptions+=a
 
   " Auto-wrap using textwidth
-	setlocal formatoptions+=t
+	" setlocal formatoptions+=t
 
 	" Trailing white space indicates a paragraph continues in the next line.
 	"setlocal formatoptions+=w
