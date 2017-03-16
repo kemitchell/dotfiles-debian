@@ -1,28 +1,33 @@
 #!/bin/bash
 set -e
 DIRS=$(find "$HOME" -maxdepth 1 -mindepth 1 -type d -and -not -iname '.*')
+ALWAYS_PUSH="todo bills scraps ledger notes redbook"
 
 for dir in $DIRS; do
   if [ -d "$dir/.git" ]; then
+    BASE=$(basename "$dir")
+    if [[ ! "$ALWAYS_PUSH" == *"$BASE"* ]]; then
+      read -p "Push all branches in $dir? [y/n]" -n 1 -r
+      echo
+      if [[ $REPLY =~ ^[Yy]$ ]]; then
+        (
+          set -e
+          echo "$dir"
+          cd "$dir"
+          git push --all --quiet
+        )
+      fi
+    fi
+  fi
+done
+
+for dir in $ALWAYS_PUSH; do
+  if [ -d "$dir" ]; then
     (
       set -e
       cd "$dir"
-      echo "$dir"
-      BASE=$(basename "$dir")
-      if [[ "$BASE" == "todo" ]] ||
-        [[ "$BASE" == "bills" ]] ||
-        [[ "$BASE" == "scraps" ]] ||
-        [[ "$BASE" == "ledger" ]] ||
-        [[ "$BASE" == "notes" ]]
-      then
-        git push --all --quiet
-      else
-        read -p "Push all branches in $dir? [y/n]" -n 1 -r
-        echo
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-          git push --all --quiet
-        fi
-      fi
+      echo "Pushing $dir."
+      git push --all --quiet
     )
   fi
 done
