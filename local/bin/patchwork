@@ -1,0 +1,6 @@
+#!/bin/bash
+sbot server &
+sbot_pid="$!"
+cd "$HOME/.patchbay"
+npm start ; kill "$sbot_pid"
+wait
