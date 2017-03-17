@@ -6,10 +6,10 @@ fu! WriteMail()
   " see :help formatoptions
 
   " Automatic formatting of paragraphs
-	setlocal formatoptions+=a
+	" setlocal formatoptions+=a
 
   " Auto-wrap using textwidth
-	" setlocal formatoptions+=t
+	setlocal formatoptions+=t
 
 	" Trailing white space indicates a paragraph continues in the next line.
 	"setlocal formatoptions+=w
