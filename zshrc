@@ -1,4 +1,3 @@
-export EDITOR=vim
 bindkey -e
 
 setopt auto_cd
@@ -43,12 +42,7 @@ zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-
 for i in $HOME/.zsh/*.aliases(N); do source "$i" ; done
-for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done
 for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done
 
 export cf=commonform
@@ -56,6 +50,3 @@ export cf=commonform
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
-
-export NVM_DIR="/home/kyle/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
