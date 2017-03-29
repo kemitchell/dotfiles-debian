@@ -7,9 +7,7 @@ for dir in $DIRS; do
   if [ -d "$dir/.git" ]; then
     BASE=$(basename "$dir")
     if [[ ! "$ALWAYS_PUSH" == *"$BASE"* ]]; then
-      read -p "Push all branches in $dir? [y/n]" -n 1 -r
-      echo
-      if [[ $REPLY =~ ^[Yy]$ ]]; then
+      if prompt-y-or-n "Push all branches in $dir? [y/n]"; then
         (
           set -e
           echo "$dir"

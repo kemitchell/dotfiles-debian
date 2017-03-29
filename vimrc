@@ -130,7 +130,7 @@ nnoremap <CR> :nohlsearch<CR>
 noremap  <leader>t <Esc>:!node-test<CR>
 noremap  <leader>u <Esc>:!git add -u && git commit --verbose <CR>
 noremap  <leader>U <Esc>:!git add -u && git commit --allow-empty-message --message "" <CR>
-noremap  <leader>p <Esc>:!git push<CR><CR>
+noremap  <leader>p <Esc>:!git push && if prompt-y-or-n "Publish?"; then ./publish ; fi<CR><CR>
 noremap  <leader>m <Esc>:!make<CR>
 
 " Spelling
