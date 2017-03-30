@@ -12,4 +12,5 @@ PRIOR_STTY=$(stty -g)
 stty raw -echo
 ANSWER=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done)
 stty "$PRIOR_STTY"
+echo
 echo "$ANSWER" | grep -iq "^y" &>/dev/null
