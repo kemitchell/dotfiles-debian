@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+if [ -z "$1" ]; then
+  echo "Usage: install-chromedriver <version>"
+  exit 1
+fi
+
+TEMP=$(mktemp -d)
+trap 'rm -rf "$TEMP"' EXIT
+
+cd "$TEMP"
+curl --silent -o "downloaded.zip" "https://chromedriver.storage.googleapis.com/$1/chromedriver_linux64.zip"
+unzip downloaded.zip &>/dev/null
+mv chromedriver "$HOME/.local/bin/chromedriver"
