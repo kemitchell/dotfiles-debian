@@ -10,7 +10,7 @@ fi
 cd vim
 git pull origin master
 make distclean
-./configure --prefix=$PREFIX --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-luainterp --enable-cscope 
+./configure --prefix="$PREFIX" --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-luainterp --enable-cscope
 make
 make install
 install-vundle

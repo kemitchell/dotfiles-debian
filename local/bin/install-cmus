@@ -1,0 +1,10 @@
+#!/usr/bin/zsh
+mkdir -p "$PREFIX/source"
+cd "$PREFIX/source"
+if [ ! -d "cmus" ]; then
+  git clone https://github.com/cmus/cmus cmus
+fi
+cd cmus
+./configure prefix="$PREFIX"
+make
+make install
