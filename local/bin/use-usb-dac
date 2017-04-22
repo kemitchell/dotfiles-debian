@@ -1,0 +1,5 @@
+cat > $HOME/.asoundrc <<CONFIG
+defaults.ctl.card 1
+defaults.pcm.card 1
+defaults.timer.card 1
+CONFIG
