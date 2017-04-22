@@ -4,10 +4,13 @@ sudo apt-get update
 sudo apt-get install -y libncurses5-dev python-dev ruby-dev
 mkdir -p "$PREFIX/source"
 cd "$PREFIX/source"
-if [ -d vim ]; then
+if [ ! -d vim ]; then
   git clone https://github.com/vim/vim.git vim
 fi
 cd vim
 git pull origin master
 make distclean
-./configure --prefix=$PREFIX --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-luainterp --enable-cscope && make && make install
+./configure --prefix=$PREFIX --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-luainterp --enable-cscope 
+make
+make install
+install-vundle
