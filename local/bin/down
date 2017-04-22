@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-use-defualt-audio-device
 push-repos
 purge-files
 dot-push-all
