@@ -19,7 +19,7 @@
 	a = add
 	aa = add --all
 	ai = add --interactive
-	amend = commit --amend -C HEAD
+	amend = commit --amend -C HEAD --allow-empty-message
 	b = branch
 	bb = branch --all
 	continue = rebase --continue
