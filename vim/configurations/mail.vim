@@ -1,6 +1,4 @@
 fu! WriteMail()
-	setlocal spell
-
   setlocal textwidth=65
 
   " see :help formatoptions
@@ -18,6 +16,8 @@ fu! WriteMail()
 	setlocal formatoptions+=n
 
 	call AutoCorrect()
+
+	setlocal spell
 endfu
 
 autocmd BufNewFile,BufRead *.mail :call WriteMail()
