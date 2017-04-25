@@ -36,6 +36,7 @@ docbook
 docbook2x
 docdiff
 doc-rfc
+dos2unix
 dosfstools
 dwdiff
 emacs24-nox
@@ -91,6 +92,7 @@ rpl
 r-recommended
 rsync
 s3cmd
+secure-delete
 sed
 sensible-utils
 shellcheck

@@ -32,7 +32,12 @@ function vcmd {
   then
     echo "vcmd <command>" >/dev/stderr
   else
-    vim $(which "$1")
+    target=$(which "$1")
+    if [ $? -eq 0 ]; then
+      vim "$target"
+    else
+      echo "Could not find $1." >/dev/stderr
+    fi
   fi
 }
 
