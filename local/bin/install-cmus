@@ -1,10 +1,14 @@
 #!/usr/bin/zsh
 mkdir -p "$PREFIX/source"
+sudo apt-get update
+sudo apt-get build-dep cmus
 cd "$PREFIX/source"
 if [ ! -d "cmus" ]; then
   git clone https://github.com/cmus/cmus cmus
 fi
 cd cmus
+git fetch
+git checkout origin/master
 ./configure prefix="$PREFIX"
 make
 make install
