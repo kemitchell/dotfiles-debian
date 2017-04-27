@@ -1,0 +1,5 @@
+if [ ! -d /media/usb ]; then
+  sudo mkdir /media/usb
+  sudo chmod -R 755 /media/usb
+fi
+sudo mount /dev/sdb1 /media/usb
