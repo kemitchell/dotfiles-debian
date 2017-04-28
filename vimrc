@@ -218,3 +218,13 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 " Change spelling error formatting
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
+
+"Syntastic Recommended
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
