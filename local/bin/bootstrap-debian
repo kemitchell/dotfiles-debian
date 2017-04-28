@@ -57,6 +57,7 @@ graphviz
 happy
 httpie
 ifupdown
+iotop
 irssi
 irussian
 ispell
@@ -81,6 +82,7 @@ pgpdump
 poppler-utils
 pslist
 putty-tools
+pv
 python
 python-dev
 python-pip
