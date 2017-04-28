@@ -1,9 +1,9 @@
 #!/usr/bin/zsh
-CACHE="$HOME/.gh-my-repos"
+CACHE="$HOME/.github-my-repos"
 
 if [[ ! -f "$CACHE" || $* == *--refresh* ]]
 then
-  gh-my-repos | sort > "$CACHE"
+  github-my-repos | sort > "$CACHE"
   if [ -f "$HOME/.repos" ]; then
     cat "$HOME/.repos" >> "$CACHE"
   fi

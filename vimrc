@@ -105,7 +105,7 @@ if has('gui_running')
 	set guioptions-=L
 	set guicursor=a:blinkon0
 endif
-set formatprg=fmt\ -w72
+set formatprg=fmt\ -w72\ -u
 set backspace=indent,eol,start
 
 " select last yank

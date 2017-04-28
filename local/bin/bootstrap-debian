@@ -79,6 +79,7 @@ parallel
 pdftk
 pgpdump
 poppler-utils
+pslist
 putty-tools
 python
 python-dev
