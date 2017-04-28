@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+  echo "Usage: <file.flac>"
+  exit
+fi
+
+TMP="$(mktemp)"
+function cleanup {
+  rm -f "$TMP"
+}
+trap cleanup EXIT
+
+metaflac --export-tags-to="$TMP" "$1"
+$EDITOR "$TMP"
+metaflac --remove-all-tags --import-tags-from="$TMP" "$1"
