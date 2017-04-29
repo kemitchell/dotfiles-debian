@@ -220,9 +220,5 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 
 "Syntastic Recommended
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0

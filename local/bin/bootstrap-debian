@@ -54,6 +54,7 @@ git
 gnupg
 gpgv
 graphviz
+graphviz
 happy
 httpie
 ifupdown
