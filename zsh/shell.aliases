@@ -28,11 +28,10 @@ function mux {
 }
 
 function vcmd {
-  if [ -z "$1" ]
-  then
+  if [ -z "$1" ]; then
     echo "vcmd <command>" >/dev/stderr
   else
-    target=$(which "$1")
+    target=$(whence "$1")
     if [ $? -eq 0 ]; then
       vim "$target"
     else

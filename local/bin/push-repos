@@ -6,7 +6,10 @@ ALWAYS_PUSH="todo bills scraps ledger notes redbook"
 for dir in $DIRS; do
   if [ -d "$dir/.git" ]; then
     BASE=$(basename "$dir")
-    if [[ ! "$ALWAYS_PUSH" == *"$BASE"* ]]; then
+    if (cd "$dir" && git-tree-is-dirty); then
+      echo "$dir tree is dirty!" >/dev/stderr
+      exit 1
+    elif [[ ! "$ALWAYS_PUSH" == *"$BASE"* ]]; then
       if prompt-y-or-n "Push all branches in $dir? [y/n]"; then
         (
           set -e
