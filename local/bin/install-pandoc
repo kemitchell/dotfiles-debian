@@ -1,8 +1,2 @@
 #!/bin/bash
-set -e
-TMP=$(mktemp)
-function cleanup { rm -f "$TMP"; }
-trap cleanup EXIT
-URL=$(get-latest-github-release-url "jgm/pandoc" "-amd64.deb")
-curl --silent --location "$URL" -o "$TMP"
-sudo dpkg -i "$TMP"
+install-latest-github-deb "jgm/pandoc" "-amd64.deb"
