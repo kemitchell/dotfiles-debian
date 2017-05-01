@@ -63,6 +63,7 @@ irssi
 irussian
 ispell
 latexmk
+latexmk
 lxc
 lynx
 m4
@@ -75,6 +76,7 @@ net-tools
 nginx
 nmap
 ntpdate
+pandoc
 pandoc
 par
 parallel
@@ -118,6 +120,7 @@ tesseract-ocr-eng
 tesseract-ocr-rus
 texinfo
 texlive
+texlive-science
 texlive-xetex
 tmux
 traceroute
