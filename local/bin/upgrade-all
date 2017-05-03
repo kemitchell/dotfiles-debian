@@ -1,0 +1,2 @@
+#!/bin/sh
+find "$HOME/.dotfiles" -iname "upgrade-*" -and -not -iname "upgrade-all" -and -not -iname "upgrade-program" -print0 |  xargs -0 -I '{}' bash -c 'banner $(basename {} | sed "s/upgrade-//"); {}'
