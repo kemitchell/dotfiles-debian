@@ -1,0 +1,13 @@
+#!/bin/bash
+if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
+  echo "Usage: get-current-version-cmd get-installed-version-cmd install-cmd"
+  exit 1
+fi
+
+CURRENT=$("$1")
+INSTALLED=$("$2")
+if [ "$CURRENT" = "$INSTALLED" ]; then
+  echo "$CURRENT already installed."
+else
+  "$3" "$CURRENT"
+fi

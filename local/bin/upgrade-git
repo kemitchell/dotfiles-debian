@@ -1,10 +1,2 @@
 #!/bin/bash
-set -e
-CURRENT_VERSION=$(get-current-git-version)
-INSTALLED_VERSION=$(git --version | sed 's/git version //' || echo 'NONE')
-
-if [ "$CURRENT_VERSION" = "$INSTALLED_VERSION" ]; then
-  echo "git $CURRENT_VERSION is already installed."
-else
-  install-git "$CURRENT_VERSION"
-fi
+upgrade-program get-current-git-version get-installed-git-version install-git
