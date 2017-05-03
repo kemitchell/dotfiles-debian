@@ -30,7 +30,6 @@ diction
 diffutils
 dirdiff
 dlint
-dmenu
 dnsutils
 docbook
 docbook2x
@@ -54,7 +53,6 @@ git
 gnupg
 gpgv
 graphviz
-graphviz
 happy
 httpie
 ifupdown
@@ -62,7 +60,6 @@ iotop
 irssi
 irussian
 ispell
-latexmk
 latexmk
 lxc
 lynx
@@ -76,7 +73,6 @@ net-tools
 nginx
 nmap
 ntpdate
-pandoc
 pandoc
 par
 parallel

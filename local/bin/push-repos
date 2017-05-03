@@ -3,6 +3,20 @@ set -e
 DIRS=$(find "$HOME" -maxdepth 1 -mindepth 1 -type d -and -not -iname '.*')
 ALWAYS_PUSH="todo bills scraps ledger notes redbook"
 
+HAVE_DIRTY=""
+for dir in $DIRS; do
+  if [ -d "$dir/.git" ]; then
+    if (cd "$dir" && git-tree-is-dirty); then
+      echo "$dir tree is dirty!" >/dev/stderr
+      HAVE_DIRTY="1"
+    fi
+  fi
+done
+
+if [ ! -z "$HAVE_DIRTY" ]; then
+  exit 1
+fi
+
 for dir in $DIRS; do
   if [ -d "$dir/.git" ]; then
     BASE=$(basename "$dir")
