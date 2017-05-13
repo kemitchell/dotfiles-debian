@@ -13,7 +13,7 @@ function mkcd() {
 }
 
 function v {
-	if jobs vim; then
+	if jobs vim >/dev/null 2>&1; then
 		fg
 	else
 		vim $@
