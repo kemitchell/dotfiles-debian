@@ -1,0 +1,5 @@
+#!/bin/bash
+if [ ! -d .git ]; then
+  git init
+fi
+hub create -p "$(this-dir)"
