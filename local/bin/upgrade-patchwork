@@ -1,0 +1,4 @@
+BIN="$PREFIX/bin/patchwork"
+LATEST=$(get-latest-github-release-url ssbc/patchwork AppImage)
+wget "$LATEST" -O "$BIN"
+chmod +x "$BIN"
