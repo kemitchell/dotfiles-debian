@@ -1,0 +1,9 @@
+tr "“”" '"' \
+| tr "‘’" "'" \
+| sed 's/—/---/g' \
+| sed 's/–/--/g' \
+| sed 's/§§ /sections/g' \
+| sed 's/§§/sections /g' \
+| sed 's/§ /section /g' \
+| sed 's/§/section /g' \
+| sed 's/…/.../g'
