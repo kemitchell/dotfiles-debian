@@ -58,3 +58,5 @@ node_modules
 coverage
 
 .stack-work
+
+package-lock.json
