@@ -222,3 +222,8 @@ hi SpellBad cterm=underline ctermfg=red
 "Syntastic Recommended
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+  \ "mode": "passive",
+  \ "active_filetypes": ["html", "bash"],
+  \ "passive_filestype": ["js"] }
+noremap  <leader>s <Esc>:SyntasticCheck<CR>
