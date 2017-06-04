@@ -224,6 +224,6 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
   \ "mode": "passive",
-  \ "active_filetypes": ["html", "bash"],
-  \ "passive_filestype": ["js"] }
+  \ "active_filetypes": ["html", "sh", "css"],
+  \ "passive_filetypes": ["javascript", "json"] }
 noremap  <leader>s <Esc>:SyntasticCheck<CR>
