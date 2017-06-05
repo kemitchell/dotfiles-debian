@@ -134,7 +134,7 @@ noremap  <leader>p <Esc>:!git push && if [ -x "./publish" ] && prompt-y-or-n "Pu
 noremap  <leader>m <Esc>:!make<CR>
 
 " Spelling
-map <leader>s :w!<CR>:!aspell check %<CR>:e! %<CR>
+map <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
 set spelllang=en_us
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 
