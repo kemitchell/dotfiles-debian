@@ -105,5 +105,5 @@
 #  fsckobjects = true
 #[receive]
 #  fsckObjects = true
-[remote "origin"]
-  fetch = +refs/pull/*/head:refs/pull/origin/*
+#[remote "origin"]
+#  fetch = +refs/pull/*/head:refs/pull/origin/*
