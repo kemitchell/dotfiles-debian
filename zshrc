@@ -50,3 +50,6 @@ export cf=commonform
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+
+# added by travis gem
+[ -f /home/kyle/.travis/travis.sh ] && source /home/kyle/.travis/travis.sh
