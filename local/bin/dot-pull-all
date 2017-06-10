@@ -2,7 +2,7 @@
 directories="$HOME/.dotfiles/*"
 for dir in $directories
 do
-	echo "$dir"
+  basename "$dir"
 	(
 		cd "$dir"
 		git remote update
