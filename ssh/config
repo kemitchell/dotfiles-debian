@@ -2,9 +2,6 @@ Host gh github github.com
 Hostname github.com
 User git
 
-Host client client.kemitchell.com
-Hostname client.kemitchell.com
-
 Host commonform commonform.org
 Hostname commonform.org
 User root
