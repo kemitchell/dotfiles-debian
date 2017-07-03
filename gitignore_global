@@ -58,3 +58,4 @@ node_modules
 coverage
 
 .stack-work
+.nyc_output
