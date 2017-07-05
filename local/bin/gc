@@ -22,6 +22,6 @@ hub clone "$slug" "$base"
   if [[ ! -z "$ssb" ]]; then
     git remote add ssb "$ssb"
   fi
-  hub issue
+  gh issue
   git grep "TODO"
 )
