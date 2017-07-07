@@ -59,4 +59,3 @@ coverage
 
 .stack-work
 .nyc_output
-package-lock.json
