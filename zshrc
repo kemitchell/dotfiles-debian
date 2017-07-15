@@ -20,11 +20,6 @@ else
 	PROMPT="%F{$((RANDOM % 8))}%m $reset_color :: %2~ %B%b%1(j.+.)%# "
 fi
 
-# source $HOME/.zsh/antigen/antigen.zsh
-# antigen bundle zsh-users/zsh-syntax-highlighting
-# antigen bundle zsh-users/zsh-history-substring-search
-# antigen apply
-
 source $HOME/.zsh/zgen/zgen.zsh
 if ! zgen saved; then
   zgen load "zsh-users/zsh-syntax-highlighting"
