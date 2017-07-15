@@ -20,6 +20,8 @@ do
         echo "Resetting spelling dotfiles to origin's master."
         git reset --hard origin/master
       fi
+      git submodule update
     fi
 	)
 done
+zgen reset
