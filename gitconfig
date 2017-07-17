@@ -31,6 +31,7 @@
 	cam = commit -a -m
 	cb = checkout -b
 	cc = commit -m
+  co = checkout
 	ch = checkout
 	d = diff
 	dev = !git checkout development || git checkout -b development
