@@ -20,6 +20,9 @@ else
 	PROMPT="%F{$((RANDOM % 8))}%m $reset_color :: %2~ %B%b%1(j.+.)%# "
 fi
 
+autoload -U compinit compdef
+compinit
+
 source $HOME/.zsh/zgen/zgen.zsh
 if ! zgen saved; then
   zgen load "zsh-users/zsh-syntax-highlighting"
@@ -31,9 +34,6 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
-
-autoload -U compinit compdef
-compinit
 
 for i in $HOME/.zsh/*.aliases(N); do source "$i" ; done
 for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done
