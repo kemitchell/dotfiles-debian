@@ -22,6 +22,9 @@ hub clone "$slug" "$base"
   if [[ ! -z "$ssb" ]]; then
     git remote add ssb "$ssb"
   fi
+  if [[ "$slug" = *"rxnda"* ]]; then
+    git remote add rxnda "git@rxnda.com:$base"
+  fi
   gh issue
   git grep "TODO"
 )
