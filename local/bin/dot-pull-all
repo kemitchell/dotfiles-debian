@@ -1,6 +1,5 @@
 #!/usr/bin/zsh
-directories="$HOME/.dotfiles/*"
-for dir in $directories
+for dir in $HOME/.dotfiles/*
 do
   basename "$dir"
 	(
