@@ -9,12 +9,10 @@ then
   fi
 fi
 
-slug=$(cat "$CACHE" | selecta)
-base=$(basename "$slug")
+remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | selecta)
+base=$(basename "$remote")
 
-echo "$slug"
-
-hub clone "$slug" "$base"
+git clone "$remote" "$base"
 
 (
   cd "$base"
@@ -22,9 +20,8 @@ hub clone "$slug" "$base"
   if [[ ! -z "$ssb" ]]; then
     git remote add ssb "$ssb"
   fi
-  if [[ "$slug" = *"rxnda"* ]]; then
-    git remote add rxnda "git@rxnda.com:$base"
+  if git remote -v | fgrep "github" > /dev/null; then
+    gh issue
   fi
-  gh issue
   git grep "TODO"
 )
