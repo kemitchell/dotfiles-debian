@@ -23,26 +23,13 @@ for dir in $DIRS; do
     if (cd "$dir" && git-tree-is-dirty); then
       echo "$dir tree is dirty!" >/dev/stderr
       exit 1
-    elif [[ ! "$ALWAYS_PUSH" == *"$BASE"* ]]; then
-      if prompt-y-or-n "Push all branches in $dir? [y/n]"; then
-        (
-          set -e
-          echo "$dir"
-          cd "$dir"
-          git push --all --quiet
-        )
-      fi
+    else
+      (
+        set -e
+        echo "Pushing $dir"
+        cd "$dir"
+        git push --all --quiet
+      )
     fi
-  fi
-done
-
-for dir in $ALWAYS_PUSH; do
-  if [ -d "$dir" ]; then
-    (
-      set -e
-      cd "$dir"
-      echo "Pushing $dir."
-      git push --all --quiet
-    )
   fi
 done
