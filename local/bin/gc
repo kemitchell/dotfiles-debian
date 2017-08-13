@@ -17,9 +17,6 @@ git clone "$remote" "$base"
 (
   cd "$base"
   ssb=$(fgrep "$slug" "$HOME/.github-to-ssb" | cut -d ' ' -f 2)
-  if [[ ! -z "$ssb" ]]; then
-    git remote add ssb "$ssb"
-  fi
   if git remote -v | fgrep "github" > /dev/null; then
     gh issue
   fi
