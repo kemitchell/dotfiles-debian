@@ -12,7 +12,7 @@ fi
 remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | selecta)
 base=$(basename "$(echo -n $remote | cut -f 2 -d ':')")
 
-git clone "$remote" "$base"
+git clone --depth=10 "$remote" "$base"
 
 (
   cd "$base"
