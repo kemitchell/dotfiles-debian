@@ -12,10 +12,11 @@ fi
 remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | selecta)
 base=$(basename "$(echo -n $remote | cut -f 2 -d ':')")
 
-git clone --depth=10 "$remote" "$base"
+git clone "$remote" "$base"
 
 (
   cd "$base"
+  git submodule update --init
   ssb=$(fgrep "$slug" "$HOME/.github-to-ssb" | cut -d ' ' -f 2)
   if git remote -v | fgrep "github" > /dev/null; then
     gh issue
