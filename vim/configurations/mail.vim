@@ -1,5 +1,5 @@
 fu! WriteMail()
-  setlocal textwidth=45
+  setlocal textwidth=40
 
   " see :help formatoptions
 
