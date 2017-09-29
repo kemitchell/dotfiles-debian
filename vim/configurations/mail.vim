@@ -1,4 +1,5 @@
 fu! WriteMail()
+<<<<<<< HEAD
   setlocal textwidth=60
 
   " see :help formatoptions
@@ -15,6 +16,13 @@ fu! WriteMail()
   " Recognize numbered lists
 	setlocal formatoptions+=n
 
+||||||| f18174c... 
+	setlocal spell
+  set wrap linebreak nolist textwidth=0 wrapmargin=0
+=======
+	setlocal spell
+	call WrapSettings()
+>>>>>>> parent of f18174c... 
 	call AutoCorrect()
 
 	setlocal spell
