@@ -107,6 +107,7 @@ if has('gui_running')
 endif
 set formatprg=fmt\ -w72\ -u
 set backspace=indent,eol,start
+set pastetoggle=<F2>
 
 " select last yank
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
