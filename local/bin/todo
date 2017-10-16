@@ -60,7 +60,6 @@ else
     git add "$FILE"
     git empty
     git push
-    ./share
     exit 0
   fi
 fi
