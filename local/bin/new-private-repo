@@ -1,0 +1,20 @@
+#!/usr/bin/zsh
+set -e
+
+if [[ -z "$1" ]]; then
+  echo "Usage: <name>" > /dev/stderr
+  exit 1
+fi
+
+ssh kyle@git.kemitchell.com <<SESSION
+mkdir "$1"
+cd "$1"
+git init --bare
+SESSION
+
+mkdir "$1"
+cd "$1"
+git init
+git remote add origin "kyle@git.kemitchell.com:$1"
+git fetch
+git branch --set-upstream-to origin/master
