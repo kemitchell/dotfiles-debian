@@ -17,4 +17,3 @@ cd "$1"
 git init
 git remote add origin "kyle@git.kemitchell.com:$1"
 git fetch
-git branch --set-upstream-to origin/master
