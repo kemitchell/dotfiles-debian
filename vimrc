@@ -70,7 +70,6 @@ set nonumber
 set showmatch
 set matchtime=3
 set incsearch
-set pastetoggle=<F11>
 set ignorecase
 set smartcase
 set hlsearch
@@ -121,7 +120,6 @@ let mapleader=","
 nnoremap <C-l> :redraw!<CR>
 nnoremap ; :
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
-inoremap <C-F> <C-O>:exit<Enter>
 inoremap <C-S> <C-O>:update<CR>
 inoremap jk <Esc>
 inoremap <C-d> <C-r>=substitute(system('isodate'), '\n\+$', '', '')<CR>
