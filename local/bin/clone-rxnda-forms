@@ -1,0 +1,6 @@
+cd
+
+for f in $(list-rxnda-forms); do
+  git clone --recursive git@github.com:rxnda/$f &
+done
+wait
