@@ -1,0 +1,12 @@
+#!/usr/bin/zsh
+CACHE="$HOME/.dats"
+
+line=$(selecta < "$CACHE")
+base=$(basename "$(echo -n $line | cut -f 1 -d ' ')")
+digest=$(basename "$(echo -n $line | cut -f 2 -d ' ')")
+
+echo $base
+
+echo $digest
+
+dat clone "dat://$digest" "$base"
