@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
 push-repos
-# purge-files
+purge-files
 dot-push-all
 sudo shutdown now -h
