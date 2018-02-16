@@ -1,2 +1,2 @@
 #!/bin/bash
-paste -sd+ - | bc
+paste -sd+ - | sed 's/,//g' | bc
