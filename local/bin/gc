@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 CACHE="$HOME/.github-my-repos"
 
-if [[ ! -f "$CACHE" || $* == *--refresh* || $* == *-r*]]
+if [[ ! -f "$CACHE" || $* == *--refresh* || $* == *-r* ]]
 then
   github-my-repos | sort > "$CACHE"
   if [ -f "$HOME/.repos" ]; then
