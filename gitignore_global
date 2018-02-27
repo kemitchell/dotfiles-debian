@@ -60,3 +60,4 @@ coverage
 
 .stack-work
 .nyc_output
+tmp
