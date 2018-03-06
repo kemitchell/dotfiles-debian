@@ -8,7 +8,7 @@
 	status = auto
 	branch = auto
 [diff]
-  algorithm = minimal
+  algorithm = patience
 [alias]
 	graph = log --oneline --graph --decorate
 	grapha = log --oneline --graph --decorate --all
