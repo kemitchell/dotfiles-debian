@@ -40,8 +40,6 @@ function mkcd() {
 	cd $1
 }
 
-function spawn { ($* 2>&1 1> /dev/null &) }
-
 alias cf=commonform
 
 alias m=mutt
