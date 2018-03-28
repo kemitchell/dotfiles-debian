@@ -54,7 +54,7 @@ else
   vim -c 'call WrapSettings()' "$FILE"
 
   # If the file was changed, commit and push.
-  if cmp "$TMP" "$FILE" >\dev\null; then
+  if cmp "$TMP" "$FILE" >/dev/null ; then
     exit 0
   else
     git add "$FILE"
