@@ -92,6 +92,7 @@ set switchbuf=useopen
 set bg=dark
 set termencoding=utf8
 set diffopt+=vertical
+set updatetime=100
 if has('persistent_undo')
 	set undodir=$HOME/.vim/undo
 	set undofile
