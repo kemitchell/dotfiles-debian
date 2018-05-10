@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
-ksudo apt-get update
-sudo apt-get ugprade --dry-run | less
+sudo apt-get update
+sudo apt-get upgrade --dry-run | less
 prompt-y-or-n "Upgrade?" && sudo apt-get upgrade -y
