@@ -43,7 +43,7 @@ exactimage
 fail2ban
 figlet
 findutils
-fonts-droid
+fonts-noto
 fonts-freefont-ttf
 fortune
 gawk
