@@ -1,4 +1,6 @@
 #!/usr/bin/zsh
+cd
+
 CACHE="$HOME/.github-my-repos"
 
 if [[ ! -f "$CACHE" || $* == *--refresh* || $* == *-r* ]]
