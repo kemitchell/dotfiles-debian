@@ -1,4 +1,1 @@
-(
-  ping -c 1 http://google.com &&
-  ping -c 1 http://kemitchell.com
-) >/dev/null 2>&1
+ping -c 1 google.com >/dev/null 2>&1
