@@ -1,6 +1,13 @@
 #!/bin/sh
 set -e
-push-repos
-purge-files
-dot-push-all
-sudo shutdown now -h
+
+if connected-to-internet; then
+  push-repos
+  purge-files
+  dot-push-all
+  sudo shutdown now -h
+else
+  if prompt-y-or-n "No Internet connection. Shut down?"; then
+    sudo shutdown now -h
+  fi
+fi
