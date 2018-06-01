@@ -8,7 +8,7 @@ call vundle#begin()
 Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'terminus'
+"Plugin 'terminus'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'Lokaltog/vim-easymotion'
