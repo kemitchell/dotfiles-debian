@@ -57,7 +57,7 @@
 	release = push --tags github master
 	remove = ls-files --deleted | xargs git rm
 	s = status
-	todo = !git --no-pager grep -E '(TODO|FIXME)' | sed -r 's/\\s+/ /g'
+	todo = !git --no-pager grep -E '(TODO|FIXME)' | sed -r 's/\\s+/ /g' | fgrep -v vendor
 	topic = checkout -b
 	reword = commit --amend
 	unstash = stash apply

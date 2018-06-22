@@ -20,7 +20,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'alunny/pegjs-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'groenewege/vim-less'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
@@ -46,6 +46,7 @@ Plugin 'vim-misc'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'xolox/vim-reload'
 Plugin 'reedes/vim-wordy'
+Plugin 'fatih/vim-go'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
 	exec 'source' f

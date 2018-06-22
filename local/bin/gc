@@ -12,7 +12,8 @@ then
 fi
 
 remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | selecta)
-base=$(basename "$(echo -n $remote | cut -f 2 -d ':')")
+slug=$(echo -n $remote | cut -f 2 -d ':')
+base=$(basename "$slug")
 
 git clone "$remote" "$base"
 
@@ -28,3 +29,10 @@ git clone "$remote" "$base"
   fi
   git grep "TODO"
 )
+
+if [ -f "$HOME/$base/Gopkg.toml" ]; then
+  destination="$GOPATH/src/github.com/$slug"
+  mkdir -p $(dirname "$destination")
+  mv "$HOME/$base" "$destination"
+  echo "$destination"
+fi
