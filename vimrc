@@ -199,6 +199,7 @@ function! SetupCtrlP()
       autocmd BufWritePost * CtrlPClearCache
     augroup END
   endif
+  let g:ctrlp_root_markers = ['pom.xml', 'Gopkg.toml']
 endfunction
 
 if has("autocmd")
