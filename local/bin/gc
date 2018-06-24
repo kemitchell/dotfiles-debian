@@ -32,7 +32,11 @@ git clone "$remote" "$base"
 
 if [ -f "$HOME/$base/Gopkg.toml" ]; then
   destination="$GOPATH/src/github.com/$slug"
-  mkdir -p $(dirname "$destination")
-  mv "$HOME/$base" "$destination"
+  if [ -d "$destination" ]; then
+    rm -rf "$HOME/$base"
+  else
+    mkdir -p $(dirname "$destination")
+    mv "$HOME/$base" $(dirname "$destination")
+  fi
   echo "$destination"
 fi

@@ -35,7 +35,7 @@ Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -46,7 +46,6 @@ Plugin 'vim-misc'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'xolox/vim-reload'
 Plugin 'reedes/vim-wordy'
-Plugin 'fatih/vim-go'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
 	exec 'source' f
@@ -129,7 +128,7 @@ inoremap <C-d> <C-r>=substitute(system('isodate'), '\n\+$', '', '')<CR>
 inoremap <C-d><C-d> <C-r>=substitute(system('date --iso-8601'), '\n\+$', '', '')<CR>
 inoremap <C-t> <C-r>=substitute(system('date +"%H%M"'), '\n\+', '', '')<CR>
 nnoremap <CR> :nohlsearch<CR>
-noremap  <leader>t <Esc>:!node-test<CR>
+noremap  <leader>t <Esc>:!run-tests<CR>
 noremap  <leader>c <Esc>:!node-coverage<CR>
 noremap  <leader>u <Esc>:!git add -u && git commit --verbose <CR>
 noremap  <leader>U <Esc>:!git add -u && git commit --allow-empty-message --message "" <CR>
@@ -193,6 +192,7 @@ digraph .. 8230 "ellipsis
 
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+    let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
     augroup CtrlPExtension
       autocmd!
       autocmd FocusGained  * CtrlPClearCache
