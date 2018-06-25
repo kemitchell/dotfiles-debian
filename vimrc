@@ -17,7 +17,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'UniCycle'
 Plugin 'ZenCoding.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'alunny/pegjs-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'groenewege/vim-less'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -45,7 +44,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-misc'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'xolox/vim-reload'
-Plugin 'reedes/vim-wordy'
+"Plugin 'reedes/vim-wordy'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
 	exec 'source' f
@@ -192,7 +191,7 @@ digraph .. 8230 "ellipsis
 
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
-    let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+    let g:ctrlp_custom_ignore = 'node_modules\|vendor\|DS_Store\|git'
     augroup CtrlPExtension
       autocmd!
       autocmd FocusGained  * CtrlPClearCache
