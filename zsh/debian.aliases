@@ -47,3 +47,6 @@ alias m=mutt
 alias tt=runtests
 
 alias pdiff='dwdiff -c'
+
+alias lz=licensezero
+alias l0=licensezero
