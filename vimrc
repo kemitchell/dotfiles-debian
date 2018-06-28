@@ -192,6 +192,8 @@ digraph .. 8230 "ellipsis
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
     let g:ctrlp_custom_ignore = 'node_modules\|vendor\|DS_Store\|git'
+    let g:ctrlp_dotfiles = 1
+    let g:ctrlp_show_hidden = 1
     augroup CtrlPExtension
       autocmd!
       autocmd FocusGained  * CtrlPClearCache
