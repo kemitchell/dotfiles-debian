@@ -31,10 +31,10 @@ diffutils
 dirdiff
 dlint
 dnsutils
+doc-rfc
 docbook
 docbook2x
 docdiff
-doc-rfc
 dos2unix
 dosfstools
 dwdiff
@@ -43,8 +43,8 @@ exactimage
 fail2ban
 figlet
 findutils
-fonts-noto
 fonts-freefont-ttf
+fonts-noto
 fortune
 gawk
 gdb
@@ -68,9 +68,9 @@ m4
 markdown
 mawk
 mosh
+net-tools
 netcat
 netselect-apt
-net-tools
 nginx
 nmap
 ntpdate
@@ -88,12 +88,12 @@ python
 python-dev
 python-pip
 r-base
+r-recommended
 rcconf
 recode
 renameutils
 ripmime
 rpl
-r-recommended
 rsync
 s3cmd
 secure-delete
@@ -101,6 +101,7 @@ sed
 sensible-utils
 shellcheck
 shorewall
+silversearcher-ag
 socat
 splint
 sqlite3

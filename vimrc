@@ -192,6 +192,7 @@ digraph .. 8230 "ellipsis
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
     let g:ctrlp_custom_ignore = 'node_modules\|vendor\|DS_Store\|git'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
     let g:ctrlp_dotfiles = 1
     let g:ctrlp_show_hidden = 1
     augroup CtrlPExtension
@@ -200,7 +201,7 @@ function! SetupCtrlP()
       autocmd BufWritePost * CtrlPClearCache
     augroup END
   endif
-  let g:ctrlp_root_markers = ['pom.xml', 'Gopkg.toml']
+  let g:ctrlp_root_markers = ['package.json', 'pom.xml', 'Gopkg.toml']
 endfunction
 
 if has("autocmd")
