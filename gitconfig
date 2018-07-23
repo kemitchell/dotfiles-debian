@@ -34,6 +34,7 @@
   co = checkout
 	ch = checkout
 	d = diff
+  dc = diff --cached
 	dev = !git checkout development || git checkout -b development
   empty = commit --allow-empty-message -m ''
   f = fetch
