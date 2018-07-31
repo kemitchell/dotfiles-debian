@@ -50,3 +50,5 @@ alias pdiff='dwdiff -c'
 
 alias lz=licensezero
 alias l0=licensezero
+
+alias bencoe='mkdir -p'
