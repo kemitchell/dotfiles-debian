@@ -3,8 +3,8 @@ set -e
 
 if connected-to-internet; then
   push-repos
-  purge-files
   dot-push-all
+  [ ! -f "$HOME/.traveling" ] && purge-files
   sudo shutdown now -h
 else
   if prompt-y-or-n "No Internet connection. Shut down?"; then
