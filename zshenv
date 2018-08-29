@@ -8,6 +8,8 @@ export PREFIX="$HOME/.local"
 export PATH="$PREFIX/bin:$PATH"
 export MANPATH="$PREFIX/share/man:$MANPATH"
 
+export TRAVEL_FILE="$HOME/.traveling"
+
 for i in $HOME/.zsh/*.zshenv(N); do source "$i" ; done
 for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done
 
