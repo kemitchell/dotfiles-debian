@@ -235,4 +235,4 @@ let g:syntastic_mode_map = {
   \ "passive_filetypes": ["javascript", "json"] }
 noremap  <leader>s <Esc>:SyntasticCheck<CR>
 
-set cryptmethod=bowfish2
+set cryptmethod=blowfish2
