@@ -68,6 +68,7 @@ m4
 markdown
 mawk
 mosh
+msmtp
 net-tools
 netcat
 netselect-apt
