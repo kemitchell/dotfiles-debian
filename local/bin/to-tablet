@@ -1,2 +1,4 @@
 #!/bin/bash
-rclone copy "$1" "dropbox:Reading/iPad/"
+for var in "$@"; do
+  rclone copy "$var" "dropbox:Reading/iPad/"
+done
