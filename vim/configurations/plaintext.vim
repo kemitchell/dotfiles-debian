@@ -3,7 +3,7 @@ fu! PlainText()
   setlocal fo+=anl
   setlocal tw=60
   setlocal spell
-  call AutoCorrect()
+  "call AutoCorrect()
 endfu
 
 fu! HighlightPronouns()
