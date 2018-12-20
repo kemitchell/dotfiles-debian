@@ -1,1 +1,1 @@
-touch "$TRAVEL_FILE"
+echo traveling > "$TRAVEL_FILE"
