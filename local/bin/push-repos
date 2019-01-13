@@ -17,6 +17,8 @@ if [ ! -z "$HAVE_DIRTY" ]; then
   exit 1
 fi
 
+set -e
+
 for dir in $DIRS; do
   if [ -d "$dir/.git" ]; then
     if (cd "$dir" && git-tree-is-dirty); then
