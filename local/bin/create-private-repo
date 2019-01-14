@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ -z "$1" ]; then
+  echo "Usage: <name>" > /dev/stderr
+  exit 1
+fi
+
+mkdir -p "$1"
+cd "$1" || exit
+git init
+ssh kyle@git.kemitchell.com ./init-with-codecommit "$1"
+git remote add origin "kyle@git.kemitchell.com:$1"
+git setup
