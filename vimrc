@@ -123,7 +123,6 @@ nnoremap <C-l> :redraw!<CR>
 nnoremap ; :
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap <C-S> <C-O>:update<CR>
-inoremap jk <Esc>
 inoremap <C-d> <C-r>=substitute(system('isodate'), '\n\+$', '', '')<CR>
 inoremap <C-d><C-d> <C-r>=substitute(system('date --iso-8601'), '\n\+$', '', '')<CR>
 inoremap <C-t> <C-r>=substitute(system('date +"%H%M"'), '\n\+', '', '')<CR>
