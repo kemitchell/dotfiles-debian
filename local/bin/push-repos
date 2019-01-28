@@ -1,6 +1,6 @@
 #!/bin/bash
-set -m
-(
+set -e
+
 DIRS=$(find "$HOME" -maxdepth 1 -mindepth 1 -type d -and -not -iname '.*')
 
 HAVE_DIRTY=""
@@ -17,20 +17,5 @@ if [ ! -z "$HAVE_DIRTY" ]; then
   exit 1
 fi
 
-set -e
-
-for dir in $DIRS; do
-  if [ -d "$dir/.git" ]; then
-    if (cd "$dir" && git-tree-is-dirty); then
-      echo "$dir tree is dirty!" >/dev/stderr
-      exit 1
-    else
-      echo "Pushing $dir"
-      cd "$dir" || exit
-      git push --all --quiet&
-    fi
-  fi
-done
-
-wait
-)
+find "$HOME" -maxdepth 2 -mindepth 2 -type d -name .git -print0 | \
+  xargs -P 0 -0 -I {} git -C {} push --all --quiet
