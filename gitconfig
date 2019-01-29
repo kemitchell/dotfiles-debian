@@ -36,6 +36,7 @@
 	d = diff
   dc = diff --cached
 	dev = !git checkout development || git checkout -b development
+  e = empty
   empty = commit --allow-empty-message -m ''
   f = fetch
 	ff = merge --ff-only
