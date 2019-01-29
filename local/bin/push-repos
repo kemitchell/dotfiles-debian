@@ -1,15 +1,13 @@
 #!/bin/bash
 set -e
 
-DIRS=$(find "$HOME" -maxdepth 1 -mindepth 1 -type d -and -not -iname '.*')
+REPOS=$(list-git-repos "$HOME")
 
 HAVE_DIRTY=""
-for dir in $DIRS; do
-  if [ -d "$dir/.git" ]; then
-    if (cd "$dir" && git-tree-is-dirty); then
-      echo "$dir tree is dirty!" >/dev/stderr
-      HAVE_DIRTY="1"
-    fi
+for dir in $REPOS; do
+  if (cd "$dir" && cd .. && git-tree-is-dirty); then
+    echo "$dir tree is dirty!" >/dev/stderr
+    HAVE_DIRTY="1"
   fi
 done
 
@@ -17,5 +15,4 @@ if [ ! -z "$HAVE_DIRTY" ]; then
   exit 1
 fi
 
-find "$HOME" -maxdepth 2 -mindepth 2 -type d -name .git -print0 | \
-  xargs -P 0 -0 -I {} git -C {} push --all --quiet
+xargs -P 0 -I {} git -C {} push --all --quiet <<< "$REPOS"
