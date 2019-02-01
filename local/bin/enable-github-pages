@@ -1,0 +1,11 @@
+#!/bin/bash
+remote=$(git remote show -n origin | fgrep Push)
+if [[ ! "$remote" == *github.com* ]]; then
+  echo "Git remote origin is not on github.com."
+  exit 1
+fi
+slug=$(cut -d ':' -f 3 <<< "$remote")
+owner=$(cut -d '/' -f 1 <<< "$slug")
+repo=$(cut -d '/' -f 2 <<< "$slug")
+PREVIEW="Accept: application/vnd.github.mister-fantastic-preview+json" 
+hub api -H "$PREVIEW" -F "source=master" "/repos/$owner/$repo/pages"
