@@ -112,3 +112,6 @@
 #  fsckObjects = true
 #[remote "origin"]
 #  fetch = +refs/pull/*/head:refs/pull/origin/*
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
