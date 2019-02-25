@@ -4,4 +4,4 @@ if [ -z "$@" ]; then
   exit 1
 fi
 until connected-to-internet ; do sleep 1s ; done
-"$@"
+$@
