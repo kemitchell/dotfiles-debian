@@ -17,3 +17,5 @@ cd "$1"
 git init
 git remote add origin "kyle@git.kemitchell.com:$1"
 git fetch
+
+echo "kyle@git.kemitchell.com:$1" >> "$HOME/.git-my-repos"
