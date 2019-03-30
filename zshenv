@@ -12,10 +12,3 @@ export TRAVEL_FILE="$HOME/.traveling"
 
 for i in $HOME/.zsh/*.zshenv(N); do source "$i" ; done
 for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done
-
-# Load nvm
-export NVM_DIR="/home/kyle/.nvm"
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-
-# Load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
