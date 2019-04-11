@@ -1,0 +1,14 @@
+if [ -f Makefile ]; then
+  make ; exit
+elif [ -f package.json ]; then
+  if fgrep package.json '"build"' >/dev/null; then
+    npm run build ; exit
+  elif fgrep package.json '"prepublish"' >/dev/null; then
+    npm run prepublish ; exit
+  fi
+elif [ -f Rakefile ]; then
+  rake ; exit
+fi
+
+echo "Don't know how to make $PWD." > /dev/stderr
+exit 1
