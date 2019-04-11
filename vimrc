@@ -133,6 +133,7 @@ noremap  <leader>u <Esc>:!git add -u && git commit --verbose <CR>
 noremap  <leader>U <Esc>:!git add -u && git commit --allow-empty-message --message "" <CR>
 noremap  <leader>p <Esc>:!git push && deploy-project<CR><CR>
 noremap  <leader>m <Esc>:!make<CR>
+noremap  <leader>b <Esc>:!build<CR>
 
 " Spelling
 map <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
