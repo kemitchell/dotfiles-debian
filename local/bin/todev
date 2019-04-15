@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 scp "$1" dev:~/tmp/

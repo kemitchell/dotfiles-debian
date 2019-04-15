@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 cd "$(mktemp -d)"
 curl --output rclone.zip "https://downloads.rclone.org/rclone-current-linux-amd64.zip"
 unzip -j rclone.zip

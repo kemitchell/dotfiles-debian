@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 git tag -a "v$1" -m "Version $1"

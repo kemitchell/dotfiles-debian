@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 directories=$HOME/.dotfiles/*
 for dir in $directories; do
 	(

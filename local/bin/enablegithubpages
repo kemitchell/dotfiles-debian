@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 remote=$(git remote show -n origin | fgrep Push)
 if [[ ! "$remote" == *github.com* ]]; then
   echo "Git remote origin is not on github.com."

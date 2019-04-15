@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 CACHE="$HOME/.dats"
 
 line=$(selecta < "$CACHE")

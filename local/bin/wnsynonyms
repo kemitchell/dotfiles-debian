@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 wn "$1" -synsa -synsv -synsa -synsr

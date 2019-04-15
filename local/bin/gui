@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 set -e
 dotpullall
 dotlinkall

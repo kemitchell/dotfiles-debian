@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 curl -sL -w "%{http_code}\\n" "$1" -o /dev/null

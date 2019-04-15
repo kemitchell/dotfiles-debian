@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 hub clone org org

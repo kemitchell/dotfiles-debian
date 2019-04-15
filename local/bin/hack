@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 branch=${1-$(date -I)}
 git checkout -b "$branch"
 git push origin "$branch"

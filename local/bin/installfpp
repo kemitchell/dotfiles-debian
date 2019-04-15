@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 set -e
 SOURCE="$PREFIX/source/fpp"
 LINK="$PREFIX/bin/fpp"

@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 set -e
 
 if [ "$#" -ne 2 ]; then

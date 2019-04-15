@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 if [ "$#" -ne 1 ]; then
 	echo "Usage: twiliosms <to> <<< <message>"
 	exit 1

@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 SOURCES=$HOME/local/source
 mkdir -p $SOURCES
 

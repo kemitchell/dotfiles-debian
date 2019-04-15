@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 url="https://api.github.com/user/repos"
 auth="Authorization: token $GITHUB_TOKEN"
 pages=$(curl -sI -H "$auth" "$url?page=1&per_page=100" | sed -nr 's/^Link:.*page=([0-9]+)&per_page=100>; rel="last".*/\1/p')

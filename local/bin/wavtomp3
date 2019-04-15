@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 lame -V 1 "$1" "${1%%.wav}.mp3"

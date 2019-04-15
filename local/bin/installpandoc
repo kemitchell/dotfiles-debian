@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 installlatestgithubdeb "jgm/pandoc" "-amd64.deb"

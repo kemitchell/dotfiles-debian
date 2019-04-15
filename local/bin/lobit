@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 if [ "$#" -ne 1 ]
 then
 	echo "Usage: lobit <file>" > /dev/stderr

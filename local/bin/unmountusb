@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 sudo umount /media/usb

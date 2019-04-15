@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 set -e
 sudo apt-get update
 sudo apt-get install -y libncurses5-dev python-dev ruby-dev

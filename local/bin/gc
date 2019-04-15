@@ -1,9 +1,9 @@
+#!/usr/bin/zsh
 cd
 
 CACHE="$HOME/.github-my-repos"
 
-if [[ ! -f "$CACHE" || $* == *--refresh* || $* == *-r* ]]
-then
+if [[ ! -f "$CACHE" ]] || [[ $* == *--refresh* ]] || [[ $* == *-r* ]]; then
   githubmyrepos | sort > "$CACHE"
   if [ -f "$HOME/.repos" ]; then
     cat "$HOME/.repos" >> "$CACHE"

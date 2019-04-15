@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 vim $(git ls-files)

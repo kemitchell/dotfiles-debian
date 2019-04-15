@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 echo -n "$1 [y/n]"
 PRIOR_STTY=$(stty -g)
 stty raw -echo

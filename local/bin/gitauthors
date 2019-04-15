@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 git log --format='%aN' | sort -u

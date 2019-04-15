@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 cat > $HOME/.asoundrc <<CONFIG
 defaults.ctl.card 1
 defaults.pcm.card 1

@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 echo -n "Writing..."
 sudo dd bs=4M if="$1" of=/dev/sdb1
 echo "Done."

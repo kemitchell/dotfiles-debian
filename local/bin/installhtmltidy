@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 URL=$(get-latest-github-release-url htacg/tidy-html5 -64bit.deb)
 TMP=$(mktemp)
 trap 'rm -f "$TMP"' EXIT

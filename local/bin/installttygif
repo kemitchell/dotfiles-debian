@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 sudo apt-get install imagemagick ttyrec gcc x11-apps
 git clone https://github.com/icholy/ttygif.git "$PREFIX/source/ttygif"
 cd "$PREFIX/source/ttygif"

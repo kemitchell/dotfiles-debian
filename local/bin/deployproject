@@ -1,2 +1,3 @@
+#!/usr/bin/zsh
 [ -x "./publish" ] && promptyorn "Publish?" && ./publish
 [ -x "./deploy" ] && promptyorn "Deploy?" && ./deploy

@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 lp -o fit-to-page -o sides=two-sided-long-edge

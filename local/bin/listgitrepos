@@ -1,1 +1,2 @@
+#!/usr/bin/zsh
 find "${1-$HOME}" -maxdepth 2 -mindepth 2 -type d -name .git

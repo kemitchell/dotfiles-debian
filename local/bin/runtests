@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 if [ -f package.json ]; then
 	node-test
 elif [ -f Makefile ]; then
