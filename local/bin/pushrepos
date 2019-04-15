@@ -4,7 +4,7 @@ REPOS=$(listgitrepos "$HOME")
 
 HAVE_DIRTY=""
 for dir in $REPOS; do
-  if (cd "$dir" && cd .. && git-tree-is-dirty); then
+  if (cd "$dir" && cd .. && gittreeisdirty); then
     echo "$dir tree is dirty!" >/dev/stderr
     HAVE_DIRTY="1"
   fi
