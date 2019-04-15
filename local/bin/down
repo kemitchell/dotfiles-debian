@@ -3,7 +3,7 @@ set -e
 
 if connected-to-internet; then
   push-repos
-  dot-push-all
+  dotpushall
   if [ ! -f "$TRAVEL_FILE" ]; then
     purge-files
   fi

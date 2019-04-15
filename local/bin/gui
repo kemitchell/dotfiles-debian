@@ -1,4 +1,4 @@
 set -e
-dot-pull-all
-dot-link-all
+dotpullall
+dotlinkall
 startx
