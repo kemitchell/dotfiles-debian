@@ -1,4 +1,4 @@
 #!/bin/zsh
 set -e
 git clone git@github.com:kemitchell/dotfiles-$1 $HOME/.dotfiles/$1
-dot-link-all
+dotlinkall

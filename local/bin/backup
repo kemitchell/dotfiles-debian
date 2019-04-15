@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$1" || ! -d "$1" ]; then
+if [ -z "$1" ] || [ ! -d "$1" ]; then
   echo "Usage: <directory>"
   exit
 fi

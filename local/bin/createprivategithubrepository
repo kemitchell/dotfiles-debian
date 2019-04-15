@@ -2,4 +2,4 @@
 if [ ! -d .git ]; then
   git init
 fi
-hub create -p "$(this-dir)"
+hub create -p "$(thisdir)"

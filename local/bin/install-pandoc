@@ -1,2 +1,0 @@
-#!/bin/bash
-install-latest-github-deb "jgm/pandoc" "-amd64.deb"

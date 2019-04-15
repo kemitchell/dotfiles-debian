@@ -7,6 +7,6 @@ fi
 mkdir -p "$1"
 cd "$1" || exit
 git init
-ssh kyle@git.kemitchell.com ./init-with-codecommit "$1"
+ssh kyle@git.kemitchell.com ./initwithcodecommit "$1"
 git remote add origin "kyle@git.kemitchell.com:$1"
 git setup

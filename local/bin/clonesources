@@ -10,5 +10,4 @@ done
 
 git clone https://git.kernel.org/pub/scm/git/git.git $SOURCES/git
 
-git clone https://github.com/nodejs/io.js $SOURCES/io.js
 git clone https://github.com/joyent/node $SOURCES/node

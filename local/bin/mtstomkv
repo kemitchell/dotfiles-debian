@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -z "$1" || -z "$2" ]; then
+if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Usage: input.mts output.mkv"
   exit 1
 fi

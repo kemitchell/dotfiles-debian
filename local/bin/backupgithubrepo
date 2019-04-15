@@ -14,7 +14,7 @@ if [ ! -d "$dir" ]; then
   git clone --mirror "git@github.com:$slug" "$dir"
   echo "Mirrored"
 else
-  cd "$dir"
+  cd "$dir" || exit 1
   git remote update
   echo "Updated"
 fi

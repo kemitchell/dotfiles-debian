@@ -1,2 +1,2 @@
 #!/bin/bash
-upgrade-program getcurrentgitversion getinstalledgitversion installgit
+upgradeprogram getcurrentgitversion getinstalledgitversion installgit
