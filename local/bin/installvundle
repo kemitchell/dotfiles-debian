@@ -1,4 +1,3 @@
-#!/bin/zsh
 mkdir -p "$HOME/.vim/bundle/"
 VUNDLE="$HOME/.vim/bundle/Vundle.vim"
 if [ ! -d "$VUNDLE" ]; then

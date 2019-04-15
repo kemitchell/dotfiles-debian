@@ -1,4 +1,3 @@
-#!/usr/bin/zsh
 for dir in $HOME/.dotfiles/*
 do
   basename "$dir"

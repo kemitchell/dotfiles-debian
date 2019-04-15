@@ -1,4 +1,3 @@
-#!/bin/bash
 if [ -z "$@" ]; then
   echo "Usage: online cmd"
   exit 1

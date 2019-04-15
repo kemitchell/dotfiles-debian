@@ -1,2 +1,1 @@
-#!/bin/bash
 find "$HOME" -maxdepth 1 -mindepth 1 -not -iname '.*' -exec rm -rf '{}' +

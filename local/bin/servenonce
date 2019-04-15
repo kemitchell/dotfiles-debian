@@ -1,4 +1,3 @@
-#!/bin/bash
 if [ -z "$1" ]; then
   echo "Usage: <file>" 1>&2
   exit 1

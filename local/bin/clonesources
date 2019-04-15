@@ -1,4 +1,3 @@
-#!/bin/sh
 SOURCES=$HOME/local/source
 mkdir -p $SOURCES
 

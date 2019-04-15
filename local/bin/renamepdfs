@@ -1,4 +1,3 @@
-#!/bin/bash
 for pdf in *.pdf; do
   (zathura "$pdf" 2>&1 >/dev/null)
   read -e -i "$(basename "$pdf" .pdf)" -p "File Name: " new_base

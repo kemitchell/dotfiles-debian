@@ -1,4 +1,3 @@
-#!/bin/sh
 if [ -z "$1" ]; then
   echo "Usage: <name>" > /dev/stderr
   exit 1

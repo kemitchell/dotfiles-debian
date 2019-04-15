@@ -1,2 +1,1 @@
-#!/bin/sh
 wn "$1" -synsa -synsv -synsa -synsr

@@ -1,4 +1,3 @@
-#!/bin/bash
 set -e
 
 if [ "$#" -lt 1 -a "$#" -gt 2 ]; then

@@ -1,12 +1,3 @@
-#!/bin/bash
-# while true; do
-# read -p "$1 [y/n]" response
-#   case $response in
-#     [Yy]* ) exit 0;;
-#     [Nn]* ) exit 1;;
-#     * ) echo "Please answer yes or no.";;
-#   esac
-# done
 echo -n "$1 [y/n]"
 PRIOR_STTY=$(stty -g)
 stty raw -echo

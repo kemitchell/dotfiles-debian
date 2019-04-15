@@ -1,3 +1,2 @@
-#!/bin/sh
 [ -x "./publish" ] && promptyorn "Publish?" && ./publish
 [ -x "./deploy" ] && promptyorn "Deploy?" && ./deploy

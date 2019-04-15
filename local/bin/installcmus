@@ -1,4 +1,3 @@
-#!/usr/bin/zsh
 mkdir -p "$PREFIX/source"
 sudo apt-get update
 sudo apt-get build-dep cmus

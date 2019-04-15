@@ -1,2 +1,1 @@
-#!/bin/sh
 hub issue | cut -d "(" -f 1 | sort -n | sed 's/^ \+//g'

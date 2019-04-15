@@ -1,4 +1,3 @@
-#!/bin/zsh
 set -e
 DIR="$HOME/org"
 if [[ ! -d "$DIR" ]]; then

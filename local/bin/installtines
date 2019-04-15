@@ -1,4 +1,3 @@
-#!/bin/bash
 set -e
 SOURCE="$PREFIX/source/tines"
 if [ ! -d "$SOURCE" ]; then

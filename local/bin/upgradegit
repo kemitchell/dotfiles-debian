@@ -1,2 +1,1 @@
-#!/bin/bash
 upgradeprogram getcurrentgitversion getinstalledgitversion installgit

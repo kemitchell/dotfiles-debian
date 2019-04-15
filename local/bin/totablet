@@ -1,4 +1,3 @@
-#!/bin/bash
 for var in "$@"; do
   rclone copy "$var" "dropbox:Reading/iPad/"
 done

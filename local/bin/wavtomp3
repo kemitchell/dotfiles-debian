@@ -1,2 +1,1 @@
-#!/bin/bash
 lame -V 1 "$1" "${1%%.wav}.mp3"

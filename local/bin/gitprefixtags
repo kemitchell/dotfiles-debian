@@ -1,5 +1,3 @@
-#!/bin/bash
-
 travis disable --no-interactive
 git for-each-ref --shell --format="ref=%(refname)" refs/tags | \
 while read entry

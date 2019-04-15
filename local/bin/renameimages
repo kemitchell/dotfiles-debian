@@ -1,4 +1,3 @@
-#!/bin/bash
 for file; do
   (feh "$file")
   extension="${file##*.}"
