@@ -2,10 +2,10 @@
 set -e
 
 if connected-to-internet; then
-  push-repos
+  pushrepos
   dotpushall
   if [ ! -f "$TRAVEL_FILE" ]; then
-    purge-files
+    purgefiles
   fi
   sudo shutdown now -h
 else
