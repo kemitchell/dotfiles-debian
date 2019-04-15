@@ -1,2 +1,0 @@
-#!/bin/bash
-upgrade-program get-current-git-version get-installed-git-version install-git

@@ -7,7 +7,7 @@ if [ ! -e "$SOURCE" ]; then
 	git clone "$GIT" "$SOURCE"
 fi
 cd "$SOURCE"
-git checkout "$(git-latest-semver-tag)"
+git checkout "$(gitlatestsemvertag)"
 if [ -e "$LINK" ]; then
 	rm -f "$LINK"
 fi
