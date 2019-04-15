@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
-directories=$HOME/.dotfiles/*
+directories=($HOME/.dotfiles/*)
 for dir in $directories; do
 	(
 		cd $dir
