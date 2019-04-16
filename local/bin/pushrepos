@@ -16,6 +16,5 @@ if [ ! -z "$HAVE_DIRTY" ]; then
 fi
 
 if [ ! -z "$REPOS" ]; then
-  echo "$REPOS" | parallel -j 4 git -C {} push --all --quiet
+  echo "$REPOS" | parallel -j 4 git -C {} push --all --tags --quiet
 fi
-# xargs -P 0 -I {} git -C {} push --all --quiet <<< "$REPOS"

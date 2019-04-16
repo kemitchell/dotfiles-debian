@@ -1,0 +1,2 @@
+#!/bin/zsh
+rclone --drive-import-formats docx,odt,html $@
