@@ -1,5 +1,4 @@
 alias cf=commonform
-alias tt=run-tests
 alias m=mutt
 alias c="cal -3"
 alias weather="curl -s http://wttr.in"
