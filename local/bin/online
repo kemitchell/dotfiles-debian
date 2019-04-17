@@ -3,5 +3,5 @@ if [ -z "$@" ]; then
   echo "Usage: online cmd"
   exit 1
 fi
-until connected-to-internet ; do sleep 1s ; done
+until connectedtointernet ; do sleep 1s ; done
 $@
