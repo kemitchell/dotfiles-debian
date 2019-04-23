@@ -1,7 +1,7 @@
-#!/usr/bin/zsh
+#!/bin/bash
 for pdf in *.pdf; do
-  (zathura "$pdf" 2>&1 >/dev/null)
-  read -e -i "$(basename "$pdf" .pdf)" -p "File Name: " new_base
+  (zathura "$pdf" >/dev/null 2>&1)
+  read -r -e -i "$(basename "$pdf" .pdf)" -p "File Name: " new_base
   if [ -z "$new_base" ] ; then
     echo "Skipped $pdf"
   else
