@@ -8,7 +8,7 @@
 	status = auto
 	branch = auto
 [diff]
-  algorithm = patience
+	algorithm = patience
 [alias]
 	graph = log --oneline --graph --decorate
 	grapha = log --oneline --graph --decorate --all
@@ -31,22 +31,22 @@
 	cam = commit -a -m
 	cb = checkout -b
 	cc = commit -m
-  co = checkout
+	co = checkout
 	ch = checkout
 	d = diff
-  dc = diff --cached
+	dc = diff --cached
 	dev = !git checkout development || git checkout -b development
-  empty = commit --allow-empty-message -m ''
-  e = commit --allow-empty-message -m ''
-  f = fetch
+	empty = commit --allow-empty-message -m ''
+	e = commit --allow-empty-message -m ''
+	f = fetch
 	ff = merge --ff-only
-  fom = push -f origin master
+	fom = push -f origin master
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 	l = log --oneline -n 10 --decorate=full
 	m = checkout master
 	mirror = push --mirror
-  noff = merge --no-ff
-  out = checkout
+	noff = merge --no-ff
+	out = checkout
 	p = push
 	pa = !git remote | xargs -l git push
 	po = push origin
@@ -56,7 +56,7 @@
 	clobber = clean -fdx
 	pwd = !pwd
 	r = remote
-  recent = log --oneline --name-only -10
+	recent = log --oneline --name-only -10
 	release = push --tags github master
 	remove = ls-files --deleted | xargs git rm
 	s = status
@@ -64,14 +64,14 @@
 	topic = checkout -b
 	reword = commit --amend
 	unstash = stash apply
-  wip = commit -m "WIP"
-  wlog = log -p --color-words
+	wip = commit -m "WIP"
+	wlog = log -p --color-words
 	webstart = instaweb
 	webstop = instaweb --stop
 	h = "!source ~/.githelpers && pretty_git_log"
 	track = checkout --track
-  rh = reset --hard
-  setup = branch --set-upstream-to origin/master
+	rh = reset --hard
+	setup = branch --set-upstream-to origin/master
 [core]
 	editor = vim \"+set spell\" -c start
 	excludesfile = /home/kyle/.gitignore_global
@@ -85,7 +85,7 @@
 	helper = cache --timeout=3600
 [push]
 	default = matching
-  # followTags = true
+	# followTags = true
 [sendemail]
 	smtpEncryption = tls
 	smtpServer = smtp.office365.com
