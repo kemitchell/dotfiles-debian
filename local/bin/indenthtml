@@ -3,4 +3,9 @@ if [ -z "$1" ]; then
   echo "Usage: file.html"
   exit 1
 fi
+
+if ! hash tidy; then
+  sudo apt-get install tidy > /dev/null
+fi
+
 tidy -config tidy.config "$1" | sponge "$1"
