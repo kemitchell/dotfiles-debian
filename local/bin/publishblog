@@ -1,0 +1,6 @@
+#!/bin/zsh
+tmp=$(mktemp -d)
+trap "rm -rf $tmp" EXIT
+git clone https://github.com/kemitchell/writing.kemitchell.com $tmp
+cd $tmp
+./publish
