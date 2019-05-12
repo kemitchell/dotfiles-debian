@@ -1,6 +1,7 @@
 #!/bin/zsh
+set -e
 tmp=$(mktemp -d)
 trap "rm -rf $tmp" EXIT
 git clone --quiet https://github.com/kemitchell/writing.kemitchell.com $tmp
 cd $tmp
-./publish
+./publish >/dev/null
