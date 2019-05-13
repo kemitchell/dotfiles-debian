@@ -1,0 +1,2 @@
+#!/bin/zsh
+[[ $(hostname) == "dev.kemitchell.com" ]]
