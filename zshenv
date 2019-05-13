@@ -10,5 +10,11 @@ export MANPATH="$PREFIX/share/man:$MANPATH"
 
 export TRAVEL_FILE="$HOME/.traveling"
 
+if [[ $(hostname) == "dev.kemitchell.com" ]]; then
+  export WORKSPACE="$HOME/tmp"
+else
+  export WORKSPACE="$HOME"
+fi
+
 for i in $HOME/.zsh/*.zshenv(N); do source "$i" ; done
 for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done
