@@ -24,10 +24,20 @@ if [ -d "$go_dir" ]; then
   exit 0
 fi
 
-git clone "$remote" "$HOME/$base"
+HOSTNAME="$(hostname)"
+if [[ "$HOSTNAME" == "dev.kemitchell.com" ]]; then
+  workspace="$HOME/tmp"
+  mkdir -p "$workspace"
+else
+  workspace="$HOME"
+fi
+
+clone="$workspace/$base"
+
+git clone "$remote" "$clone"
 
 (
-  cd "$base"
+  cd "$clone"
   git submodule update --init --recursive
   ssb=$(fgrep "$slug" "$HOME/.github-to-ssb" | cut -d ' ' -f 2)
   if [ -f package.json ] && fgrep -q husky package.json; then
@@ -40,8 +50,8 @@ git clone "$remote" "$HOME/$base"
   git grep "TODO"
 )
 
-if [ -f "$HOME/$base/Gopkg.toml" ]; then
+if [ -f "$clone/Gopkg.toml" ]; then
   mkdir -p $(dirname "$go_dir")
-  mv "$HOME/$base" $(dirname "$go_dir")
+  mv "$clone" $(dirname "$go_dir")
   echo "$go_dir"
 fi
