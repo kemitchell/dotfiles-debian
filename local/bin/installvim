@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
-set -e
 sudo apt-get update
+set -e
 sudo apt-get install -y libncurses5-dev python-dev ruby-dev
 mkdir -p "$PREFIX/source"
 cd "$PREFIX/source"
