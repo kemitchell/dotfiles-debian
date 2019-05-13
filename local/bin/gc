@@ -24,14 +24,7 @@ if [ -d "$go_dir" ]; then
   exit 0
 fi
 
-if $(ondev); then
-  workspace="$HOME/tmp"
-  mkdir -p "$workspace"
-else
-  workspace="$HOME"
-fi
-
-clone="$workspace/$base"
+clone="$WORKSPACE/$base"
 
 git clone "$remote" "$clone"
 
