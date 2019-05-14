@@ -1,0 +1,13 @@
+#!/bin/zsh
+if [ -z "$1" ]; then
+  echo "Usage: <subdomain>">/dev/stderr
+  exit 1
+fi
+curl \
+  -H "Authorization: Bearer $DNSIMPLE_API_TOKEN" \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d "{\"name\": \"$1\", \"type\": \"CNAME\", \"content\": \"${2:-kemitchell}.github.io\"}" \
+  "https://api.dnsimple.com/v2/$DNSIMPLE_ACCOUNT_ID/zones/kemitchell.com/records" \
+  | fgrep '"message"' >/dev/null
