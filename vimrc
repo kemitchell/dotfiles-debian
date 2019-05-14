@@ -131,7 +131,7 @@ noremap  <leader>t <Esc>:!runtests<CR>
 noremap  <leader>c <Esc>:!node-coverage<CR>
 noremap  <leader>u <Esc>:!git add -u && git commit --verbose <CR>
 noremap  <leader>U <Esc>:!git add -u && git commit --allow-empty-message --message "" <CR>
-noremap  <leader>p <Esc>:!git push && deploy-project<CR><CR>
+noremap  <leader>p <Esc>:!git push && deployproject<CR><CR>
 noremap  <leader>m <Esc>:!make<CR>
 noremap  <leader>b <Esc>:!build<CR>
 
