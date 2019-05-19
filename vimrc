@@ -5,40 +5,59 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
+" needed for Vundle
 Plugin 'L9'
+" plugin framework
 Plugin 'gmarik/Vundle.vim'
-
+" line diff
 Plugin 'AndrewRadev/linediff.vim'
+" a dark vim color scheme for 256-color terminals
 Plugin 'Lokaltog/vim-distinguished'
+" <Leader><Leader><motion> jump highlighting
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Shougo/neocomplcache'
+" dark powered asynchronous completion framework for neovim/Vim8
+Plugin 'Shougo/deoplete.nvim'
+" snippets
 Plugin 'SirVer/ultisnips'
-Plugin 'UniCycle'
-Plugin 'ZenCoding.vim'
+" Git status in gutter
 Plugin 'airblade/vim-gitgutter'
+" .editorconfig support
 Plugin 'editorconfig/editorconfig-vim'
+" Vim syntax for LESS (CSS)
 Plugin 'groenewege/vim-less'
+" Ctrl+P fle switching
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'krisajenkins/vim-pipe'
+" expands abbreviations for, e.g., HTML tags
 Plugin 'mattn/emmet-vim'
-Plugin 'mileszs/ack.vim'
+" highlight trailing whitespace
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'panozzaj/vim-autocorrect'
+" paredit emulation
 Plugin 'paredit.vim'
-Plugin 'repeat.vim'
+" repeat with ".".
+Plugin 'topope/vim-repeat'
+" nobtrusive scratch window
 Plugin 'scratch.vim'
+" asynchronous linting
 Plugin 'w0rp/ale'
-Plugin 'spiiph/vim-space'
+" enhanced ga character info
 Plugin 'tpope/vim-characterize'
+" gcc, gc<motion>, gcap to comment out
 Plugin 'tpope/vim-commentary'
+" automatically add "end" in ruby, vimscript, &c.
 Plugin 'tpope/vim-endwise'
+" Unix sugar, e.g. :Delete, :Move, :Rename
 Plugin 'tpope/vim-eunuch'
+" align text
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-rvm'
+" surround in quotes, parens, &c.
 Plugin 'tpope/vim-surround'
+" bracket mappings
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-misc'
+"Plugin 'vim-misc'
+" :BufOnly command
 Plugin 'vim-scripts/BufOnly.vim'
+" automatically reload VimScripts on edit
 Plugin 'xolox/vim-reload'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
