@@ -34,7 +34,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 " paredit emulation
 Plugin 'paredit.vim'
 " repeat with ".".
-Plugin 'topope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 " nobtrusive scratch window
 Plugin 'scratch.vim'
 " asynchronous linting
