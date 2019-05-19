@@ -54,9 +54,10 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 " bracket mappings
 Plugin 'tpope/vim-unimpaired'
-"Plugin 'vim-misc'
 " :BufOnly command
 Plugin 'vim-scripts/BufOnly.vim'
+" required by vim-reload
+Plugin 'vim-misc'
 " automatically reload VimScripts on edit
 Plugin 'xolox/vim-reload'
 
