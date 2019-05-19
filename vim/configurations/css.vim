@@ -1,5 +1,3 @@
-let g:syntastic_css_checkers = ['csslint']
-
 augroup css
   autocmd!
   autocmd FileType css setlocal autoindent

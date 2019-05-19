@@ -8,7 +8,6 @@ call vundle#begin()
 Plugin 'L9'
 Plugin 'gmarik/Vundle.vim'
 
-"Plugin 'terminus'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'Lokaltog/vim-easymotion'
@@ -28,24 +27,19 @@ Plugin 'panozzaj/vim-autocorrect'
 Plugin 'paredit.vim'
 Plugin 'repeat.vim'
 Plugin 'scratch.vim'
-"Plugin 'scrooloose/syntastic'
 Plugin 'w0rp/ale'
 Plugin 'spiiph/vim-space'
 Plugin 'tpope/vim-characterize'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-markdown'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-misc'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'xolox/vim-reload'
-"Plugin 'reedes/vim-wordy'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
 	exec 'source' f
@@ -159,14 +153,6 @@ fu! WriteAtEnd()
   startinsert
 endfu
 
-autocmd Filetype pandoc,markdown setlocal autoindent shiftwidth=2 tabstop=2 expandtab
-autocmd FileType pandoc,markdown call WrapSettings()
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
-
-autocmd FileType tex call WrapSettings()
-
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
@@ -225,14 +211,5 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 " Change spelling error formatting
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
-
-"Syntastic Recommended
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-  \ "mode": "passive",
-  \ "active_filetypes": ["html", "sh", "css"],
-  \ "passive_filetypes": ["javascript", "json"] }
-noremap  <leader>s <Esc>:SyntasticCheck<CR>
 
 set cryptmethod=blowfish2

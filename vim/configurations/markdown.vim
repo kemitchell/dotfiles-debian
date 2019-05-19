@@ -1,10 +1,11 @@
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+
 augroup markdown
   autocmd!
-  autocmd FileType markdown setlocal autoindent
   autocmd FileType markdown setlocal shiftwidth=2
   autocmd FileType markdown setlocal tabstop=2
   autocmd FileType markdown setlocal expandtab
-  " autocmd FileType markdown call AutoCorrect()
   autocmd FileType markdown call WrapSettings()
 augroup END
 

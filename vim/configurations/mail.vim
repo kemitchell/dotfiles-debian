@@ -1,6 +1,6 @@
 fu! WriteMail()
   call PlainText()
-  call AutoCorrect()
+  "call AutoCorrect()
   setlocal spell
   setlocal tw=60
 endfu
