@@ -11,6 +11,9 @@ if [[ ! -f "$CACHE" ]] || [[ $* == *--refresh* ]] || [[ $* == *-r* ]]; then
 fi
 
 remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | selecta)
+if [ -z "$remote" ]; then
+  exit 1
+fi
 slug=$(echo -n $remote | cut -f 2 -d ':')
 base=$(basename "$slug")
 go_dir="$GOPATH/src/github.com/$slug"
