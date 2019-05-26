@@ -1,9 +1,10 @@
 #!/bin/zsh
-commmand="$@"
-if [ -z "$command" ]; then
+set -e
+if [ -z "$1" ]; then
   echo "commitcommand <command>" >/dev/stderr
   exit 1
 fi
-"$@"
-git add -u
-git commit -m "$@"
+$@
+git add --all
+message=$@
+git commit -m "$message"
