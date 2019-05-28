@@ -4,4 +4,4 @@ tmp=$(mktemp -d)
 trap "rm -rf $tmp" EXIT
 git clone --quiet https://github.com/kemitchell/writing.kemitchell.com $tmp
 cd $tmp
-./publish >/dev/null
+./publish 2>&1 >/dev/null
