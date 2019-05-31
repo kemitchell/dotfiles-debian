@@ -1,5 +1,5 @@
 #!/bin/zsh
-remote = "$1"
+remote="$1"
 if [ -z "$1" ]; then
   echo "Usage: <SSH remote>"
   exit 1
