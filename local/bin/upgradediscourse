@@ -1,0 +1,17 @@
+#!/bin/zsh
+remote = "$1"
+if [ -z "$1" ]; then
+  echo "Usage: <SSH remote>"
+  exit 1
+fi
+
+ssh -q "$remote" <<SESSION
+apt-get update
+apt-get dist-upgrade
+cd /var/discourse
+git pull
+./launcher rebuild app
+./launcher cleanup
+apt-get autoclean
+apt-get autoremove
+SESSION
