@@ -7,7 +7,7 @@ fi
 
 ssh -q "$remote" <<SESSION
 apt-get update
-apt-get dist-upgrade
+apt-get -y dist-upgrade
 cd /var/discourse
 git pull
 ./launcher rebuild app
