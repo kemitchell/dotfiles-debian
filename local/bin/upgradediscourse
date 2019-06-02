@@ -1,11 +1,11 @@
 #!/bin/zsh
-remote="$1"
+hostname="$1"
 if [ -z "$1" ]; then
-  echo "Usage: <SSH remote>"
+  echo "Usage: <hostname>"
   exit 1
 fi
 
-ssh -q "$remote" <<SESSION
+ssh -q "root@$hostname" <<SESSION
 apt-get update
 apt-get -y dist-upgrade
 cd /var/discourse
