@@ -1,5 +1,4 @@
 #!/usr/bin/zsh
 set -e
-dotpullall
-dotlinkall
+dotsync
 startx
