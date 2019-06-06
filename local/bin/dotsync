@@ -1,0 +1,33 @@
+#!/usr/bin/zsh
+for dir in $HOME/.dotfiles/*
+do
+  base=$(basename "$dir")
+	(
+		cd "$dir"
+		git remote update >/dev/null
+    ours=$(git rev-parse 'HEAD')
+    remote=$(git rev-parse 'origin/master')
+    if [ "$ours" = "$remote" ]; then
+      echo "$base: Up-to-date."
+      exit
+    else
+      if [ -n "$(git status --porcelain)" ]; then
+        git add . && git commit --allow-empty-message -m '' --quiet && git push --quiet
+        echo "$base: Pushed changes."
+      else
+        echo "$base: Fast-forwarding."
+        git merge --ff-only origin/master > /dev/null 2>&1 && exit
+        echo "$base: Couldn't fast-forward."
+        echo "$base: Rebasing."
+        git rebase origin/master && git push origin master && exit
+        echo "$base: Couldn't rebase."
+        if [[ "$dir" = "$HOME/.dotfiles/spelling" ]]; then
+          echo "$base: Resetting spelling dotfiles to origin's master."
+          git reset --hard origin/master
+        fi
+        git submodule update
+      fi
+    fi
+	)
+done
+dotlinkall
