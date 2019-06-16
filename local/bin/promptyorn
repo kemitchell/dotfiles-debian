@@ -1,4 +1,8 @@
 #!/usr/bin/zsh
+if [ -z "$1" ]; then
+  echo "Usage: <prompt>"
+  exit 1
+fi
 echo -n "$1 [y/n]"
 PRIOR_STTY=$(stty -g)
 stty raw -echo
