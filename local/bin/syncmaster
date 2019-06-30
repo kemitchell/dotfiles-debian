@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+set -e
+git fetch origin
+git checkout master
+git merge --ff-only origin/master
