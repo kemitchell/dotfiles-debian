@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+directory=$HOME/.snippets
+snippet=$(ls $directory | selecta)
+[ -z "$snippet" ] && exit 1
+cat "$directory/$snippet"

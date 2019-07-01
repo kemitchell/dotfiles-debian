@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang=en-US>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href=styles.css rel=stylesheet type=text/css media=all>
+    <style text=text/css>
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1></h1>
+    </header>
+    <main>
+    </main>
+    <footer>
+    </footer>
+    <script type=text/javascript>
+    </script>
+  </body>
+</html>
