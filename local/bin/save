@@ -1,0 +1,8 @@
+#!/usr/bin/zsh
+if [ -z ".git" ]; then
+  echo "No Git repository." >/dev/stderr
+  exit 1
+fi
+git add -u
+git empty
+git pom
