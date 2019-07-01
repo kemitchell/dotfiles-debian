@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 directory=$HOME/.snippets
 selection=$(ls $directory | tr '-' ' ' | selecta)
-[ -z "$snippet" ] && exit 1
+[ -z "$selection" ] && exit 1
 filename=$(echo -n $selection | tr ' ' '-')
 cat "$directory/$filename"
