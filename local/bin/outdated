@@ -1,0 +1,10 @@
+#!/usr/bin/zsh
+if [ -f package.json ]; then
+  if [ ! -d node_modules ]; then
+    npm install
+  fi
+  npm outdated | tee outdated.log
+else
+  echo "Don't know how to find outdated dependencies.">/dev/stderr
+  exit 1
+fi
