@@ -57,6 +57,8 @@
 	clobber = clean -fdx
 	pwd = !pwd
 	r = remote
+  rc = rebase --continue
+  mc = merge --continue
 	recent = log --oneline --name-only -10
 	release = push --tags github master
 	remove = ls-files --deleted | xargs git rm
