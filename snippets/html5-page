@@ -9,12 +9,17 @@
     </style>
   </head>
   <body>
-    <header>
+    <header role=banner>
       <h1></h1>
     </header>
-    <main>
+    <nav role=navigation>
+      <ol>
+        <li><a href=#></a></li>
+      </ol>
+    </nav>
+    <main role=main>
     </main>
-    <footer>
+    <footer role=contentinfo>
     </footer>
     <script>
     </script>
