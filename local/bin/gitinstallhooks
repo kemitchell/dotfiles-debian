@@ -1,0 +1,11 @@
+#!/usr/bin/zsh
+if [ ! -d .git ]; then
+  echo "No .git directory." >/dev/stderr
+  exit 1
+fi
+
+for hook in pre-commit pre-push pre-receive pre-rebase; do
+  if [ -x ./$hook ]; then
+    cp ./$hook .git/hooks/$hook
+  fi
+done
