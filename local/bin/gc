@@ -36,15 +36,16 @@ git clone "$remote" "$clone"
 (
   cd "$clone"
   git submodule update --init --recursive
-  ssb=$(fgrep "$slug" "$HOME/.github-to-ssb" | cut -d ' ' -f 2)
+  gitinstallhooks
+  # ssb=$(fgrep "$slug" "$HOME/.github-to-ssb" | cut -d ' ' -f 2)
   if git remote -v | fgrep "github" > /dev/null; then
     gh issue
   fi
   git grep "TODO"
 )
 
-if [ -f "$clone/Gopkg.toml" ]; then
-  mkdir -p $(dirname "$go_dir")
-  mv "$clone" $(dirname "$go_dir")
-  echo "$go_dir"
-fi
+# if [ -f "$clone/Gopkg.toml" ]; then
+#   mkdir -p $(dirname "$go_dir")
+#   mv "$clone" $(dirname "$go_dir")
+#   echo "$go_dir"
+# fi
