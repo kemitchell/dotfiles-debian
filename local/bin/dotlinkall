@@ -3,3 +3,5 @@ for dir in $HOME/.dotfiles/*
 do
 	rcup -d "$dir"
 done
+cd "$HOME/.local/bin"
+find -L . -name . -o -type d -prune -o -type l -exec rm {} +
