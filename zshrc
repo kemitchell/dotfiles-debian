@@ -14,11 +14,7 @@ HISTFILE=~/.zsh_history
 
 autoload -U colors && colors
 
-if [[ -z "$SSH_CLIENT" ]]; then
-	PROMPT="%2~ %B%b%1(j.+.)%# "
-else
-	PROMPT="%F{$((RANDOM % 8))}%m $reset_color :: %2~ %B%b%1(j.+.)%# "
-fi
+PROMPT="%2~ %B%b%1(j.+.)%# "
 
 autoload -U compinit compdef
 compinit
