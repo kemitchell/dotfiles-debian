@@ -1,0 +1,15 @@
+#!/bin/zsh
+if [ -z "$1" ]; then
+  echo "Usage: <id>"
+  exit 1
+fi
+
+for file in $(find src -type f -not -iname "$1*"); do
+  mv "$file" "$file.omit"
+done
+
+make | tee "test.log"
+
+for file in src/*.omit; do
+  mv "$file" "$(basename "$file" ".omit")"
+done
