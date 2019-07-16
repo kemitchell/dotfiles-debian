@@ -11,5 +11,5 @@ done
 make | tee "test.log"
 
 for file in src/*.omit; do
-  mv "$file" "$(basename "$file" ".omit")"
+  mv "$file" "src/$(basename "$file" ".omit")"
 done
