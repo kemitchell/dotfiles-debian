@@ -4,6 +4,12 @@ if [ -z ".git" ]; then
   echo "No Git repository." >/dev/stderr
   exit 1
 fi
-git add -u
-git empty
+git add -u >/dev/null
+git empty --quiet
 git push origin master --quiet
+if [ -x ./publish ]; then
+  promptyorn "Publish?" && ./publish
+fi
+if [ -x ./deploy ]; then
+  promptyorn "Deploy?" && ./deploy
+fi
