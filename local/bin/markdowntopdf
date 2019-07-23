@@ -1,0 +1,6 @@
+#!/bin/zsh
+if [ -z "$1" ]; then
+  echo "Usage: <file.md>"
+  exit 1
+fi
+pandoc -o "$(basename $1 .md).pdf" "$1"
