@@ -2,7 +2,7 @@
 set -e
 
 REPOS=$(listgitrepos "$HOME")
-echo "$REPOS" | parallel --retry-failed -j 0 git -C {} push --all --quiet
+echo "$REPOS" | parallel --retry-failed git -C {} push --all --quiet
 
 HAVE_DIRTY=""
 for dir in $REPOS; do
