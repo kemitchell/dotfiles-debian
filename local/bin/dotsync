@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 if [ -z "$1" ]; then
-  echo "Usage: <repo path>"
-  exit 1
+  dotsyncall
+  exit
 fi
 
 repo="$1"
