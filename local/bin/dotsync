@@ -4,8 +4,9 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-base=$(basename "$1")
-cd "$1"
+dir="$repo"
+base=$(basename "$repo")
+cd "$repo"
 if [ -n "$(git status --porcelain)" ]; then
   git add . && git commit --allow-empty-message -m '' --quiet
   echo "$base: Committed changes."
@@ -25,7 +26,7 @@ else
   echo "$base: Rebasing."
   git rebase origin/master && git push origin master && exit
   echo "$base: Couldn't rebase."
-  if [[ "$1" = "$HOME/.dotfiles/spelling" ]]; then
+  if [[ "$repo" = "$HOME/.dotfiles/spelling" ]]; then
     echo "$base: Resetting spelling dotfiles to origin's master."
     git reset --hard origin/master
   fi
