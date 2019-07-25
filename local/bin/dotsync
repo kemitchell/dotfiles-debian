@@ -4,7 +4,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-dir="$repo"
+repo="$1"
 base=$(basename "$repo")
 cd "$repo"
 if [ -n "$(git status --porcelain)" ]; then
