@@ -1,9 +1,9 @@
 #!/usr/bin/zsh
 set -e
 
-practice
-
 REPO="$HOME/todo"
+[ -d "$HOME/todo" ] || git clone --quiet kyle@git.kemitchell.com:todo "$HOME/todo"
+
 cd "$REPO"
 
 # Determine the editor command to call.
