@@ -31,7 +31,8 @@
 	cam = commit -a -m
 	cb = checkout -b
 	cc = commit -m
-  cs = clone --depth 1
+  cs = shallow
+  shallow = clone --depth 1
 	co = checkout
 	ch = checkout
 	d = diff
