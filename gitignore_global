@@ -63,3 +63,5 @@ coverage
 tmp
 *.tmp
 *.test
+
+Cargo.lock
