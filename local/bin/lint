@@ -1,0 +1,6 @@
+#!/usr/bin/zsh
+if [ -f package.json ]; then
+  npm run lint
+elif [ -f Cargo.toml ]; then
+  cargo clippy
+fi
