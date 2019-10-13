@@ -3,6 +3,8 @@ if [ -f package.json ]; then
 	nodetest
 elif [ -f Makefile ]; then
 	make test
+elif [ -f Cargo.toml ]; then
+	cargo test
 elif [ -f stack.yaml ]; then
 	stack test
 elif [ -f Rakefile ]; then
