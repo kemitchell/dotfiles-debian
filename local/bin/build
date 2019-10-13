@@ -8,7 +8,7 @@ elif [ -f package.json ]; then
     npm run prepublish
   fi
 elif [ -f Cargo.toml ]; then
-  caro build
+  cargo build
 elif [ -f Rakefile ]; then
   rake
 elif [ -x ./build ]; then
