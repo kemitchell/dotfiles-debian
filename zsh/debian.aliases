@@ -56,3 +56,4 @@ alias bencoe='mkdir -p'
 # generic software development
 alias b=build
 alias t=runtests
+alias l=lint
