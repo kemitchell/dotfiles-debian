@@ -52,3 +52,7 @@ alias lz=licensezero
 alias l0=licensezero
 
 alias bencoe='mkdir -p'
+
+# generic software development
+alias b=build
+alias t=runtests
