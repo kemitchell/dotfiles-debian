@@ -11,6 +11,8 @@ elif [ -f Cargo.toml ]; then
   cargo build
 elif [ -f Rakefile ]; then
   rake
+elif [ -f ./shard.yml ]; then
+  shards build
 elif [ -x ./build ]; then
   ./build
 else
