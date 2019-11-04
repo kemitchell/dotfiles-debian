@@ -42,7 +42,7 @@ function mkcd() {
 
 alias cf=commonform
 
-alias m=mutt
+alias m=neomutt
 
 alias tt=runtests
 
