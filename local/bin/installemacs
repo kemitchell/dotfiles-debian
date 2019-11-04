@@ -7,8 +7,8 @@ if [ -z "$1" ]; then
 fi
 
 sudo apt-get update
-sudo apt-get install autoconf automake
-sudo apt-get build-dep emacs
+sudo apt-get install -y autoconf automake
+sudo apt-get build-dep -y emacs-nox
 
 mkdir -p $PREFIX/source
 REPO=$PREFIX/source/emacs
@@ -16,7 +16,7 @@ if [ -d $REPO ]; then
 	cd $REPO
 	git fetch
 else
-	git clone --depth 1 git://git.savannah.gnu.org/emacs.git $REPO
+	git clone git://git.savannah.gnu.org/emacs.git $REPO
 	cd $REPO
 fi
 

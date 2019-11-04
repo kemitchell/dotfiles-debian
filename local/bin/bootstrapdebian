@@ -39,8 +39,6 @@ docdiff
 dos2unix
 dosfstools
 dwdiff
-emacs-nox
-emacs24-nox
 exactimage
 fail2ban
 figlet
@@ -155,3 +153,6 @@ debianinstallssp
 
 mkdir -p ~/.zsh/
 git clone https://github.com/tarjoilija/zgen.git ~/.zsh/zgen
+
+installvim
+installemacs
