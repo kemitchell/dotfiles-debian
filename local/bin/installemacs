@@ -2,7 +2,7 @@
 set -e
 
 if [ -z "$1" ]; then
-  echo "Usage: install-emacs <version>"
+  echo "Usage: installemacs <version>"
   exit 1
 fi
 
