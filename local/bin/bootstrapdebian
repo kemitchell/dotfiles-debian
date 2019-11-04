@@ -7,7 +7,6 @@ apache2-utils
 asciidoc
 aspell
 aspell-en
-renameutils
 aspell-ru
 autoconf
 automake
@@ -40,6 +39,7 @@ docdiff
 dos2unix
 dosfstools
 dwdiff
+emacs-nox
 emacs24-nox
 exactimage
 fail2ban
@@ -97,6 +97,7 @@ r-base
 r-recommended
 rcconf
 recode
+renameutils
 renameutils
 ripmime
 rpl
