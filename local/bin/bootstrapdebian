@@ -43,6 +43,7 @@ exactimage
 fail2ban
 figlet
 findutils
+fontcache
 fonts-freefont-ttf
 fonts-noto
 fortune
@@ -77,6 +78,7 @@ nmap
 ntpdate
 pandoc
 par
+parallel
 parallel
 pdfjam
 pdftk
@@ -146,3 +148,6 @@ zsh
 PACKAGES
 
 debianinstallssp
+
+mkdir -p ~/.zsh/
+git clone https://github.com/tarjoilija/zgen.git ~/.zsh/zgen
