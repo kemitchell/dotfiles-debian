@@ -17,6 +17,7 @@ bison
 bsdmainutils
 bsdutils
 build-essential
+build-essential
 busybox
 cabal-install
 catdoc
