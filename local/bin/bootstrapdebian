@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 sudo apt-get update
 sudo apt-get upgrade -y
+enableunattendedupgrades
 cat <<PACKAGES | sudo xargs apt-get install -y
 antiword
 apache2-utils
