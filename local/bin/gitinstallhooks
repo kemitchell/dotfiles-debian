@@ -6,6 +6,8 @@ fi
 
 for hook in pre-commit pre-push pre-receive pre-rebase; do
   if [ -x ./$hook ]; then
-    cp ./$hook .git/hooks/$hook
+    cp "./$hook" ".git/hooks/$hook"
+    echo "Installed $hook Git hook:"
+    sed -e 's/^/  /' "./$hook"
   fi
 done
