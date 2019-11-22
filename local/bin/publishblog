@@ -2,6 +2,6 @@
 set -e
 tmp=$(mktemp -d)
 trap "rm -rf $tmp" EXIT
-git clone --quiet https://github.com/kemitchell/writing.kemitchell.com $tmp >/dev/null 2>&1
-cd $tmp >/dev/null
-./publish >/dev/null 2>&1
+git clone --quiet https://github.com/kemitchell/writing.kemitchell.com "$tmp" 2>&1
+cd "$tmp"
+./publish 2>&1
