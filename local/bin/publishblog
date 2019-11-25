@@ -1,7 +1,2 @@
 #!/bin/zsh
-set -e
-tmp=$(mktemp -d)
-trap "rm -rf $tmp" EXIT
-git clone --quiet https://github.com/kemitchell/writing.kemitchell.com "$tmp" 2>&1
-cd "$tmp"
-./publish 2>&1
+publishsite writing.kemitchell.com

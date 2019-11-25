@@ -1,0 +1,14 @@
+#!/bin/zsh
+set -e
+
+SITE="$1"
+if [ -z "$1" ]; then
+  echo "Usage: <url>"
+  exit 1
+fi
+
+tmp=$(mktemp -d)
+trap "rm -rf $tmp" EXIT
+git clone --quiet https://github.com/kemitchell/$SITE "$tmp" 2>&1
+cd "$tmp"
+./publish 2>&1
