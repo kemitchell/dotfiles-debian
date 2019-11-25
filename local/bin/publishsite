@@ -7,8 +7,20 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+if [ "$SITE" = "waypointnda.com" ]; then
+  SLUG="waypointnda/waypointnda.com"
+elif [ "$SITE" = "blog.licensezero.com" ]; then
+  SLUG="licensezero/blog.licensezero.com"
+elif [ "$SITE" = "welcome.licensezero.com" ]; then
+  SLUG="licensezero/welcome.licensezero.com"
+elif [ "$SITE" = "guide.licensezero.com" ]; then
+  SLUG="licensezero/guide.licensezero.com"
+else
+  SLUG="kemitchell/$SITE"
+fi
+
 tmp=$(mktemp -d)
 trap "rm -rf $tmp" EXIT
-git clone --quiet https://github.com/kemitchell/$SITE "$tmp" 2>&1
+git clone --quiet https://github.com/$SLUG "$tmp" 2>&1
 cd "$tmp"
 ./publish 2>&1
