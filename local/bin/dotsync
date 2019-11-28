@@ -10,6 +10,7 @@ hostname=$(hostname)
 cd "$repo"
 
 if [ "$base" = "spelling" ] && [ "$hostname" != "dev.kemitchell.com" ]; then
+  echo "$base: Resetting to origin/master."
   git fetch origin
   git reset --hard origin/master
   exit 0
