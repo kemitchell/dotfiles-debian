@@ -23,4 +23,8 @@ tmp=$(mktemp -d)
 trap "rm -rf $tmp" EXIT
 git clone --quiet https://github.com/$SLUG "$tmp" 2>&1
 cd "$tmp"
-./publish 2>&1
+if [ -e ./publish ]; then
+  ./publish 2>&1
+elif [ -d ./deploy ]; then
+  ./deploy 2>&1
+fi
