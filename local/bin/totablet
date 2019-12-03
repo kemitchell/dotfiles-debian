@@ -1,4 +1,4 @@
 #!/usr/bin/zsh
 for var in "$@"; do
-  rclone copy "$var" "dropbox:Reading/iPad/"
+  rclone copy "$var" "dropbox:iPad/"
 done
