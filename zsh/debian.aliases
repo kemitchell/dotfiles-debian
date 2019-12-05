@@ -58,3 +58,5 @@ alias bencoe='mkdir -p'
 alias b=build
 alias t=runtests
 alias l=lint
+
+alias d=./deploy
