@@ -1,6 +1,7 @@
 Host gh github github.com
 Hostname github.com
 User git
+IdentityFile ~/.ssh/id_ed25519
 
 Host commonform commonform.org
 Hostname commonform.org
@@ -13,6 +14,7 @@ User git
 Host dev
 HostName dev.kemitchell.com
 User kyle
+IdentityFile ~/.ssh/id_ed25519
 
 Host tm trademarks
 Hostname trademarks.kemitchell.com
