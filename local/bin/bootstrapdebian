@@ -18,7 +18,6 @@ bison
 bsdmainutils
 bsdutils
 build-essential
-build-essential
 busybox
 cabal-install
 catdoc
@@ -34,8 +33,6 @@ dirdiff
 dlint
 dnsutils
 doc-rfc
-docbook
-docbook2x
 docdiff
 dos2unix
 dosfstools
@@ -70,6 +67,7 @@ m4
 markdown
 mawk
 mosh
+moreutils
 msmtp
 net-tools
 netcat
