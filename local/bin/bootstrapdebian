@@ -125,6 +125,7 @@ texinfo
 texlive
 texlive-science
 texlive-xetex
+tidy
 tmux
 traceroute
 transmission-cli
