@@ -1,2 +1,2 @@
 #!/bin/zsh
-publishsite writing.kemitchell.com
+deploysite writing.kemitchell.com
