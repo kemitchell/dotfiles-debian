@@ -1,5 +1,6 @@
 #!/bin/zsh
 set -e
+set -x
 
 SITE="$1"
 if [ -z "$1" ]; then
@@ -25,6 +26,6 @@ git clone --quiet https://github.com/$SLUG "$tmp" 2>&1
 cd "$tmp"
 if [ -e ./publish ]; then
   ./publish 2>&1
-elif [ -d ./deploy ]; then
+elif [ -e ./deploy ]; then
   ./deploy 2>&1
 fi
