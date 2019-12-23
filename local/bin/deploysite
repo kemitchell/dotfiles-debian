@@ -16,6 +16,8 @@ elif [ "$SITE" = "welcome.licensezero.com" ]; then
   SLUG="licensezero/welcome.licensezero.com"
 elif [ "$SITE" = "guide.licensezero.com" ]; then
   SLUG="licensezero/guide.licensezero.com"
+elif [ "$SITE" = "readerstyle.com" ]; then
+  SLUG="readerstyle/readerstyle.com"
 else
   SLUG="kemitchell/$SITE"
 fi
