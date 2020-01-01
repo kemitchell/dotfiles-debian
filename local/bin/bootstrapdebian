@@ -11,6 +11,7 @@ aspell-en
 aspell-ru
 autoconf
 automake
+awscli
 bibclean
 bibtool
 binutils
