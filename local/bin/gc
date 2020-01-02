@@ -25,7 +25,6 @@ git clone "$remote" "$clone"
   cd "$clone"
   git submodule update --init --recursive
   gitinstallhooks
-  # ssb=$(fgrep "$slug" "$HOME/.github-to-ssb" | cut -d ' ' -f 2)
   if git remote -v | fgrep "github" > /dev/null; then
     gh issue
   fi
