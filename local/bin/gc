@@ -19,7 +19,22 @@ base=$(basename "$slug")
 
 clone="$WORKSPACE/$base"
 
-git clone "$remote" "$clone"
+if [ "$remote" = "git@github.com:discourse-org/website" ]; then
+  cached="$HOME/.git-cache/discourse-website"
+  if [ ! -d "$cached" ]; then
+    git clone "$remote" "$cached"
+  else
+    (
+      cd "$cached"
+      git checkout -q master
+      git fetch -q origin
+      git reset -q --hard origin/master
+    )
+  fi
+  cp -r "$cached" "$clone"
+else
+  git clone "$remote" "$clone"
+fi
 
 (
   cd "$clone"
