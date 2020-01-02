@@ -31,9 +31,3 @@ git clone "$remote" "$clone"
   fi
   git grep "TODO"
 )
-
-# if [ -f "$clone/Gopkg.toml" ]; then
-#   mkdir -p $(dirname "$go_dir")
-#   mv "$clone" $(dirname "$go_dir")
-#   echo "$go_dir"
-# fi
