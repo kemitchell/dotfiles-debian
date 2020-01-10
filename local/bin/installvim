@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 sudo apt-get update
 set -e
-sudo apt-get install -y libncurses5-dev python-dev ruby-dev
+sudo apt-get install -y libncurses5-dev python3-dev ruby-dev
 mkdir -p "$PREFIX/source"
 cd "$PREFIX/source"
 if [ ! -d vim ]; then
@@ -10,7 +10,15 @@ fi
 cd vim
 git pull origin master
 make distclean
-./configure --prefix="$PREFIX" --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-luainterp --enable-cscope
+./configure --prefix="$PREFIX" \
+  --with-features=huge \
+	--enable-multibyte \
+	--enable-rubyinterp \
+	--enable-perlinterp \
+	--enable-luainterp \
+	--enable-cscope \
+	--enable-perlinterp \
+	--enable-python3interp
 make
 make install
 installvundle
