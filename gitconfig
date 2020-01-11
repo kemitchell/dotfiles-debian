@@ -67,7 +67,7 @@
 	s = status
 	todo = !git --no-pager grep -E '(TODO|FIXME)' | sed -r 's/\\s+/ /g' | fgrep -v vendor
 	topic = checkout -b
-	reword = commit --amend
+	reword = commit --amend --no-verify
 	unstash = stash apply
 	wip = commit -m "WIP"
 	wlog = log -p --color-words
