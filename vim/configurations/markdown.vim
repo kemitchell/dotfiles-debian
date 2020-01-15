@@ -1,5 +1,7 @@
 let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal = 1
+let g:markdown_enable_spell_checking = 1
+let g:markdown_enable_input_abbreviations = 0
 
 augroup markdown
   autocmd!
