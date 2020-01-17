@@ -61,7 +61,7 @@ Plugin 'vim-misc'
 " automatically reload VimScripts on edit
 Plugin 'xolox/vim-reload'
 " two-pane outliner
-Plugin 'VOoM'
+Plugin 'vim-voom/VOoM'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
 	exec 'source' f
