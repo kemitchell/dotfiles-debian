@@ -14,23 +14,20 @@ remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my
 if [ -z "$remote" ]; then
   exit 1
 fi
-slug=$(echo -n $remote | cut -f 2 -d ':')
+slug=$(echo -n "$remote" | cut -f 2 -d ':')
 base=$(basename "$slug")
 
 clone="$WORKSPACE/$base"
-
-if [ "$remote" = "git@github.com:discourse-org/website" ]; then
-  cached="$HOME/.git-cache/discourse-website"
-  if [ ! -d "$cached" ]; then
-    git clone "$remote" "$cached"
-  else
-    (
-      cd "$cached"
-      git checkout -q master
-      git fetch -q origin
-      git reset -q --hard origin/master
-    )
-  fi
+cached="$HOME/.git-cache/$slug"
+if [ -d "$cached" ]; then
+  echo "Updating cache."
+  (
+    cd "$cached"
+    git checkout -q master
+    git fetch -q origin
+    git reset -q --hard origin/master
+  )
+  echo "Copying from cache."
   cp -r "$cached" "$clone"
 else
   git clone "$remote" "$clone"
