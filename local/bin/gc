@@ -16,8 +16,13 @@ if [ -z "$remote" ]; then
 fi
 slug=$(echo -n "$remote" | cut -f 2 -d ':')
 base=$(basename "$slug")
-
 clone="$WORKSPACE/$base"
+
+if [ -d "$clone" ]; then
+  echo "$clone already exists."
+  exit 1
+fi
+
 cached="$HOME/.git-cache/$slug"
 if [ -d "$cached" ]; then
   echo "Updating cache."
