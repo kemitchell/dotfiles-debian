@@ -17,6 +17,8 @@ elif [ -x ./build ]; then
   ./build
 elif [ -f _config.yml ]; then
   bundle exec jekyll build --trace
+elif [ -f go.mod ]; then
+  go build
 else
   echo "Don't know how to build $PWD." > /dev/stderr
   exit 1

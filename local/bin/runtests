@@ -9,4 +9,6 @@ elif [ -f stack.yaml ]; then
 	stack test
 elif [ -f Rakefile ]; then
 	rake
+elif [ -f go.mod ]; then
+	go test -v
 fi
