@@ -3,6 +3,8 @@ if [ -f package.json ]; then
 	node-coverage
 elif [ -f Makefile ]; then
 	make coverage
+elif [ -f go.mod ]; then
+  go test -cover ./...
 else
   echo "Don't know how to run coverage."
   exit 1

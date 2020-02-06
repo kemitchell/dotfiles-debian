@@ -11,6 +11,6 @@ elif [ -f stack.yaml ]; then
 elif [ -f Rakefile ]; then
 	rake
 elif [ -f go.mod ]; then
-	go test -v
+	go test -v ./...
 fi
 ) | tee test.log
