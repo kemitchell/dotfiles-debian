@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+(
 if [ -f package.json ]; then
 	nodetest
 elif [ -f Makefile ]; then
@@ -12,3 +13,4 @@ elif [ -f Rakefile ]; then
 elif [ -f go.mod ]; then
 	go test -v
 fi
+) | tee test.log
