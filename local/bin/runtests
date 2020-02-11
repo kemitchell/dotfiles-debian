@@ -13,4 +13,4 @@ elif [ -f Rakefile ]; then
 elif [ -f go.mod ]; then
 	go test -v ./...
 fi
-) | tee test.log
+) 2>&1 | tee test.log
