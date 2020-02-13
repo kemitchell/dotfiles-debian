@@ -3,4 +3,6 @@ if [ -f package.json ]; then
   npm run lint
 elif [ -f Cargo.toml ]; then
   cargo clippy
+elif [ -f go.mod ]; then
+  go vet ./...
 fi
