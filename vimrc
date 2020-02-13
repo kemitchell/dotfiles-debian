@@ -126,6 +126,10 @@ set formatprg=fmt\ -w72\ -u
 set backspace=indent,eol,start
 set pastetoggle=<F2>
 
+" Unmap <F1> for help
+nmap <F1> <nop>
+imap <F1> <nop>
+
 " select last yank
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
