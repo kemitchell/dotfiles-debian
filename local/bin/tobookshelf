@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
-for var in "$@"; do
-  rclone --progress copy "$var" "dropbox:Bookshelf/Books/"
+for file in "$@"; do
+  echo "$file"
+  rclone copy --progress "$file" "dropbox:Bookshelf/Books/"
 done
