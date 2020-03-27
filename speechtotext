@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ ! -r "$1" ]; then
+  echo "Usage: <sound-file>"
+fi
+tmp=$(mktemp)
+function cleanup {
+  rm -rf "$tmp"
+}
+trap cleanup EXIT
+ffmpeg -i "$1" -ar 16000 -ac 1 "$tmp"
+pocketsphinx_continuous -time -infile "$tmp" 2>log >transcript.txt
