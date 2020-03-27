@@ -1,11 +1,23 @@
 #!/bin/bash
+set -ex
+
+usage="Usage: <in-file> <out-file>"
+
 if [ ! -r "$1" ]; then
-  echo "Usage: <sound-file>"
+  echo "$usage"
+  exit 1
 fi
-tmp=$(mktemp)
+
+if [ -z "$2" ]; then
+  echo "$usage"
+  exit 1
+fi
+touch "$2"
+
+tmp=$(mktemp --suffix=.wav)
 function cleanup {
   rm -rf "$tmp"
 }
 trap cleanup EXIT
-ffmpeg -i "$1" -ar 16000 -ac 1 "$tmp"
-pocketsphinx_continuous -time -infile "$tmp" 2>log >transcript.txt
+ffmpeg -y -i "$1" -ar 16000 -ac 1 "$tmp"
+pocketsphinx_continuous -infile "$tmp" >"$2"
