@@ -1,0 +1,8 @@
+#!/bin/bash
+set -x
+if [ -z "$1" ]; then
+  echo "Usage: <heading>"
+  exit 1
+fi
+
+awk "/^#+ +$1/ {seen=1 ; print ; next} /^#+/{if(seen) exit} seen"
