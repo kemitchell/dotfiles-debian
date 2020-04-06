@@ -4,4 +4,5 @@ sudo apt-get update
 sudo apt-get upgrade --dry-run | less
 promptyorn "Upgrade?" && sudo apt-get upgrade -y
 sudo apt autoremove
-upgradevimplugins
+hash upgradevimplugins && upgradevimplugins
+hash rustupdate && rustupdate
