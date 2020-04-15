@@ -1,8 +1,7 @@
 #!/usr/bin/zsh
 set -e
 sudo apt-get update
-sudo apt-get upgrade --dry-run | less
-promptyorn "Upgrade?" && sudo apt-get upgrade -y
+sudo apt-get upgrade -y
 sudo apt autoremove
 hash npm && npm i -g npm
 hash upgradevimplugins && upgradevimplugins
