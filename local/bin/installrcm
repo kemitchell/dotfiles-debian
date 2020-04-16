@@ -1,0 +1,3 @@
+#!/usr/bin/zsh
+curl -kL https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
+sudo apt-get install rcm
