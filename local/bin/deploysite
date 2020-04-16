@@ -1,6 +1,5 @@
 #!/bin/zsh
 set -e
-set -x
 
 SITE="$1"
 if [ -z "$1" ]; then
