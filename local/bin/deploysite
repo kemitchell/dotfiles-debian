@@ -23,7 +23,7 @@ fi
 
 tmp=$(mktemp -d)
 trap "rm -rf $tmp" EXIT
-git clone --quiet https://github.com/$SLUG "$tmp" 2>&1
+git clone --quiet --depth 1 https://github.com/$SLUG "$tmp" 2>&1
 cd "$tmp"
 if [ -e ./publish ]; then
   ./publish 2>&1
