@@ -9,6 +9,8 @@ fi
 
 if [ "$SITE" = "waypointnda.com" ]; then
   SLUG="waypointnda/waypointnda.com"
+elif [ "$SITE" = "commonform.org" ]; then
+  SLUG="commonform/commonform.org"
 elif [ "$SITE" = "blog.licensezero.com" ]; then
   SLUG="licensezero/blog.licensezero.com"
 elif [ "$SITE" = "welcome.licensezero.com" ]; then
