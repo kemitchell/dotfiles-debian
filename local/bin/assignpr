@@ -1,0 +1,8 @@
+#!/bin/bash
+pr="$1"
+handle=$(echo -n "$2" | tr -d '@')
+if [ -z "$pr" ] || [ -z "$handle" ]; then
+  echo "Usage: <pr> <handle>"
+  exit 1
+fi
+gh --assign --assignee="$handle" "$pr"
