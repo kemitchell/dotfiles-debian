@@ -46,6 +46,7 @@ fontcache
 fonts-freefont-ttf
 fonts-noto
 fortune
+fzf
 gawk
 gdb
 ghc
@@ -68,8 +69,8 @@ lynx
 m4
 markdown
 mawk
-mosh
 moreutils
+mosh
 msmtp
 net-tools
 netcat
