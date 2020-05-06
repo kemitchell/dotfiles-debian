@@ -2,11 +2,13 @@
 set -e
 
 if connectedtointernet; then
-  pushrepos
-  dotsync
-  if [ ! -f "$TRAVEL_FILE" ]; then
+  if [ -f "$TRAVEL_FILE" ]; then
+    pushrepos
+  else
+    pushanddeleterepos
     purgefiles
   fi
+  dotsync
   hash syncprojects && syncprojects
   sudo shutdown now -h
 else
