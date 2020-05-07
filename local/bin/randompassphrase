@@ -1,2 +1,2 @@
 #!/usr/bin/zsh
-shuf -n "${1-4}" "$HOME/.local/longman" | tr '\n' ' ' | sed "s/'s//g" | sed 's/ $/\n/'
+diceware --no-caps --delimiter " "
