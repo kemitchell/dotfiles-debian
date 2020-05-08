@@ -1,0 +1,2 @@
+#!/bin/sh
+curl --silent "$1" | hxselect -s '\n' -c  'title' 2>/dev/null

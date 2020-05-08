@@ -3,4 +3,11 @@ if [ -z "$1" ]; then
   echo "Usage: <URL>"
   exit 1
 fi
-curl -X POST "https://api.pinboard.in/v1/posts/add?auth_token=$PINBOARD_TOKEN&format=json&url=$1&toread=yes"
+description=$(pagetiutle "$1")
+curl -G \
+  "https://api.pinboard.in/v1/posts/add" \
+  --data-urlencode "auth_token=$PINBOARD_TOKEN" \
+  --data-urlencode "url=$1" \
+  --data-urlencode "description=$description" \
+  --data-urlencode "format=json" \
+  --data-urlencode "toread=yes"
