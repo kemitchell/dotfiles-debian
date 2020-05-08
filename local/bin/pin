@@ -1,13 +1,13 @@
 #!/bin/bash
-if [ -z "$1" ]; then
-  echo "Usage: <URL>"
-  exit 1
+url="$1"
+if [ -z "$url" ]; then
+  url=$(pbp)
 fi
-description=$(pagetiutle "$1")
+description=$(pagetitle "$url")
 curl -G \
   "https://api.pinboard.in/v1/posts/add" \
   --data-urlencode "auth_token=$PINBOARD_TOKEN" \
-  --data-urlencode "url=$1" \
+  --data-urlencode "url=$url" \
   --data-urlencode "description=$description" \
   --data-urlencode "format=json" \
   --data-urlencode "toread=yes"
