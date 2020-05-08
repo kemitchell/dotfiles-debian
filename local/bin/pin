@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+  echo "Usage: <URL>"
+  exit 1
+fi
+curl -X POST "https://api.pinboard.in/v1/posts/add?auth_token=$PINBOARD_TOKEN&format=json&url=$1&toread=yes"
