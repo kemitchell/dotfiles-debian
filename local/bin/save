@@ -7,9 +7,11 @@ fi
 git add -u >/dev/null
 git empty --quiet
 git push origin master --quiet
-if [ -x ./publish ]; then
-  promptyorn "Publish?" && ./publish
-fi
-if [ -x ./deploy ]; then
-  promptyorn "Deploy?" && ./deploy
+if [ $(git branch --show-current) = "master" ]; then
+  if [ -x ./publish ]; then
+    promptyorn "Publish?" && ./publish
+  fi
+  if [ -x ./deploy ]; then
+    promptyorn "Deploy?" && ./deploy
+  fi
 fi
