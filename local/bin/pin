@@ -4,6 +4,8 @@ if [ -z "$url" ]; then
   url=$(pbp)
 fi
 description=$(pagetitle "$url")
+echo "$description"
+echo "$url"
 curl -G \
   "https://api.pinboard.in/v1/posts/add" \
   --data-urlencode "auth_token=$PINBOARD_TOKEN" \
