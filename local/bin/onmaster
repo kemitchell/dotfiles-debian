@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ ! -d ".git" ]; then
+  exit 1
+fi
+branch=$(git branch --show-current)
+if [ "$branch" = "master" ]; then
+  exit 0
+else
+  exit 1
+fi
