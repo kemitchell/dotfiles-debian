@@ -1,7 +1,13 @@
 #!/usr/bin/zsh
-if !onmaster ; then
-  echo "Not on master branch." >/dev/stderr
+if ! onmaster ; then
+  echo "Error: not on master branch" >/dev/stderr
   exit 1
 fi
-[ -x "./publish" ] && promptyorn "Publish?" && ./publish
-[ -x "./deploy" ] && promptyorn "Deploy?" && ./deploy
+if [ -x "./publish" ]; then
+  promptyorn "Publish?" && ./publish
+  exit
+fi
+if [ -x "./deploy" ]; then
+  promptyorn "Deploy?" && ./deploy
+  exit
+fi
