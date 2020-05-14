@@ -8,7 +8,6 @@ augroup markdown
   autocmd FileType markdown setlocal shiftwidth=2
   autocmd FileType markdown setlocal tabstop=2
   autocmd FileType markdown setlocal expandtab
-  autocmd FileType markdown setlocal spell
   autocmd FileType markdown call WrapSettings()
   " Common Form
   autocmd FileType markdown noremap <buffer> <leader>L <Esc>:!cat '%:p' \| commonform-commonmark parse --only form \| commonform-lint \| json -a message \| sort -u<CR>
