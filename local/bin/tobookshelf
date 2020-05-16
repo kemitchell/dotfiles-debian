@@ -1,5 +1,4 @@
 #!/usr/bin/zsh
 for file in "$@"; do
-  echo "$file"
   rclone copy --progress "$file" "dropbox:Bookshelf/Books/"
 done
