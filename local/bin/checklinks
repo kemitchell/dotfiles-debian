@@ -1,2 +1,2 @@
 #!/bin/sh
-linkchecker --check-extern --no-status
+linkchecker --check-extern "$1"
