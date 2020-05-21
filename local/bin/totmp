@@ -1,4 +1,4 @@
 #!/usr/bin/zsh
 for file in "$@"; do
-  rclone copy "$file" "drive:/tmp/"
+  rclone copy --progress "$file" "drive:/tmp/"
 done
