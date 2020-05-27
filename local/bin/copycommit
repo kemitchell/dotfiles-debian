@@ -1,0 +1,3 @@
+#!/bin/sh
+git rev-parse HEAD | xclip -i -sel primary
+git rev-parse HEAD | xclip -i -sel clip
