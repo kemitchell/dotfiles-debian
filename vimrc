@@ -62,6 +62,8 @@ Plugin 'vim-misc'
 Plugin 'xolox/vim-reload'
 " two-pane outliner
 Plugin 'vim-voom/VOoM'
+" LanguageTool Grammar Checking
+Plugin 'rhysd/vim-grammarous'
 
 for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
 	exec 'source' f
