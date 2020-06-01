@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+set -e
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys 379CE192D401AB61
 list="/etc/apt/sources.list.d/stripe-cli.list"
 if ! [ -f "$list" ]; then
-  echo "deb https://dl.bintray.com/stripe/stripe-cli-deb stable main" >"$list"
+  echo "deb https://dl.bintray.com/stripe/stripe-cli-deb stable main" | sudo tee "$list"
 fi
 sudo apt-get update
 sudo apt-get install stripe
