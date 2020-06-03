@@ -2,7 +2,12 @@
 set -e
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo chmod 4755 /opt/Signal/chrome-sandbox
+
+signal_sandbox=/opt/Signal/chrome-sandbox
+if [ -f "$signal_sandbox" ]; then
+  sudo chmod 4755 "$signal_sandbox"
+fi
+
 sudo apt autoremove
 hash npm && npm i -g npm
 hash upgradevimplugins && upgradevimplugins
