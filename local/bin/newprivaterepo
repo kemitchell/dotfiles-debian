@@ -10,6 +10,7 @@ ssh kyle@git.kemitchell.com <<SESSION
 mkdir "$1"
 cd "$1"
 git init --bare
+rm -rf hooks/*.sample
 SESSION
 
 mkdir "$1"
