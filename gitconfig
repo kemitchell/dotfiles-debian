@@ -76,7 +76,6 @@
 	h = "!source ~/.githelpers && pretty_git_log"
 	track = checkout --track
 	rh = reset --hard
-	setup = branch --set-upstream-to origin/master
 [core]
 	editor = vim \"+set spell\" -c start
 	excludesfile = /home/kyle/.gitignore_global
