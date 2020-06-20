@@ -42,19 +42,14 @@
 	e = commit --allow-empty-message -m ''
 	f = fetch
 	ff = merge --ff-only
-	ffm = merge --ff-only origin/master
-	fom = push -f origin master
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 	l = log --oneline -n 10 --decorate=full
-	m = checkout master
 	mirror = push --mirror
 	noff = merge --no-ff
 	out = checkout
 	p = push
 	pa = !git remote | xargs -l git push
 	po = push origin
-	pom = push origin master
-	rom = rebase origin/master
 	purge = clean -fdx
 	clobber = clean -fdx
 	pwd = !pwd
@@ -62,7 +57,6 @@
 	rc = rebase --continue
 	mc = merge --continue
 	recent = log --oneline --name-only -10
-	release = push --tags github master
 	remove = ls-files --deleted | xargs git rm
 	s = status
 	todo = !git --no-pager grep -E '(TODO|FIXME)' | sed -r 's/\\s+/ /g' | fgrep -v vendor
