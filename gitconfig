@@ -48,6 +48,7 @@
 	noff = merge --no-ff
 	out = checkout
 	p = push
+  pall = push --all
 	pa = !git remote | xargs -l git push
 	po = push origin
 	purge = clean -fdx
