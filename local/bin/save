@@ -6,5 +6,5 @@ if [ -z ".git" ]; then
 fi
 git add -u >/dev/null
 git empty --quiet
-git push origin master --quiet
+git push origin --quiet
 deployproject
