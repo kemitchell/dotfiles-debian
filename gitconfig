@@ -45,6 +45,7 @@
 	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 	l = log --oneline -n 10 --decorate=full
 	mirror = push --mirror
+  new = !git init && git symbolic-ref HEAD refs/heads/main
 	noff = merge --no-ff
 	out = checkout
 	p = push
