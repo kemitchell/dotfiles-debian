@@ -43,3 +43,5 @@ function vcmd {
 function silently { $* >/dev/null &>/dev/null }
 
 alias xx='exit'
+
+alias remake='make clean ; make'
