@@ -1,0 +1,7 @@
+#!/usr/bin/zsh
+CACHE="$HOME/.github-my-repos"
+githubmyrepos | sort > "$CACHE"
+MANUAL="$HOME/.repos"
+if [ -f "$MANUAL" ]; then
+  cat "$MANUAL" >> "$CACHE"
+fi
