@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
-REPOS=$(listgitrepos "$HOME")
-[ -z "$REPOS" ] && exit 0
 while read -r repo; do
-  basename "$(dirname "$repo")"
+  slug=$(basename "$(dirname "$repo")")
+  echo -n "$slug: Pushing ... "
   git -C "$repo" push --all --quiet
+  echo -n "Done."
   rm -rf "$(dirname "$repo")"
-done <<< "$REPOS"
+  echo " Deleted."
+done < <(listgitrepos "$HOME")
