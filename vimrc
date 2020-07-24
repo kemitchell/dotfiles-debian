@@ -162,6 +162,9 @@ noremap  <leader>s <Esc>:!save<CR><CR>
 map <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
 set spelllang=en_us
 set spellfile=$HOME/.vim/spell/en.utf-8.add
+" Change spelling error formatting
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
 
 fu! WrapSettings()
 	setlocal spell
@@ -237,10 +240,5 @@ endfor
 let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical line in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 
-" Change spelling error formatting
-"hi clear SpellBad
-"hi SpellBad cterm=underline ctermfg=red
 
 set cryptmethod=blowfish2
-
-set termguicolors
