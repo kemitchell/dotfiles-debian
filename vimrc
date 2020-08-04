@@ -220,7 +220,7 @@ function! SetupCtrlP()
       autocmd BufWritePost * CtrlPClearCache
     augroup END
   endif
-  let g:ctrlp_root_markers = ['package.json', 'pom.xml', 'Gopkg.toml']
+  let g:ctrlp_root_markers = ['package.json', 'pom.xml', 'Gopkg.toml', 'Cargo.toml']
 endfunction
 
 if has("autocmd")
@@ -239,6 +239,5 @@ endfor
 " Change shape of cursor in different modes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical line in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-
 
 set cryptmethod=blowfish2
