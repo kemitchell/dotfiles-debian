@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+for file in "$@"; do
+  rclone copy --progress "$file" "dropbox:Photos/"
+done
