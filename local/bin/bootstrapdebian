@@ -58,6 +58,7 @@ graphviz
 happy
 html-xml-utils
 httpie
+hwinfo
 ifupdown
 inxi
 iotop
@@ -106,6 +107,7 @@ rpl
 rsync
 s3cmd
 sc
+secure-delete
 secure-delete
 sed
 sensible-utils
