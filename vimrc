@@ -127,6 +127,7 @@ endif
 set formatprg=fmt\ -w72\ -u
 set backspace=indent,eol,start
 set pastetoggle=<F2>
+set conceallevel 0
 
 " Unmap <F1> for help
 nmap <F1> <nop>
