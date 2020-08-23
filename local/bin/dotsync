@@ -9,13 +9,6 @@ base=$(basename "$repo")
 hostname=$(hostname)
 cd "$repo"
 
-if [ "$base" = "spelling" ] && [ "$hostname" != "kemitchell-laptop" ] && [ "$hostname" != "kemitchell-optiplex" ] ; then
-  echo "$base: Resetting to origin/master."
-  git fetch origin
-  git reset --hard origin/master
-  exit 0
-fi
-
 if [ -n "$(git status --porcelain)" ]; then
   git add . && git commit --allow-empty-message -m '' --quiet
   echo "$base: Committed changes."
