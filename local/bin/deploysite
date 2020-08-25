@@ -1,31 +1,39 @@
 #!/bin/zsh
 set -e
 
-SITE="$1"
+DOMAIN="$1"
 if [ -z "$1" ]; then
-  echo "Usage: <url>"
+  echo "Usage: <domain>"
   exit 1
 fi
 
-if [ "$SITE" = "waypointnda.com" ]; then
-  SLUG="waypointnda/waypointnda.com"
-elif [ "$SITE" = "commonform.org" ]; then
-  SLUG="commonform/commonform.org"
-elif [ "$SITE" = "blog.licensezero.com" ]; then
-  SLUG="licensezero/blog.licensezero.com"
-elif [ "$SITE" = "welcome.licensezero.com" ]; then
-  SLUG="licensezero/welcome.licensezero.com"
-elif [ "$SITE" = "guide.licensezero.com" ]; then
-  SLUG="licensezero/guide.licensezero.com"
-elif [ "$SITE" = "readerstyle.com" ]; then
-  SLUG="readerstyle/readerstyle.com"
+if [ "$DOMAIN" = "waypointnda.com" ]; then
+  GITHUB_SLUG="waypointnda/waypointnda.com"
+elif [ "$DOMAIN" = "commonform.org" ]; then
+  GITHUB_SLUG="commonform/commonform.org"
+elif [ "$DOMAIN" = "blog.licensezero.com" ]; then
+  GITHUB_SLUG="licensezero/blog.licensezero.com"
+elif [ "$DOMAIN" = "welcome.licensezero.com" ]; then
+  GITHUB_SLUG="licensezero/welcome.licensezero.com"
+elif [ "$DOMAIN" = "guide.licensezero.com" ]; then
+  GITHUB_SLUG="licensezero/guide.licensezero.com"
+elif [ "$DOMAIN" = "readerstyle.com" ]; then
+  GITHUB_SLUG="readerstyle/readerstyle.com"
+elif [ "$DOMAIN" = "homelessindustrial.com" ]; then
+  REMOTE="git.kemitchell.com:homelessindustrial.com"
+elif [ "$DOMAIN" = "patentpotato.com" ]; then
+  GITHUB_SLUG="patentpotato/patentpotato.com"
 else
-  SLUG="kemitchell/$SITE"
+  GITHUB_SLUG="kemitchell/$DOMAIN"
+fi
+
+if [ -z "$REMOTE" ]; then
+  REMOTE="https://github.com/$GITHUB_SLUG"
 fi
 
 tmp=$(mktemp -d)
 trap "rm -rf $tmp" EXIT
-git clone --quiet --depth 1 https://github.com/$SLUG "$tmp" 2>&1
+git clone --quiet --depth 1 "$REMOTE" "$tmp" 2>&1
 cd "$tmp"
 if [ -e ./publish ]; then
   ./publish 2>&1
