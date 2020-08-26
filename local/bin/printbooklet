@@ -1,0 +1,6 @@
+#!/usr/bin/zsh
+if [ -z "$1" ]; then
+  echo "Usage: <booklet.pdf>"
+  exit 1
+fi
+lp -o fit-to-page -o sides=two-sided-short-edge "$1"
