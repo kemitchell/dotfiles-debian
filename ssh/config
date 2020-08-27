@@ -12,14 +12,6 @@ HostName dev.kemitchell.com
 User kyle
 IdentityFile ~/.ssh/id_ed25519
 
-Host tm trademarks
-Hostname trademarks.kemitchell.com
-User kyle
-
-Host git-codecommit.*.amazonaws.com
-User APKAJZCKRP5SWPVMS46A
-IdentityFile ~/.ssh/codecommit
-
 TCPKeepAlive=yes
 ServerAliveInterval=15
 ServerAliveCountMax=6
