@@ -6,7 +6,7 @@ export LANGUAGE=en_US.UTF-8
 export EDITOR=vim
 export BROWSER="/usr/bin/google-chrome"
 export PREFIX="$HOME/.local"
-export PATH="$PREFIX/bin:$PREFIX/firefox/:$PATH"
+export PATH="$PREFIX/bin:$PREFIX/firefox:$PATH"
 export MANPATH="$PREFIX/share/man:$MANPATH"
 
 export TRAVEL_FILE="$HOME/.traveling"
