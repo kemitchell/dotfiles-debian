@@ -39,7 +39,7 @@ fi
   git submodule update --init --recursive
   gitinstallhooks
   if git remote -v | fgrep "github" > /dev/null; then
-    gh issue
+    gh issue list
   fi
   git grep "TODO"
 )
