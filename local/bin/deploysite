@@ -7,6 +7,7 @@ sites[commonform.org]="https://github.com/commonform/commonform.org"
 sites[blog.licensezero.com]="https://github.com/licensezero/licensezero.com"
 sites[stricteq.com]="https://github.com/stricteq/stricteq.com"
 sites[homelessindustrial.com]="git.kemitchell.com:homelessindustrial.com"
+sites[posse.kemitchell.com]="git.kemitchell.com:posse.kemitchell.com"
 sites[patentpotato.com]="https://github.com/patentpotato/patentpotato.com"
 
 SITE="$1"
