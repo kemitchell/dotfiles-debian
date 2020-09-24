@@ -9,6 +9,8 @@ sites[stricteq.com]="https://github.com/stricteq/stricteq.com"
 sites[homelessindustrial.com]="git.kemitchell.com:homelessindustrial.com"
 sites[posse.kemitchell.com]="git.kemitchell.com:posse.kemitchell.com"
 sites[patentpotato.com]="https://github.com/patentpotato/patentpotato.com"
+sites[artlessdevices.com]="https://github.com/artlessdevices/artlessdevices.com"
+sites[blog.artlessdevices.com]="https://github.com/artlessdevices/blog.artlessdevices.com"
 
 SITE="$1"
 if [ -z "$SITE" ]; then
