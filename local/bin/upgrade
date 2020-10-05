@@ -12,3 +12,4 @@ sudo apt autoremove
 hash npm && npm i -g npm
 hash upgradevimplugins && upgradevimplugins
 hash rustupdate && rustupdate
+hash dotsyncall && dotsyncall
