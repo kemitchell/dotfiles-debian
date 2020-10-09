@@ -1,0 +1,2 @@
+#!/bin/sh
+date --date "next Monday" --iso-8601
