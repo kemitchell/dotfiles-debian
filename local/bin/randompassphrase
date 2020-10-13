@@ -1,2 +1,2 @@
 #!/usr/bin/zsh
-diceware --no-caps --delimiter " "
+diceware --no-caps --delimiter " " -n "${1=6}"
