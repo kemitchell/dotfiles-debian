@@ -2,7 +2,7 @@
 set -e
 while read -r repo; do
   slug=$(basename "$(dirname "$repo")")
-  echo -n "$slug: Pushing . . . "
+  echo -n "$slug: Pushing ... "
   git -C "$repo" push --all --quiet
   echo -n "Done."
   rm -rf "$(dirname "$repo")"
