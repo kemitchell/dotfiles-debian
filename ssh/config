@@ -1,20 +1,18 @@
-Host gh github github.com
-Hostname github.com
-User git
-IdentityFile ~/.ssh/id_ed25519
-
-Host bb bitbucket bitbucket.org
-Hostname bitbucket.org
-User git
-
-Host dev
-HostName dev.kemitchell.com
-User kyle
-IdentityFile ~/.ssh/id_ed25519
-
 TCPKeepAlive=yes
 ServerAliveInterval=15
 ServerAliveCountMax=6
 StrictHostKeyChecking=yes
 Compression=yes
 ForwardAgent=no
+
+Host www1
+Hostname www1.kemitchell.com
+
+Host www2
+Hostname www2.kemitchell.com
+
+Host git
+Hostname git.kemitchell.com
+
+Host dev
+HostName dev.kemitchell.com
