@@ -1,7 +1,7 @@
 TCPKeepAlive=yes
 ServerAliveInterval=15
 ServerAliveCountMax=6
-StrictHostKeyChecking=yes
+#StrictHostKeyChecking=yes
 Compression=yes
 ForwardAgent=no
 
