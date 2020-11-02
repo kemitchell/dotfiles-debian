@@ -1,2 +1,2 @@
 #!/bin/sh
-tidy -modify $HTML_TIDY_FLAGS
+tidy -modify $HTML_TIDY_FLAGS "$1"
