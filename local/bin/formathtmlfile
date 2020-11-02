@@ -1,0 +1,2 @@
+#!/bin/sh
+tidy -modify $HTML_TIDY_FLAGS
