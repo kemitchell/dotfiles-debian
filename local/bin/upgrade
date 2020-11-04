@@ -11,6 +11,7 @@ fi
 sudo apt autoremove -y
 sudo apt clean
 hash npm && npm i -g npm
+hash npm && npm upgrade -g
 hash gem && gem update
 hash upgradevimplugins && upgradevimplugins
 hash rustupdate && rustupdate
