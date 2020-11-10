@@ -4,7 +4,7 @@ set -e
 REPOS=$(listgitrepos "$HOME")
 [ -z "$REPOS" ] && exit 0
 
-echo "$REPOS" | parallel --bar sh -c "cd {} ; git push --all --quiet"
+echo "$REPOS" | parallel --bar "cd {}/.. ; git push --all --quiet"
 
 HAVE_DIRTY=""
 for dir in $REPOS; do
