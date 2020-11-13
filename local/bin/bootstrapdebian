@@ -122,6 +122,7 @@ ssl-cert
 stress
 suckless-tools
 sudo
+symlinks
 sysvbanner
 tar
 tardiff
