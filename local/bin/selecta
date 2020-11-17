@@ -33,7 +33,7 @@ KEY_CTRL_M = ?\C-m
 KEY_DELETE = 127.chr # Equivalent to ?\C-?
 
 class Selecta
-  VERSION = [0, 0, 6]
+  VERSION = [0, 0, 7]
 
   def main
     # We have to parse options before setting up the screen or trying to read
@@ -43,8 +43,12 @@ class Selecta
     input_lines = $stdin.readlines
 
     search = Screen.with_screen do |screen, tty|
-      config = Configuration.from_inputs(input_lines, options, screen.height)
-      run_in_screen(config, screen, tty)
+      begin
+        config = Configuration.from_inputs(input_lines, options, screen.height)
+        run_in_screen(config, screen, tty)
+      ensure
+        config.visible_choices.times { screen.newline }
+      end
     end
 
     unless search.selection == Search::NoSelection
@@ -66,7 +70,7 @@ class Selecta
     # To make pipelines involving Selecta behave as people expect, we send
     # SIGINT to our own process group, which should exactly match what termios
     # would do to us if the terminal weren't in raw mode. "Should!" <- Remove
-    # those scare quotes if ten years pass without this breaking!
+    # those scare quotes if this doesn't break prior to 2025-03-05!
     #
     # The SIGINT will cause Ruby to raise Interrupt, so we also have to handle
     # that here.
@@ -79,17 +83,7 @@ class Selecta
 
   def run_in_screen(config, screen, tty)
     search = Search.from_config(config)
-
-    # We emit the number of lines we'll use later so we don't clobber whatever
-    # was already on the screen.
-    config.visible_choices.times { tty.puts }
-    begin
-      search = ui_event_loop(search, screen, tty)
-    ensure
-      # Always move the cursor to the bottom so the next program doesn't draw
-      # over whatever we left on the screen.
-      screen.move_cursor(screen.height - 1, 0)
-    end
+    search = ui_event_loop(search, screen, tty)
     search
   end
 
@@ -147,19 +141,27 @@ class Selecta
   class Abort < RuntimeError; end
 end
 
-class Configuration < Struct.new(:visible_choices, :initial_search, :choices)
-  def initialize(visible_choices, initialize, choices)
+class Configuration < Struct.new(:height, :initial_search, :choices)
+  def initialize(height, initialize, choices)
     # Constructor is defined to force argument presence; otherwise Struct
     # defaults missing arguments to nil
     super
   end
 
+  def visible_choices
+    height - 1
+  end
+
   def self.from_inputs(choices, options, screen_height=21)
     # Shrink the number of visible choices if the screen is too small
-    visible_choices = [20, screen_height - 1].min
+    if options.fetch(:height) == "full"
+      height = screen_height
+    else
+      height = [options.fetch(:height), screen_height].min
+    end
 
     choices = massage_choices(choices)
-    Configuration.new(visible_choices, options.fetch(:search), choices)
+    Configuration.new(height, options.fetch(:search), choices)
   end
 
   def self.default_options
@@ -167,7 +169,7 @@ class Configuration < Struct.new(:visible_choices, :initial_search, :choices)
   end
 
   def self.parse_options(argv)
-    options = {}
+    options = {:search => "", :height => 21}
 
     parser = OptionParser.new do |opts|
       opts.banner = "Usage: #{$PROGRAM_NAME} [options]"
@@ -182,7 +184,17 @@ class Configuration < Struct.new(:visible_choices, :initial_search, :choices)
         exit
       end
 
-      options[:search] = ""
+      opts.on("--height lines", "Specify UI height in lines (including prompt).", "(Use `--height full` for full-screen)") do |height|
+        if height == "full"
+          # "full" is a valid height
+        elsif height.to_i < 2
+          raise OptionParser::InvalidOption.new(%{must be at least 2})
+        else
+          height = height.to_i
+        end
+        options[:height] = height
+      end
+
       opts.on("-s", "--search SEARCH", "Specify an initial search string") do |search|
         options[:search] = search
       end
@@ -509,18 +521,27 @@ end
 class Renderer < Struct.new(:search)
   def self.render!(search, screen)
     rendered = Renderer.new(search).render
-    start_line = screen.height - search.config.visible_choices - 1
+    width = screen.width
+
     screen.with_cursor_hidden do
-      screen.write_lines(start_line, rendered.choices)
-      screen.move_cursor(start_line, 0)
-      screen.write_line(start_line, rendered.search_line)
+      rendered.choices.each_with_index do |choice, index|
+        choice = choice.truncate_to_width(width)
+        is_last_line = (index == rendered.choices.length - 1)
+        choice += Text["\n"] unless is_last_line
+        screen.write(choice)
+      end
+
+      # Move back up to the search line and redraw it, which will naturally
+      # leave the cursor at the end of the query.
+      screen.cursor_up(rendered.choices.length - 1)
+      screen.write(rendered.search_line.truncate_to_width(width))
     end
   end
 
   def render
-    search_line = "#{match_count_label} > " + search.query
+    search_line = Text["#{match_count_label} > " + search.query]
 
-    matches = search.best_matches
+    matches = search.best_matches[0, search.config.visible_choices]
     matches = matches.each_with_index.map do |match, index|
       if index == search.index
         Text[:inverse] + match.to_text + Text[:reset]
@@ -542,7 +563,7 @@ class Renderer < Struct.new(:search)
 
   def correct_match_count(matches)
     limited = matches[0, search.config.visible_choices]
-    padded = limited + [""] * (search.config.visible_choices - limited.length)
+    padded = limited + [Text[""]] * (search.config.visible_choices - limited.length)
     padded
   end
 
@@ -619,46 +640,21 @@ class Screen
     tty.winsize[1]
   end
 
-  def move_cursor(line, column)
-    write_bytes(ANSI.setpos(line, column))
+  def cursor_up(lines)
+    write_bytes(ANSI.cursor_up(lines))
   end
 
-  def write_line(line, text)
-    write(line, 0, text)
+  def newline
+    write_bytes("\n")
   end
 
-  def write_lines(line, texts)
-    texts.each_with_index do |text, index|
-      write(line + index, 0, text)
-    end
-  end
-
-  def write(line, column, text)
-    # Discard writes outside the main screen area
-    write_unrestricted(line, column, text) if line < height
-  end
-
-  def write_unrestricted(line, column, text)
-    text = Text[:default, text] unless text.is_a? Text
-    write_text_object(line, column, text)
-  end
-
-  def write_text_object(line, column, text)
-    # Blank the line before drawing to it
-    write_bytes(ANSI.setpos(line, 0))
-    write_bytes(" " * width)
+  def write(text)
+    write_bytes(ANSI.clear_line)
+    write_bytes("\r")
 
     text.components.each do |component|
       if component.is_a? String
-        write_bytes(ANSI.setpos(line, column))
-        # Don't draw off the edge of the screen.
-        #   - width - 1 is the last column we have (zero-indexed)
-        #   - subtract the current column from that to get the number of
-        #   columns we have left.
-        chars_to_draw = [0, width - 1 - column].max
-        component = expand_tabs(component)[0..chars_to_draw]
-        write_bytes(component)
-        column += component.length
+        write_bytes(expand_tabs(component))
       elsif component == :inverse
         write_bytes(ANSI.inverse)
       elsif component == :reset
@@ -691,7 +687,12 @@ class Text
   attr_reader :components
 
   def self.[](*args)
-    new(args)
+    if args.length == 1 && args[0].is_a?(Text)
+      # When called as `Text[some_text]`, just return the existing text.
+      args[0]
+    else
+      new(args)
+    end
   end
 
   def initialize(components)
@@ -704,6 +705,23 @@ class Text
 
   def +(other)
     Text[*(components + other.components)]
+  end
+
+  def truncate_to_width(width)
+    chars_remaining = width
+
+    # Truncate each string to the number of characters left within our
+    # allowed width. Leave anything else alone. This may result in empty
+    # strings and unused ANSI control codes in the output, but that's fine.
+    components = self.components.map do |component|
+      if component.is_a?(String)
+        component = component[0, chars_remaining]
+        chars_remaining -= component.length
+      end
+      component
+    end
+
+    Text.new(components)
   end
 end
 
@@ -727,8 +745,12 @@ class ANSI
       escape "?25h"
     end
 
-    def setpos(line, column)
-      escape "#{line + 1};#{column + 1}H"
+    def cursor_up(lines)
+      escape "#{lines}A"
+    end
+
+    def clear_line
+      escape "2K"
     end
 
     def color(fg, bg=:default)
