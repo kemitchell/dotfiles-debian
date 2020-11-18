@@ -2,7 +2,7 @@
 set -e
 set -x
 sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get --with-new-pkgs upgrade -y
 
 signal_sandbox=/opt/Signal/chrome-sandbox
 if [ -f "$signal_sandbox" ]; then
