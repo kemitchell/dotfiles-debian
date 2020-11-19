@@ -7,7 +7,7 @@ if [[ ! -f "$CACHE" ]] || [[ $* == *--refresh* ]] || [[ $* == *-r* ]]; then
   updategithubcache
 fi
 
-remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | selecta)
+remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | fzf)
 if [ -z "$remote" ]; then
   exit 1
 fi
