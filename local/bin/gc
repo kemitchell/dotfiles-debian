@@ -1,8 +1,5 @@
 #!/usr/bin/zsh
-cd
-
 CACHE="$HOME/.github-my-repos"
-
 if [[ ! -f "$CACHE" ]] || [[ $* == *--refresh* ]] || [[ $* == *-r* ]]; then
   updategithubcache
 fi
@@ -11,6 +8,7 @@ remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my
 if [ -z "$remote" ]; then
   exit 1
 fi
+
 slug=$(echo -n "$remote" | cut -f 2 -d ':')
 base=$(basename "$slug")
 clone="$WORKSPACE/$base"
@@ -25,11 +23,15 @@ if [ -d "$cached" ]; then
   echo "Updating cache."
   (
     cd "$cached"
-    git fetch -q origin
+    git fetch origin
     git merge --ff-only origin
   )
   echo "Copying from cache."
   cp -r "$cached" "$clone"
+  (
+    cd "$clone"
+    git remote add cached "$cached"
+  )
 else
   git clone "$remote" "$clone"
 fi
