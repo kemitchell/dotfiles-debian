@@ -1,10 +1,37 @@
 #!/usr/bin/zsh
-CACHE="$HOME/.github-my-repos"
-if [[ ! -f "$CACHE" ]] || [[ $* == *--refresh* ]] || [[ $* == *-r* ]]; then
+function usage {
+  cat <<EOS
+Interactively select and clone a Git repository.
+
+Usage: gc [options]
+
+Options:
+  -c --cache      Cache the repository.
+  -r --refresh    Refresh the remote cache.
+  -h --help       Show help.
+EOS
+}
+
+while test $# != 0; do
+  case "$1" in
+  -r) refresh_flag=t ;;
+  --refresh) refresh_flag=t ;;
+  -c) cache_flag=t ;;
+  --cache) cache_flag=t ;;
+  -h) usage ; exit ;;
+  --help) usage ; exit ;;
+  *)  usage ; exit 1 ;;
+  esac
+  shift
+done
+
+GITHUB_REMOTES="$HOME/.github-my-repos"
+OTHER_REMOTES="$HOME/.git-my-repos"
+if [ -n "$refresh_flag" ]; then
   updategithubcache
 fi
 
-remote=$((cat "$CACHE" | awk '{print "git@github.com:" $1}' ; cat "$HOME/.git-my-repos") | fzf)
+remote=$((cat "$GITHUB_REMOTES" | awk '{print "git@github.com:" $1}' ; cat "$OTHER_REMOTES") | fzf)
 if [ -z "$remote" ]; then
   exit 1
 fi
@@ -18,7 +45,17 @@ if [ -d "$clone" ]; then
   exit 1
 fi
 
-cached="$HOME/.git-cache/$slug"
+REPO_CACHE="$HOME/.git-cache"
+cached="$REPO_CACHE/$slug"
+function copy_cached {
+  echo "Cloning from cache."
+  git clone --origin cached "$cached" "$clone"
+  (
+    cd "$clone"
+    git remote add origin "$cached"
+  )
+}
+
 if [ -d "$cached" ]; then
   echo "Updating cache."
   (
@@ -26,12 +63,11 @@ if [ -d "$cached" ]; then
     git fetch origin
     git merge --ff-only origin
   )
-  echo "Copying from cache."
-  cp -r "$cached" "$clone"
-  (
-    cd "$clone"
-    git remote add cached "$cached"
-  )
+  copy_cached
+elif [ -n "$cache_flag" ]; then
+  echo "Caching."
+  git clone --mirror "$remote" "$cached"
+  copy_cached
 else
   git clone "$remote" "$clone"
 fi
