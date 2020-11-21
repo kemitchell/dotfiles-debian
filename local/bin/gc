@@ -14,12 +14,9 @@ EOS
 
 while test $# != 0; do
   case "$1" in
-  -r) refresh_flag=t ;;
-  --refresh) refresh_flag=t ;;
-  -c) cache_flag=t ;;
-  --cache) cache_flag=t ;;
-  -h) usage ; exit ;;
-  --help) usage ; exit ;;
+  -r | --refresh) refresh_flag=t ;;
+  -c | --cache) cache_flag=t ;;
+  -h | --help) usage ; exit ;;
   *)  usage ; exit 1 ;;
   esac
   shift
