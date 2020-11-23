@@ -17,7 +17,6 @@ git remote update >/dev/null
 ours=$(git rev-parse 'HEAD')
 remote=$(git rev-parse 'origin/master')
 if [ "$ours" = "$remote" ]; then
-  echo "$base: Up-to-date."
   exit
 else
   echo "$base: Pushing."
