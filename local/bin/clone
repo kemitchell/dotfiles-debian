@@ -1,0 +1,71 @@
+#!/bin/zsh
+set -e
+
+usage () {
+  cat <<EOS
+Clone a Git repository.
+
+Usage: clone [options] <remote>
+
+Options:
+  -c --cache    Cache the repository.
+  -h --help     Show help.
+EOS
+}
+
+positional_arguments=()
+while test $# != 0; do
+  case "$1" in
+  -c | --cache) cache_flag=t ;;
+  -h | --help) usage ; exit ;;
+  -*) usage ; exit 1 ;;
+  *) positional_arguments+=("$1") ;;
+  esac
+  shift
+done
+set -- "${positional_arguments[@]}"
+
+remote="$1"
+if [ -z "$remote" ]; then
+  echo "Usage: clone <remote>"
+  exit 1
+fi
+
+slug=$(echo -n "$remote" | cut -f 2 -d ':')
+base=$(basename "$slug")
+clone="$WORKSPACE/$base"
+
+if [ -d "$clone" ]; then
+  echo "$clone already exists."
+  exit 1
+fi
+
+REPO_CACHE="$HOME/.git-cache"
+cached="$REPO_CACHE/$slug"
+function copy_cached {
+  echo "Cloning from cache."
+  git clone --reference "$cached" "$remote" "$clone"
+}
+
+if [ -d "$cached" ]; then
+  echo "Updating cache."
+  (
+    cd "$cached"
+    git fetch origin
+    git merge --ff-only origin
+  )
+  copy_cached
+elif [ -n "$cache_flag" ]; then
+  echo "Caching."
+  git clone --mirror "$remote" "$cached"
+  copy_cached
+else
+  git clone "$remote" "$clone"
+fi
+
+(
+  cd "$clone"
+  git submodule update --init --recursive
+  gitinstallhooks
+  git grep "TODO"
+)

@@ -33,41 +33,8 @@ if [ -z "$remote" ]; then
   exit 1
 fi
 
-slug=$(echo -n "$remote" | cut -f 2 -d ':')
-base=$(basename "$slug")
-clone="$WORKSPACE/$base"
-
-if [ -d "$clone" ]; then
-  echo "$clone already exists."
-  exit 1
-fi
-
-REPO_CACHE="$HOME/.git-cache"
-cached="$REPO_CACHE/$slug"
-function copy_cached {
-  echo "Cloning from cache."
-  git clone --reference "$cached" "$remote" "$clone"
-}
-
-if [ -d "$cached" ]; then
-  echo "Updating cache."
-  (
-    cd "$cached"
-    git fetch origin
-    git merge --ff-only origin
-  )
-  copy_cached
-elif [ -n "$cache_flag" ]; then
-  echo "Caching."
-  git clone --mirror "$remote" "$cached"
-  copy_cached
+if [ -n "$cache_flag" ]; then
+  clone --cache "$remote"
 else
-  git clone "$remote" "$clone"
+  clone "$remote"
 fi
-
-(
-  cd "$clone"
-  git submodule update --init --recursive
-  gitinstallhooks
-  git grep "TODO"
-)
