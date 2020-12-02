@@ -27,7 +27,7 @@ set -- "${positional_arguments[@]}"
 
 remote="$1"
 if [ -z "$remote" ]; then
-  echo "Usage: clone <remote>"
+  usage
   exit 1
 fi
 
