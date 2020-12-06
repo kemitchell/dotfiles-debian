@@ -52,7 +52,7 @@ if [ -d "$cached" ]; then
   (
     cd "$cached"
     git fetch origin
-    git merge --ff-only origin
+    # git merge --ff-only origin
   )
   copy_cached
 elif [ -n "$cache_flag" ]; then
