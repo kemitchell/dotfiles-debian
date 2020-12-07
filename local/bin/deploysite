@@ -11,6 +11,7 @@ sites[posse.kemitchell.com]="git.kemitchell.com:posse.kemitchell.com"
 sites[patentpotato.com]="https://github.com/patentpotato/patentpotato.com"
 sites[artlessdevices.com]="https://github.com/artlessdevices/artlessdevices.com"
 sites[blog.artlessdevices.com]="https://github.com/artlessdevices/blog.artlessdevices.com"
+sites[notebook.kemitchell.com]="git.kemitchell.com:notebook"
 
 SITE="$1"
 if [ -z "$SITE" ]; then
@@ -27,7 +28,10 @@ if [ -z "$REMOTE" ]; then
 fi
 
 tmp=$(mktemp -d)
-trap "rm -rf $tmp" EXIT
+cleanup () {
+  rm -rf "$tmp"
+}
+trap cleanup EXIT
 git clone --quiet --depth 1 "$REMOTE" "$tmp" 2>&1
 cd "$tmp"
 if [ -e ./publish ]; then
