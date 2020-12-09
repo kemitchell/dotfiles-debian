@@ -9,6 +9,7 @@ Usage: clone [options] <remote>
 
 Options:
   -c --cache    Cache the repository.
+  -s --shallow  Create a shallow clone.
   -h --help     Show help.
 EOS
 }
@@ -17,7 +18,7 @@ positional_arguments=()
 while test $# != 0; do
   case "$1" in
   -c | --cache) cache_flag=t ;;
-  -h | --help) usage ; exit ;;
+  -h | --help) shallow_flag=t ;;
   -*) usage ; exit 1 ;;
   *) positional_arguments+=("$1") ;;
   esac
@@ -60,7 +61,11 @@ elif [ -n "$cache_flag" ]; then
   git clone --mirror "$remote" "$cached"
   copy_cached
 else
-  git clone "$remote" "$clone"
+  if [ -n "$shallow_flag" ]; then
+    git clone --depth 1 "$remote" "$clone"
+  else
+    git clone "$remote" "$clone"
+  fi
 fi
 
 (
