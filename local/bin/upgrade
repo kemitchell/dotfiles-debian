@@ -10,8 +10,8 @@ fi
 
 sudo apt autoremove -y
 sudo apt clean
-hash npm && npm i -g npm
-hash npm && npm upgrade -g
+hash npm && npm update -g npm
+hash npm && npm update --depth 9999 -g
 hash gem && gem update
 hash upgradevimplugins && upgradevimplugins
 hash rustupdate && rustupdate
