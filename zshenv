@@ -3,7 +3,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export EDITOR=vim
+export EDITOR="vim -e"
+export VISUAL=vim
 export BROWSER="/usr/bin/google-chrome"
 export PREFIX="$HOME/.local"
 export PATH="$PREFIX/bin:$PREFIX/firefox:$PATH"

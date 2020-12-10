@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+selection="$1"
+if [ -z "$selection" ]; then
+  selection="clipboard"
+fi
+
+tmp=$(mktemp)
+cleanup() {
+  rm "$tmp"
+}
+trap cleanup EXIT
+
+xclip -o -selection "$selection" > "$tmp"
+${VISUAL} "$tmp"
+xclip -i -selection "$selection" < "$tmp"

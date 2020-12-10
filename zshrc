@@ -34,8 +34,6 @@ bindkey '^x^e' edit-command-line
 for i in $HOME/.zsh/*.aliases(N); do source "$i" ; done
 for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done
 
-export cf=commonform
-
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line

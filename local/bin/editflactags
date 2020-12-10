@@ -11,5 +11,5 @@ function cleanup {
 trap cleanup EXIT
 
 metaflac --export-tags-to="$TMP" "$1"
-$EDITOR "$TMP"
+$VISUAL "$TMP"
 metaflac --remove-all-tags --import-tags-from="$TMP" "$1"
