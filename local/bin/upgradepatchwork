@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 BIN="$PREFIX/bin/patchwork"
 LATEST=$(getlatestgithubreleaseurl ssbc/patchwork AppImage)
 wget "$LATEST" -O "$BIN"

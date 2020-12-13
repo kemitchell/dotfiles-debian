@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-touch "$TRAVEL_FILE"
+#!/bin/sh
+exec touch "$TRAVEL_FILE"

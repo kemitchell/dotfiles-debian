@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 ping -c 1 -4 google.com >/dev/null 2>&1

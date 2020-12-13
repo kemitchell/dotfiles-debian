@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -f package.json ]; then
   npm run lint
 elif [ -f Cargo.toml ]; then

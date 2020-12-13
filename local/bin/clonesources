@@ -1,10 +1,9 @@
-#!/usr/bin/zsh
+#!/bin/sh
 SOURCES=$HOME/local/source
 mkdir -p $SOURCES
 
-for project in "dmenu dwm st"
-do
-	git clone --branch kemitchell git@github.com:kemitchell/$project $SOURCES/$project
+for project in "dmenu dwm st"; do
+	git clone --branch kemitchell git@github.com:kemitchell/$project "$SOURCES/$project"
 	( cd $SOURCES/$project && cmi)
 done
 

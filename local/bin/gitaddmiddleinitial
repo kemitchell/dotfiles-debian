@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 git filter-branch --commit-filter '
 	if [ "$GIT_COMMITTER_NAME" = "Kyle Mitchell" && "$GIT_AUTHOR_NAME" = "Kyle Mitchell" ]; then
 		GIT_COMMITTER_NAME="Kyle E. Mitchell";

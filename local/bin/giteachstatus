@@ -1,5 +1,4 @@
-#!/usr/bin/zsh
-for directory in `find . -maxdepth 1 -mindepth 1 -type d`
-do
+#!/bin/sh
+for directory in `find . -maxdepth 1 -mindepth 1 -type d`; do
 	echo $directory && (cd $directory && git status)
 done

@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-vim $(find . -type f)
+#!/bin/sh
+exec vim $(find . -type f)

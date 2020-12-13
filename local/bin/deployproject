@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -x "./publish" ]; then
   if ! onmaster ; then
     echo "Error: not on master branch" >/dev/stderr

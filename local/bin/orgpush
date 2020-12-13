@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
 if [[ -d "$HOME/org" ]]; then
   echo "org files are checked out. Inspecting."

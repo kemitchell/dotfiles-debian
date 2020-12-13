@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 paste -sd+ - | sed 's/,//g' | bc

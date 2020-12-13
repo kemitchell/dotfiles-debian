@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-upgradeprogram getcurrentgitversion getinstalledgitversion installgit
+#!/bin/sh
+exec upgradeprogram getcurrentgitversion getinstalledgitversion installgit

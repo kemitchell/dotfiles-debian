@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -f package.json ]; then
   if [ ! -d node_modules ]; then
     npm install

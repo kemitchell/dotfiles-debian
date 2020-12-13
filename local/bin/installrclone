@@ -1,5 +1,10 @@
-#!/usr/bin/zsh
-cd "$(mktemp -d)"
+#!/bin/sh
+tmp="$(mktemp -d)"
+cd "$tmp"
+cleanup () {
+  rm -rf "$tmp"
+}
+trap cleanup EXIT
 curl --output rclone.zip "https://downloads.rclone.org/rclone-current-linux-amd64.zip"
 unzip -j rclone.zip
 cp rclone "$PREFIX/bin/rclone"

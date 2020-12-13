@@ -1,2 +1,2 @@
-#!/bin/zsh
-rclone copy --drive-import-formats docx,odt,html $@
+#!/bin/sh
+exec rclone copy --drive-import-formats docx,odt,html $@

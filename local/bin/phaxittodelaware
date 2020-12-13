@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 phaxit "+13027393812" "$@"

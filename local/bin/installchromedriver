@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
 if [ -z "$1" ]; then
   echo "Usage: install-chromedriver <version>"
@@ -6,7 +6,10 @@ if [ -z "$1" ]; then
 fi
 
 TEMP=$(mktemp -d)
-trap 'rm -rf "$TEMP"' EXIT
+cleanup () {
+  rm -rf "$TEMP"
+}
+trap cleanup EXIT
 
 cd "$TEMP"
 curl --silent -o "downloaded.zip" "https://chromedriver.storage.googleapis.com/$1/chromedriver_linux64.zip"

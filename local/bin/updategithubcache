@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 CACHE="$HOME/.github-my-repos"
 githubmyrepos | sort > "$CACHE"
 MANUAL="$HOME/.repos"

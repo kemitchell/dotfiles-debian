@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 recode utf8..html | wdiff -d --start-delete="<del>" --end-delete="</del>" --start-insert="<ins>" --end-insert="</ins>" $@

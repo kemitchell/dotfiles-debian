@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys 379CE192D401AB61
 list="/etc/apt/sources.list.d/stripe-cli.list"

@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 git diff --no-index --patience $1 $2

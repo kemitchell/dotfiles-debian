@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-rm -f "$TRAVEL_FILE"
+#!/bin/sh
+exec rm -f "$TRAVEL_FILE"

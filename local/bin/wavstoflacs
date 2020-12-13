@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-find . -iname "*.wav" -exec flac --keep-foreign-metadata "{}" \;
+#!/bin/sh
+exec find . -iname "*.wav" -exec flac --keep-foreign-metadata "{}" \;

@@ -1,6 +1,9 @@
-#!/usr/bin/zsh
+#!/bin/sh
 URL=$(getlatestgithubreleaseurl htacg/tidy-html5 -64bit.deb)
 TMP=$(mktemp)
-trap 'rm -f "$TMP"' EXIT
+cleanup () {
+  rm f "$TMP"
+}
+trap cleanup EXIT
 curl -Lo "$TMP" "$URL"
 sudo dpkg -i "$TMP"

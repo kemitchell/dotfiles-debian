@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-sed '/^\s*$/d'
+#!/bin/sh
+exec sed '/^\s*$/d'

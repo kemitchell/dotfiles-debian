@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -z "$1" ]; then
   echo "Usage: rfc <number>"
   exit 1

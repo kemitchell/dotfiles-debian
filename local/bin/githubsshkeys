@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
 
 if [ "$#" -lt 1 -a "$#" -gt 2 ]; then

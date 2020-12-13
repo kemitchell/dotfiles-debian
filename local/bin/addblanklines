@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 awk 'ORS="\n\n"' | head -n -1

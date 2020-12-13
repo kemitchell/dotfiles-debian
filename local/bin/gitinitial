@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 git commit -m "Initial commit"

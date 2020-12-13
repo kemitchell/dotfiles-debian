@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 wn "$1" -antsa -antsv -antsa -antsr

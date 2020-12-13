@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-sudo umount /media/usb
+#!/bin/sh
+exec sudo umount /media/usb

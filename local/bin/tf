@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 NODE_ENV=test node --trace-warnings "$1" 2>&1 | tee test.log

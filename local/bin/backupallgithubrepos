@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 for slug in $(githubmyrepos); do
   echo "$slug"
   backupgithubrepo "$slug"

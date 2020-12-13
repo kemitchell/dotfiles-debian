@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 directory=$HOME/.snippets
 selection=$(ls $directory | tr '-' ' ' | selecta)
 [ -z "$selection" ] && exit 1

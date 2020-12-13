@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 sbot server &
 sbot_pid="$!"
 cd "$HOME/.patchbay"

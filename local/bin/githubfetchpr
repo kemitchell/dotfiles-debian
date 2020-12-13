@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 git fetch origin "pull/$1/head:pull-request-$1"

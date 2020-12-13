@@ -1,8 +1,8 @@
+#!/bin/sh
 if [ -z "$1" ]; then
   echo "Usage: <file.md>"
   exit 1
 fi
-
 md="$1"
 pdf="${md%.md}.pdf"
 pandoc --variable fontsize=11pt -o "$pdf" "$md"

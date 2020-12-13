@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -f package.json ]; then
 	node-coverage
 elif [ -f Makefile ]; then

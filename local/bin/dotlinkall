@@ -1,6 +1,5 @@
-#!/usr/bin/zsh
-for dir in $HOME/.dotfiles/*
-do
+#!/bin/sh
+for dir in $HOME/.dotfiles/*; do
 	rcup -d "$dir"
 done
 cd "$HOME/.local/bin"

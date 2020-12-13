@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 dig "$@" any

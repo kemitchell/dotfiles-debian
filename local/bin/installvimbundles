@@ -1,8 +1,6 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
-
-for directory in `find $HOME/.vim/bundle -mindepth 1 -maxdepth 1 -type d -not -name Vundle.vim`
-do
+for directory in `find $HOME/.vim/bundle -mindepth 1 -maxdepth 1 -type d -not -name Vundle.vim`; do
 	rm -fr "$directory"
 done
 vim +BundleInstall +qall > /dev/null 2>&1

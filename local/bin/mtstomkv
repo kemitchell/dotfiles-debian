@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Usage: input.mts output.mkv"
   exit 1

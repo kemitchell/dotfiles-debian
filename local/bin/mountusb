@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ ! -d /media/usb ]; then
   sudo mkdir /media/usb
   sudo chmod -R 755 /media/usb

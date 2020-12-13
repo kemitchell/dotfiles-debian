@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
 SOURCE="$PREFIX/source/tines"
 if [ ! -d "$SOURCE" ]; then

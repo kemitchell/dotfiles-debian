@@ -1,2 +1,2 @@
-#!/bin/zsh
+#!/bin/sh
 awk '/^$/ { print ">"; next } { print ">", $0 }'

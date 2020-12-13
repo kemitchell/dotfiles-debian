@@ -1,7 +1,7 @@
-#!/usr/bin/zsh
+#!/bin/sh
 CACHE="$HOME/.dats"
 
-line=$(selecta < "$CACHE")
+line=$(fzf < "$CACHE")
 base=$(basename "$(echo -n $line | cut -f 1 -d ' ')")
 digest=$(basename "$(echo -n $line | cut -f 2 -d ' ')")
 

@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 find "$HOME" -maxdepth 1 -mindepth 1 -not -iname '.*' -exec rm -rf '{}' +

@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-ssh-keygen -t rsa -b 4096 -C "kyle@kemitchell.com"
+#!/bin/sh
+exec ssh-keygen -t rsa -b 4096 -C "kyle@kemitchell.com"

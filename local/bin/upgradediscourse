@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 hostname="$1"
 if [ -z "$1" ]; then
   echo "Usage: <hostname>"

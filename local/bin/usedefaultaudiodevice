@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-rm -rf ~/.asoundrc
+#!/bin/sh
+exec rm -rf ~/.asoundrc

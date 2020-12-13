@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 sed 's/[“”]/"/g' \
 | sed "s/[‘’]/'/g" \
 | sed 's/—/---/g' \

@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 diceware --no-caps --delimiter " " -n "${1=6}"

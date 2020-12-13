@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-basename "$(pwd)"
+#!/bin/sh
+exec basename "$(pwd)"

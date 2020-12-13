@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 for file in "$@"; do
   echo "$file"
   rclone copy --progress "$file" "dropbox:Receipts/"

@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 url="https://git.sr.ht/api/repos"
 auth="Authorization: token $SOURCEHUT_TOKEN"
 first=$(curl -s -H "$auth" "$url")

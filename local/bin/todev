@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-scp "$1" dev:~/tmp/
+#!/bin/sh
+exec scp "$1" dev:~/tmp/

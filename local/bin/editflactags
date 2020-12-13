@@ -1,11 +1,11 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -z "$1" ]; then
   echo "Usage: <file.flac>"
   exit
 fi
 
 TMP="$(mktemp)"
-function cleanup {
+cleanup() {
   rm -f "$TMP"
 }
 trap cleanup EXIT

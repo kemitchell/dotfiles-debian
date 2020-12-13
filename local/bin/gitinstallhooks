@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ ! -d .git ]; then
   echo "No .git directory." >/dev/stderr
   exit 1

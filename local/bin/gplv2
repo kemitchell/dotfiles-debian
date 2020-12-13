@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 cat <<EOF
                     GNU GENERAL PUBLIC LICENSE
                        Version 2, June 1991

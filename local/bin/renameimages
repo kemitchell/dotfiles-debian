@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 for file; do
   (feh "$file")
   extension="${file##*.}"

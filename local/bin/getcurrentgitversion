@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 curl --silent https://git-scm.com | pup 'span.version text{}' | tr -d '[:space:]'

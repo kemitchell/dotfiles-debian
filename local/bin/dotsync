@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 if [ -z "$1" ]; then
   dotsyncall
   exit

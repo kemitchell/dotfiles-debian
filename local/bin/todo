@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
 
 REPO="$HOME/todo"
@@ -9,7 +9,7 @@ cd "$REPO"
 # Determine the editor command to call.
 # EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
 
-function select_file {
+select_file () {
   find . -maxdepth 1 -not -executable | selecta
 }
 

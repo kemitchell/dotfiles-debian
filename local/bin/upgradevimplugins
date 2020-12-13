@@ -1,1 +1,2 @@
-vim -c BundleUpdate -c quitall
+#!/bin/sh
+exec vim -c BundleUpdate -c quitall

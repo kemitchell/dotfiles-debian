@@ -1,9 +1,7 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
 SOURCE="$HOME/.local/source/jo"
-
-if [ -d "$SOURCE" ]; then
-else
+if [ ! -d "$SOURCE" ]; then
   git clone git://github.com/jpmens/jo.git .local/source/jo
 fi
 cd .local/source/jo

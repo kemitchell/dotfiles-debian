@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -ex
 
 usage="Usage: <in-file> <out-file>"
@@ -15,7 +15,7 @@ fi
 touch "$2"
 
 tmp=$(mktemp --suffix=.wav)
-function cleanup {
+cleanup () {
   rm -rf "$tmp"
 }
 trap cleanup EXIT

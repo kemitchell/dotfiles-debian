@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 git --version | sed 's/git version //' || echo 'NONE'

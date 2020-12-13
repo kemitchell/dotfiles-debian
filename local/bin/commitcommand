@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 set -e
 if [ -z "$1" ]; then
   echo "commitcommand <command>" >/dev/stderr

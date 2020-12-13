@@ -1,7 +1,7 @@
-#!/usr/bin/zsh
+#!/bin/sh
 set -e
 sudo apt-get update
-sudo apt-get --with-new-pkgs upgrade -y
+sudo apt-get --with-new-pkgs -V -y upgrade | tee "$HOME/upgrade.log"
 
 signal_sandbox=/opt/Signal/chrome-sandbox
 if [ -f "$signal_sandbox" ]; then

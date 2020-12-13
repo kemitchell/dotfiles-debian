@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 sed -n '1!p'

@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
-rm -rf $HOME/.offlineimap
+#!/bin/sh
+rm -rf "$HOME/.offlineimap"
