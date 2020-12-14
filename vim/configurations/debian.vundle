@@ -1,0 +1,3 @@
+Plugin 'ledger/vim-ledger'
+Plugin 'lfv89/vim-interestingwords'
+Plugin 'chase/vim-ansible-yaml'
