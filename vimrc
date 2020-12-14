@@ -171,6 +171,7 @@ map <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 
+" Helper Functions
 fu! WrapSettings()
 	setlocal spell
 	setlocal wrap
@@ -190,17 +191,17 @@ fu! WriteAtEnd()
   startinsert
 endfu
 
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-
 "Easier start/end line navigation
 noremap H ^
 noremap L $
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 let g:neocomplcache_enable_at_startup = 1
 
 digraph .. 8230 "ellipsis
 
+" Ctrl-P
 function! SetupCtrlP()
   if exists("g:loaded_ctrlp") && g:loaded_ctrlp
     let g:ctrlp_custom_ignore = 'node_modules\|vendor\|DS_Store\|git'

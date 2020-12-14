@@ -1,4 +1,4 @@
-# shell
+# Shell
 alias chase='cd !$'
 alias la='ls -av'
 alias ll='ls -l'
@@ -6,8 +6,12 @@ alias lla='ls -al'
 alias ls='ls --color -v'
 alias rm='rm -i'
 alias up='cd ..'
+function mkcd() {
+	mkdir $1
+	cd $1
+}
 
-#archives
+# ~rchives
 alias tgzdir="tar --create --verbose --gzip --file"
 alias tbzdir="tar --create --verbose --bzip2 --file"
 alias zipdir="zip -r"
@@ -18,7 +22,7 @@ alias groot='git rev-parse --git-dir > /dev/null 2>&1 && cd `git rev-parse --sho
 alias gg='git g'
 alias pp='git push'
 
-# ruby
+# Ruby
 alias iri='ri -i'
 alias r='rake'
 alias bb='bundle'
@@ -32,31 +36,18 @@ alias texclean='find . -maxdepth 1 -regextype posix-extended -iregex ".+\.(aux|l
 alias dl='wget -c'
 alias serve='http-server -r -c-1'
 
-# file management with rsync for progress bar
+# File Management with rsync for progress bar
 alias rscp='rsync -aP --no-whole-file --inplace'
 alias rsmv='rscp --remove-source-files'
 
-function mkcd() {
-	mkdir $1
-	cd $1
-}
-
-alias cf=commonform
-
+# Misellaneous
 alias m=neomutt
-
-alias tt=runtests
-
 alias pdiff='dwdiff -c'
+alias simplevim='vim -u NONE'
 
-alias lz=licensezero
-alias l0=licensezero
-
-alias bencoe='mkdir -p'
-
-# generic software development
+# Generic Software Development
 alias b=build
+alias tt=runtests
 alias t=runtests
 alias l=lint
-
-alias d=./deploy
+alias d=deploy
