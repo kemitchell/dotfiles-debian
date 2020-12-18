@@ -8,20 +8,20 @@ fi
 
 VERSION=v$1
 REPO=$PREFIX/source/git
-SOURCE=$(dirname $REPO)
+SOURCE=$(dirname "$REPO")
 GIT=git://git.kernel.org/pub/scm/git/git.git
-mkdir -p $SOURCE
+mkdir -p "$SOURCE"
 
-if [ -d $REPO ]; then
-	cd $REPO
+if [ -d "$REPO" ]; then
+	cd "$REPO"
 	make distclean
 	git fetch
 else
-	git clone $GIT $REPO
-	cd $REPO
+	git clone "$GIT" "$REPO"
+	cd "$REPO"
 fi
 
-git checkout -f $VERSION
+git checkout -f "$VERSION"
 
 #sudo apt-get update
 sudo apt-get install -y build-essential autoconf libpcre2-dev
@@ -30,7 +30,7 @@ sudo apt-get -y build-dep git
 
 export USE_LIBPCRE=true
 make configure
-./configure --prefix=$PREFIX
+./configure "--prefix=$PREFIX"
 make all
 make install
 
