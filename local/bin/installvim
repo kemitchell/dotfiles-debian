@@ -1,24 +1,31 @@
 #!/bin/sh
-sudo apt-get update
 set -e
-sudo apt-get install -y libncurses5-dev python3-dev ruby-dev
-mkdir -p "$PREFIX/source"
-cd "$PREFIX/source"
-if [ ! -d vim ]; then
-  git clone https://github.com/vim/vim.git vim
+
+sudo apt-get update
+#sudo apt-get install -y libncurses5-dev python3-dev ruby-dev
+sudo apt-get -y build-dep vim
+
+tag="${1-origin/master}"
+repo="$PREFIX/source/vim"
+if [ -d "$repo" ]; then
+  cd "$repo"
+  git fetch origin
+else
+  git clone https://github.com/vim/vim.git "$repo"
+  cd "$repo"
 fi
-cd vim
-git pull origin master
+
+git checkout "$tag"
 make distclean
 ./configure --prefix="$PREFIX" \
   --with-features=huge \
-	--enable-multibyte \
-	--enable-rubyinterp \
-	--enable-perlinterp \
-	--enable-luainterp \
 	--enable-cscope \
+	--enable-luainterp \
+	--enable-multibyte \
 	--enable-perlinterp \
-	--enable-python3interp
+	--enable-perlinterp \
+	--enable-python3interp \
+	--enable-rubyinterp
 make
 make install
 installvundle
