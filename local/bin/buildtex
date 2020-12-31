@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ -z "$1" ]; then
+  echo "Usage: <file.tex>"
+  exit 1
+fi
+latexmk -pdf "$1"
+latexmk -c -pdf "$1"
