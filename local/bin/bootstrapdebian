@@ -54,6 +54,7 @@ git
 gnupg
 gpgv
 graphviz
+gtypist
 happy
 html-xml-utils
 httpie
