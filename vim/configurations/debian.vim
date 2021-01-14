@@ -1,3 +1,12 @@
+augroup latex
+  autocmd!
+  autocmd FileType latex setlocal spell
+  autocmd FileType latex call WrapSettings()
+augroup END
+
+autocmd BufNewFile,BufRead *.tex set filetype=latex
+autocmd BufNewFile,BufRead *.latex set filetype=latex
+
 augroup css
   autocmd!
   autocmd FileType css setlocal autoindent
@@ -76,5 +85,5 @@ augroup yaml
   autocmd FileType yaml call WrapSettings()
 augroup END
 
-autocmd BufNewFile,BufRead *.yml set filetype=ansible
-autocmd BufNewFile,BufRead *.yaml set filetype=ansible
+autocmd BufNewFile,BufRead *.yml set filetype=yaml
+autocmd BufNewFile,BufRead *.yaml set filetype=yaml
