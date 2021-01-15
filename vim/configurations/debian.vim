@@ -1,11 +1,11 @@
-augroup latex
+augroup tex
   autocmd!
   autocmd FileType latex setlocal spell
   autocmd FileType latex call WrapSettings()
 augroup END
 
-autocmd BufNewFile,BufRead *.tex set filetype=latex
-autocmd BufNewFile,BufRead *.latex set filetype=latex
+autocmd BufNewFile,BufRead *.tex set filetype=tex
+autocmd BufNewFile,BufRead *.latex set filetype=tex
 
 augroup css
   autocmd!
