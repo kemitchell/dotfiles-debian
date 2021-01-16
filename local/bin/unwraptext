@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var chunks = []
+const chunks = []
 process.stdin
   .on('data', function (chunk) {
     chunks.push(chunk)
@@ -9,11 +9,10 @@ process.stdin
     throw error
   })
   .once('end', function () {
-    var input = Buffer.concat(chunks)
-    console.log(unwrap(input.toString()))
+    const input = Buffer.concat(chunks)
+    process.stdout.write(unwrap(input.toString()))
   })
 
 function unwrap (string) {
-  return string
-    .replace(/([^\s])\n([^\s])/g, '$1 $2')
+  return string.replace(/([^\s])\n([^\s])/g, '$1 $2')
 }
