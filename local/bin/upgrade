@@ -9,8 +9,8 @@ if [ -f "$signal_sandbox" ]; then
   sudo chmod 4755 "$signal_sandbox"
 fi
 
-sudo apt autoremove -y | tee -a "$log"
-sudo apt clean | tee -a "$log"
+sudo apt-get autoremove -y | tee -a "$log"
+sudo apt-get clean | tee -a "$log"
 hash npm && npm update -g npm | tee -a "$log"
 hash npm && npm update --depth 9999 -g | tee -a "$log"
 hash gem && gem update | tee -a "$log"
