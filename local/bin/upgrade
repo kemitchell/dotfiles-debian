@@ -14,6 +14,6 @@ sudo apt-get clean | tee -a "$log"
 hash npm && npm update -g npm | tee -a "$log"
 hash npm && npm update --depth 9999 -g | tee -a "$log"
 hash gem && gem update | tee -a "$log"
-hash upgradevimplugins && upgradevimplugins | tee -a "$log"
 hash rustupdate && rustupdate | tee -a "$log"
 hash dotsyncall && dotsyncall | tee -a "$log"
+hash upgradevimplugins && upgradevimplugins
