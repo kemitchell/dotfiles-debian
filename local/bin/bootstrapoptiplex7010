@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo apt-get install firmware-ath9k-htc # ThinkPenguin TPE-N150USBL
