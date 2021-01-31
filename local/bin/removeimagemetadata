@@ -3,6 +3,6 @@ if [ -z "$1" ]; then
   echo "Usage: <file>"
   exit 1
 fi
-hash exiftool || sudo apt install libimage-exiftool-perl
+hash exiftool || sudo apt install --yes libimage-exiftool-perl
 exiftool -all= -overwrite_original "$1"
 
