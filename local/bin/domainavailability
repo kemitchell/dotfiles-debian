@@ -1,0 +1,23 @@
+#!/bin/sh
+domain="$1"
+if [ -z "$domain" ]; then
+  echo "Usage: <domain name w/o TLD>"
+  exit 1
+fi
+
+missing=false
+for tld in .com .org .net .io; do
+  checking="$domain$tld"
+  if whois "$checking" | grep -E -q '^No match|^NOT FOUND|^Not fo|AVAILABLE|^No Data Fou|has not been regi|No entri'; then
+    echo "$checking\tAvailable"
+  else
+    missing=true
+    echo "$checking\tNot Available"
+  fi
+done
+
+if [ "$missing" = "true" ]; then
+  exit 1
+else
+  exit 0
+fi
