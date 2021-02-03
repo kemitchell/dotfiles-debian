@@ -1,0 +1,10 @@
+#!/bin/sh
+html="$1"
+if [ -z "$html" ]; then
+  echo "Usage: <file.html>"
+  exit 1
+fi
+
+dirname=$(dirname "$html")
+basename=$(basename "$html" ".html")
+pandoc --standalone --wrap=none -V fontsize=12pt -t latex -o "$dirname/$basename.tex" "$html"
