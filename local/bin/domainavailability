@@ -1,7 +1,7 @@
 #!/bin/sh
 domain="$1"
 if [ -z "$domain" ]; then
-  echo "Usage: <domain name w/o TLD>"
+  echo "Usage: <domain name without TLD>"
   exit 1
 fi
 
