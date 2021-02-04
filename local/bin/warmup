@@ -1,2 +1,2 @@
 #!/bin/sh
-typefortune -n 3
+typefortune -s -n 3

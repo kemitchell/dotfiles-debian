@@ -1,7 +1,7 @@
 augroup tex
   autocmd!
-  autocmd FileType latex setlocal spell
-  autocmd FileType latex call WrapSettings()
+  autocmd FileType tex setlocal spell
+  autocmd FileType tex call WrapSettings()
 augroup END
 
 autocmd BufNewFile,BufRead *.tex set filetype=tex
