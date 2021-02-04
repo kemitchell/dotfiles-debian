@@ -1,0 +1,14 @@
+#!/bin/sh
+url="$1"
+if [ -z "$url" ]; then
+  echo "Usage: <URL>"
+  exit 1
+fi
+
+curl \
+  -u "$FEEDBIN_USER:$FEEDBIN_PASSWORD" \
+  -v \
+  -H "Content-Type: application/json; charset=utf-8" \
+  -X post \
+  -d "{\"feed_url\":\"$1\"}" \
+  https://api.feedbin.com/v2/subscriptions.json
