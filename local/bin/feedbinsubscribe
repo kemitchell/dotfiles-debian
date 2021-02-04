@@ -4,11 +4,7 @@ if [ -z "$url" ]; then
   echo "Usage: <URL>"
   exit 1
 fi
-
-curl \
-  -u "$FEEDBIN_USER:$FEEDBIN_PASSWORD" \
-  -v \
+curl -u "$FEEDBIN_USER:$FEEDBIN_PASSWORD" \
   -H "Content-Type: application/json; charset=utf-8" \
-  -X post \
-  -d "{\"feed_url\":\"$1\"}" \
+  -X POST -d "{\"feed_url\":\"$url\"}" \
   https://api.feedbin.com/v2/subscriptions.json
