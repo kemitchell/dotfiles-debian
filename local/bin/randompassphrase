@@ -1,2 +1,2 @@
 #!/bin/sh
-diceware --no-caps --delimiter " " -n "${1=6}"
+diceware --no-caps --delimiter " " -n "${1:-6}"
