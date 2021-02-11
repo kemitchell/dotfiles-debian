@@ -17,6 +17,7 @@ binutils
 bison
 bsdmainutils
 bsdutils
+bti
 build-essential
 busybox
 cabal-install
