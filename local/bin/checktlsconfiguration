@@ -22,15 +22,15 @@ function checkHTTP (done) {
     .once('response', response => {
       const statusCode = response.statusCode
       if (statusCode !== 301) {
-        process.stderr.write(testing + ': Responded ' + statusCode + '\n')
+        process.stderr.write(testing + ': responded ' + statusCode + '\n')
         success = false
       }
       const location = response.headers.location
       if (!location) {
-        process.stderr.write(testing + ': No Location header.\n')
+        process.stderr.write(testing + ': no Location header\n')
         success = false
       } else if (location !== 'https://' + domain + '/') {
-        process.stderr.write(testing + ': Invalid Location "' + location + '"\n')
+        process.stderr.write(testing + ': invalid Location header "' + location + '"\n')
         success = false
       }
       done()
@@ -48,7 +48,7 @@ function checkHTTPS (done) {
     .once('response', response => {
       const statusCode = response.statusCode
       if (statusCode !== 200) {
-        process.stderr.write(testing + ': Responded ' + statusCode + '\n')
+        process.stderr.write(testing + ': responded ' + statusCode + '\n')
         success = false
       }
       done()
