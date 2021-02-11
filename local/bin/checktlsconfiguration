@@ -1,0 +1,63 @@
+#!/usr/bin/env node
+const http = require('http')
+const https = require('https')
+
+const domain = process.argv[2]
+if (!domain) {
+  process.stderr.write('Usage: <domain>\n')
+  process.exit(1)
+}
+
+let success = true
+
+checkHTTP(() => {
+  checkHTTPS(() => {
+    exit()
+  })
+})
+
+function checkHTTP (done) {
+  http.request({ hostname: domain })
+    .once('response', response => {
+      const statusCode = response.statusCode
+      if (statusCode !== 301) {
+        process.stderr.write(domain + ' responded ' + statusCode + '\n')
+        success = false
+      }
+      const location = response.headers.location
+      if (!location) {
+        process.stderr.write('No Location header.\n')
+        success = false
+      } else if (location !== 'https://' + domain + '/') {
+        process.stderr.write('Invalid Location: ' + location + '\n')
+        success = false
+      }
+      done()
+    })
+    .once('error', error => {
+      process.stderr.write(domain + ' error ' + error.toString() + '\n')
+      success = false
+    })
+    .end()
+}
+
+function checkHTTPS (done) {
+  https.request({ hostname: domain })
+    .once('response', response => {
+      const statusCode = response.statusCode
+      if (statusCode !== 200) {
+        process.stderr.write(domain + ' responded ' + statusCode + '\n')
+        success = false
+      }
+      done()
+    })
+    .once('error', error => {
+      process.stderr.write(domain + ' error ' + error.toString() + '\n')
+      success = false
+    })
+    .end()
+}
+
+function exit () {
+  process.exit(success ? 0 : 1)
+}
