@@ -17,42 +17,44 @@ checkHTTP(() => {
 })
 
 function checkHTTP (done) {
+  const testing = 'http://' + domain
   http.request({ hostname: domain })
     .once('response', response => {
       const statusCode = response.statusCode
       if (statusCode !== 301) {
-        process.stderr.write(domain + ' responded ' + statusCode + '\n')
+        process.stderr.write(testing + ': Responded ' + statusCode + '\n')
         success = false
       }
       const location = response.headers.location
       if (!location) {
-        process.stderr.write('No Location header.\n')
+        process.stderr.write(testing + ': No Location header.\n')
         success = false
       } else if (location !== 'https://' + domain + '/') {
-        process.stderr.write('Invalid Location: ' + location + '\n')
+        process.stderr.write(testing + ': Invalid Location "' + location + '"\n')
         success = false
       }
       done()
     })
     .once('error', error => {
-      process.stderr.write(domain + ' error ' + error.toString() + '\n')
+      process.stderr.write(testing + ': ' + error.toString() + '\n')
       success = false
     })
     .end()
 }
 
 function checkHTTPS (done) {
+  const testing = 'https://' + domain
   https.request({ hostname: domain })
     .once('response', response => {
       const statusCode = response.statusCode
       if (statusCode !== 200) {
-        process.stderr.write(domain + ' responded ' + statusCode + '\n')
+        process.stderr.write(testing + ': Responded ' + statusCode + '\n')
         success = false
       }
       done()
     })
     .once('error', error => {
-      process.stderr.write(domain + ' error ' + error.toString() + '\n')
+      process.stderr.write(testing + ': ' + error.toString() + '\n')
       success = false
     })
     .end()

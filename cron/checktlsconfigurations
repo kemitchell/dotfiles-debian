@@ -1,0 +1,37 @@
+#!/bin/sh
+while read domain; do
+  checktlsconfiguration "$domain"
+done <<EOS
+artlessdevices.com
+berneout.org
+bigtimelicense.com
+blueoakcouncil.org
+codecreditlicense.com
+commonform.org
+doormatprivacy.com
+duallicensing.com
+flippedform.com
+homelessindustrial.com
+icepicklicense.org
+indiecc.com
+indieopensource.com
+jslicense.org
+kemitchell.com
+notlegaladvice.law
+pandaprivacy.org
+paritylicense.com
+patentpotato.com
+polyformproject.org
+prosperitylicense.com
+reviewersedition.org
+roundrobinlicense.com
+saaspassport.com
+squareoneforms.com
+stonecutters.law
+stricteq.com
+terracestreetneighbors.com
+turnstiletos.com
+waypointnda.com
+writing.kemitchell.com
+xlcollaborative.com
+EOS
