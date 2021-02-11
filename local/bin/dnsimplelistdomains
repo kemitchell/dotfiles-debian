@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+const https = require('https')
+
+const domains = []
+const endpoint = `https://api.dnsimple.com/v2/${process.env.DNSIMPLE_ACCOUNT_NUMBER}/domains`
+
+getDomains(1, error => {
+  if (error) {
+    process.stderr.write(error.toString() + '\n')
+    process.exit(1)
+  }
+  domains.forEach(result => {
+    const line = ['name', 'state']
+      .map(key => result[key])
+      .join('\t')
+    process.stdout.write(line)
+    process.stdout.write('\n')
+  })
+  process.exit(0)
+})
+
+function getDomains (page, callback) {
+  https.request(`${endpoint}?page=${page}`, {
+    headers: {
+      Accepts: 'application/json',
+      Authorization: `Bearer ${process.env.DNSIMPLE_TOKEN}`
+    }
+  })
+    .once('response', response => {
+      const chunks = []
+      response
+        .on('data', chunk => { chunks.push(chunk) })
+        .once('error', error => { callback(error) })
+        .once('end', () => {
+          const buffer = Buffer.concat(chunks)
+          let parsed
+          try {
+            parsed = JSON.parse(buffer)
+          } catch (error) {
+            callback(error)
+          }
+          const { data, pagination } = parsed
+          data.forEach(domain => { domains.push(domain) })
+          const current = pagination.current_page
+          const total = pagination.total_pages
+          if (current < total) return getDomains(current + 1, callback)
+          callback()
+        })
+    })
+    .end()
+}
