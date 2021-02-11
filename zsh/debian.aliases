@@ -34,7 +34,7 @@ alias texclean='find . -maxdepth 1 -regextype posix-extended -iregex ".+\.(aux|l
 
 # Net
 alias dl='wget -c'
-alias serve='http-server -r -c-1'
+alias serve='http-server --ext html --robots -c-1 --no-dotfiles'
 
 # File Management with rsync for progress bar
 alias rscp='rsync -aP --no-whole-file --inplace'
