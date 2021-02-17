@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ -x "./deploy" ]; then
+  exec ./deploy
+else
+  toplevel=$(git rev-parse --show-toplevel)
+  if [ $? -eq 0 ] && [ -x "$toplevel/deploy" ]; then
+    echo "Deploying from $toplevel."
+    cd "$toplevel" || exit 1
+    exec ./deploy
+  fi
+fi
+exit 1
