@@ -18,3 +18,4 @@ done
 hash dotsyncall && dotsyncall | tee -a "$log"
 hash upgradevimplugins && upgradevimplugins
 hash refreshpdfscache && refreshpdfscache
+hash updategithubcache && updategithubcache
