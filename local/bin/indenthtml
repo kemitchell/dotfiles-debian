@@ -2,5 +2,4 @@
 if ! hash tidy; then
   sudo apt-get install tidy > /dev/null
 fi
-
-tidy -config -indent 2 -wrap 0
+exec tidy -quiet -indent --indent-spaces 2 -wrap 0
