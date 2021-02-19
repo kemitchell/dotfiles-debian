@@ -1,12 +1,12 @@
 #!/bin/sh
 set -e
 
-if [ -z "$1" ]; then
-	echo "Usage <x.y.z>"
-	exit 1
+version="$1"
+if [ -z "$version" ]; then
+  version=$(latestgitversion)
 fi
 
-VERSION=v$1
+tag=v$version
 REPO=$PREFIX/source/git
 SOURCE=$(dirname "$REPO")
 GIT="git://git.kernel.org/pub/scm/git/git.git"
@@ -21,7 +21,7 @@ else
 	cd "$REPO"
 fi
 
-git checkout -f "$VERSION"
+git checkout -f "$tag"
 
 sudo apt-get update
 sudo apt-get install -y build-essential autoconf libpcre2-dev
