@@ -7,8 +7,11 @@ for language in npm ruby rust; do
   updater="update$language"
   hash "$updater" && "$updater" | tee -a "$log"
 done
+
 hash dotsyncall && dotsyncall | tee -a "$log"
+
 hash upgradevimplugins && upgradevimplugins
+
 for refreshscript in ~/.local/bin/refresh*; do
   "$refreshscript"
 done
