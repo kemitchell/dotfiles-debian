@@ -1,2 +1,2 @@
 #!/bin/sh
-find "${1-$HOME}" -maxdepth 2 -mindepth 2 -type d -name .git
+find "${1-$HOME}" -print0 -maxdepth 2 -mindepth 2 -type d -name .git | xargs -0 -I{} dirname {}

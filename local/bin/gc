@@ -25,7 +25,8 @@ done
 GITHUB_REMOTES="$HOME/.github-my-repos"
 OTHER_REMOTES="$HOME/.git-my-repos"
 if [ -n "$refresh_flag" ]; then
-  updategithubcache
+  refreshgithubcache
+  refreshgitcache
 fi
 
 remote=$((cat "$GITHUB_REMOTES" | awk '{print "git@github.com:" $1}' ; cat "$OTHER_REMOTES") | fzf)
