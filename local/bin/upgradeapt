@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+sudo apt-get update
+sudo apt-get --with-new-pkgs -V -y upgrade
+sudo apt-get autoremove -y
+sudo apt-get clean
+
+signal_sandbox=/opt/Signal/chrome-sandbox
+if [ -f "$signal_sandbox" ]; then
+  sudo chmod 4755 "$signal_sandbox"
+fi
+
