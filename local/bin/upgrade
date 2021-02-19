@@ -1,16 +1,8 @@
 #!/bin/sh
 set -e
 log="$HOME/upgrade.log"
-sudo apt-get update
-sudo apt-get --with-new-pkgs -V -y upgrade | tee "$log"
+upgradeapt | tee "$log"
 
-signal_sandbox=/opt/Signal/chrome-sandbox
-if [ -f "$signal_sandbox" ]; then
-  sudo chmod 4755 "$signal_sandbox"
-fi
-
-sudo apt-get autoremove -y | tee -a "$log"
-sudo apt-get clean | tee -a "$log"
 for language in npm ruby rust; do
   updater="update$language"
   hash "$updater" && "$updater" | tee -a "$log"
