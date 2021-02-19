@@ -2,7 +2,7 @@
 set -e
 
 if [ -z "$1" ]; then
-	echo "No version supplied"
+	echo "Usage <x.y.z>"
 	exit 1
 fi
 
@@ -25,7 +25,6 @@ git checkout -f "$VERSION"
 
 sudo apt-get update
 sudo apt-get install -y build-essential autoconf libpcre2-dev
-# sudo apt-get install -y libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
 sudo apt-get -y build-dep git
 
 export USE_LIBPCRE=true
