@@ -17,6 +17,6 @@ for language in npm ruby rust; do
 done
 hash dotsyncall && dotsyncall | tee -a "$log"
 hash upgradevimplugins && upgradevimplugins
-hash refreshpdfscache && refreshpdfscache
-hash refreshgithubcache && refreshgithubcache
-hash refreshgitcache && refreshgitcache
+for refreshscript in ~/.local/bin/refresh*; do
+  "$refreshscript"
+done
