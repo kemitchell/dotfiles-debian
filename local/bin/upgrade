@@ -15,3 +15,5 @@ hash upgradevimplugins && upgradevimplugins
 for refreshscript in ~/.local/bin/refresh*; do
   "$refreshscript"
 done
+
+hash upgradegit && upgradegit
