@@ -1,0 +1,6 @@
+#!/bin/sh
+if $@; then
+  risingtone
+else
+  fallingtone
+fi
