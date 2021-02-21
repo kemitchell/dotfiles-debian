@@ -1,0 +1,2 @@
+#!/bin/sh
+exec pdfjam --nup 1x2 --paper letterpaper --frame true --scale 0.9 -o print.pdf "$1"
