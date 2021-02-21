@@ -1,0 +1,3 @@
+#!/bin/sh
+cat ~/.vim/configurations/*.vim > ~/.vim/configurations.vim
+cat ~/.vim/configurations/*.vundle > ~/.vim/configurations.vundle
