@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 if [ -z "$1" ]; then
   dotsyncall
   exit
@@ -6,7 +8,6 @@ fi
 
 repo="$1"
 base=$(basename "$repo")
-hostname=$(hostname)
 cd "$repo"
 
 if [ -n "$(git status --porcelain)" ]; then
@@ -27,7 +28,7 @@ else
   echo "$base: Rebasing."
   git rebase origin/master && git push origin master && exit
   echo "$base: Couldn't rebase."
-  if [[ "$repo" = "$HOME/.dotfiles/spelling" ]]; then
+  if [ "$repo" = "$HOME/.dotfiles/spelling" ]; then
     echo "$base: Resetting spelling dotfiles to origin's master."
     git reset --hard origin/master
   fi

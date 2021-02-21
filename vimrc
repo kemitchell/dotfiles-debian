@@ -65,9 +65,7 @@ Plugin 'vim-voom/VOoM'
 " LanguageTool Grammar Checking
 Plugin 'rhysd/vim-grammarous'
 
-for f in split(glob('~/.vim/configurations/*.vundle'), '\n')
-	exec 'source' f
-endfor
+source ~/.vim/configurations.vundle
 
 call vundle#end()
 
@@ -230,6 +228,4 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical line in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 
-for f in split(glob('~/.vim/configurations/*.vim'), '\n')
-	exec 'source' f
-endfor
+source ~/.vim/configurations.vim

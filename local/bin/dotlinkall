@@ -1,6 +1,10 @@
 #!/bin/sh
-for dir in $HOME/.dotfiles/*; do
+set -e
+for dir in ~/.dotfiles/*; do
 	rcup -d "$dir"
 done
-cd "$HOME/.local/bin"
+cd ~/.local/bin
 find -L . -name . -o -type d -prune -o -type l -exec rm {} +
+findbrokensymlinks ~/.vim/configurations/ | xargs rm
+cat ~/.vim/configurations/*.vim > ~/.vim/configurations.vim
+cat ~/.vim/configurations/*.vundle > ~/.vim/configurations.vundle
