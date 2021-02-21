@@ -7,8 +7,12 @@ export EDITOR="vim -e"
 export VISUAL=vim
 export BROWSER="/usr/bin/google-chrome"
 export PREFIX="$HOME/.local"
-export PATH="$PREFIX/bin:$PREFIX/firefox:$PATH"
 export MANPATH="$PREFIX/share/man:$MANPATH"
+
+setpath="$HOME/.local/bin/setsearchpath"
+if [ -f "$setpath" ]; then
+  . "$setpath"
+fi
 
 export TRAVEL_FILE="$HOME/.traveling"
 
