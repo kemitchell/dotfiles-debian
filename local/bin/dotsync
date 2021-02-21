@@ -2,8 +2,7 @@
 set -e
 
 if [ -z "$1" ]; then
-  dotsyncall
-  exit
+  exec dotsyncall
 fi
 
 repo="$1"
@@ -14,9 +13,11 @@ if [ -n "$(git status --porcelain)" ]; then
   git add . && git commit --allow-empty-message -m '' --quiet
   echo "$base: Committed changes."
 fi
+
 git remote update >/dev/null
 ours=$(git rev-parse 'HEAD')
 remote=$(git rev-parse 'origin/master')
+
 if [ "$ours" = "$remote" ]; then
   exit
 else
