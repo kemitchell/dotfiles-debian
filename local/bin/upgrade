@@ -1,19 +1,32 @@
 #!/bin/sh
 set -e
+set -x
+
+findjson () {
+  which json
+}
+
 log="$HOME/upgrade.log"
-upgradeapt | tee "$log"
+upgradeapt
+
+findjson
 
 for language in npm ruby rust; do
   updater="update$language"
-  hash "$updater" && "$updater" | tee -a "$log"
+  hash "$updater" && "$updater"
+  findjson
 done
 
-hash dotsyncall && dotsyncall | tee -a "$log"
+hash dotsyncall && dotsyncall
+findjson
 
 hash upgradevimplugins && upgradevimplugins
+findjson
 
 for refreshscript in ~/.local/bin/refresh*; do
   "$refreshscript"
+  findjson
 done
 
 hash upgradegit && upgradegit
+findjson
