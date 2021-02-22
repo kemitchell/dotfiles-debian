@@ -1,4 +1,4 @@
-for dir in bin .local/bin .cargo/bin .poetry/bin; do
+for dir in bin .local/bin .cargo/bin .deno/bin .poetry/bin; do
   if [ -d "$HOME/$dir" ]; then
     PATH="$HOME/$dir:$PATH"
   fi
