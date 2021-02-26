@@ -1,48 +1,13 @@
 #!/bin/sh
-while read domain; do
+set -e
+
+builddata
+cleanup () {
+  rm -rf "$HOME/data"
+}
+trap cleanup EXIT
+
+json websites < "$HOME/data/index.json" | json -a | while read domain; do
+  echo "$domain"
   checktlsconfiguration "$domain"
-done <<EOS
-artlessdevices.com
-availability.kemitchell.com
-berneout.org
-bigtimelicense.com
-blueoakcouncil.org
-codecreditlicense.com
-commonform.org
-creditstxt.com
-dicelicense.com
-diet.kemitchell.com
-dmcasimple.com
-doormatprivacy.com
-duallicensing.com
-flippedform.com
-homelessindustrial.com
-icepicklicense.org
-indiecc.com
-indieopensource.com
-jslicense.org
-kemitchell.com
-notlegaladvice.law
-pandaprivacy.org
-paritylicense.com
-patentpotato.com
-patronlicense.com
-polyformproject.org
-projects.kemitchell.com
-proseline.com
-prosperitylicense.com
-readable.kemitchell.com
-reviewersedition.org
-roundrobinlicense.com
-saaspassport.com
-squareoneforms.com
-stonecutters.law
-stricteq.com
-terracestreetneighbors.com
-turnstiletos.com
-waypointnda.com
-work.kemitchell.com
-writing.kemitchell.com
-writing.kemitchell.com
-xlcollaborative.com
-EOS
+done
