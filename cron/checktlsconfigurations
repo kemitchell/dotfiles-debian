@@ -8,6 +8,5 @@ cleanup () {
 trap cleanup EXIT
 
 json websites < "$HOME/data/index.json" | json -a | while read domain; do
-  echo "$domain"
   checktlsconfiguration "$domain"
 done
