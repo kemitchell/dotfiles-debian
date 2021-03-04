@@ -7,4 +7,4 @@ fi
 
 dirname=$(dirname "$html")
 basename=$(basename "$html" ".html")
-pandoc --standalone --wrap=none -V fontsize=12pt -t latex -o "$dirname/$basename.tex" "$html"
+pandoc --wrap=none -t latex -o "$dirname/$basename.tex" "$html"
