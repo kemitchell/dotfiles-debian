@@ -20,6 +20,7 @@
 	aa = add --all
 	ai = add --interactive
 	amend = commit --amend -C HEAD --allow-empty-message
+  contributors = log --format='%aN%n%cN'
 	b = branch
 	bb = branch --all
 	continue = rebase --continue
