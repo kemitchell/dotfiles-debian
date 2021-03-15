@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+pdf="$1"
+if [ -z "$pdf" ]; then
+  echo "Usage: <file.pdf>"
+  exit 1
+fi
+
+tmp="withoutfirstpage.pdf"
+pdftk "$pdf" cat 2-end output "$tmp"
+mv "$tmp" "$pdf"
