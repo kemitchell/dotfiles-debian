@@ -1,5 +1,4 @@
 #!/usr/bin/zsh
-set -x
 function usage {
   cat <<EOS
 Interactively select and clone a Git repository.
