@@ -36,8 +36,11 @@ if [ -z "$remote" ]; then
   exit 1
 fi
 
-if [ -n "$cache_flag" ]; then
-  clone --cache "$remote"
-else
-  clone "$remote"
+flags=""
+if [ -n "$shallow_flag" ]; then
+  flags="$flags --shallow"
 fi
+if [ -n "$cache_flag" ]; then
+  flags="$flags --cache"
+fi
+clone $flags "$remote"
