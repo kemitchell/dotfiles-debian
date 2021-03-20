@@ -161,6 +161,8 @@ noremap  <leader>U <Esc>:!git add -u && git commit --allow-empty-message --messa
 noremap  <leader>p <Esc>:!git push && deployproject<CR><CR>
 noremap  <leader>m <Esc>:!make<CR>
 noremap  <leader>b <Esc>:!build<CR>
+noremap  <leader>w <Esc>:write<CR>
+noremap  <leader>x <Esc>:x<CR>
 noremap  <leader>s <Esc>:!save<CR><CR>
 
 " Spelling
