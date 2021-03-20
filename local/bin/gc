@@ -8,6 +8,7 @@ Usage: gc [options]
 Options:
   -c --cache      Cache the repository.
   -r --refresh    Refresh the remote cache.
+  -s --shallow    Shallow clone.
   -h --help       Show help.
 EOS
 }
@@ -16,6 +17,7 @@ while test $# != 0; do
   case "$1" in
   -r | --refresh) refresh_flag=t ;;
   -c | --cache) cache_flag=t ;;
+  -h | --shallow) shallow_flag=t ;;
   -h | --help) usage ; exit ;;
   *)  usage ; exit 1 ;;
   esac
