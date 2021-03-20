@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+set -x
 function usage {
   cat <<EOS
 Interactively select and clone a Git repository.
@@ -38,7 +39,7 @@ fi
 
 flags=""
 if [ -n "$shallow_flag" ]; then
-  flags="$flags --shallow"
+  flags="--shallow"
 fi
 if [ -n "$cache_flag" ]; then
   flags="$flags --cache"
