@@ -1,0 +1,10 @@
+#!/bin/sh
+input="$1"
+if [ -z "$input" ]; then
+  echo "Usage: <input.pdf>"
+  exit 1
+fi
+base=$(basename "$input" .pdf)
+output="$base-without-images.pdf"
+gs -o "$output" -sDEVICE=pdfwrite -dFILTERIMAGE "$input"
+
