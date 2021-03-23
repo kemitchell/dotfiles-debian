@@ -6,5 +6,13 @@ if [ -z "$input" ]; then
 fi
 base=$(basename "$input" .pdf)
 output="$base-without-images.pdf"
-gs -o "$output" -sDEVICE=pdfwrite -dFILTERIMAGE "$input"
+gs -o "$output" \
+  -dBATCH \
+  -dCompatibilityLevel=1.4 \
+  -dFILTERIMAGE \
+  -dNOPAUSE \
+  -dPDFSETTINGS=/screen \
+  -dQUIET \
+  -sDEVICE=pdfwrite \
+  "$input"
 
