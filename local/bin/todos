@@ -1,2 +1,2 @@
 #!/bin/sh
-todo sort "$@" | less
+todo sort "$1" | less
