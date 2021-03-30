@@ -21,7 +21,7 @@ alias g='git'
 alias groot='git rev-parse --git-dir > /dev/null 2>&1 && cd `git rev-parse --show-cdup`'
 alias gg='git g'
 alias pp='git push'
-alias pullrequest='gh pr create'
+alias pullrequest='hub pull-request'
 
 # Ruby
 alias iri='ri -i'
