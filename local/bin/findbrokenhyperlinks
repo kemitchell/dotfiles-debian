@@ -4,4 +4,4 @@ if [ -z "$url" ]; then
   echo "Usage: <URL>"
   exit 1
 fi
-linkchecker --output=blacklist --check-extern "$url"
+linkchecker --ignore-url=www.apache.org/licenses/LICENSE-2.0.html --output=blacklist --check-extern "$url"
