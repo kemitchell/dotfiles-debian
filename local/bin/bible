@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+book="$1"
+chapter="$2"
+verse="$3"
+if [ -z "$1" ] || [ -z "$chapter" ] || [ -z "$verse" ]; then
+  echo "Usage: <book> <chapter> <verse>"
+  exit 1
+fi
+
+curl -s "https://bible-api.com/$book+$chapter:$verse?translation=kjv" | json verses | json -a text
