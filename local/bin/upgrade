@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 set -x
-#upgradeapt
+upgradeapt
 
 for language in npm ruby rust; do
   updater="update$language"
