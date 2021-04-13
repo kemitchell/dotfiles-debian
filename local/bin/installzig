@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+list=/etc/apt/sources.list.d/zig.list
+if ! [ -f "$list" ]; then
+  . /etc/os-release
+  echo "deb https://dl.bintray.com/dryzig/zig-debian $VERSION_CODENAME main" > "$list"
+fi
+sudo apt update
+sudo apt install zig
