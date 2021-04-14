@@ -3,8 +3,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export EDITOR="vim -e"
-export VISUAL=vim
+export EDITOR=vim
+export VISUAL=$EDITOR
 export BROWSER="/usr/bin/google-chrome"
 export PREFIX="$HOME/.local"
 export MANPATH="$PREFIX/share/man:$MANPATH"
