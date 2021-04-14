@@ -10,16 +10,16 @@ sudo apt-get update
 sudo apt-get install -y autoconf automake
 sudo apt-get build-dep -y emacs-nox
 
-mkdir -p $PREFIX/source
-REPO=$PREFIX/source/emacs
-if [ -d $REPO ]; then
-	cd $REPO
+mkdir -p "$PREFIX/source"
+REPO="$PREFIX/source/emacs"
+if [ -d "$REPO" ]; then
+	cd "$REPO"
 	git fetch
 else
-	git clone git://git.savannah.gnu.org/emacs.git $REPO
-	cd $REPO
+	git clone git://git.savannah.gnu.org/emacs.git "$REPO"
+	cd "$REPO"
 fi
 
-git checkout -f emacs-$1
+git checkout -f "emacs-$1"
 
-./autogen.sh && ./configure --prefix=$PREFIX --without-x && make && make install
+./autogen.sh && ./configure --prefix="$PREFIX" --without-x && make && make install
