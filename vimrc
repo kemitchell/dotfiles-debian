@@ -38,7 +38,7 @@ Plugin 'tpope/vim-repeat'
 " nobtrusive scratch window
 Plugin 'scratch.vim'
 " asynchronous linting
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 " enhanced ga character info
 Plugin 'tpope/vim-characterize'
 " gcc, gc<motion>, gcap to comment out
