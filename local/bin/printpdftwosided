@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -z "$1" ] || [ "$1" != *.pdf ]; then
+if [ -z "$1" ]; then
   echo "Usage: <file.pdf>"
   exit 1
 fi
