@@ -12,6 +12,7 @@ sites[patentpotato.com]="https://github.com/patentpotato/patentpotato.com"
 sites[artlessdevices.com]="https://github.com/artlessdevices/artlessdevices.com"
 sites[blog.artlessdevices.com]="https://github.com/artlessdevices/blog.artlessdevices.com"
 sites[notes.kemitchell.com]="git.kemitchell.com:notebook"
+sites[duallicensing.com]="https://github.com/licensezero/duallicensing.com"
 
 SITE="$1"
 if [ -z "$SITE" ]; then
