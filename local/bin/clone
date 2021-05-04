@@ -69,7 +69,10 @@ else
 fi
 
 (
+  echo "$clone"
   cd "$clone"
+  head=$(git rev-parse --abbrev-ref HEAD)
+  echo "Head: $head"
   git submodule update --init --recursive
   gitinstallhooks
   git grep "TODO"
