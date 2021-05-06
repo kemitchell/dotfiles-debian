@@ -1,2 +1,6 @@
 #!/bin/sh
-recode utf8..html | wdiff -d --start-delete="<del>" --end-delete="</del>" --start-insert="<ins>" --end-insert="</ins>" $@
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: <before> <after>"
+  exit 1
+fi
+wdiff -d --start-delete="<del>" --end-delete="</del>" --start-insert="<ins>" --end-insert="</ins>" "$1" "$2"
