@@ -71,9 +71,8 @@ fi
 (
   echo "$clone"
   cd "$clone"
-  head=$(git rev-parse --abbrev-ref HEAD)
-  echo "Head: $head"
-  git submodule update --init --recursive
-  gitinstallhooks
-  git grep "TODO"
+  echo "HEAD: $(git rev-parse --abbrev-ref HEAD)"
+  git submodule update --init --recursive || echo "error initializing submodules"
+  gitinstallhooks || echo "error installing hooks"
+  git grep "TODO" || echo "No TODOs"
 )
