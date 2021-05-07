@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ -x "./publish" ]; then
-  if ! onmaster ; then
+  if ! onmain ; then
     echo "Error: not on master branch" >/dev/stderr
     exit
   fi
@@ -8,7 +8,7 @@ if [ -x "./publish" ]; then
   exit
 fi
 if [ -x "./deploy" ]; then
-  if ! onmaster ; then
+  if ! onmain ; then
     echo "Error: not on master branch" >/dev/stderr
     exit
   fi

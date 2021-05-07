@@ -8,4 +8,4 @@ slug=$(cut -d ':' -f 3 <<< "$remote")
 owner=$(cut -d '/' -f 1 <<< "$slug")
 repo=$(cut -d '/' -f 2 <<< "$slug")
 PREVIEW="Accept: application/vnd.github.mister-fantastic-preview+json"
-hub api -H "$PREVIEW" -F "source=master" "/repos/$owner/$repo/pages"
+hub api -H "$PREVIEW" -F "source=main" "/repos/$owner/$repo/pages"
