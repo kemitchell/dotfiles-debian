@@ -16,7 +16,7 @@ fi
 
 git remote update >/dev/null
 ours=$(git rev-parse 'HEAD')
-remote=$(git rev-parse 'origin/master')
+remote=$(git rev-parse 'origin/main')
 
 if [ "$ours" = "$remote" ]; then
   exit
@@ -24,14 +24,14 @@ else
   echo "$base: Pushing."
   git push --quiet > /dev/null 2>&1 && exit
   echo "$base: Fast-forwarding."
-  git merge --ff-only origin/master > /dev/null 2>&1 && exit
+  git merge --ff-only origin/main > /dev/null 2>&1 && exit
   echo "$base: Couldn't fast-forward."
   echo "$base: Rebasing."
-  git rebase origin/master && git push origin master && exit
+  git rebase origin/main && git push origin main && exit
   echo "$base: Couldn't rebase."
   if [ "$repo" = "$HOME/.dotfiles/spelling" ]; then
-    echo "$base: Resetting spelling dotfiles to origin's master."
-    git reset --hard origin/master
+    echo "$base: Resetting spelling dotfiles to origin's main."
+    git reset --hard origin/main
   fi
   git submodule update
 fi
