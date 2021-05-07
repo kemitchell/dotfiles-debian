@@ -5,4 +5,4 @@ if [ -z "$1" ]; then
 fi
 md="$1"
 pdf="${md%.md}.pdf"
-pandoc --variable fontsize=11pt -o "$pdf" "$md"
+pandoc --variable fontsize=12pt -o "$pdf" "$md"
