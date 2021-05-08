@@ -2,4 +2,4 @@
 url="https://api.github.com/user/repos"
 auth="Authorization: token $GITHUB_TOKEN"
 pages=$(curl -sI -H "$auth" "$url?page=1&per_page=100" | sed -nr 's/^link:.*page=([0-9]+)&per_page=100>; rel="last".*/\1/p')
-seq "$pages" | parallel "curl -s -H \"$auth\" \"$url?page={1}&per_page=100\" | npx json -c 'this.archived==false' -a full_name"
+seq "$pages" | parallel "curl -s -H \"$auth\" \"$url?page={1}&per_page=100\" | npx --quiet --yes json -c 'this.archived==false' -a full_name"
