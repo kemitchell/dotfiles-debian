@@ -86,7 +86,8 @@ fi
   cd "$clone"
   head="$(git rev-parse --abbrev-ref HEAD)"
   if [ "$head" = "master" ]; then
-    banner "master!"
+    hash banner && banner "master!"
+    hash fallingtone && fallingtone
   fi
   git submodule update --init --recursive || echo "error initializing submodules"
   gitinstallhooks || echo "error installing hooks"
