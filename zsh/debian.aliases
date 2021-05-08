@@ -52,3 +52,10 @@ alias tt=runtests
 alias t=runtests
 alias l=lint
 alias d=deploy
+
+function blog() {
+  local="$HOME/writing.kemitchell.com"
+  git clone --depth 1 git@github.com:kemitchell/writing.kemitchell.com "$local"
+  cd "$local"
+  $EDITOR
+}
