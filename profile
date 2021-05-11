@@ -15,4 +15,5 @@ if [ -x "$setpath" ]; then
   . "$setpath"
 fi
 
-export PREFIX="$HOME/.local/"
+setpath="$HOME/.local/bin/setsearchpath"
+[ -f "$setpath" ] && source "$setpath"
