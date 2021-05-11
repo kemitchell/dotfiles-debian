@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+file="$HOME/.zshenv"
+echo "[ -f ~/.environment ] && source ~/.environment" > "$file"
+for i in $HOME/.zsh/*.zshenv(N); do cat "$i" >> "$file" ; done
+for i in $HOME/.zsh/*.apikeys(N); do cat "$i" >> "$file" ; done
