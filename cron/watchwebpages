@@ -1,4 +1,3 @@
-#!/bin/bash
 list="$HOME/.watched-webpages"
 tmp=$(mktemp)
 while read -r uri old_digest; do
