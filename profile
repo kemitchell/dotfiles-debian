@@ -10,4 +10,4 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-[ -f ~/.setpath ] && source ~/.setpath
+[ -f ~/.environment ] && source ~/.environment

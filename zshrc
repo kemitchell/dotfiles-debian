@@ -39,4 +39,4 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
 source ~/.config/broot/launcher/bash/br
-[ -f ~/.setpath ] && source ~/.setpath
+[ -f ~/.environment ] && source ~/.environment

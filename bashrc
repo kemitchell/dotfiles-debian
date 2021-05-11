@@ -112,6 +112,4 @@ fi
 
 source /home/kyle/.config/broot/launcher/bash/br
 
-if [ -f ~/.setpath ]; then
-  source ~/.setpath
-fi
+[ -f ~/.environment ] && source ~/.environment
