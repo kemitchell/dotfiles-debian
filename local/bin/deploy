@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [ -x "./deploy" ]; then
   exec ./deploy
 else
