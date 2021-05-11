@@ -9,14 +9,13 @@ export BROWSER="/usr/bin/google-chrome"
 export PREFIX="$HOME/.local"
 export MANPATH="$PREFIX/share/man:$MANPATH"
 
-setpath="$HOME/.local/bin/setsearchpath"
-if [ -f "$setpath" ]; then
-  . "$setpath"
-fi
-
 export TRAVEL_FILE="$HOME/.traveling"
 
 export WORKSPACE="$HOME"
+
+if [ -f ~/.setpath ]; then
+  source ~/.setpath
+fi
 
 for i in $HOME/.zsh/*.zshenv(N); do source "$i" ; done
 for i in $HOME/.zsh/*.apikeys(N); do source "$i" ; done

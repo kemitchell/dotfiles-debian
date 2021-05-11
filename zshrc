@@ -38,4 +38,5 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
-source /home/kyle/.config/broot/launcher/bash/br
+source ~/.config/broot/launcher/bash/br
+[ -f ~/.setpath ] && source ~/.setpath

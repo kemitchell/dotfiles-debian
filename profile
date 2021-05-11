@@ -9,11 +9,3 @@ if [ -n "$BASH_VERSION" ]; then
       . "$HOME/.bashrc"
     fi
 fi
-
-setpath="$HOME/.local/bin/setsearchpath"
-if [ -x "$setpath" ]; then
-  . "$setpath"
-fi
-
-setpath="$HOME/.local/bin/setsearchpath"
-[ -f "$setpath" ] && source "$setpath"

@@ -1,0 +1,12 @@
+#!/bin/sh
+all=""
+
+for list in ~/.paths/*; do
+  while read -r line; do
+    all="$line:$all"
+  done < "$list"
+done
+
+all="$all/usr/local/bin:/usr/bin:/bin"
+
+echo "export PATH=\"$all\"" > ~/.setpath

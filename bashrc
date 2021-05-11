@@ -110,10 +110,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by travis gem
-[ -f /home/kyle/.travis/travis.sh ] && source /home/kyle/.travis/travis.sh
-
 source /home/kyle/.config/broot/launcher/bash/br
 
-setpath="$HOME/.local/bin/setsearchpath"
-[ -f "$setpath" ] && source "$setpath"
+if [ -f ~/.setpath ]; then
+  source ~/.setpath
+fi

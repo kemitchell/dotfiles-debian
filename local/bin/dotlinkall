@@ -6,3 +6,4 @@ done
 cd ~/.local/bin
 find -L . -name . -o -type d -prune -o -type l -exec rm {} +
 concatenatevimconfigs
+compilepaths
