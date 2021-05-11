@@ -9,3 +9,5 @@ if [ -n "$BASH_VERSION" ]; then
       . "$HOME/.bashrc"
     fi
 fi
+
+[ -f ~/.setpath ] && source ~/.setpath
