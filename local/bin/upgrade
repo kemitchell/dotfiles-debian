@@ -3,7 +3,7 @@ set -e
 set -x
 upgradeapt
 
-for language in npm ruby rust; do
+for language in ruby rust; do
   updater="update$language"
   hash "$updater" && "$updater"
 done
