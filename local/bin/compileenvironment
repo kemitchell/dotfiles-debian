@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/zsh
 all=""
 
 environment=~/.environment
@@ -29,3 +29,6 @@ done
 all="$all/usr/local/bin:/usr/bin:/bin"
 
 echo "export PATH=\"$all\"" >> "$environment"
+
+for i in $HOME/.zsh/*.zshenv(N); do cat "$i" >> "$environment" ; done
+for i in $HOME/.zsh/*.apikeys(N); do cat "$i" >> "$environment" ; done
