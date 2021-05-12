@@ -1,8 +1,7 @@
 #!/bin/sh
+set -e
 slug="$1"
 if [ -z "$slug" ]; then
-  echo "Rename 'master' to 'main' on GitHub."
-  echo "Usage: <slug>"
-  exit 1
+  slug="$(gh repo view | head -n 1 | cut -f 2)"
 fi
 exec gh api --method POST "repos/$slug/branches/master/rename" --field new_name='main' >/dev/null
