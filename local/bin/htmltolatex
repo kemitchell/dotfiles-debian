@@ -20,7 +20,7 @@ tex="$base.tex"
   printf '\\setcounter{secnumdepth}{0}\n'
   printf '\\providecommand{\\tightlist}{\\setlength{\\itemsep}{0pt}\\setlength{\\parskip}{0pt}}\n'
   printf '\\frenchspacing\n'
-  printf '\\title{\textbf{}}\n'
+  printf '\\title{\\textbf{}}\n'
   printf '\\author{}\n'
   printf '\\date{}\n'
   printf '\\begin{document}\n'
