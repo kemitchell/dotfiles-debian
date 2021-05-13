@@ -1,0 +1,5 @@
+#!/bin/sh
+if ! [ -d ~/.zsh/zgen ]; then
+  mkdir -p ~/.zsh/
+  git clone https://github.com/tarjoilija/zgen.git ~/.zsh/zgen
+fi
