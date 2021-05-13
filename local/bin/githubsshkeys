@@ -1,13 +1,12 @@
 #!/bin/sh
 set -e
 
-if [ "$#" -lt 1 -a "$#" -gt 2 ]; then
+if [ "$#" -lt 1 ] && [ "$#" -gt 2 ]; then
 	echo "Usage: <user> [<limit>]"
 	exit 1
 fi
 
 user=$1
 limit=${2-1}
-
-curl "https://github.com/$1.keys" 2>/dev/null | head -n "$limit"
-echo " github.com/$1.keys as of $(date --utc --iso-8601=minutes)"
+curl "https://github.com/$user.keys" 2>/dev/null | head -n "$limit"
+echo " github.com/$user.keys as of $(date --utc --iso-8601=minutes)"

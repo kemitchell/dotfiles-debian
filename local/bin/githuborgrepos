@@ -1,0 +1,2 @@
+#!/bin/sh
+curl "https://api.github.com/orgs/$1/repos?per_page=100&sort=updated" 2>/dev/null | json -a full_name
