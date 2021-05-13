@@ -40,7 +40,6 @@ exactimage
 fail2ban
 figlet
 findutils
-fontcache
 fonts-freefont-ttf
 fonts-noto
 fortune
@@ -83,7 +82,6 @@ pandoc
 par
 parallel
 pass
-pdfjam
 pdftk
 pgpdump
 poppler-utils
@@ -128,6 +126,7 @@ tesseract-ocr-eng
 tesseract-ocr-rus
 texinfo
 texlive
+texlive-extra-utils
 texlive-science
 texlive-xetex
 tidy
@@ -149,7 +148,6 @@ wamerican
 wdiff
 wget
 wordnet
-yacc
 zip
 zsh
 PACKAGES

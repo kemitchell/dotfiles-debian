@@ -1,2 +1,31 @@
 #!/bin/sh
-exec pandoc --wrap=none -t latex -f html
+set -e
+
+html="$1"
+if [ -z "$html" ]; then
+  echo "Usage: <file.html>"
+  exit 1
+fi
+
+base=$(basename "$html" .html)
+tex="$base.tex"
+
+(
+  printf '\\documentclass[11pt,letterpaper,twocolumn]{article}\n'
+  printf '\\usepackage{hyperref}\n'
+  printf '\\usepackage[margin=0.75in]{geometry}\n'
+  printf '\\usepackage[document]{ragged2e}\n'
+  printf '\\setlength{\RaggedRightParindent}{\parindent}\n'
+  printf '\\usepackage[none]{hyphenat}\n'
+  printf '\\setcounter{secnumdepth}{0}\n'
+  printf '\\providecommand{\\tightlist}{\\setlength{\\itemsep}{0pt}\\setlength{\\parskip}{0pt}}\n'
+  printf '\\frenchspacing\n'
+  printf '\\title{\textbf{}}\n'
+  printf '\\author{}\n'
+  printf '\\date{}\n'
+  printf '\\begin{document}\n'
+  printf '\\maketitle\n'
+  printf '\n'
+  pandoc --wrap=none -t latex -f html "$html"
+  printf '\\end{document}\n'
+) > "$tex"
