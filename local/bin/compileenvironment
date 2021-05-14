@@ -26,6 +26,6 @@ for list in ~/.paths/*; do
   done < "$list"
 done
 
-all="$all/usr/local/bin:/usr/bin:/bin"
+all="$all/usr/local/bin:/usr/bin:/bin:/usr/games"
 
 echo "export PATH=\"$all\"" >> "$environment"
