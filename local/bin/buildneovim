@@ -5,13 +5,13 @@ set -e
 repo="$HOME/.local/source/neovim"
 if [ -d "$repo" ]; then
   cd "$repo"
-  git fetch --tags --prune --prune-tags origin
+  git fetch --force --tags --prune --prune-tags origin
 else
   git clone https://github.com/neovim/neovim "$repo"
   cd "$repo"
 fi
 
-git checkout stable
+git checkout "${1:-nightly}"
 
 # Clear CMake cache.
 if [ -d build ]; then
