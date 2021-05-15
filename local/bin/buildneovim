@@ -5,7 +5,7 @@ set -e
 repo="$HOME/.local/source/neovim"
 if [ -d "$repo" ]; then
   cd "$repo"
-  git fetch --prune --prune-tags origin
+  git fetch --tags --prune --prune-tags origin
 else
   git clone https://github.com/neovim/neovim "$repo"
   cd "$repo"
