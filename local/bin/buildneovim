@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+# Clone source repository.
+repo="$HOME/.local/source/neovim"
+if [ -d "$repo" ]; then
+  cd "$repo"
+  git fetch origin
+  git reset --hard origin/master
+else
+  git clone https://github.com/neovim/neovim "$repo"
+  cd "$repo"
+fi
+
+# Clear CMake cache.
+if [ -d build ]; then
+  rm -r build
+fi
+
+sudo apt update
+sudo apt-get install --yes ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+
+# Build.
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX"
+make install
