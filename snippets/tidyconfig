@@ -1,0 +1,5 @@
+indent: yes
+indent-spaces: 2
+wrap: 0
+quiet: yes
+tidy-mark: no
