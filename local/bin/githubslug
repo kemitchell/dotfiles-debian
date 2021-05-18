@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+url=$(git remote get-url origin)
+if [[ "$url" =~ ^git@github.com: ]]; then
+  echo "$url" | sed 's/git@github.com://' | sed 's/\.git$//'
+elif [[ "$url" =~ ^https://github.com/ ]]; then
+  echo "$url" | sed 's!https://github.com/!!' | sed 's/\.git$//'
+fi
