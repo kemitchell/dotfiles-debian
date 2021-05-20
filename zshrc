@@ -38,5 +38,4 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
-source ~/.config/broot/launcher/bash/br
 [ -f ~/.environment ] && source ~/.environment

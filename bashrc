@@ -110,6 +110,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source /home/kyle/.config/broot/launcher/bash/br
-
 [ -f ~/.environment ] && source ~/.environment
