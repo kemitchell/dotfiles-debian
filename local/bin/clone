@@ -47,6 +47,7 @@ REPO_CACHE="$HOME/.git-cache"
 cached="$REPO_CACHE/$slug"
 function copy_cached {
   echo "Cloning from cache."
+  set -x
   git clone --reference "$cached" "$remote" "$clone"
 }
 
