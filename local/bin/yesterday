@@ -1,0 +1,2 @@
+#!/bin/sh
+exec date --date "yesterday" --iso-8601
