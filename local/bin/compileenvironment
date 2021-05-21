@@ -29,3 +29,5 @@ done
 all="$all/usr/local/bin:/usr/bin:/bin:/usr/games"
 
 echo "export PATH=\"$all\"" >> "$environment"
+
+echo "if [ -f ~/.asdf/asdf.sh ]; then source ~/.asdf/asdf.sh ; fi" >> "$environment"

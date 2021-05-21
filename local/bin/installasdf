@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if ! [ -d ~/.asdf ]; then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  cd ~/.asdf
+else
+  cd ~/.asdf
+  git fetch origin
+fi
+git checkout "$(git describe --abbrev=0 --tags)"
