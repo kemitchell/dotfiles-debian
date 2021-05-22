@@ -3,4 +3,4 @@ if [ -z "$1" ]; then
   echo "Usage: <file.pdf>"
   exit 1
 fi
-lp -o fit-to-page -o sides=two-sided-long-edge "$1"
+exec lp -o fit-to-page -o sides=two-sided-long-edge "$1"
