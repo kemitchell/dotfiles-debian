@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+file="$1"
+if [ -z "$file" ]; then
+  echo "Usage: <file>"
+  exit 1
+fi
+hash soffice || sudo apt install -y libreoffice
+exec soffice --headless --convert-to pdf "$file"
