@@ -1,19 +1,14 @@
 #!/bin/sh
 set -e
 set -x
-upgradeapt
 
-for language in ruby rust asdf; do
+hash dotsyncall && dotsyncall
+
+for language in apt ruby rust asdf vimplugins git; do
   updater="update$language"
   hash "$updater" && "$updater"
 done
 
-hash dotsyncall && dotsyncall
-
-hash upgradevimplugins && upgradevimplugins
-
 for refreshscript in ~/.local/bin/refresh*; do
   "$refreshscript"
 done
-
-hash upgradegit && upgradegit
