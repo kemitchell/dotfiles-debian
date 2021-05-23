@@ -1,2 +1,2 @@
 #!/bin/sh
-exec upgradeprogram getcurrentgitversion getinstalledgitversion installgit
+exec updateprogram getcurrentgitversion getinstalledgitversion installgit

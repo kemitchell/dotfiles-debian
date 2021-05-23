@@ -2,6 +2,8 @@
 set -e
 set -x
 
+hash asdf || installasdf
+
 hash dotsyncall && dotsyncall
 
 for language in apt ruby rust asdf vimplugins git; do
