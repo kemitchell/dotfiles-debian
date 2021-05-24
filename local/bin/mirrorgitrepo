@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+from="$1"
+to="$2"
+if [ -z "$from" ] || [ -z "$to" ]; then
+  echo "Usage: <from-git-remote> <to-git-remote>"
+  exit 1
+fi
+
+tmp=$(mktemp -d)
+cleanup () {
+  rm -rf "$tmp"
+}
+trap cleanup EXIT
+
+git clone --mirror --quiet "$from" "$tmp"
+cd "$tmp"
+remote=destination
+git remote "$remote" to "$to"
+git push --quiet "$remote" --mirror
