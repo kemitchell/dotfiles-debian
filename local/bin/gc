@@ -24,14 +24,22 @@ while test $# != 0; do
   shift
 done
 
-GITHUB_REMOTES="$HOME/.github-my-repos"
+GITHUB_SLUGS="$HOME/.github-my-repos"
+SOURCEHUT_SLUGS="$HOME/.sourcehut-my-repos"
 OTHER_REMOTES="$HOME/.git-my-repos"
 if [ -n "$refresh_flag" ]; then
   refreshgithubcache
+  refreshsourcehutcache
   refreshgitcache
 fi
 
-remote=$((cat "$GITHUB_REMOTES" | awk '{print "git@github.com:" $1}' ; cat "$OTHER_REMOTES") | fzf)
+remote=$(
+  (
+    cat "$GITHUB_SLUGS" | awk '{print "git@github.com:" $1}'
+    cat "$SOURCEHUT_SLUGS" | awk '{print "git@git.sr.ht:" $1}'
+    cat "$OTHER_REMOTES"
+  ) | fzf
+)
 if [ -z "$remote" ]; then
   exit 1
 fi

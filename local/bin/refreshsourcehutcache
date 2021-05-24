@@ -1,0 +1,3 @@
+#!/bin/sh
+CACHE="$HOME/.sourcehut-my-repos"
+sourcehutmyrepos | sort > "$CACHE"

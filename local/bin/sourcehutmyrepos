@@ -1,15 +1,15 @@
 #!/bin/sh
 url="https://git.sr.ht/api/repos"
-auth="Authorization: token $SOURCEHUT_TOKEN"
+auth="Authorization: token $(pass sourcehut/token)"
 first=$(curl -s -H "$auth" "$url")
 perpage=$(echo "$first" | json results_per_page)
 total=$(echo "$first" | json total)
 for start in $(seq 1 "$perpage" "$total"); do
   if [ -z "$next" ]; then
-    response=$(curl -s -H "$auth" "$url?start=$next")
-  else
     response=$(curl -s -H "$auth" "$url")
+  else
+    response=$(curl -s -H "$auth" "$url?start=$start")
   fi
   next=$(echo "$response" | json next)
-  echo "$response" | json results | json -a name
+  echo "$response" | json results | json -a -d '/' owner.canonical_name name
 done
