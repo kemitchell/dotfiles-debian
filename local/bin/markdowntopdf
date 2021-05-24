@@ -1,6 +1,7 @@
 #!/bin/sh
+set -e
 if [ -z "$1" ] || [ ! -f "$1" ]; then
   echo "Usage: <file.md>"
   exit 1
 fi
-pandoc -V documentclass=article -V papersize=letter -V fontsize=12pt -o "$(basename "$1" .md).pdf" "$1"
+exec pandoc -V documentclass=article -V papersize=letter -V fontsize=12pt -o "$(dirname "$1")/$(basename "$1" .md).pdf" "$1"
