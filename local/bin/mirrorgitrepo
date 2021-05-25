@@ -17,5 +17,5 @@ trap cleanup EXIT
 git clone --mirror --quiet "$from" "$tmp"
 cd "$tmp"
 remote=destination
-git remote "$remote" to "$to"
+git remote add "$remote" "$to"
 git push --quiet "$remote" --mirror
