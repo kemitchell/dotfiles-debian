@@ -2,3 +2,4 @@
 set -e
 asdf update
 asdf plugin update --all
+asdf reshim
