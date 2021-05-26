@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 URL=$(getlatestgithubreleaseurl htacg/tidy-html5 -64bit.deb)
 TMP=$(mktemp)
 cleanup () {
