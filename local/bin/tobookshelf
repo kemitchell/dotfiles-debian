@@ -1,4 +1,4 @@
 #!/bin/sh
 for file in "$@"; do
-  rclone copy --progress "$file" "dropbox:Bookshelf/Books/"
+  rclone copy --immutable --progress "$file" "dropbox:Bookshelf/Books/"
 done
