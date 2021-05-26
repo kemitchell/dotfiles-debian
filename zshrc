@@ -14,7 +14,7 @@ HISTFILE=~/.zsh_history
 
 autoload -U colors && colors
 
-PROMPT="%m %~ %# "
+PROMPT="%m %~ %1(j.+.)%# "
 
 autoload -U compinit compdef
 compinit
