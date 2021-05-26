@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+remote="$1"
+name="$2"
+if [ -z "$remote" ] || [ -z "$name" ]; then
+  echo "Install a repository of dotfiles."
+  echo "Usage: <remote> <name>"
+  exit 1
+fi
+
+target="$HOME/.dotfiles/$name"
+if [ -d "$target" ]; then
+  echo ".dotfiles/$name already exists!">/dev/stderr
+  exit 1
+fi
+
+git clone --quiet --depth=1 "$remote" "$target"
+cd "$target"
+git submodule update --init
+rcup -f -d "$target"

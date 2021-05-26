@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+name="$1"
+target="$HOME/.dotfiles/$baename("$name")"
+if [ -z "$name" ]; then
+  echo "$target does not exist!">/dev/stderr
+  exit 1
+fi
+
+rcdn -d "$target"
+rm -rf "$target"

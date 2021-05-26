@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-sudo apt-add-repository -u https://cli.github.com/packages
+list=/etc/apt/sources.list.d/gh.list
+if ! [ -f "$list" ]; then
+  echo "deb https://cli.github.com/packages buster main" | sudo tee "$list"
+fi
 sudo apt update
 sudo apt install gh
