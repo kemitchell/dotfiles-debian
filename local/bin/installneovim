@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+sudo apt update
+sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+
+repo="$HOME/.local/source/neovim"
+if ! [ -d "$repo" ]; then
+  git clone https://github.com/neovim/neovim "$repo"
+  cd "$repo"
+else
+  cd "$repo"
+  git fetch origin
+  git clean -fdx
+fi
+
+git checkout stable
+CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX" make
+make install
