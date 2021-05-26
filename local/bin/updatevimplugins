@@ -1,2 +1,3 @@
 #!/bin/sh
+concatenatevimconfigs
 exec vim -c BundleUpdate -c quitall
