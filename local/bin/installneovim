@@ -17,3 +17,4 @@ fi
 git checkout stable
 CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX" make
 make install
+installplug
