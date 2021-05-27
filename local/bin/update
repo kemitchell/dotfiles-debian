@@ -6,7 +6,7 @@ hash asdf || installasdf
 
 hash dotsyncall && dotsyncall
 
-for language in apt ruby rust asdf vimplugins git; do
+for language in apt ruby rust asdf vimplugins nvimplugins git; do
   updater="update$language"
   hash "$updater" && "$updater"
 done
