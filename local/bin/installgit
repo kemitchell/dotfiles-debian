@@ -23,9 +23,11 @@ fi
 
 git checkout -f "$tag"
 
-sudo apt-get update
-sudo apt-get install -y build-essential autoconf libpcre2-dev
-sudo apt-get -y build-dep git
+if command apt 2>/dev/null; then
+  sudo apt-get update
+  sudo apt-get install -y build-essential autoconf libpcre2-dev
+  sudo apt-get -y build-dep git
+fi
 
 export USE_LIBPCRE=true
 make configure

@@ -1,0 +1,9 @@
+#!/bin/sh
+if command -v pacman 2>/dev/null; then
+  yes | sudo pacman -S the_silver_searcher
+elif command -v apt 2>/dev/null; then
+  sudo apt install silversearcher-ag
+else
+  echo "Could not find apt or pacman."
+  exit 1
+fi

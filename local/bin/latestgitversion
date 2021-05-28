@@ -1,6 +1,6 @@
 #!/bin/sh
-if ! hash pup; then
-  if hash installpup; then
+if ! command pup; then
+  if command installpup; then
     installpup
   else
     echo "Install ericchiang/pup first."
