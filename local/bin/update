@@ -2,11 +2,11 @@
 set -e
 set -x
 
-hash dotsyncall && dotsyncall
+dotsyncall
 
 for language in ruby rust asdf vimplugins nvimplugins git; do
   updater="update$language"
-  hash "$updater" && "$updater"
+  command -v "$updater" >/dev/null && "$updater"
 done
 
 if command -v apt >/dev/null; then
