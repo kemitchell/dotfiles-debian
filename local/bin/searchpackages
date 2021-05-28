@@ -12,6 +12,7 @@ if command -v apt-cache >/dev/null; then
   apt-cache search "$query"
 elif command -v pacman >/dev/null; then
   pacman -Ss "$query"
+  pacman -F "$query"
 else
   echo "Could not find apt-cache or pacman."
   exit 1
