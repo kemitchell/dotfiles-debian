@@ -25,3 +25,4 @@ git checkout stable
 CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$PREFIX" make
 make install
 installplug
+python3 -m pip install --user --upgrade pynvim
