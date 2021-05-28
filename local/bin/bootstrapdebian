@@ -4,6 +4,6 @@ sudo apt-get upgrade -y
 enableunattendedupgrades
 installaptpackages
 debianinstallssp
-install zgen
+installzgen
 installvim
 installemacs

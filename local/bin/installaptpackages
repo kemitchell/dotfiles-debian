@@ -99,9 +99,7 @@ renameutils
 ripmime
 rpl
 rsync
-s3cmd
 sc
-secure-delete
 secure-delete
 sed
 sensible-utils
