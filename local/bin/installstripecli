@@ -1,8 +1,0 @@
-#!/bin/sh
-sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys 379CE192D401AB61
-APTFILE=/etc/apt/sources.list.d/stripe.list
-if [ ! -f "$APTFILE" ]; then
-  echo "deb https://dl.bintray.com/stripe/stripe-cli-deb stable main" | sudo tee "$APTFILE"
-fi
-sudo apt-get --quiet update
-sudo apt-get --quiet install stripe
