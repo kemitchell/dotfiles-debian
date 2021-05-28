@@ -14,6 +14,6 @@ for dir in $REPOS; do
   fi
 done
 
-if [ ! -z "$HAVE_DIRTY" ]; then
+if [ -n "$HAVE_DIRTY" ]; then
   exit 1
 fi
