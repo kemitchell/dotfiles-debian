@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+cd ~/.git-cache
+for repo in $(listgitrepos); do
+  (
+    cd "$repo"
+    gitsync
+  )
+done
