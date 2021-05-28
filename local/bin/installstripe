@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+
 tmp=$(mktemp -d)
 cleanup () {
   rm -rf "$tmp"
@@ -7,6 +8,7 @@ cleanup () {
 trap cleanup EXIT
 cd "$tmp"
 
-url=$(getlatestgithubreleaseurl stripe/stripe-cli linux_amd64.deb)
-wget "$url"
-sudo dpkg -i ./*.deb
+url=$(getlatestgithubreleaseurl stripe/stripe-cli _linux_x86_64.tar.gz)
+curl -Lo stripe.tgz "$url"
+unp stripe.tgz
+cp stripe "$PREFIX/bin/stripe"
