@@ -1,0 +1,2 @@
+#!/bin/sh
+command apt 2>/dev/null

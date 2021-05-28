@@ -1,10 +1,21 @@
 #!/bin/sh
 set -e
+
 tmp="$(mktemp -d)"
-cd "$tmp"
 cleanup () {
   rm -rf "$tmp"
 }
 trap cleanup EXIT
-curl --output rclone.deb "https://downloads.rclone.org/rclone-current-linux-amd64.deb"
-sudo dpkg -i rclone.deb
+cd "$tmp"
+
+if command apt; then
+  curl --output rclone.deb "https://downloads.rclone.org/rclone-current-linux-amd64.deb"
+  sudo dpkg -i rclone.deb
+elif command pacman; then
+  curl -o rclone.zip "https://downloads.rclone.org/rclone-current-linux-amd64.zip"
+  unzip rclone.zip
+  cp rclone*/rclone $PREFIX/bin/rclone
+  mkdir -p $PREFIX/share/man/man1
+  cp rclone*/rclone.1 $PREFIX/share/man/man1/
+  mandb
+fi
