@@ -4,4 +4,4 @@ if [ -z "$files" ] ; then
   echo "No modified files." >/dev/stderr
   exit 1
 fi
-exec vim $(git ls-files --modified)
+exec $EDITOR $(git ls-files --modified)
