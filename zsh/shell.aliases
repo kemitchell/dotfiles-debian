@@ -7,16 +7,16 @@ alias ls='ls --color -v'
 alias rm='rm -i'
 alias up='cd ..'
 
-function mkcd() {
+function mkcd {
 	mkdir $1
 	cd $1
 }
 
 function v {
-	if jobs vim >/dev/null 2>&1; then
+	if jobs $EDITOR >/dev/null 2>&1; then
 		fg
 	else
-		vim $@
+		$EDITOR $@
 	fi
 }
 
@@ -33,17 +33,17 @@ function vcmd {
   else
     target=$(whence "$1")
     if [ $? -eq 0 ]; then
-      vim "$target"
+      $EDITOR "$target"
     else
       echo "Could not find $1." >/dev/stderr
     fi
   fi
 }
 
-function silently { $* >/dev/null &>/dev/null }
+function silently {
+  $* >/dev/null &>/dev/null
+}
 
 alias xx='exit'
 
 alias remake='make clean ; make'
-
-alias root='ssh -u root -h'
