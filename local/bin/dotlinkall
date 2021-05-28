@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 for dir in ~/.dotfiles/*; do
-	rcup -d "$dir"
+	rcup -f -d "$dir"
 done
 cd ~/.local/bin
 find -L . -name . -o -type d -prune -o -type l -exec rm {} +
