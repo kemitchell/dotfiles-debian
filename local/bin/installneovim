@@ -1,8 +1,15 @@
 #!/bin/sh
 set -e
 
-sudo apt update
-sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+if hash apt; then
+  sudo apt update
+  sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+elif hash pacman; then
+  sudo pacman -S ninja gettext libtool autoconf automake cmake base-devel pkg-config unzip
+else
+  echo "Neither apt nor pacman found."
+  exit 1
+fi
 
 repo="$HOME/.local/source/neovim"
 if ! [ -d "$repo" ]; then

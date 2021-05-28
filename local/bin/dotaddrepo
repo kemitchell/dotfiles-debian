@@ -19,3 +19,4 @@ git clone --quiet --depth=1 "$remote" "$target"
 cd "$target"
 git submodule update --init
 rcup -f -d "$target"
+compileenvironment

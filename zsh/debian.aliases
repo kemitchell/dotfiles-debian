@@ -59,3 +59,5 @@ function blog() {
   cd "$local"
   $EDITOR
 }
+
+alias google-chrome=google-chrome-stable
