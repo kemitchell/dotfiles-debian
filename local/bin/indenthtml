@@ -1,5 +1,5 @@
 #!/bin/sh
-if ! hash tidy; then
+if ! command -v tidy 2>/dev/null; then
   sudo apt-get install tidy > /dev/null
 fi
 exec tidy -quiet -indent --indent-spaces 2 -wrap 0

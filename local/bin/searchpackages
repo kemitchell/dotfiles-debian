@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+query="$1"
+if [ -z "$query" ]; then
+  echo "Search system package manager packages."
+  echo "Usage: <query>"
+  exit 1
+fi
+
+if command -v apt-cache >/dev/null; then
+  apt-cache search "$query"
+elif command -v pacman >/dev/null; then
+  pacman -Ss "$query"
+else
+  echo "Could not find apt-cache or pacman."
+  exit 1
+fi

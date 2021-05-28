@@ -9,7 +9,7 @@ if connectedtointernet; then
     purgefiles
   fi
   dotsync
-  hash syncprojects && syncprojects
+  command -v syncprojects 2>/dev/null && syncprojects
   sudo shutdown now -h
 else
   if promptyorn "No Internet connection. Shut down?"; then

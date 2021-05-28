@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
-if hash pacman >/dev/null; then
+if command -v pacman 2>/dev/null; then
   yes | sudo pacman -S github-cli
-elif hash apt; then
+elif command -v apt 2>/dev/null; then
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
   list=/etc/apt/sources.list.d/gh.list
   if ! [ -f "$list" ]; then

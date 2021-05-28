@@ -1,2 +1,2 @@
 #!/bin/sh
-command pacman 2>/dev/null
+command -v pacman 2>/dev/null

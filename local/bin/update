@@ -2,14 +2,18 @@
 set -e
 set -x
 
-hash asdf || installasdf
-
 hash dotsyncall && dotsyncall
 
-for language in apt ruby rust asdf vimplugins nvimplugins git; do
+for language in ruby rust asdf vimplugins nvimplugins git; do
   updater="update$language"
   hash "$updater" && "$updater"
 done
+
+if command -v apt >/dev/null; then
+  updateapt
+elif command -v pacman >/dev/null; then
+  updatepacman
+fi
 
 for refreshscript in ~/.local/bin/refresh*; do
   "$refreshscript"

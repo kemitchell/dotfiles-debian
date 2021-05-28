@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-if hash apt; then
+if command -v apt >/dev/null; then
   sudo apt update
   sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
-elif hash pacman; then
+elif command -v pacman >/dev/null; then
   sudo pacman -S ninja gettext libtool autoconf automake cmake base-devel pkg-config unzip
 else
   echo "Neither apt nor pacman found."

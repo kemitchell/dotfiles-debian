@@ -1,12 +1,5 @@
 #!/bin/sh
-if ! command pup; then
-  if command installpup; then
-    installpup
-  else
-    echo "Install ericchiang/pup first."
-    exit 1
-  fi
-fi
+set -e
 
 curl -s "https://git-scm.com/" \
   | pup '.version text{}' \

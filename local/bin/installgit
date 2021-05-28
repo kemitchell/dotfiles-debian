@@ -4,6 +4,7 @@ set -e
 version="$1"
 if [ -z "$version" ]; then
   version=$(latestgitversion)
+  echo "Latest Version: $version"
 fi
 
 tag=v$version
@@ -23,10 +24,12 @@ fi
 
 git checkout -f "$tag"
 
-if command apt 2>/dev/null; then
+if command -v apt >/dev/null; then
   sudo apt-get update
   sudo apt-get install -y build-essential autoconf libpcre2-dev
   sudo apt-get -y build-dep git
+elif command -v pacman >/dev/null; then
+  yes | sudo pacman -S pcre2
 fi
 
 export USE_LIBPCRE=true
