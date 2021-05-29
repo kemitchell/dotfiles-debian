@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+name="$1"
+if [ -z "$name" ]; then
+  echo "Usage: name"
+  exit 1
+fi
+
+url="https://git.sr.ht/api/repos"
+auth="Authorization: token $(pass sourcehut/token)"
+exec curl -s \
+  -H "$auth" \
+  -H "Content-Type: application/json" \
+  -X POST \
+  --data @- \
+  "$url" <<EOS
+{
+  "name": "$name",
+  "visibility": "public"
+}
+EOS
