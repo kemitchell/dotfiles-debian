@@ -1,12 +1,6 @@
 #!/bin/sh
 set -e
 
-builddata
-cleanup () {
-  rm -rf "$HOME/data"
-}
-trap cleanup EXIT
-
-json websites < "$HOME/data/index.json" | json -a | while read domain; do
+query websites | json -a | while read domain; do
   checktlsconfiguration "$domain"
 done
