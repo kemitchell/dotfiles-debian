@@ -1,2 +1,2 @@
 #!/bin/sh
-exec sudo pacman -Syu
+yes | sudo pacman -Syu

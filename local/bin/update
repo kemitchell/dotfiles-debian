@@ -4,17 +4,27 @@ set -x
 
 dotsyncall
 
+set +x
 for language in ruby rust asdf vimplugins nvimplugins git; do
   updater="update$language"
-  command -v "$updater" >/dev/null && "$updater"
+  if command -v "$updater" >/dev/null; then
+    set -x
+    "$updater"
+    set +x
+  fi
 done
 
 if command -v apt >/dev/null; then
+  set -x
   updateapt
 elif command -v pacman >/dev/null; then
+  set -x
   updatepacman
 fi
+set +x
 
 for refreshscript in ~/.local/bin/refresh*; do
+  set -x
   "$refreshscript"
+  set +x
 done
