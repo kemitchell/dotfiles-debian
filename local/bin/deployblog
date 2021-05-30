@@ -1,2 +1,2 @@
 #!/bin/sh
-deploysite writing.kemitchell.com
+mirrorgitrepo git@github.com:kemitchell/writing.kemitchell.com git@git.sr.ht:~kemitchell/writing.kemitchell.com
