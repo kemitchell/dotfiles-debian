@@ -1,3 +1,7 @@
 #!/bin/sh
-cat ~/.vim/configurations/*.vim > ~/.vim/configurations.vim
-cat ~/.vim/configurations/*.vundle > ~/.vim/configurations.vundle
+set -e
+directory=~/.vim/configurations
+cd "$directory"
+rmbrokensymlinks
+cat $directory/*.vim > ~/.vim/configurations.vim
+cat $directory/*.vundle > ~/.vim/configurations.vundle

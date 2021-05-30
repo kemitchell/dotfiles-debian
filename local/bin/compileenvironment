@@ -1,4 +1,6 @@
 #!/usr/bin/zsh
+set -e
+
 all=""
 
 environment=~/.environment
@@ -20,7 +22,12 @@ export WORKSPACE="\$HOME"
 
 EOS
 
-for list in ~/.paths/*; do
+paths=~/.paths
+
+cd $paths
+rmbrokensymlinks
+
+for list in $paths/*; do
   while read -r line; do
     all="$line:$all"
   done < "$list"
