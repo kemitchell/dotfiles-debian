@@ -1,42 +1,5 @@
 syntax enable
 
-set nocompatible
-set autoindent
-set conceallevel=0
-set diffopt+=vertical
-set encoding=utf-8
-set expandtab
-set fileencodings=utf-8
-set formatprg=fmt\ -w72\ -u
-set hidden
-set history=999
-set hlsearch
-set ignorecase
-set incsearch
-set laststatus=2
-set matchtime=3
-set modeline
-set modelines=2
-set noerrorbells
-set nofoldenable
-set nojoinspaces
-set nomore
-set nonumber
-set novisualbell
-set nowrap
-set ruler
-set scrolloff=3
-set shiftwidth=2
-set showcmd
-set showmatch
-set smartcase
-set smarttab
-set softtabstop=2
-set spellfile=$HOME/.vim/spell/en.utf-8.add
-set spelllang=en_us
-set tabstop=2
-set termencoding=utf8
-
 " Unmap <F1> for help
 nmap <F1> <nop>
 imap <F1> <nop>
@@ -53,9 +16,9 @@ inoremap <C-t> <C-r>=substitute(system('date +"%H%M"'), '\n\+', '', '')<CR>
 nnoremap <CR> :nohlsearch<CR>
 noremap  <leader>t <Esc>:!runtests<CR>
 noremap  <leader>c <Esc>:!nodecoverage<CR>
-noremap  <leader>u <Esc>:!git add -u && git commit --verbose <CR>
-noremap  <leader>U <Esc>:!git add -u && git commit --allow-empty-message --message "" <CR>
-noremap  <leader>p <Esc>:!git push && deployproject<CR><CR>
+noremap  <leader>u <Esc>:Git add -u<CR>:Git commit<CR>
+noremap  <leader>U <Esc>:Git add -u<CR>:Git commit --allow-empty-message --message ""<CR>
+noremap  <leader>p <Esc>:Git push && deployproject<CR><CR>
 noremap  <leader>m <Esc>:!make<CR>
 noremap  <leader>b <Esc>:!build<CR>
 noremap  <leader>w <Esc>:write<CR>
@@ -65,11 +28,112 @@ map <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
 
 call plug#begin("~/.neovim/plug")
 Plug 'SirVer/ultisnips'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-voom/VOoM'
 call plug#end()
+
+set conceallevel=0
+set diffopt+=vertical
+set expandtab
+set fileencodings=utf-8
+set formatprg=fmt\ -w72\ -u
+set hidden
+set history=999
+set hlsearch
+set ignorecase
+set matchtime=3
+set modeline
+set modelines=2
+set noerrorbells
+set nofoldenable
+set nojoinspaces
+set nomore
+set nonumber
+set novisualbell
+set shiftwidth=2
+set showcmd
+set showmatch
+set smartcase
+set softtabstop=2
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+set spelllang=en_us
+set tabstop=2
+set termencoding=utf8
+
+fu! WriteMail()
+  call PlainText()
+  setlocal spell
+  setlocal tw=60
+endfu
+
+autocmd BufNewFile,BufRead *.mail :call WriteMail()
+
+fu! PlainText()
+  setlocal cpo+=J
+  setlocal fo+=anl
+  setlocal tw=60
+  setlocal spell
+endfu
+
+
+fu! WrapSettings()
+	setlocal spell
+	setlocal wrap
+	setlocal linebreak
+	setlocal nolist
+	setlocal textwidth=0
+	setlocal wrapmargin=0
+	noremap <buffer> <silent> k gk
+	noremap <buffer> <silent> j gj
+	noremap <buffer> <silent> 0 g0
+	noremap <buffer> <silent> $ g$
+endfu
+
+" Easier start/end line navigation
+noremap H ^
+noremap L $
+
+digraph .. 8230 "ellipsis
+
+" Ctrl-P
+function! SetupCtrlP()
+  if exists("g:loaded_ctrlp") && g:loaded_ctrlp
+    let g:ctrlp_custom_ignore = 'node_modules\|vendor\|DS_Store\|git'
+    let g:ctrlp_user_command = 'ag %s -l --ignore-dir node_modules --ignore-dir vendor --nocolor -g ""'
+    let g:ctrlp_dotfiles = 1
+    let g:ctrlp_show_hidden = 1
+    augroup CtrlPExtension
+      autocmd!
+      autocmd FocusGained  * CtrlPClearCache
+      autocmd BufWritePost * CtrlPClearCache
+    augroup END
+  endif
+  let g:ctrlp_root_markers = ['package.json', 'pom.xml', 'Gopkg.toml', 'Cargo.toml']
+endfunction
+
+if has("autocmd")
+  autocmd VimEnter * :call SetupCtrlP()
+endif
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Change shape of cursor in different modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical line in insert mode
+let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
