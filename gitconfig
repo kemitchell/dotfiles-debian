@@ -7,8 +7,6 @@
 	diff = auto
 	status = auto
 	branch = auto
-[diff]
-	algorithm = patience
 [alias]
 	graph = log --oneline --graph --decorate
 	grapha = log --oneline --graph --decorate --all
@@ -90,14 +88,15 @@
 	followTags = true
 [sendemail]
 	smtpEncryption = tls
-	smtpServer = smtp.office365.com
+	smtpServer = smtp.fastmail.com
 	smtpServerPort = 587
-	smtpUser = kyle@kemitchell.com
-	aliasesFile = ~/.mutt/alias
-	aliasesFileType = mutt
+	smtpUser = kylemitchell@fastmail.fm
 	multiEdit = true
 	confirm = always
+[credential "smtp.fastmail.com"]
+  helper = "!f() { test \"$1\" = get && echo \"password=$(pass fastmail/password)\"; }; f"
 [diff]
+	algorithm = patience
 	tool = vimdiff
 [difftool]
 	prompt = false
