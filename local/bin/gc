@@ -24,9 +24,6 @@ while test $# != 0; do
   shift
 done
 
-GITHUB_SLUGS="$HOME/.github-my-repos"
-SOURCEHUT_SLUGS="$HOME/.sourcehut-my-repos"
-OTHER_REMOTES="$HOME/.git-my-repos"
 if [ -n "$refresh_flag" ]; then
   refreshgithubcache
   refreshsourcehutcache
@@ -35,20 +32,14 @@ fi
 
 remote=$(
   (
-    cat "$GITHUB_SLUGS" | awk '{print "git@github.com:" $1}'
-    cat "$SOURCEHUT_SLUGS" | awk '{print "git@git.sr.ht:" $1}'
-    cat "$OTHER_REMOTES"
+    cat "$HOME/.github-my-repos" | awk '{print "git@github.com:" $1}'
+    cat "$HOME/.sourcehut-my-repos" | awk '{print "git@git.sr.ht:" $1}'
+    cat "$HOME/.git-my-repos"
   ) | fzf
 )
+
 if [ -z "$remote" ]; then
   exit 1
 fi
 
-flags=""
-if [ -n "$shallow_flag" ]; then
-  flags="--shallow"
-fi
-if [ -n "$cache_flag" ]; then
-  flags="$flags --cache"
-fi
-clone $flags "$remote"
+clone ${cache_flag+--cache} ${shallow_flag+--shallow} "$remote"

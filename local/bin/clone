@@ -28,6 +28,8 @@ while test $# != 0; do
 done
 set -- "${positional_arguments[@]}"
 
+echo $positional_arguments
+
 remote="$1"
 if [ -z "$remote" ]; then
   usage
@@ -43,8 +45,8 @@ if [ -d "$clone" ]; then
   exit 1
 fi
 
-REPO_CACHE="$HOME/.git-cache"
-cached="$REPO_CACHE/$slug"
+cached="$HOME/.git-cache/$slug"
+
 function copy_cached {
   echo "Cloning from cache."
   if [ -n "$shallow_flag" ]; then
@@ -59,12 +61,11 @@ if [ -d "$cached" ]; then
   (
     cd "$cached"
     git fetch origin
-    # git merge --ff-only origin
   )
   copy_cached
 elif [ -n "$cache_flag" ]; then
   echo "Caching."
-  git clone --mirror "$remote" "$cached"
+  git clone --bare --mirror "$remote" "$cached"
   copy_cached
 else
   if [ -n "$shallow_flag" ]; then
