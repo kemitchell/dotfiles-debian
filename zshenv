@@ -1,0 +1,1 @@
+[ -f ~/.environment ] && source ~/.environment
