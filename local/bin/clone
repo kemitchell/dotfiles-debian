@@ -49,11 +49,7 @@ cached="$HOME/.git-cache/$slug"
 
 function copy_cached {
   echo "Cloning from cache."
-  if [ -n "$shallow_flag" ]; then
-    git clone --depth=1 --reference "$cached" "$remote" "$clone"
-  else
-    git clone --reference "$cached" "$remote" "$clone"
-  fi
+  git clone ${shallow_flag+--depth=1} --reference "$cached" "$remote" "$clone"
 }
 
 if [ -d "$cached" ]; then
@@ -68,17 +64,15 @@ elif [ -n "$cache_flag" ]; then
   git clone --bare --mirror "$remote" "$cached"
   copy_cached
 else
-  if [ -n "$shallow_flag" ]; then
-    git clone --depth 1 "$remote" "$clone"
-  else
-    git clone "$remote" "$clone"
-  fi
+  git clone ${shallow_flag+--depth 1} "$remote" "$clone"
 fi
 
 if [ -n "$init_flag" ]; then
   (
     cd "$clone"
-    if [ -f package.json ]; then
+    if [ -f package-lock.json ]; then
+      npm ci
+    elif [ -f package.json ]; then
       npm install
     elif [ -f Gemfile ]; then
       bundler install
