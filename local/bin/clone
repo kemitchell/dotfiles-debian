@@ -67,28 +67,29 @@ else
   git clone ${shallow_flag+--depth 1} "$remote" "$clone"
 fi
 
+echo "Cloned to $clone."
+cd "$clone"
+
 if [ -n "$init_flag" ]; then
-  (
-    cd "$clone"
-    if [ -f package-lock.json ]; then
-      npm ci
-    elif [ -f package.json ]; then
-      npm install
-    elif [ -f Gemfile ]; then
-      bundler install
-    fi
-  )
+  echo "Initializing."
+  if [ -f package-lock.json ]; then
+    npm ci
+  elif [ -f package.json ]; then
+    npm install
+  elif [ -f Gemfile ]; then
+    bundler install
+  fi
 fi
 
-(
-  echo "$clone"
-  cd "$clone"
-  head="$(git rev-parse --abbrev-ref HEAD)"
-  if [ "$head" = "master" ]; then
-    command -v banner 2>/dev/null && banner "master!"
-    command -v fallingtone 2>/dev/null && fallingtone
-  fi
+head="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$head" = "master" ]; then
+  command -v banner 2>/dev/null && banner "master!"
+  command -v fallingtone 2>/dev/null && fallingtone
+fi
+
+if [ -f .gitmodules ]; then
   git submodule update --init --recursive || echo "error initializing submodules"
-  gitinstallhooks || echo "error installing hooks"
-  git grep "TODO" || echo "No TODOs"
-)
+fi
+
+gitinstallhooks || echo "error installing hooks"
+git grep "TODO" || echo "No TODOs"
