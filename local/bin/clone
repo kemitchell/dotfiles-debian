@@ -43,7 +43,7 @@ report () {
 }
 
 digest=$(echo "$remote" | sha1sum | cut -d ' ' -f 1)
-base=$(echo "$remote" | sed 's/.\+[:/]\([a-z]\+\)$/\1/')
+base=$(echo "$remote" | sed 's/.\+[:/]\([a-z.-]\+\)$/\1/')
 clone="$WORKSPACE/$base"
 
 if [ -d "$clone" ]; then
