@@ -37,4 +37,6 @@ all="$all/usr/local/bin:/usr/bin:/bin:/usr/games"
 
 echo "export PATH=\"$all\"" >> "$environment"
 
-echo "if [ -f ~/.asdf/asdf.sh ]; then source ~/.asdf/asdf.sh ; fi" >> "$environment"
+for file in ~/.asdf/asdf.sh ~/.gnupg/gpg-agent.env ~/.ssh/agent.env; do
+  echo "if [ -f $file ]; then source $file; fi" >> "$environment"
+done
