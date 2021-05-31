@@ -15,10 +15,10 @@ EOS
 
 while test $# != 0; do
   case "$1" in
-  -r | --refresh) refresh_flag=t ;;
   -c | --cache) cache_flag=t ;;
-  -s | --shallow) shallow_flag=t ;;
   -h | --help) usage ; exit ;;
+  -r | --refresh) refresh_flag=t ;;
+  -s | --shallow) shallow_flag=t ;;
   *)  usage ; exit 1 ;;
   esac
   shift

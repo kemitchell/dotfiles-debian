@@ -8,18 +8,20 @@ Clone a Git repository.
 Usage: clone [options] <remote>
 
 Options:
-  -i --init     Install dependencies.
   -c --cache    Cache the repository.
-  -s --shallow  Create a shallow clone.
   -h --help     Show help.
+  -i --init     Install dependencies.
+  -q --quiet    Suppress output.
+  -s --shallow  Create a shallow clone.
 EOS
 }
 
 positional_arguments=()
 while test $# != 0; do
   case "$1" in
-  -c | --init) init_flag=t ;;
   -c | --cache) cache_flag=t ;;
+  -i | --init) init_flag=t ;;
+  -q | --quiet) quiet_flag=t ;;
   -s | --shallow) shallow_flag=t ;;
   -*) usage ; exit 1 ;;
   *) positional_arguments+=("$1") ;;
@@ -28,16 +30,14 @@ while test $# != 0; do
 done
 set -- "${positional_arguments[@]}"
 
-echo $positional_arguments
-
 remote="$1"
 if [ -z "$remote" ]; then
   usage
   exit 1
 fi
 
-slug=$(echo -n "$remote" | sed 's!.\+[:/]\([^/]\+/[^/]\+\)$!\1!g')
-base=$(basename "$slug")
+digest=$(echo "$remote" | sha1sum | cut -d ' ' -f 1)
+base=$(echo "$remote" | sed 's/.\+[:/]\([a-z]\+\)$/\1/')
 clone="$WORKSPACE/$base"
 
 if [ -d "$clone" ]; then
@@ -45,26 +45,26 @@ if [ -d "$clone" ]; then
   exit 1
 fi
 
-cached="$HOME/.git-cache/$slug"
+cached="$HOME/.git-cache/$digest"
 
 function copy_cached {
   echo "Cloning from cache."
-  git clone ${shallow_flag+--depth=1} --reference "$cached" "$remote" "$clone"
+  git clone ${quiet_flag+-q} ${shallow_flag+--depth=1} --reference "$cached" "$remote" "$clone"
 }
 
 if [ -d "$cached" ]; then
   echo "Updating cache."
   (
     cd "$cached"
-    git fetch origin
+    git fetch ${quiet_flag+-q} origin
   )
   copy_cached
 elif [ -n "$cache_flag" ]; then
   echo "Caching."
-  git clone --bare --mirror "$remote" "$cached"
+  git clone ${quiet_flag+-q} --bare --mirror "$remote" "$cached"
   copy_cached
 else
-  git clone ${shallow_flag+--depth 1} "$remote" "$clone"
+  git clone ${quiet_flag+-q} ${shallow_flag+--depth=1} "$remote" "$clone"
 fi
 
 echo "Cloned to $clone."
@@ -88,8 +88,11 @@ if [ "$head" = "master" ]; then
 fi
 
 if [ -f .gitmodules ]; then
-  git submodule update --init --recursive || echo "error initializing submodules"
+  git submodule update ${quiet_flag+-q} --init --recursive || echo "error initializing submodules"
 fi
 
 gitinstallhooks || echo "error installing hooks"
-git grep "TODO" || echo "No TODOs"
+
+if [ -z "$quiet_flag" ]; then
+  git grep "TODO" || echo "No TODOs"
+fi
