@@ -46,8 +46,6 @@ if [ -d "$clone" ]; then
 fi
 
 cached="$HOME/.git-cache/$slug"
-echo "$cached"
-exit
 
 function copy_cached {
   echo "Cloning from cache."
