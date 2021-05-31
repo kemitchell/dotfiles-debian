@@ -1,3 +1,4 @@
+# ZSH loads this file for interactive shells.
 bindkey -e
 
 setopt auto_cd
@@ -37,5 +38,3 @@ for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
-
-[ -f ~/.environment ] && source ~/.environment
