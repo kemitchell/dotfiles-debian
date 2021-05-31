@@ -36,7 +36,7 @@ if [ -z "$remote" ]; then
   exit 1
 fi
 
-slug=$(echo -n "$remote" | cut -f 2 -d ':')
+slug=$(echo -n "$remote" | sed 's!.\+[:/]\([^/]\+/[^/]\+\)$!\1!g')
 base=$(basename "$slug")
 clone="$WORKSPACE/$base"
 
@@ -46,6 +46,8 @@ if [ -d "$clone" ]; then
 fi
 
 cached="$HOME/.git-cache/$slug"
+echo "$cached"
+exit
 
 function copy_cached {
   echo "Cloning from cache."
