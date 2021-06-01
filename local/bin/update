@@ -16,7 +16,3 @@ if command -v apt >/dev/null; then
 elif command -v pacman >/dev/null; then
   updatepacman
 fi
-
-for refreshscript in ~/.local/bin/refresh*; do
-  "$refreshscript"
-done

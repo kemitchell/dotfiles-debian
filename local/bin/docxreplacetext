@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+FILE="$1"
+FIND="$2"
+REPLACE="$3"
+
+if ! [ -f "$FILE" ] || [ -z "$FIND" ] || [ -z "$REPLACE" ]; then
+  echo "Usage: <file.docx> <text> <replacement>"
+  exit 1
+fi
+
+REALPATH="$(realpath "$FILE")"
+
+TMP="$(mktemp -d)"
+cleanup () {
+  rm -rf "$TMP"
+}
+trap cleanup EXIT
+
+unzip "$REALPATH" -d "$TMP"
+tree "$TMP"
+sed --quiet -i -e "s/$FIND/$REPLACE/g" "$TMP/word/document.xml"
+cd "$TMP"
+zip --quiet -r "$REALPATH" ./*
