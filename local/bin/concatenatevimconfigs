@@ -4,4 +4,4 @@ directory=~/.vim/configurations
 cd "$directory"
 rmbrokensymlinks
 cat $directory/*.vim > ~/.vim/configurations.vim
-cat $directory/*.vundle > ~/.vim/configurations.vundle
+cat $directory/*.plugins > ~/.vim/configurations.plugins
