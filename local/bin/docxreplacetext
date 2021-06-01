@@ -19,7 +19,6 @@ cleanup () {
 trap cleanup EXIT
 
 unzip "$REALPATH" -d "$TMP"
-tree "$TMP"
 sed --quiet -i -e "s/$FIND/$REPLACE/g" "$TMP/word/document.xml"
 cd "$TMP"
 zip --quiet -r "$REALPATH" ./*
