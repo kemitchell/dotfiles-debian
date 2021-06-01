@@ -1,3 +1,4 @@
 #!/bin/sh
+set -e
 concatenatevimconfigs
-exec vim -c BundleUpdate -c quitall
+vim -c PlugUpgrade -c PlugUpdate -c quitall

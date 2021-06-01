@@ -4,7 +4,7 @@ set -x
 
 dotsyncall
 
-for language in ruby rust asdf vimplugins nvimplugins git; do
+for language in ruby rust asdf vimplugins git; do
   updater="update$language"
   if command -v "$updater" >/dev/null; then
     "$updater"
