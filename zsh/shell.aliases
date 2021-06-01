@@ -22,11 +22,6 @@ function v {
 
 function spawn { ($* 2>&1 1> /dev/null &) }
 
-function mux {
-	( dot-pull-all & ) >/dev/null 2>&1
-	screen -x || screen
-}
-
 function vcmd {
   if [ -z "$1" ]; then
     echo "vcmd <command>" >/dev/stderr
