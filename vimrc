@@ -111,6 +111,12 @@ fu! WrapSettings()
 	noremap <buffer> <silent> $ g$
 endfu
 
+fu! WriteAtEnd()
+  normal G
+  normal o
+  startinsert
+endfu
+
 " Easier start/end line navigation
 noremap H ^
 noremap L $
