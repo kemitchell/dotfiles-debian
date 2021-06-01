@@ -2,7 +2,7 @@
 set -e
 
 name="$1"
-target="$HOME/.dotfiles/$baename("$name")"
+target="$HOME/.dotfiles/$(basename "$name")"
 if [ -z "$name" ]; then
   echo "$target does not exist!">/dev/stderr
   exit 1
