@@ -1,7 +1,7 @@
 set shell=zsh
 
 " Plugins
-call plug#begin("~/.neovim/plug")
+call plug#begin("~/.vim/plug")
 Plug 'AndrewRadev/linediff.vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
