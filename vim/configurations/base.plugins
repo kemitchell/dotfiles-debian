@@ -1,3 +1,1 @@
-Plug 'ledger/vim-ledger'
-Plug 'lfv89/vim-interestingwords'
 Plug 'chase/vim-ansible-yaml'
