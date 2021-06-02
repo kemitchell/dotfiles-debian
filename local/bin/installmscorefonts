@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+if command -v pacman; then
+  dir="$PREFIX/source/ttf-ms-fonts"
+  if [ -d "$dir" ]; then
+    cd "$dir"
+    git fetch origin
+    git reset --hard origin/master
+  else
+    git clone https://aur.archlinux.org/ttf-ms-fonts "$dir"
+    cd "$dir"
+  fi
+  git clean -fdx
+  yes | makepkg -s -i
+  fc-cache -r
+elif command -a apt; then
+  echo ttf-mscorefonts-isntaller msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+  sudo apt install -y ttf-mscorefonts-installer
+else
+  echo "Couldn't find pacman or apt."
+  exit 1
+fi
