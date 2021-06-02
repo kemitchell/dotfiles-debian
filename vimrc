@@ -9,6 +9,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -21,6 +22,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-voom/VOoM'
+source ~/.vim/configurations.plugins
 call plug#end()
 
 filetype plugin indent on
@@ -248,3 +250,5 @@ autocmd BufNewFile,BufRead *.yml set filetype=yaml
 autocmd BufNewFile,BufRead *.yaml set filetype=yaml
 
 autocmd FileType gitcommit setlocal spell
+
+source ~/.vim/configurations.vim
