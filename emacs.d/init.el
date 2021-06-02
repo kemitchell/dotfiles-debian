@@ -7,42 +7,22 @@
 
 ;; Packaging
 (require 'package)
-
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-
-(add-to-list 'package-archives
-	     '("elpa" . "http://tromey.com/elpa/"))
-
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/"))
-
-(add-to-list 'package-archives
-	     '("org" . "http://orgmode.org/elpa/"))
-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
+
 (when (not package-archive-contents)
   (package-refresh-contents))
 (defvar auto-packages
   '(smex
     wc-mode
     centered-cursor-mode
+    org
     org-plus-contrib
     markdown-mode
     paredit
-    google-translate
     pandoc-mode
-    ido-ubiquitous
-    idle-highlight-mode
-    typopunct
-    coffee-mode
-    color-theme
-    color-theme-molokai
-    restclient
-    ; ace-jump-moden
-    multiple-cursors
-    autopair
-    smart-tab))
+    idle-highlight-mode))
 
 (defun install-auto-packages ()
   (interactive)
