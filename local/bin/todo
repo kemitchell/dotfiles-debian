@@ -6,11 +6,8 @@ REPO="$HOME/todo"
 
 cd "$REPO"
 
-# Determine the editor command to call.
-# EDIT_WITH="${VISUAL:-"${EDITOR:-vi}"}"
-
 select_file () {
-  find . -maxdepth 1 -not -executable | selecta
+  find . -maxdepth 1 -not -executable | fzf
 }
 
 if [ "$1" = "show" ]; then
@@ -29,7 +26,7 @@ elif [ ! -z "$1" ] && [ -x "./$1" ]; then
 
 else
   # If there wasn't any argument, get one by listing all files in the
-  # repository and selecting with selecta.
+  # repository and selecting one.
   if [ -z "$1" ]; then
     FILE=$(select_file)
   else
@@ -43,11 +40,13 @@ else
 
   # Save a copy of the file before editing.
   TMP=$(mktemp)
-  trap 'rm -rf "$TMP"' EXIT
+  cleanup () {
+    rm -rf "$TMP"
+  }
   cp "$FILE" "$TMP"
 
   # Invoke the editor.
-  vim -c 'call WrapSettings()' "$FILE"
+  $EDITOR "$FILE"
 
   # If the file was changed, commit and push.
   if cmp "$TMP" "$FILE" >/dev/null 2>&1 ; then
