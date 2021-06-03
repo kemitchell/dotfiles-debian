@@ -12,7 +12,7 @@ select_file () {
 
 if [ "$1" = "show" ]; then
   # If there wasn't a second argument, get one by listing all files in
-  # the repository and selecting with selecta.
+  # the repository and selecting.
   if [ -z "$2" ]; then
     FILE=$(select_file)
   else
