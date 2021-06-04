@@ -45,14 +45,14 @@ inoremap <C-t> <C-r>=substitute(system('date +"%H%M"'), '\n\+', '', '')<CR>
 nnoremap <CR> :nohlsearch<CR>
 noremap  <leader>t <Esc>:!runtests<CR>
 noremap  <leader>c <Esc>:!nodecoverage<CR>
-noremap  <leader>u <Esc>:!git add -u<CR><CR>:!git commit<CR><CR>
-noremap  <leader>U <Esc>:!git add -u<CR><CR>:!git commit --allow-empty-message --message ""<CR><CR>
-noremap  <leader>p <Esc>:Git push<CR>
-noremap  <leader>m <Esc>:!make<CR>
-noremap  <leader>b <Esc>:!build<CR>
-noremap  <leader>w <Esc>:write<CR>
-noremap  <leader>x <Esc>:x<CR>
-noremap  <leader>s <Esc>:!save<CR><CR>
+noremap  <leader>u :Git commit -a<CR>
+noremap  <leader>U :Git commit -a --allow-empty-message --message ""<CR>
+noremap  <leader>p :Git push<CR>
+noremap  <leader>m :!make<CR>
+noremap  <leader>b :!build<CR>
+noremap  <leader>w :write<CR>
+noremap  <leader>x :x<CR>
+noremap  <leader>s :!save<CR><CR>
 map <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
 
 set conceallevel=0
