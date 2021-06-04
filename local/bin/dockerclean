@@ -1,2 +1,2 @@
 #!/bin/sh
-exec docker system prune -a
+yes | docker system prune -a

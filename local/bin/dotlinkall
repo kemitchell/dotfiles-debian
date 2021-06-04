@@ -1,9 +1,11 @@
 #!/bin/sh
+set -x
 set -e
 for dir in ~/.dotfiles/*; do
-	rcup -f -d "$dir"
+	if [ -d "$dir" ]; then
+		rcup -f -d "$dir"
+	fi
 done
-cd ~/.local/bin
-find -L . -name . -o -type d -prune -o -type l -exec rm {} +
+dotcleanup
 concatenatevimconfigs
 compileenvironment
