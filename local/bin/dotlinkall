@@ -1,5 +1,4 @@
 #!/bin/sh
-set -x
 set -e
 for dir in ~/.dotfiles/*; do
 	if [ -d "$dir" ]; then
