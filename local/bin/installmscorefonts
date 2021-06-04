@@ -13,7 +13,7 @@ if command -v pacman; then
   git clean -fdx
   yes | makepkg -s -i
   fc-cache -r
-elif command -a apt; then
+elif command -v apt; then
   echo ttf-mscorefonts-isntaller msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
   sudo apt install -y ttf-mscorefonts-installer
 else
