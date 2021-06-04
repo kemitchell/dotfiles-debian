@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
-for dir in ~/.paths ~/.cron ~/.local/bin ~/.vim/configurations; do
-  cd "$dir" || continue
-  rmbrokensymlinks
+for dir in $HOME/.paths $HOME/.cron $HOME/.local/bin $HOME/.vim/configurations; do
+  if [ -d "$dir" ]; then
+    ( cd "$dir" ; rmbrokensymlinks )
+  fi
 done
