@@ -1,2 +1,2 @@
 #!/bin/sh
-[ $(hostname) == "dev.kemitchell.com" ]
+[ "$(hostname)" = "dev.kemitchell.com" ]

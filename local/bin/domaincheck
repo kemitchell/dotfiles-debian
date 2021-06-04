@@ -9,10 +9,10 @@ missing=false
 for tld in .com .org .net .io; do
   checking="$domain$tld"
   if whois "$checking" | grep -E -q '^No match|^NOT FOUND|^Not fo|AVAILABLE|^No Data Fou|has not been regi|No entri'; then
-    echo "$checking\tAvailable"
+    printf "%s\tAvailable\n" "$checking"
   else
     missing=true
-    echo "$checking\tNot Available"
+    printf "%s\tNot Available\n" "$checking"
   fi
 done
 

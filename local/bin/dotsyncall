@@ -1,3 +1,4 @@
 #!/bin/sh
 find "$HOME/.dotfiles" -mindepth 1 -maxdepth 1 -type d | parallel --retry-failed dotsync {}
 dotlinkall
+dotcleanup

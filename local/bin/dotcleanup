@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+for dir in ~/.paths ~/.cron ~/.local/bin ~/.vim/configurations; do
+  cd "$dir" || continue
+  rmbrokensymlinks
+done

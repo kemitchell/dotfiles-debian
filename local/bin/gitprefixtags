@@ -1,22 +1,19 @@
 #!/bin/sh
-travis disable --no-interactive
 git for-each-ref --shell --format="ref=%(refname)" refs/tags | \
-while read entry; do
+while read -r entry; do
   # assign tag name to $ref variable
   eval "$entry"
-  base=$(basename $ref)
+  base=$(basename "$ref")
 
   # test if $ref starts with v
   unprefixed="${base#v}"
 
-  echo "$base and $prefixed"
-  if [[ "${base}" == "${unprefixed}" ]]; then
+  if [ "${base}" = "${unprefixed}" ]; then
 
   echo "Renaming $base"
       # rename/delete tag
-      git push origin refs/tags/${base}:refs/tags/v${base} :refs/tags/${base}
-      git tag -d ${base}
+      git push origin "refs/tags/$base:refs/tags/v$base" ":refs/tags/$base"
+      git tag -d "$base"
   fi
 done
 git fetch
-travis enable --no-interactive
