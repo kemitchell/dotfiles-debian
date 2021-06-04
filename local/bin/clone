@@ -44,7 +44,7 @@ report () {
 
 digest=$(echo "$remote" | sha1sum | cut -d ' ' -f 1)
 base=$(echo "$remote" | sed 's/.\+[:/]\([a-z.-]\+\)$/\1/')
-clone="~/$base"
+clone="$HOME/$base"
 
 if [ -d "$clone" ]; then
   report "$clone already exists."
