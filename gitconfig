@@ -73,14 +73,14 @@
 	track = checkout --track
 	rh = reset --hard
 [core]
-	editor = vim \"+set spell\" -c start
+	editor = nvim \"+set spell\" -c start
 	excludesfile = /home/kyle/.gitignore_global
 	quotepath = false
 [rerere]
 	enabled = 1
 [merge]
 	conflictstyle = diff3
-	tool = vimdiff
+	tool = nvim -d
 [credential]
 	helper = cache --timeout=3600
 [push]
@@ -97,7 +97,7 @@
   helper = "!f() { test \"$1\" = get && echo \"password=$(pass fastmail/password)\"; }; f"
 [diff]
 	algorithm = patience
-	tool = vimdiff
+	tool = nvim -d
 [difftool]
 	prompt = false
 [filter "lfs"]

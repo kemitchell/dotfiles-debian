@@ -1,6 +1,0 @@
-#!/bin/sh
-mkdir -p "$HOME/.vim/bundle/"
-VUNDLE="$HOME/.vim/bundle/Vundle.vim"
-if [ ! -d "$VUNDLE" ]; then
-  git clone https://github.com/vundlevim/vundle.vim "$VUNDLE"
-fi

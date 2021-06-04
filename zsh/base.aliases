@@ -44,7 +44,6 @@ alias rsmv='rscp --remove-source-files'
 # Misellaneous
 alias m=neomutt
 alias pdiff='dwdiff -c'
-alias simplevim='vim -u NONE'
 
 # Generic Software Development
 alias b=build

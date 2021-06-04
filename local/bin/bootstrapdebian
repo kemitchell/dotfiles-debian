@@ -5,5 +5,4 @@ enableunattendedupgrades
 installaptpackages
 debianinstallssp
 installzgen
-installvim
-installemacs
+installneovim

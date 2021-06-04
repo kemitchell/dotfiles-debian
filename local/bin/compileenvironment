@@ -18,7 +18,6 @@ export PREFIX="\$HOME/.local"
 export MANPATH="\$PREFIX/share/man:\$MANPATH"
 
 export TRAVEL_FILE="\$HOME/.traveling"
-export WORKSPACE="\$HOME"
 
 EOS
 
