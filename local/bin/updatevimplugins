@@ -1,4 +1,8 @@
 #!/bin/sh
 set -e
 concatenatevimconfigs
-vim -c PlugUpgrade -c PlugUpdate -c quitall
+if command -v nvim; then
+  nvim -c PlugUpgrade -c PlugUpdate -c quitall
+else
+  nvim -c PlugUpgrade -c PlugUpdate -c quitall
+fi
