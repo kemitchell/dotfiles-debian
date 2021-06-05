@@ -24,11 +24,6 @@ if command -v keychain >/dev/null; then
   . "\$HOME/.keychain/\$HOST-sh"
 fi
 
-ASDFSH=\$HOME/.asdf/asdf.sh
-if [ -f "\$ASDFSH" ]; then
-  . "\$ASDFSH"
-fi
-
 EOS
 
 paths=~/.paths
@@ -45,3 +40,6 @@ done
 all="$all/usr/local/bin:/usr/bin:/bin:/usr/games"
 
 echo "export PATH=\"$all\"" >> "$environment"
+
+echo "source \$HOME/.asdf/asdf.sh" >> "$environment"
+
