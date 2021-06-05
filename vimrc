@@ -32,9 +32,11 @@ syntax enable
 nmap <F1> <nop>
 imap <F1> <nop>
 
+" Easier start/end line navigation
+noremap H ^
+noremap L $
+
 let mapleader=","
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-nnoremap ; :
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap <C-S> <C-O>:update<CR>
 inoremap <C-d> <C-r>=substitute(system('isodate'), '\n\+$', '', '')<CR>
@@ -42,18 +44,20 @@ inoremap <C-d><C-d> <C-r>=substitute(system('date --iso-8601'), '\n\+$', '', '')
 inoremap <C-d><C-m> <C-r>=substitute(system('nextmonday'), '\n\+$', '', '')<CR>
 inoremap <C-d><C-t> <C-r>=substitute(system('tomorrow'), '\n\+$', '', '')<CR>
 inoremap <C-t> <C-r>=substitute(system('date +"%H%M"'), '\n\+', '', '')<CR>
+nnoremap ; :
 nnoremap <CR> :nohlsearch<CR>
-noremap  <leader>t <Esc>:!runtests<CR>
-noremap  <leader>c <Esc>:!nodecoverage<CR>
-noremap  <leader>u :Git commit -a<CR>
-noremap  <leader>U :Git commit -a --allow-empty-message --message ""<CR>
-noremap  <leader>p :Git push<CR>
-noremap  <leader>m :!make<CR>
-noremap  <leader>b :!build<CR>
-noremap  <leader>w :write<CR>
-noremap  <leader>x :x<CR>
-noremap  <leader>s :!save<CR><CR>
-map <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+nnoremap <leader>S :w!<CR>:!aspell check %<CR>:e! %<CR>
+nnoremap <leader>U :Git commit -a --allow-empty-message --message ""<CR>
+nnoremap <leader>b :!build<CR>
+nnoremap <leader>c <Esc>:!nodecoverage<CR>
+nnoremap <leader>m :!make<CR>
+nnoremap <leader>p :Git push<CR>
+nnoremap <leader>s :!save<CR><CR>
+nnoremap <leader>t <Esc>:!runtests<CR>
+nnoremap <leader>u :Git commit -a<CR>
+nnoremap <leader>w :write<CR>
+nnoremap <leader>x :x<CR>
 
 set conceallevel=0
 set diffopt+=vertical
@@ -122,10 +126,6 @@ fu! WriteAtEnd()
   startinsert
 endfu
 
-" Easier start/end line navigation
-noremap H ^
-noremap L $
-
 digraph .. 8230 "ellipsis
 
 " Ctrl-P
@@ -190,14 +190,6 @@ augroup END
 
 autocmd BufNewFile,BufRead *.html set filetype=html
 
-augroup ledger
-  autocmd!
-  autocmd FileType ledger setlocal autoindent
-  autocmd FileType ledger setlocal spell
-augroup END
-
-autocmd BufNewFile,BufRead *.dat set filetype=ledger
-
 fu! WriteMail()
   call PlainText()
   setlocal spell
@@ -220,8 +212,8 @@ augroup markdown
   autocmd FileType markdown setlocal conceallevel=0
   autocmd FileType markdown set spell
   " Common Form
-  autocmd FileType markdown noremap <buffer> <leader>L <Esc>:!cat '%:p' \| commonform-commonmark parse --only form \| commonform-lint \| json -a message \| sort -u<CR>
-  autocmd FileType markdown noremap <buffer> <leader>C <Esc>:!cat '%:p' \| commonform-commonmark parse --only form \| commonform-critique \| json -a message \| sort -u<CR>
+  autocmd FileType markdown nnoremap <buffer> <leader>L <Esc>:!cat '%:p' \| commonform-commonmark parse --only form \| commonform-lint \| json -a message \| sort -u<CR>
+  autocmd FileType markdown nnoremap <buffer> <leader>C <Esc>:!cat '%:p' \| commonform-commonmark parse --only form \| commonform-critique \| json -a message \| sort -u<CR>
 augroup END
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
