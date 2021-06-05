@@ -28,8 +28,3 @@ bindkey '^x^e' edit-command-line
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
-
-if command -v keychain >/dev/null; then
-  keychain --quiet "$HOME/.ssh/id_ed25519"
-  source "$HOME/.keychain/$HOST-sh"
-fi

@@ -19,6 +19,16 @@ export MANPATH="\$PREFIX/share/man:\$MANPATH"
 
 export TRAVEL_FILE="\$HOME/.traveling"
 
+if command -v keychain >/dev/null; then
+  keychain --quiet "\$HOME/.ssh/id_ed25519"
+  . "\$HOME/.keychain/\$HOST-sh"
+fi
+
+ASDFSH=~/.asdf/asdf.sh
+if [ -f "\$ASDFSH" ]; then
+  . "\$ASDFSH"
+fi
+
 EOS
 
 paths=~/.paths
@@ -35,7 +45,3 @@ done
 all="$all/usr/local/bin:/usr/bin:/bin:/usr/games"
 
 echo "export PATH=\"$all\"" >> "$environment"
-
-for file in ~/.asdf/asdf.sh; do
-  echo "if [ -f $file ]; then . $file; fi" >> "$environment"
-done
