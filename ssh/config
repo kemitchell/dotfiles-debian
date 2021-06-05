@@ -11,6 +11,9 @@ Hostname www1.kemitchell.com
 Host www2
 Hostname www2.kemitchell.com
 
+Host www3
+Hostname www3.kemitchell.com
+
 Host git
 Hostname git.kemitchell.com
 
