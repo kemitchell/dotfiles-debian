@@ -7,6 +7,7 @@ if ! zgen saved; then
   zgen save
 fi
 
-[ -f ~/.environment ] && source ~/.environment
+[ -f $HOME/.environment ] && source $HOME/.environment
+
 for i in $HOME/.zsh/*.aliases(N); do source "$i" ; done
 for i in $HOME/.zsh/*.zsh(N); do source "$i" ; done

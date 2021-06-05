@@ -24,7 +24,7 @@ if command -v keychain >/dev/null; then
   . "\$HOME/.keychain/\$HOST-sh"
 fi
 
-ASDFSH=~/.asdf/asdf.sh
+ASDFSH=\$HOME/.asdf/asdf.sh
 if [ -f "\$ASDFSH" ]; then
   . "\$ASDFSH"
 fi
