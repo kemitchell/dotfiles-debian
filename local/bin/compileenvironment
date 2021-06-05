@@ -41,5 +41,5 @@ all="$all/usr/local/bin:/usr/bin:/bin:/usr/games"
 
 echo "export PATH=\"$all\"" >> "$environment"
 
+# Note: This must come after PATH is set, because it will change PATH.
 echo "source \$HOME/.asdf/asdf.sh" >> "$environment"
-
