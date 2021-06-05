@@ -20,7 +20,7 @@ export MANPATH="\$PREFIX/share/man:\$MANPATH"
 export TRAVEL_FILE="\$HOME/.traveling"
 
 if command -v keychain >/dev/null; then
-  keychain --quiet "\$HOME/.ssh/id_ed25519"
+  keychain --quiet --agents gpg,ssh "\$HOME/.ssh/id_ed25519"
   . "\$HOME/.keychain/\$HOST-sh"
 fi
 
