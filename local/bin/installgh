@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 if command -v pacman 2>/dev/null; then
-  yes | sudo pacman -S github-cli
+  sudo pacman -S --noconfirm github-cli
 elif command -v apt 2>/dev/null; then
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
   list=/etc/apt/sources.list.d/gh.list

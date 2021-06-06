@@ -11,7 +11,7 @@ if command -v pacman; then
     cd "$dir"
   fi
   git clean -fdx
-  yes | makepkg -s -i
+  makepkg -s -i --noconfirm
   fc-cache -r
 elif command -v apt; then
   echo ttf-mscorefonts-isntaller msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections

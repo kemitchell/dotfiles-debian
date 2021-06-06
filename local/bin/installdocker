@@ -6,7 +6,7 @@ if command -v apt >/dev/null; then
   sudo apt-get update
   sudo apt-get install -y docker-ce
 elif command -v pacman >/dev/null; then
-  yes | sudo pacman -S docker
+  sudo pacman -S --noconfirm docker
 else
   echo "Couldn't find apt or pacman."
   exit 1

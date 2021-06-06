@@ -1,10 +1,14 @@
 #!/bin/sh
 set -e
-URL=$(getlatestgithubreleaseurl htacg/tidy-html5 -64bit.deb)
-TMP=$(mktemp)
-cleanup () {
-  rm f "$TMP"
-}
-trap cleanup EXIT
-curl -Lo "$TMP" "$URL"
-sudo dpkg -i "$TMP"
+if command -v pacman >/dev/null; then
+  sudo pacman -S --noconfirm tidy
+else
+  URL=$(getlatestgithubreleaseurl htacg/tidy-html5 -64bit.deb)
+  TMP=$(mktemp)
+  cleanup () {
+    rm f "$TMP"
+  }
+  trap cleanup EXIT
+  curl -Lo "$TMP" "$URL"
+  sudo dpkg -i "$TMP"
+fi

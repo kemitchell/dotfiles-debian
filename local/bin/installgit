@@ -29,7 +29,7 @@ if command -v apt >/dev/null; then
   sudo apt-get install -y build-essential autoconf libpcre2-dev
   sudo apt-get -y build-dep git
 elif command -v pacman >/dev/null; then
-  yes | sudo pacman -S pcre2
+  sudo pacman -S --noconfirm pcre2
 fi
 
 export USE_LIBPCRE=true

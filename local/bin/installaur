@@ -19,4 +19,4 @@ else
   git fetch origin
   git reset --hard origin/master
 fi
-yes | makepkg -sri
+makepkg -sri --noconfirm

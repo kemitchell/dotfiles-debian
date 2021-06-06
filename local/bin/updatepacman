@@ -1,2 +1,2 @@
 #!/bin/sh
-yes | sudo pacman -Syu
+sudo pacman -Syu --noconfirm

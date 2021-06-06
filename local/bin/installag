@@ -2,7 +2,7 @@
 set -e
 
 if command -v pacman > /dev/null; then
-  yes | sudo pacman -S the_silver_searcher
+  sudo pacman -S --noconfirm the_silver_searcher
 elif command -v apt >/dev/null; then
   sudo apt install silversearcher-ag
 else
