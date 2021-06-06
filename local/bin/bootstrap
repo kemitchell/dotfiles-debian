@@ -8,13 +8,28 @@ cat <<EOS | xargs sudo pacman -Sy --noconfirm
 base-devel
 dash
 fzf
+github-cli
+gnupg
 keychain
+kitty-terminfo
+lynx
 mosh
+neovim
 parallel
+pass
+pass
 screen
 the_silver_searcher
+tree
+unp
+unzip
+zip
 zsh
 EOS
+
+for app in rcm rclone mscorefonts; do
+  install$app
+done
 
 # Debian
 elif command -v apt >/dev/null; then
