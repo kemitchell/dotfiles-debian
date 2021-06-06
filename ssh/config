@@ -19,3 +19,6 @@ Hostname git.kemitchell.com
 
 Host dev
 HostName dev.kemitchell.com
+
+Host dev2
+HostName dev2.kemitchell.com
