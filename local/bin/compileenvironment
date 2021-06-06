@@ -20,8 +20,9 @@ export MANPATH="\$PREFIX/share/man:\$MANPATH"
 export TRAVEL_FILE="\$HOME/.traveling"
 
 if command -v keychain >/dev/null; then
-  keychain --quiet --agents gpg,ssh "\$HOME/.ssh/id_ed25519"
+  keychain --nogui --quiet --agents gpg,ssh "\$HOME/.ssh/id_ed25519"
   . "\$HOME/.keychain/\$HOST-sh"
+  . "\$HOME/.keychain/\$HOST-sh-gpg"
 fi
 
 EOS
