@@ -6,6 +6,7 @@ if command -v pacman >/dev/null; then
 cat <<EOS | xargs sudo pacman -S 
 dash
 keychain
+parallel
 zsh
 EOS
 
@@ -15,6 +16,7 @@ cat <<EOS | xargs sudo apt -y install
 build-essential
 dash
 keychain
+parallel
 zsh
 EOS
 
