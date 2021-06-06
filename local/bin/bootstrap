@@ -4,7 +4,7 @@ set -x
 
 # Arch
 if command -v pacman >/dev/null; then
-cat <<EOS | xargs sudo pacman -S --noconfirm
+cat <<EOS | xargs sudo pacman -Sy --noconfirm
 base-devel
 dash
 fzf
