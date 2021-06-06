@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+# Arch
+if command -v pacman >/dev/null; then
+cat <<EOS | xargs sudo pacman -S 
+dash
+keychain
+zsh
+EOS
+
+# Debian
+elif command -v apt >/dev/null; then
+cat <<EOS | xargs sudo apt -y install
+build-essential
+dash
+keychain
+zsh
+EOS
+
+# Unknown
+else
+  echo "Could not find pacman or apt."
+  exit 1
+fi
