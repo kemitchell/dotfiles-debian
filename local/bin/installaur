@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+remote="$1"
+name="$2"
+if [ -z "$remote" ] || [ -z "$name" ]; then
+  echo "Usage: <remote>"
+  exit 1
+fi
+
+aurs="$HOME/.local/aurs"
+mkdir -p "$aur"
+aur="$aurs/$name"
+if ! [ -d "$aur" ]; then
+  git clone "$remote" "$aur"
+  cd "$aur"
+else
+  cd "$aur"
+  git fetch origin
+  git reset --hard origin/master
+fi
+yes | makepkg -sri

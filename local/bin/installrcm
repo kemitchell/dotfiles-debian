@@ -5,16 +5,5 @@ if command -v apt; then
 	curl -kL https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
 	sudo apt-get install rcm
 else
-	aur="$HOME/.local/aur/rcm"
-	if ! [ -d "$aur" ]; then
-		mkdir -p $HOME/.local/aur
-		cd $HOME/.local/aur
-		git clone https://aur.archlinux.org/rcm/ rcm
-		cd rcm
-	else
-		cd "$aur"
-		git fetch origin
-		git reset --hard origin/master
-	fi
-	yes | makepkg -sri
+	installaur https://aur.archlinux.org/rcm/ rcm
 fi
