@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+# Repository
+repo="$HOME/todo"
+if ! [ -d "$HOME/todo" ]; then
+  git clone -q --depth 1 --quiet kyle@git.kemitchell.com:todo "$repo"
+fi
+cd "$repo"
+
+# Input
+if [ -n "$*" ]; then
+  input="$*"
+else
+  input="$(cat)"
+fi
+file=quick
+
+# Append
+echo "$input" >> "$file"
+
+# Commit
+git commit --all -q --allow-empty-message -m '' >/dev/null 2>&1
+git push -q origin
+
