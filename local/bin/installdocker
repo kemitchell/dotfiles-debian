@@ -1,5 +1,13 @@
 #!/bin/sh
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install -y docker-ce
+set -e
+if command -v apt >/dev/null; then
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+  sudo apt-get update
+  sudo apt-get install -y docker-ce
+elif command -v pacman >/dev/null; then
+  yes | sudo pacman -S docker
+else
+  echo "Couldn't find apt or pacman."
+  exit 1
+fi

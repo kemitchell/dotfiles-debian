@@ -5,9 +5,11 @@ set -x
 # Arch
 if command -v pacman >/dev/null; then
 cat <<EOS | xargs sudo pacman -S
+base-devel
 dash
 keychain
 parallel
+screen
 zsh
 EOS
 
@@ -18,6 +20,7 @@ build-essential
 dash
 keychain
 parallel
+screen
 zsh
 EOS
 
