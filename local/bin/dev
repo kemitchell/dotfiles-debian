@@ -1,2 +1,2 @@
 #!/bin/sh
-mosh dev -- screen -x
+exec mosh dev2.kemitchell.com -- screen -x
