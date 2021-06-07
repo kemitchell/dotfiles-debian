@@ -1,0 +1,30 @@
+#!/bin/sh
+cat <<EOS | xargs sudo pacman -Sy --noconfirm
+base-devel
+dash
+fzf
+github-cli
+gnupg
+kitty-terminfo
+lynx
+mosh
+neovim
+parallel
+pass
+pass
+screen
+the_silver_searcher
+tree
+unp
+unzip
+zip
+zsh
+EOS
+
+for app in rcm rclone mscorefonts; do
+  install$app
+done
+
+systemctl --user daemon-reload
+systemctl --user enable ssh-agent
+systemctl --user start ssh-agent

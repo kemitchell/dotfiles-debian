@@ -1,47 +1,10 @@
 #!/bin/sh
 set -e
-set -x
 
-# Arch
 if command -v pacman >/dev/null; then
-cat <<EOS | xargs sudo pacman -Sy --noconfirm
-base-devel
-dash
-fzf
-github-cli
-gnupg
-kitty-terminfo
-lynx
-mosh
-neovim
-parallel
-pass
-pass
-screen
-the_silver_searcher
-tree
-unp
-unzip
-zip
-zsh
-EOS
-
-for app in rcm rclone mscorefonts; do
-  install$app
-done
-
-# Debian
+  exec bootstraparch
 elif command -v apt >/dev/null; then
-cat <<EOS | xargs sudo apt -y install
-build-essential
-dash
-mosh
-parallel
-screen
-zsh
-EOS
-
-# Unknown
+  exec bootstrapdebian
 else
   echo "Could not find pacman or apt."
   exit 1

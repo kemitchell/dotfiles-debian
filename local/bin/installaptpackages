@@ -23,6 +23,7 @@ cmake
 colordiff
 cppcheck
 curl
+dash
 dc
 default-jdk
 diceware
@@ -31,8 +32,8 @@ diffutils
 dirdiff
 dlint
 dnsutils
-doc-rfc
 docdiff
+doc-rfc
 dos2unix
 dosfstools
 dwdiff
@@ -72,9 +73,9 @@ mawk
 moreutils
 mosh
 msmtp
-net-tools
 netcat
 netselect-apt
+net-tools
 nginx
 nmap
 ntpdate
@@ -92,14 +93,15 @@ python
 python-dev
 python-pip
 r-base
-r-recommended
 rcconf
 recode
 renameutils
 ripmime
 rpl
+r-recommended
 rsync
 sc
+screen
 secure-delete
 sed
 sensible-utils
