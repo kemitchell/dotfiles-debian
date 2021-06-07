@@ -94,7 +94,7 @@
 	multiEdit = true
 	confirm = always
 [credential "smtp.fastmail.com"]
-  helper = "!f() { test \"$1\" = get && echo \"password=$(pass fastmail/password)\"; }; f"
+  helper = "!f() { test \"$1\" = get && echo \"password=$(pass fastmail/smtp)\"; }; f"
 [diff]
 	algorithm = patience
 	tool = nvim -d
