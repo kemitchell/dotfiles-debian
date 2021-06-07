@@ -5,13 +5,12 @@ if [ -z "$1" ]; then
   exec dotsyncall
 fi
 
-repo="$1"
-base=$(basename "$repo")
-cd "$repo"
+name="$1"
+cd "$HOME/.dotfiles/$name"
 
 if [ -n "$(git status --porcelain)" ]; then
   git add . && git commit --allow-empty-message -m '' --quiet
-  echo "$base: Committed changes."
+  echo "$name: Committed changes."
 fi
 
 git remote update >/dev/null
@@ -21,16 +20,16 @@ remote=$(git rev-parse 'origin/main')
 if [ "$ours" = "$remote" ]; then
   exit
 else
-  echo "$base: Pushing."
+  echo "$name: Pushing."
   git push --quiet > /dev/null 2>&1 && exit
-  echo "$base: Fast-forwarding."
+  echo "$name: Fast-forwarding."
   git merge --ff-only origin/main > /dev/null 2>&1 && exit
-  echo "$base: Couldn't fast-forward."
-  echo "$base: Rebasing."
+  echo "$name: Couldn't fast-forward."
+  echo "$name: Rebasing."
   git rebase origin/main && git push origin main && exit
-  echo "$base: Couldn't rebase."
-  if [ "$repo" = "$HOME/.dotfiles/spelling" ]; then
-    echo "$base: Resetting spelling dotfiles to origin's main."
+  echo "$name: Couldn't rebase."
+  if [ "$name" = "spelling" ]; then
+    echo "$name: Resetting spelling dotfiles to origin's main."
     git reset --hard origin/main
   fi
   git submodule update
