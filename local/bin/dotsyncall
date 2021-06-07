@@ -1,3 +1,5 @@
 #!/bin/sh
-find "$HOME/.dotfiles" -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 -l1 basename | parallel -0 dotsync
+find ~/.dotfiles -mindepth 1 -maxdepth 1 -type d -print0 | \
+  xargs -0 -l1 basename | \
+  parallel dotsync
 dotlinkall
