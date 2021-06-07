@@ -9,13 +9,13 @@ if [ -z "$remote" ] || [ -z "$name" ]; then
 fi
 
 aurs="$HOME/.local/aurs"
-mkdir -p "$aur"
-aur="$aurs/$name"
-if ! [ -d "$aur" ]; then
-  git clone "$remote" "$aur"
-  cd "$aur"
+mkdir -p "$aurs"
+repo="$aurs/$name"
+if ! [ -d "$repo" ]; then
+  git clone "$remote" "$repo"
+  cd "$repo"
 else
-  cd "$aur"
+  cd "$repo"
   git fetch origin
   git reset --hard origin/master
 fi

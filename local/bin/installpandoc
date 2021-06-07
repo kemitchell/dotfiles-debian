@@ -1,2 +1,6 @@
 #!/bin/sh
-installlatestgithubdeb "jgm/pandoc" "-amd64.deb"
+if command -v pacman >/dev/null; then
+  sudo pacman -Sy --noconfirm pandoc
+else
+  installlatestgithubdeb "jgm/pandoc" "-amd64.deb"
+fi

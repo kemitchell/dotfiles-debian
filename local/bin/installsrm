@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+if command -v pacman >/dev/null; then
+  installaur https://aur.archlinux.org/srm srm
+elif command -v apt >/dev/null; then
+  sudo apt install -y secure-delete
+else
+  echo "Could not find pacman or apt."
+  exit 1
+fi

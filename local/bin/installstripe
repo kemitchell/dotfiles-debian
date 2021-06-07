@@ -9,6 +9,6 @@ trap cleanup EXIT
 cd "$tmp"
 
 url=$(getlatestgithubreleaseurl stripe/stripe-cli _linux_x86_64.tar.gz)
-curl -Lo stripe.tgz "$url"
+curl -qLo stripe.tgz "$url"
 unp stripe.tgz
 cp stripe "$PREFIX/bin/stripe"
