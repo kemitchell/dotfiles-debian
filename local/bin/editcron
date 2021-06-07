@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+if command -v fcrontab >/dev/null; then
+  exec fcrontab -e
+elif command -v crontab >/dev/null; then
+  exec crontab -e
+else
+  echo "Could not find fcrontab or crontab."
+  exit 1
+fi
