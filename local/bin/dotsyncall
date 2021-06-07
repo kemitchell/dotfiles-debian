@@ -1,3 +1,3 @@
 #!/bin/sh
-find "$HOME/.dotfiles" -mindepth 1 -maxdepth 1 -type d | parallel --retry-failed dotsync
+find "$HOME/.dotfiles" -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 -l1 basename | parallel -0 dotsync
 dotlinkall
