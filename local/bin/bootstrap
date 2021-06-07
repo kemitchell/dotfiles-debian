@@ -10,7 +10,6 @@ dash
 fzf
 github-cli
 gnupg
-keychain
 kitty-terminfo
 lynx
 mosh
@@ -36,7 +35,6 @@ elif command -v apt >/dev/null; then
 cat <<EOS | xargs sudo apt -y install
 build-essential
 dash
-keychain
 mosh
 parallel
 screen
