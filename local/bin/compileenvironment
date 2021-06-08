@@ -19,7 +19,7 @@ export MANPATH="\$PREFIX/share/man:\$MANPATH"
 
 export TRAVEL_FILE="\$HOME/.traveling"
 
-export SSH_AUTH_SOCK="\$XDG_RUNTIME_DIR/ssh-agent.socket"
+export SSH_AUTH_SOCK="\$HOME/.ssh/agent.socket"
 
 EOS
 
